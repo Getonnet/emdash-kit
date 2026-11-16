@@ -1,5 +1,12 @@
 # Endringer
 
+## 1.2.1 – 16. nov 2026
+
+Ingen endringer kreves i prosjektene.
+
+- **Brukermenyen:** lange e-postadresser og navn brytes over flere linjer i stedet for å stikke ut av boksen
+  (EmDash-admin og kontrollpanelet).
+
 ## 1.2.0 – 16. nov 2026
 
 Ingen endringer kreves i prosjektene. Nye valg (alle valgfrie), hentet fra Attitude Tattoo Studio:

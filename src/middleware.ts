@@ -95,7 +95,7 @@ header.sticky:has(>[data-sidebar=trigger])>div:not(.ek-mbar){display:none!import
 .emdash-sidebar[data-state=collapsed] .ek-site{display:none}
 .ek-user{position:relative;cursor:pointer}.ek-user:hover{background:var(--ek-paper)}
 .ek-pop{position:absolute;left:12px;right:12px;bottom:calc(100% + 6px);background:var(--ek-card);border:1px solid var(--ek-line);border-radius:12px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-shadow) 9%,transparent);padding:6px;z-index:30;cursor:default}
-.ek-pop .who{padding:10px 12px 8px;border-bottom:1px solid var(--ek-line);margin-bottom:6px}.ek-pop .who strong{display:block;font-size:13px;color:var(--ek-ink)}.ek-pop .who small{font-size:12px;color:var(--ek-muted)}
+.ek-pop .who{white-space:normal;overflow-wrap:anywhere;padding:10px 12px 8px;border-bottom:1px solid var(--ek-line);margin-bottom:6px}.ek-pop .who strong{display:block;font-size:13px;color:var(--ek-ink)}.ek-pop .who small{font-size:12px;color:var(--ek-muted)}
 .ek-pop button{width:100%;display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;text-align:left;background:none;border:0;color:var(--ek-ink);cursor:pointer;font:inherit;font-size:13px}.ek-pop button:hover{background:var(--ek-paper)}
 .ek-pop svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ek-viewas{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;background:var(--ek-ink);color:var(--ek-card);border-radius:30px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-shadow) 19%,transparent);font-size:13px;font-weight:500;white-space:nowrap}
