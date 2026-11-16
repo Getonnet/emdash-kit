@@ -13,14 +13,24 @@
 //
 // Skrevet som vanlig JavaScript: Node leser astro.config.mjs før Vite, og Node fjerner ikke TypeScript i node_modules.
 // Filene under src/ er TypeScript/Astro og bygges av Vite som en del av nettstedet.
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { isAbsolute, resolve } from "node:path";
-import vibeEditor from "emdash-vibe-editor";
 import emdashNb from "./vite-nb.mjs";
 
 const here = (p) => fileURLToPath(new URL(p, import.meta.url)).replaceAll("\\", "/");
 
-export const VERSION = "1.0.0";
+/** Versjonen fra package.json (ett sted å endre ved ny versjon) */
+export const VERSION = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8")).version;
+
+// Vibe Editor er valgfritt (defineKit({ vibeEditor: false })): prosjekter uten pakken skal fortsatt virke
+const vibeEditor = await import("emdash-vibe-editor").then(
+	(m) => m.default,
+	(error) => {
+		if (error?.code === "ERR_MODULE_NOT_FOUND" && String(error.message).includes("emdash-vibe-editor")) return null;
+		throw error;
+	},
+);
 
 /** Standardverdier. Alt kan overstyres i defineKit({...}). */
 const DEFAULTS = {
@@ -71,12 +81,14 @@ const DEFAULTS = {
 		articles: { slug: "artikler", urlBase: "/artikler/", nb: { plural: "Artikler", singular: "Artikkel" }, en: { plural: "Articles", singular: "Article" } },
 		pages: { slug: "sider", nb: { plural: "Sider", singular: "Side" }, en: { plural: "Pages", singular: "Page" } },
 	},
-	// Menypunkter i EmDash som skjules (sti under /_emdash/admin)
+	// Menypunkter i EmDash som skjules (sti under /_emdash/admin). Erstatter hele listen; bruk
+	// extraHiddenAdminPaths for å skjule noe i tillegg.
 	hiddenAdminPaths: [
 		"/calendar", "/menus", "/sections", "/widgets", "/bylines", "/byline-schema", "/comments", "/content-types",
 		"/taxonomies", "/redirects", "/plugins", "/plugins-manager", "/import", "/themes", "/settings/api-tokens",
 		"/settings/allowed-domains", "/settings/transfer", "/settings/media-usage", "/settings/social",
 	],
+	extraHiddenAdminPaths: [],
 	// Modul i prosjektet med valgfrie funksjoner (se README): pageName(path, lang)
 	hooks: null,
 	// Ekstra norske oversettelser i prosjektet (samme format som translations/emdash-nb.json), går foran kit-ens
@@ -99,6 +111,17 @@ function merge(base, over) {
 export function defineKit(options = {}) {
 	const config = merge(DEFAULTS, options);
 	if (!/^[a-z][a-z0-9_]{1,30}$/.test(config.prefix)) throw new Error(`[emdash-kit] prefix må være små bokstaver/tall/_ (fikk «${config.prefix}»)`);
+	for (const key of ["articles", "pages"]) {
+		const c = config.collections[key];
+		if (!c?.slug || !c.nb?.plural || !c.nb?.singular || !c.en?.plural || !c.en?.singular)
+			throw new Error(`[emdash-kit] collections.${key} trenger slug og nb/en { plural, singular }`);
+	}
+	config.hiddenAdminPaths = [...new Set([...(config.hiddenAdminPaths ?? []), ...(config.extraHiddenAdminPaths ?? [])])];
+	if (config.vibeEditor && !vibeEditor) {
+		console.warn("[emdash-kit] emdash-vibe-editor er ikke installert: Vibe Editor er slått av (installer pakken, eller sett vibeEditor: false)");
+		config.vibeEditor = false;
+	}
+	if (!config.brand.logo) console.warn("[emdash-kit] brand.logo mangler: navnet vises som tekst i menyen");
 
 	const plugins = [];
 	if (config.email?.from) {
@@ -134,6 +157,8 @@ export function defineKit(options = {}) {
 				const abs = (p) => (p ? (isAbsolute(p) ? p : resolve(root, p)).replaceAll("\\", "/") : null);
 				const hooksPath = abs(config.hooks);
 				const translationsPath = abs(config.translations);
+				if (hooksPath && !existsSync(hooksPath)) throw new Error(`[emdash-kit] fant ikke hooks-filen ${hooksPath}`);
+				if (translationsPath && !existsSync(translationsPath)) console.warn(`[emdash-kit] fant ikke oversettelsesfilen ${translationsPath}`);
 
 				const routes = [
 					["/admin", "./src/pages/admin/index.astro"],
@@ -148,7 +173,7 @@ export function defineKit(options = {}) {
 
 				const VIRTUAL = "virtual:emdash-kit/config";
 				const RESOLVED = "\0" + VIRTUAL;
-				const runtimeConfig = { ...config, hooks: undefined, translations: undefined, version: VERSION };
+				const runtimeConfig = { ...config, hooks: undefined, translations: undefined, extraHiddenAdminPaths: undefined, version: VERSION };
 				updateConfig({
 					vite: {
 						plugins: [

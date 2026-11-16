@@ -57,6 +57,8 @@ const kit = defineKit({
 	},
 	hooks: "./src/emdash-kit.ts", // valgfritt
 	translations: "./translations/emdash-nb.json", // valgfritt: egne/overstyrte oversettelser
+	extraHiddenAdminPaths: ["/settings/email"], // valgfritt: skjul flere EmDash-sider (i tillegg til standardlisten)
+	vibeEditor: true, // false: uten Vibe Editor (pakken trenger da ikke være installert)
 });
 
 export default defineConfig({
@@ -65,7 +67,9 @@ export default defineConfig({
 });
 ```
 
-Alle farger (med standardverdier) står i `index.mjs` under `DEFAULTS.brand.colors`. Prosjektet trenger ikke egen
+Alle farger (med standardverdier) står i `index.mjs` under `DEFAULTS.brand.colors`. Alt annet enn `prefix` og
+`collections` har standardverdier: uten `logo` vises navnet som tekst, uten `icon` brukes logoen, uten `email.from`
+sendes e-post slik EmDash gjør selv. Mangler `hooks`-filen, stopper byggingen med en tydelig feilmelding. Prosjektet trenger ikke egen
 `src/middleware.ts`, `/admin`-sider eller `/api/besok` osv.; kit-en legger dem inn. Har prosjektet en egen middleware,
 kjører kit-ens først.
 
@@ -104,11 +108,17 @@ Kit-en følger [semver](https://semver.org): `1.x.y`.
 
 Slik slippes en ny versjon:
 
-1. Endre koden her, og oppdater `version` i `package.json` og `VERSION` i `index.mjs` (samme nummer).
+1. Endre koden her, og oppdater `version` i `package.json` (`VERSION` i `index.mjs` leses derfra).
 2. Skriv hva som er endret i `CHANGELOG.md`.
 3. `git commit`, `git tag v1.0.1`, `git push --follow-tags`.
 
 Prosjektene får den ved neste nattlige kjøring, eller med en gang med «Run workflow» på «Oppdater EmDash» i prosjektet.
+
+## Mobil
+
+Kontrollpanelet, Tilganger og EmDash-admin er laget for telefon også: toppstripe med meny, logo og «Vis nettsted»
+under 768 px, felt på minst 16 px (iOS forstørrer ellers siden), knapper store nok for fingeren, og «Se som»-stripen
+innenfor skjermen. Test endringer i 390 px bredde (iPhone) i tillegg til datamaskin.
 
 ## Ved ny EmDash-versjon
 

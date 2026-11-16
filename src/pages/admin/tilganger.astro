@@ -85,9 +85,11 @@ const configurable = ROLES.filter((r): r is Exclude<Role, "superadmin"> => r !==
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content={kit.brand.colors.card}>
 <meta name="robots" content="noindex, nofollow">
 <title>{s.title}</title>
-<link rel="icon" href={kit.brand.favicon || kit.brand.icon}>
+{(kit.brand.favicon || kit.brand.icon) && <link rel="icon" href={kit.brand.favicon || kit.brand.icon}>}
 {kit.brand.fontsCss && <link rel="stylesheet" href={kit.brand.fontsCss}>}
 <Fragment set:html={`<style>:root{${cssVars()}}</style>`} />
 <style is:inline>
@@ -121,13 +123,23 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal-ink);cursor:
 .status{font-size:13px;color:var(--muted)}.status.err{color:#9B2C2C}
 .viewrow{display:flex;gap:12px;align-items:center;padding:0 22px 22px;flex-wrap:wrap}
 .swipe{display:none}
-@media(max-width:768px){main{padding:64px 16px 40px}h1{font-size:30px}td,th{padding-inline:14px}select{min-width:0}.hide-sm{display:none}}
+@media(max-width:768px){
+main{padding:20px 16px 40px}h1{font-size:28px}.intro{margin-bottom:22px}td,th{padding-inline:14px}.hide-sm{display:none}
+.panel-head{padding-inline:16px}.panel-foot{padding-inline:16px}.viewrow{padding-inline:16px}
+/* iOS forstørrer siden når et felt under 16 px får fokus; større felt og knapper er også lettere å treffe */
+select{min-width:0;font-size:16px;padding:11px 36px 11px 12px}
+.btn{padding:12px 20px}
+input[type=checkbox]{width:22px;height:22px}
+}
 /* Mobil: hver bruker som en blokk med rollevalget under, og fanenavnene står fast mens rollene sveipes sidelengs */
 @media(max-width:600px){
 .users-table thead{display:none}
 .users-table tr{display:grid;gap:10px;padding:14px 16px;border-top:1px solid var(--line)}
 .users-table td{padding:0;border:0}
 .users-table select{width:100%}
+.viewrow select,.viewrow .btn{flex:1 1 100%;justify-content:center}
+.panel-foot{flex-direction:column-reverse;align-items:stretch}.panel-foot .status:empty{display:none}
+.panel-foot .actions{display:flex;flex-wrap:wrap;gap:8px}.panel-foot .actions .btn,.panel-foot>.btn{flex:1 1 auto;justify-content:center}
 .swipe{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
 .matrix th,.matrix td{padding:10px 8px;white-space:nowrap}
 .matrix th.c{font-size:10px;letter-spacing:.04em;min-width:86px;white-space:normal}
@@ -197,7 +209,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal-ink);cursor:
 			</table></div>
 			<div class="panel-foot">
 				<span class="status" data-status></span>
-				<div style="display:flex;gap:8px"><button class="btn ghost" type="button" data-reset>{s.reset}</button><button class="btn" type="submit">{s.save}</button></div>
+				<div class="actions" style="display:flex;gap:8px"><button class="btn ghost" type="button" data-reset>{s.reset}</button><button class="btn" type="submit">{s.save}</button></div>
 			</div>
 		</form>
 

@@ -16,7 +16,9 @@ const ADMIN = "/_emdash/admin";
 const HIDDEN = kit.hiddenAdminPaths;
 
 // Utvidelser som skal vises i menyen likevel (Vibe Editor brukes av redaktørene)
-const KEEP = [`${ADMIN}/plugins/vibe-editor`];
+const KEEP = kit.vibeEditor ? [`${ADMIN}/plugins/vibe-editor`] : [];
+// Ikonet der det er plass til et kvadrat (sammenslått meny, dialoger); logoen hvis prosjektet ikke har ikon
+const ICON = kit.brand.icon || kit.brand.logo;
 const keep = KEEP.map((p) => `:not([href^="${p}"])`).join("");
 const links = HIDDEN.map((p) => `a[href^="${ADMIN}${p}"]${keep}`);
 
@@ -33,7 +35,9 @@ color-scheme:light;background:var(--ek-paper);font-family:var(--ek-font)}
 .bg-kumo-brand,.bg-kumo-brand *{color:var(--ek-accent-text)!important}
 body,main{background:var(--ek-paper)!important}
 /* Velkomstdialogen setter logoen i en firkant på 32×32 (laget for et ikon). Logoen er et bredt ordmerke: vis det i riktige proporsjoner */
-[role=dialog] img[src="${kit.brand.logo}"]{width:140px!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:contain}
+${kit.brand.logo ? `[role=dialog] img[src="${kit.brand.logo}"]` : "[data-ek-none]"}{width:140px!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:contain}
+/* Innlogging og invitasjon: et bredt ordmerke blir for stort i EmDash sin høyde (40 px), særlig på mobil */
+${kit.brand.logo ? `img.h-10[src="${kit.brand.logo}"]{height:auto!important;width:min(220px,64vw)!important;max-height:56px;object-fit:contain}` : ""}
 .emdash-sidebar{--sidebar-active-bg:var(--ek-wash)}
 .emdash-sidebar [data-sidebar=content-container]{background:var(--ek-card)}
 .emdash-sidebar [data-sidebar=header] img{height:30px;width:auto}
@@ -52,7 +56,7 @@ body,main{background:var(--ek-paper)!important}
 /* Sammenslått meny (56 px): ordmerket får ikke plass, så det firkantede ikonet vises i stedet, midt over menyikonene */
 .emdash-sidebar[data-state=collapsed] [data-sidebar=header]{padding:16px 0 10px!important;justify-content:center}
 .emdash-sidebar[data-state=collapsed] [data-sidebar=header]>a{align-items:center!important;width:100%}
-.emdash-sidebar[data-state=collapsed] [data-sidebar=header] img{content:url("${kit.brand.icon || kit.brand.logo}");width:32px!important;height:32px!important;border-radius:8px}
+.emdash-sidebar[data-state=collapsed] [data-sidebar=header] img{${ICON ? `content:url("${ICON}");` : ""}width:32px!important;height:32px!important;border-radius:8px;object-fit:contain}
 /* Bare navn og rolle skjules; menyen med Logg ut (.ek-pop) må fortsatt kunne åpnes */
 .emdash-sidebar[data-state=collapsed] [data-sidebar=header]>a::after,.emdash-sidebar[data-state=collapsed] .ek-user>div:not(.ek-pop){display:none}
 /* Midt under menyikonene (EmDash plasserer dem 2 px til høyre for midten) */
@@ -77,7 +81,7 @@ main h1{font-family:var(--ek-heading)!important;font-weight:500!important;letter
 .ek-mailapps a:hover{border-color:var(--ek-accent-ink);box-shadow:0 2px 8px color-mix(in srgb,var(--ek-ink) 8%,transparent)}.ek-mailapps a:focus-visible{outline:2px solid var(--ek-accent-ink);outline-offset:2px}
 .ek-mailapps a.first{border-color:var(--ek-accent-ink);background:var(--ek-wash)}.ek-mailapps svg{width:18px;height:18px;flex-shrink:0}
 /* Ingen toppbar i EmDash (som på /admin): «Vis nettsted» er et ikon ved logoen, Logg ut ligger på brukeren nederst. På mobil beholdes bare menyknappen */
-header.sticky:has(>[data-sidebar=trigger])>div{display:none!important}
+header.sticky:has(>[data-sidebar=trigger])>div:not(.ek-mbar){display:none!important}
 @media(min-width:768px){header.sticky:has(>[data-sidebar=trigger]){display:none!important}}
 /* Ligger som søsken etter header-elementet i menyen (React tegner header på nytt), oppe til høyre */
 .ek-site{position:absolute;top:24px;right:14px;z-index:2;display:flex;padding:7px;border-radius:8px;color:var(--ek-muted);text-decoration:none}.ek-site:hover{background:var(--ek-paper);color:var(--ek-ink)}
@@ -89,7 +93,23 @@ header.sticky:has(>[data-sidebar=trigger])>div{display:none!important}
 .ek-pop button{width:100%;display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;text-align:left;background:none;border:0;color:var(--ek-ink);cursor:pointer;font:inherit;font-size:13px}.ek-pop button:hover{background:var(--ek-paper)}
 .ek-pop svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ek-viewas{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;background:var(--ek-ink);color:var(--ek-card);border-radius:30px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-ink) 19%,transparent);font-size:13px;font-weight:500;white-space:nowrap}
-.ek-viewas button{background:var(--ek-accent);color:var(--ek-accent-text);border:0;border-radius:30px;padding:6px 12px;font-weight:600;font-size:12.5px;cursor:pointer;font:inherit}`;
+.ek-viewas button{background:var(--ek-accent);color:var(--ek-accent-text);border:0;border-radius:30px;padding:6px 12px;font:inherit;font-weight:600;font-size:12.5px;cursor:pointer;white-space:nowrap}
+/* Mobil: logoen og «Vis nettsted» i toppbaren til EmDash (samme som toppstripen på /admin) */
+.ek-mbar{display:flex;flex:1;min-width:0;align-items:center;justify-content:space-between;gap:8px;margin-left:6px}
+.ek-mbar a{display:flex;align-items:center;color:var(--ek-muted);text-decoration:none}
+.ek-mbar img{height:24px;width:auto;max-width:150px;object-fit:contain}
+.ek-mbar .ek-mname{font:600 17px/1.2 var(--ek-heading);color:var(--ek-ink)}
+.ek-mbar .ek-msite{display:grid;place-items:center;width:40px;height:40px;border-radius:10px}.ek-mbar .ek-msite:hover{background:var(--ek-paper)}
+.ek-mbar svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+header.sticky>[data-sidebar=trigger]{width:40px;height:40px}
+/* Mobil: stripen og brukermenyen får plass innenfor skjermen, og knappene er store nok å treffe med fingeren */
+@media(max-width:767px){
+.ek-viewas{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));transform:none;white-space:normal;justify-content:space-between;line-height:1.35}
+.ek-viewas button{padding:9px 14px}
+.ek-pop button{padding:12px}
+.ek-site{padding:10px;top:20px}
+.ek-mailapps a{padding:12px 16px}
+}`;
 
 
 // Samlingene på norsk og engelsk (fra kit-oppsettet), til tekstrettingene i admin
@@ -207,7 +227,7 @@ const tidy = () => {
 	// Vibe Editor har ingen lenke i EmDash-menyen: legg den inn under Innstillinger (bare administratorer ser Innstillinger)
 	const sidebar = document.querySelector(".emdash-sidebar");
 	const settings = sidebar?.querySelector('a[data-sidebar=menu-button][href="${ADMIN}/settings"]');
-	if (settings && !sidebar.querySelector("[data-ek=vibe]")) {
+	if (${kit.vibeEditor ? "true" : "false"} && settings && !sidebar.querySelector("[data-ek=vibe]")) {
 		const li = settings.closest("li");
 		const copy = (li || settings).cloneNode(true);
 		const a = copy.matches("a") ? copy : copy.querySelector("a");
@@ -282,6 +302,24 @@ const tidy = () => {
 		a.setAttribute("aria-label", nbUi ? "Vis nettsted" : "View site");
 		a.title = nbUi ? "Vis nettsted" : "View site";
 		head.after(a);
+	}
+	// Toppbaren på mobil: logo (til /admin) og «Vis nettsted», i stedet for en tom stripe med bare menyknappen
+	const mhead = document.querySelector("header.sticky:has(>[data-sidebar=trigger])");
+	if (mhead && !mhead.querySelector(".ek-mbar")) {
+		const bar = document.createElement("div");
+		bar.className = "ek-mbar";
+		const home = document.createElement("a");
+		home.href = "/admin";
+		${kit.brand.logo ? `const img = document.createElement("img"); img.src = ${JSON.stringify(kit.brand.logo)}; img.alt = ${JSON.stringify(kit.brand.name)}; home.append(img);` : `const nm = document.createElement("span"); nm.className = "ek-mname"; nm.textContent = ${JSON.stringify(kit.brand.name)}; home.append(nm);`}
+		const site = document.createElement("a");
+		site.className = "ek-msite";
+		site.href = "/";
+		site.target = "_blank";
+		site.rel = "noopener";
+		site.setAttribute("aria-label", nbUi ? "Vis nettsted" : "View site");
+		site.innerHTML = '<svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+		bar.append(home, site);
+		mhead.append(bar);
 	}
 	// Innlogget bruker nederst i menyen, som på /admin: klikk åpner Logg ut
 	const footer = sidebar?.querySelector("[data-sidebar=footer]");
@@ -398,7 +436,7 @@ const tidy = () => {
 		const domain = email.split("@")[1] || "";
 		const consumer = { "gmail.com": "google", "googlemail.com": "google", "outlook.com": "outlook", "hotmail.com": "outlook", "hotmail.no": "outlook", "live.com": "outlook", "live.no": "outlook", "msn.com": "outlook", "icloud.com": "apple", "me.com": "apple", "mac.com": "apple" };
 		// Avsenderen av innloggingslenken (cloudflareEmail i astro.config.mjs): Gmail åpner rett på e-posten
-		const gmail = "https://mail.google.com/mail/u/" + (email ? encodeURIComponent(email) : "0") + "/#search/from%3A${encodeURIComponent(kit.email.from?.email ?? "")}";
+		const gmail = "https://mail.google.com/mail/u/" + (email ? encodeURIComponent(email) : "0") + "/${kit.email.from?.email ? `#search/from%3A${encodeURIComponent(kit.email.from.email)}` : ""}";
 		const apps = [
 			{ id: "google", label: "Gmail", href: gmail, icon: '<svg viewBox="0 0 24 24"><path fill="#EA4335" d="M2 6.5 12 13l10-6.5V18a2 2 0 0 1-2 2h-2V9.8l-6 4-6-4V20H4a2 2 0 0 1-2-2z"/><path fill="#FBBC04" d="M18 9.8V20h2a2 2 0 0 0 2-2V6.5z"/><path fill="#34A853" d="M6 9.8V20H4a2 2 0 0 1-2-2V6.5z"/><path fill="#C5221F" d="M2 6.5V6a2 2 0 0 1 3.2-1.6L12 9.5l6.8-5.1A2 2 0 0 1 22 6v.5L12 13z"/></svg>' },
 			{ id: "microsoft", label: "Outlook", href: consumer[domain] === "outlook" ? "https://outlook.live.com/mail/0/" : "https://outlook.office.com/mail/", icon: '<svg viewBox="0 0 24 24"><rect x="2" y="4" width="13" height="16" rx="2" fill="#0A64C8"/><circle cx="8.5" cy="12" r="3.2" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M15 7h6a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-6" fill="#28A8EA"/><path d="m15 9 3.5 2.5L22 9" fill="none" stroke="#fff" stroke-width="1.2"/></svg>' },
@@ -477,9 +515,9 @@ const tidy = () => {
 			n.nodeValue = n.nodeValue.replace(/EmDash/g, ${JSON.stringify(kit.brand.name)});
 			const dialog = n.parentElement?.closest("[role=dialog]");
 			const icon = dialog && [...dialog.querySelectorAll("svg")].find((s) => !s.closest("button"));
-			if (icon) {
+			if (icon && ${JSON.stringify(ICON)}) {
 				const img = document.createElement("img");
-				img.src = ${JSON.stringify(kit.brand.icon || kit.brand.logo)};
+				img.src = ${JSON.stringify(ICON)};
 				img.alt = ${JSON.stringify(kit.brand.name)};
 				img.width = 40;
 				icon.replaceWith(img);
@@ -539,7 +577,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
 	// Norsk som standard i EmDash-admin, som på /admin. Uten valgt språk velger EmDash nettleserens språk (ofte
 	// engelsk), og da blir admin halvt norsk og halvt engelsk. Brukeren kan bytte under Innstillinger → Språk.
-	if (pathname.startsWith(ADMIN) && context.request.method === "GET" && !context.cookies.get("emdash-locale")) {
+	const navigation = context.request.headers.get("sec-fetch-mode") === "navigate" || (context.request.headers.get("accept") ?? "").includes("text/html");
+	if (pathname.startsWith(ADMIN) && context.request.method === "GET" && navigation && !context.cookies.get("emdash-locale")) {
 		const secure = context.url.protocol === "https:";
 		context.cookies.set("emdash-locale", "nb", { path: "/_emdash", sameSite: "lax", maxAge: 60 * 60 * 24 * 365, secure });
 		context.cookies.set(names.langCookie, "nb", { path: "/admin", sameSite: "lax", maxAge: 60 * 60 * 24 * 365, secure });

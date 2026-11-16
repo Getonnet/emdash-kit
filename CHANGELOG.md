@@ -1,5 +1,25 @@
 # Endringer
 
+## 1.1.0 – 16. nov 2026
+
+Ingen endringer kreves i prosjektene.
+
+- **Mobil:** toppstripe med meny, logo og «Vis nettsted» på kontrollpanelet, Tilganger og EmDash-admin (før: en løs
+  menyknapp over innholdet og en tom stripe i EmDash). Snarveiene på kontrollpanelet vises som en liste. Felt er
+  16 px, så iOS ikke forstørrer siden. Større knapper, filtrene sveipes sidelengs, besøksgrafen kan dras med
+  fingeren, og «Se som»-stripen holder seg innenfor skjermen. Lukket meny er utenfor tab-rekkefølgen, og siden låses
+  mens menyen er åpen. Logoen på innloggingen har fornuftig størrelse.
+- **Gjenbruk i andre prosjekter:** Vibe Editor kan slås av (`vibeEditor: false`), og pakken er da valgfri; fanene for
+  Vibe Editor forsvinner fra Tilganger. Nytt valg `extraHiddenAdminPaths`. Uten logo vises navnet som tekst, uten
+  ikon brukes logoen. Tydelige feil og advarsler for manglende hooks-fil, oversettelsesfil eller samlinger.
+  `VERSION` leses fra package.json.
+- **Besøksteller:** sider med æøå i adressen telles (lagres som vanlig tekst), og sider som bare begynner med
+  «/admin» (f.eks. /administrasjon) telles også.
+- **Tilganger:** rollene sjekkes før noe lagres, ukjente brukere avvises, og feil gir en melding i stedet for krasj.
+- **Ellers:** norsk-som-standard-videresendingen gjelder bare sidevisninger (ingen løkke for andre forespørsler),
+  Gmail-knappen virker uten avsenderadresse, e-posten bruker kortfargen fra oppsettet, og «Se som»-knappen bruker
+  tekstfargen for hovedfargen.
+
 ## 1.0.0 – 16. nov 2026
 
 Første versjon, hentet ut av getonnet-emdash (som igjen bygger på AESTO og Trening For Deg).

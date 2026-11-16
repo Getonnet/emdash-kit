@@ -37,13 +37,23 @@ export const PUT: APIRoute = async ({ request, locals, cookies, url }) => {
 		const db = (locals as any).emdash?.db;
 		if (!db) return json({ error: "no database" }, 500);
 		const users = new UserRepository(db);
-		// Den som lagrer, er super admin: skriv det ned, så ikke alle administratorer regnes som super admin lenger
-		await setUserRole(user.id, "superadmin");
-		for (const [id, role] of Object.entries(body.roles as Record<string, unknown>)) {
+		const entries = Object.entries(body.roles as Record<string, unknown>);
+		// Sjekk alt først, så ingenting lagres halvveis
+		for (const [id, role] of entries) {
 			if (typeof role !== "string" || !ROLES.includes(role as Role)) return json({ error: `unknown role for ${id}` }, 400);
 			if (id === user.id && role !== "superadmin") return json({ error: "self" }, 400);
-			await setUserRole(id, role as Role);
-			await users.update(id, { role: LEVEL[role as Role] });
+		}
+		try {
+			// Den som lagrer, er super admin: skriv det ned, så ikke alle administratorer regnes som super admin lenger
+			await setUserRole(user.id, "superadmin");
+			for (const [id, role] of entries) {
+				if (!(await users.findById(id))) return json({ error: `unknown user ${id}` }, 400);
+				await setUserRole(id, role as Role);
+				await users.update(id, { role: LEVEL[role as Role] });
+			}
+		} catch (error) {
+			console.error("[tilganger] kunne ikke lagre roller:", error);
+			return json({ error: "could not save" }, 500);
 		}
 	}
 

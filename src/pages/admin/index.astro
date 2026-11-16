@@ -52,9 +52,6 @@ if (ISO.test(qFrom) && ISO.test(qTo) && qFrom <= qTo && qTo <= todayKey && Date.
 }
 
 const E = "/_emdash/admin";
-const logo = kit.brand.logo;
-const roleName = (level: number) => t.roles[Object.keys(t.roles).map(Number).filter((k) => k <= level).pop() ?? 10]!;
-const me = roleName(user.role);
 // Rolle og faner (src/roller.ts); middleware har allerede regnet dem ut
 const access: Access = (Astro.locals as any)[names.localsAccess] ?? (await accessFor(user, Astro.cookies.get(VIEW_AS_COOKIE)?.value));
 const isAdmin = user.role >= 50;
@@ -145,9 +142,11 @@ const presetHref = (p: number) => `/admin?periode=${p}`;
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content={kit.brand.colors.card}>
 <meta name="robots" content="noindex, nofollow">
 <title>{t.title}</title>
-<link rel="icon" href={kit.brand.favicon || kit.brand.icon}>
+{(kit.brand.favicon || kit.brand.icon) && <link rel="icon" href={kit.brand.favicon || kit.brand.icon}>}
 {kit.brand.fontsCss && <link rel="stylesheet" href={kit.brand.fontsCss}>}
 <Fragment set:html={`<style>:root{${cssVars()}}</style>`} />
 <style is:inline>
@@ -172,7 +171,7 @@ h1{font-size:42px;line-height:1.12;letter-spacing:-.03em}h1 em{color:var(--teal-
 .period{position:relative}
 .period summary{list-style:none;display:flex;align-items:center;gap:9px;border:1px solid var(--line);padding:9px 14px 9px 16px;border-radius:30px;font-size:13px;font-weight:500;background:var(--card);white-space:nowrap;cursor:pointer}
 .period summary::-webkit-details-marker{display:none}.period summary:hover{border-color:var(--ek-line-strong)}.period summary svg{width:16px;height:16px}.period .chev{width:14px;height:14px;opacity:.6}
-.period-pop{position:absolute;right:0;top:calc(100% + 8px);width:300px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-ink) 9%,transparent);padding:8px;z-index:15}
+.period-pop{position:absolute;right:0;top:calc(100% + 8px);width:min(300px,calc(100vw - 32px));background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-ink) 9%,transparent);padding:8px;z-index:15}
 .period-pop a{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-radius:8px;font-size:13px}.period-pop a:hover{background:var(--paper)}.period-pop a[aria-current]{background:var(--wash);color:var(--teal-ink);font-weight:600}
 .period-pop form{border-top:1px solid var(--line);margin-top:6px;padding:12px 6px 4px}.period-pop form p{font-size:12px;font-weight:600;color:var(--muted);margin:0 0 8px 6px}
 .dates{display:grid;grid-template-columns:1fr 1fr;gap:8px}.dates label{font-size:11.5px;color:var(--muted)}.dates input{display:block;width:100%;margin-top:4px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-size:13px}
@@ -195,7 +194,7 @@ h1{font-size:42px;line-height:1.12;letter-spacing:-.03em}h1 em{color:var(--teal-
 .gcard{padding:22px}.gcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.gcard h3{font-size:22px}.gcard p{font-size:12.5px;color:var(--muted);margin-top:4px}
 .period-select select{appearance:none;font:inherit;font-size:12.5px;font-weight:500;color:var(--ink);border:1px solid var(--line);border-radius:30px;padding:7px 32px 7px 14px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M64 96l64 64 64-64' fill='none' stroke='%235C5956' stroke-width='20' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center/12px;cursor:pointer;white-space:nowrap}.period-select select:hover{border-color:var(--ek-line-strong)}.period-select select:focus-visible{outline:2px solid var(--teal-ink);outline-offset:2px}
 .soon{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--sand-ink);background:var(--sand);border-radius:30px;padding:5px 10px;white-space:nowrap}
-.chart{margin-top:18px;height:150px;border-radius:12px;background:repeating-linear-gradient(0deg,transparent 0 36.5px,var(--ek-grid) 36.5px 37.5px);position:relative}
+.chart{margin-top:18px;height:150px;border-radius:12px;background:repeating-linear-gradient(0deg,transparent 0 36.5px,var(--ek-grid) 36.5px 37.5px);position:relative;touch-action:pan-y}
 .chart svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .chart .hit{fill:transparent;cursor:crosshair}
 .chart-guide{position:absolute;top:0;bottom:0;width:1px;background:color-mix(in srgb,var(--ek-accent-ink) 33%,transparent);pointer-events:none;transform:translateX(-.5px)}
@@ -214,7 +213,7 @@ h1{font-size:42px;line-height:1.12;letter-spacing:-.03em}h1 em{color:var(--teal-
 .table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left}
 th{background:var(--paper);color:var(--muted);font-size:11.5px;font-weight:500;padding:10px 20px;white-space:nowrap}
 td{border-bottom:1px solid var(--ek-grid);padding:14px 20px;font-size:13px;vertical-align:middle}tr:last-child td{border-bottom:0}
-td strong{display:block;font-weight:600;font-size:14px}td small{display:block;font-size:12px;margin-top:2px;color:var(--muted)}
+td strong{display:block;font-weight:600;font-size:14px;overflow-wrap:anywhere}td small{display:block;font-size:12px;margin-top:2px;color:var(--muted);overflow-wrap:anywhere}
 th.num,td.num{text-align:right}td.num b{font-size:14px;font-weight:600}
 .thumb{width:52px;height:38px;border-radius:7px;background:var(--paper-deep) center/cover;flex-shrink:0}.titlecell{display:flex;align-items:center;gap:14px}
 .badge{display:inline-block;border-radius:6px;padding:4px 9px;font-size:11.5px;white-space:nowrap;font-weight:500}.badge.green{background:#E3F2EC;color:#1D6B4F}.badge.sand{background:var(--sand);color:var(--sand-ink)}.badge.teal{background:#DDF3F6;color:#0D6A78}
@@ -228,9 +227,27 @@ dialog h2{font-size:30px;margin:10px 0}dialog ol{padding-left:20px;line-height:1
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:30px;padding:11px 22px;background:var(--navy);color:#fff;font-weight:600;font-size:13.5px;margin-top:10px}
 @media(max-width:1180px){main{padding:28px 24px}.actions{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:960px){.grid2{grid-template-columns:1fr}.welcome{flex-direction:column;align-items:flex-start}h1{font-size:30px}.period-pop{left:0;right:auto}}
-@media(max-width:768px){main{padding:64px 16px 24px}h1{font-size:27px}.action{padding:18px;min-height:140px}td,th{padding-inline:14px}.hide-sm{display:none}.thumb{display:none}.kpis{grid-template-columns:1fr 1fr 1fr}}
-/* Mobil: de to tallene side om side, «Mest besøkt» (lengre tekst) over hele bredden under */
-@media(max-width:480px){.actions{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.kpis .kpi:nth-child(3){grid-column:1/-1}}
+@media(max-width:768px){
+main{padding:20px 16px 32px}.welcome{gap:16px;margin-bottom:22px}h1{font-size:28px}h2{font-size:22px}.panel h2{font-size:21px}
+.action{padding:18px;min-height:130px}td,th{padding-inline:14px}.hide-sm{display:none}.thumb{display:none}.kpis{grid-template-columns:1fr 1fr 1fr}
+.gcard,.panel-head{padding-inline:16px}.filters{padding-inline:16px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}
+.filter{padding:9px 15px;white-space:nowrap;flex-shrink:0}.row-action{padding:10px}.panel-foot{padding-inline:16px}
+/* iOS forstørrer siden når et felt under 16 px får fokus */
+.dates input,.period-select select{font-size:16px}
+.period summary{padding:11px 16px 11px 18px}.period-pop a{padding:12px}
+dialog{padding:24px 20px}dialog h2{font-size:25px}
+}
+/* Mobil: snarveiene som en liste (ikon, tekst, pil), de to tallene side om side og «Mest besøkt» over hele bredden under */
+@media(max-width:480px){
+.actions{grid-template-columns:1fr;gap:10px}
+.action{display:flex;align-items:center;gap:14px;min-height:0;padding:14px 16px;border-radius:14px}
+.action:hover{transform:none}
+.action-icon{margin:0;display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--wash);flex-shrink:0}.action.primary .action-icon{background:color-mix(in srgb,#fff 12%,transparent)}.action-icon svg{width:22px;height:22px}
+.action-text{flex:1;min-width:0}.action strong{margin-bottom:1px}.action small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.arrow{position:static;order:3}
+.gcard-top{flex-wrap:wrap}
+.kpis{grid-template-columns:1fr 1fr}.kpis .kpi:nth-child(3){grid-column:1/-1}
+}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -281,14 +298,14 @@ dialog h2{font-size:30px;margin:10px 0}dialog ol{padding-left:20px;line-height:1
 		<section aria-labelledby="actions-heading">
 			<div class="section-head"><h2 id="actions-heading">{t.whatToDo}</h2></div>
 			<div class="actions">
-				{canArticles && <a class="action primary" href={`${E}/content/${kit.collections.articles.slug}/new`}><span class="action-icon"><svg class="i"><use href="#pen"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><strong>{t.writeNew}</strong><small>{t.writeNewSub}</small></a>}
+				{canArticles && <a class="action primary" href={`${E}/content/${kit.collections.articles.slug}/new`}><span class="action-icon"><svg class="i"><use href="#pen"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><span class="action-text"><strong>{t.writeNew}</strong><small>{t.writeNewSub}</small></span></a>}
 				{canArticles && (latestDraft
-					? <a class="action" href={edit(latestDraft)}><span class="action-icon"><svg class="i"><use href="#doc"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><strong>{t.continueDraft}</strong><small>«{title(latestDraft)}»</small></a>
-					: <a class="action" href={`${E}/content/${kit.collections.articles.slug}`}><span class="action-icon"><svg class="i"><use href="#doc"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><strong>{t.editArticle}</strong><small>{t.editArticleSub}</small></a>)}
-				{canMedia && <a class="action" href={`${E}/media`}><span class="action-icon"><svg class="i"><use href="#image"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><strong>{t.upload}</strong><small>{t.uploadSub}</small></a>}
+					? <a class="action" href={edit(latestDraft)}><span class="action-icon"><svg class="i"><use href="#doc"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><span class="action-text"><strong>{t.continueDraft}</strong><small>«{title(latestDraft)}»</small></span></a>
+					: <a class="action" href={`${E}/content/${kit.collections.articles.slug}`}><span class="action-icon"><svg class="i"><use href="#doc"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><span class="action-text"><strong>{t.editArticle}</strong><small>{t.editArticleSub}</small></span></a>)}
+				{canMedia && <a class="action" href={`${E}/media`}><span class="action-icon"><svg class="i"><use href="#image"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><span class="action-text"><strong>{t.upload}</strong><small>{t.uploadSub}</small></span></a>}
 				{canUsers
-					? <a class="action" href={`${E}/users`}><span class="action-icon"><svg class="i"><use href="#people"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><strong>{t.invite}</strong><small>{t.inviteSub}</small></a>
-					: <a class="action" href={kit.collections.articles.urlBase ?? `/${kit.collections.articles.slug}/`} {...ext}><span class="action-icon"><svg class="i"><use href="#globe"/></svg></span><span class="arrow"><svg class="i"><use href="#out"/></svg></span><strong>{t.seeArticles}</strong><small>{t.seeArticlesSub}</small></a>}
+					? <a class="action" href={`${E}/users`}><span class="action-icon"><svg class="i"><use href="#people"/></svg></span><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span><span class="action-text"><strong>{t.invite}</strong><small>{t.inviteSub}</small></span></a>
+					: <a class="action" href={kit.collections.articles.urlBase ?? `/${kit.collections.articles.slug}/`} {...ext}><span class="action-icon"><svg class="i"><use href="#globe"/></svg></span><span class="arrow"><svg class="i"><use href="#out"/></svg></span><span class="action-text"><strong>{t.seeArticles}</strong><small>{t.seeArticlesSub}</small></span></a>}
 			</div>
 		</section>
 
@@ -407,10 +424,17 @@ if (tip) {
 		tip.hidden = dot.hidden = guide.hidden = false;
 	};
 	const hide = () => (tip.hidden = dot.hidden = guide.hidden = true);
-	chart.querySelectorAll(".hit").forEach((r) => {
-		r.addEventListener("pointerenter", () => show(r));
-		r.addEventListener("pointerdown", () => show(r));
-	});
+	// Nærmeste punkt til musen eller fingeren (også når fingeren dras bortover grafen)
+	const hits = [...chart.querySelectorAll(".hit")];
+	const nearest = (e) => {
+		const box = chart.getBoundingClientRect();
+		const x = ((e.clientX - box.left) / box.width) * 100;
+		let best = hits[0];
+		for (const r of hits) if (Math.abs(+r.dataset.x - x) < Math.abs(+best.dataset.x - x)) best = r;
+		return best;
+	};
+	chart.addEventListener("pointermove", (e) => show(nearest(e)));
+	chart.addEventListener("pointerdown", (e) => show(nearest(e)));
 	// Mus: skjul når den forlater grafen. Fingeren «forlater» grafen straks den løftes, så på berøring
 	// står boksen til man trykker et annet sted.
 	chart.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") hide(); });

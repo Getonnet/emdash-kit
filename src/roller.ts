@@ -10,8 +10,12 @@ export type Role = "superadmin" | "admin" | "innholdsansvarlig" | "innholdsmedar
 export type Tab = "oversikt" | "artikler" | "sider" | "medier" | "brukere" | "innstillinger" | "vibe" | "vibeinnstillinger" | "tilganger";
 
 export const ROLES: Role[] = ["superadmin", "admin", "innholdsansvarlig", "innholdsmedarbeider", "lesetilgang"];
-// Fanene super admin kan slå av og på for de andre rollene («tilganger» er bare for super admin)
-export const TABS: Tab[] = ["oversikt", "artikler", "sider", "medier", "brukere", "innstillinger", "vibe", "vibeinnstillinger"];
+// Fanene super admin kan slå av og på for de andre rollene («tilganger» er bare for super admin).
+// Vibe Editor-fanene finnes bare når Vibe Editor er slått på (defineKit({ vibeEditor }))
+const VIBE_TABS: Tab[] = ["vibe", "vibeinnstillinger"];
+export const TABS: Tab[] = (["oversikt", "artikler", "sider", "medier", "brukere", "innstillinger", "vibe", "vibeinnstillinger"] as Tab[]).filter(
+	(t) => kit.vibeEditor || !VIBE_TABS.includes(t),
+);
 
 // EmDash-nivået hver rolle får (styrer hva API-et tillater: publisering, brukere, innstillinger osv.)
 // Innholdsmedarbeider = Bidragsyter (20): ser alt innhold, også utkast, men kan ikke publisere eller endre andres.
@@ -19,9 +23,10 @@ export const LEVEL: Record<Role, number> = { superadmin: 50, admin: 50, innholds
 
 // Standardfaner (super admin ser alltid alt og kan ikke begrenses). Vibe Editor-verktøyet følger redigeringstilgang;
 // Vibe Editor-innstillinger og Innstillinger er bare for super admin, til de slås på her.
+const withVibe = (tabs: Tab[]) => tabs.filter((t) => TABS.includes(t));
 export const DEFAULT_TABS: Record<Exclude<Role, "superadmin">, Tab[]> = {
-	admin: ["oversikt", "artikler", "sider", "medier", "brukere", "vibe"],
-	innholdsansvarlig: ["oversikt", "artikler", "sider", "medier", "vibe"],
+	admin: withVibe(["oversikt", "artikler", "sider", "medier", "brukere", "vibe"]),
+	innholdsansvarlig: withVibe(["oversikt", "artikler", "sider", "medier", "vibe"]),
 	innholdsmedarbeider: ["oversikt", "artikler", "sider", "medier"],
 	lesetilgang: ["oversikt"],
 };

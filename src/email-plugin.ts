@@ -61,7 +61,7 @@ function originOf(html: string, text: string) {
 /** Lager prosjektets versjon av HTML-en. Returnerer null hvis e-posten ikke har den kjente formen. */
 export function brandHtml(html: string, text: string, brand: Brand): string | null {
 	const c = brand.colors;
-	const [PAPER, INK, SOFT, MUTE, LINE, BUTTON, BUTTON_TEXT] = [c.paper, c.ink, c.darkAlt, c.muted, c.interact, c.accent, c.accentText];
+	const [PAPER, CARD, INK, SOFT, MUTE, LINE, BUTTON, BUTTON_TEXT] = [c.paper, c.card || "#ffffff", c.ink, c.darkAlt, c.muted, c.interact, c.accent, c.accentText];
 	const NAVN = brand.name;
 	const rb = (t: string) => rebrand(t, NAVN);
 	const body = /<body[^>]*>([\s\S]*)<\/body>/i.exec(html)?.[1] ?? html;
@@ -99,7 +99,7 @@ export function brandHtml(html: string, text: string, brand: Brand): string | nu
 <tr><td align="center" style="padding:32px 16px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
 <tr><td align="center" style="padding:0 0 20px;text-align:center;">${logo}</td></tr>
-<tr><td align="center" style="text-align:center;background:#ffffff;border:1px solid ${LINE};border-radius:20px;padding:36px 32px 12px;">
+<tr><td align="center" style="text-align:center;background:${CARD};border:1px solid ${LINE};border-radius:20px;padding:36px 32px 12px;">
 <h1 style="margin:0 0 18px;font-family:${HEAD};font-size:28px;line-height:1.2;font-weight:600;letter-spacing:-0.01em;color:${INK};text-align:center;">${rb(title)}</h1>
 ${before.map((t) => p(rb(t))).join("\n")}
 ${cta}

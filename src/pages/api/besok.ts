@@ -9,16 +9,25 @@ export const prerender = false;
 // Nettlesere har alltid «Mozilla/» først; uten det telles ikke besøket.
 const BOT = /bot|crawl|spider|slurp|preview|headless|lighthouse|monitor|facebookexternalhit|embedly|curl|wget|python|node|undici|axios|okhttp|go-http|java\//i;
 const BROWSER = /^Mozilla\//;
-// Bare ekte sider på nettstedet
-const PATH = /^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)?$/;
+// Bare ekte sider på nettstedet: bokstaver (også æøå), tall, - og _, høyst 200 tegn
+const PATH = /^\/(?:[\p{L}\p{N}_-]+(?:\/[\p{L}\p{N}_-]+)*)?$/u;
+const decode = (s: string) => {
+	try {
+		return decodeURIComponent(s);
+	} catch {
+		return "";
+	}
+};
 
 export const POST: APIRoute = async ({ request, locals }) => {
 	const ua = request.headers.get("user-agent") ?? "";
 	if (locals.user || !BROWSER.test(ua) || BOT.test(ua)) return new Response(null, { status: 204 });
 
-	let path = (await request.text()).trim().toLowerCase().replace(/\.html$/, "").replace(/\/index$/, "/");
+	// location.pathname er prosentkodet (/s%C3%B8k): lagres som vanlig tekst (/søk)
+	let path = decode((await request.text()).trim().slice(0, 400)).normalize("NFC").toLowerCase().replace(/\.html$/, "").replace(/\/index$/, "/");
 	if (path.length > 1) path = path.replace(/\/$/, "");
-	if (!PATH.test(path) || path.startsWith("/admin") || path.startsWith("/_")) return new Response(null, { status: 204 });
+	const internal = path === "/admin" || path.startsWith("/admin/") || path.startsWith("/_");
+	if (path.length > 200 || !PATH.test(path) || internal) return new Response(null, { status: 204 });
 
 	try {
 		await countVisit(path);
