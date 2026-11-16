@@ -5,7 +5,7 @@ Felles EmDash-oppsett for GetOnNet-prosjekter. Samme kontrollpanel og admin som 
 
 Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash).
 
-**Kom i gang:** [How-to (PDF, 4 sider)](docs/emdash-kit-how-to.pdf) – ferdige prompter, sjekkliste, do's and don'ts og skjermbilder.
+**Kom i gang:** [How-to (PDF, 6 sider)](docs/emdash-kit-how-to.pdf) – ferdige prompter, hva hvert nettsted setter selv (farger, logo, skrift, egne tilpasninger), sjekkliste, do's and don'ts og skjermbilder. Kilden ligger i `docs/how-to-kilde/`.
 
 ## Hva kit-en gir
 

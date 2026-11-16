@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>emdash-kit how-to</title>
+<style>
+@font-face{font-family:Figtree;src:url(fonts/figtree-3c512d8e.woff2) format("woff2");font-weight:300 900}
+@font-face{font-family:Bricolage;src:url(fonts/bricolagegrotesque-1ed95947.woff2) format("woff2");font-weight:200 800}
+@page{size:A4;margin:0}
+:root{--red:#EB5757;--red-ink:#C93838;--wash:#FFF4F4;--ink:#232323;--muted:#5C5956;--line:#E3E0DD;--paper:#F1F0EE;--green:#1D6B4F;--mono:"Cascadia Mono",Consolas,ui-monospace,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font:400 10.5pt/1.5 Figtree,system-ui,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;padding:16mm 15mm 14mm;position:relative;overflow:hidden;page-break-after:always;break-after:page}
+.page:last-child{page-break-after:auto;break-after:auto}
+h1,h2,h3{font-family:Bricolage,Figtree,sans-serif;font-weight:500;letter-spacing:-.02em;margin:0}
+h1{font-size:40pt;line-height:1.05}
+h2{font-size:20pt;line-height:1.15;margin:0 0 10px}
+h3{font-size:12.5pt;margin:0 0 6px}
+p{margin:0 0 8px}
+.kicker{font-size:8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red-ink);margin-bottom:6px}
+.lead{font-size:12pt;color:var(--muted);max-width:165mm}
+code,.code{font-family:var(--mono);font-size:8.6pt}
+code{background:var(--paper);border-radius:4px;padding:1px 4px}
+.hero{background:var(--paper);border-radius:16px;padding:9mm 10mm 7mm;margin-bottom:6mm}
+.wordmark{font-weight:600;letter-spacing:.32em;font-size:11pt;margin-bottom:6mm}
+.flow{display:flex;gap:8px;align-items:center;margin:5mm 0 4mm}
+.flow div{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font-size:8.8pt;line-height:1.3;white-space:nowrap}
+.flow div b{display:block;font-size:10.5pt}
+.flow div.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.flow .arr{border:0;background:none;color:var(--red);font-size:14pt;padding:0}
+.small{font-size:9pt;color:var(--muted)}
+.shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;display:block;width:100%}
+.cap{font-size:8.8pt;color:var(--muted);margin-top:4px;line-height:1.4}
+.cap b{color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.phones img{border:1px solid var(--line);border-radius:12px;width:100%;display:block}
+.tag{display:inline-block;font-size:7.6pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:3px 9px;margin-bottom:5px}
+.tag.gon{background:var(--wash);color:var(--red-ink)}
+.tag.aes{background:#DDEFEB;color:#00796A}
+.callout{background:var(--wash);border-left:4px solid var(--red);border-radius:0 10px 10px 0;padding:9px 13px;font-size:9.6pt;margin:0 0 8px}
+pre.code{background:#232323;color:#F1F0EE;border-radius:12px;padding:11px 14px;margin:0 0 7px;white-space:pre-wrap;line-height:1.55}
+pre .r{color:#FF8F8F}
+pre .c{color:#9A958F}
+pre .k{color:#8FD3C4}
+.label{display:inline-block;font-size:7.6pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red-ink);background:var(--wash);border-radius:20px;padding:3px 10px;margin:4px 0 6px}
+table{width:100%;border-collapse:collapse;font-size:9.2pt}
+th{text-align:left;font-size:7.4pt;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:5px 7px;border-bottom:1.5px solid var(--ink)}
+td{padding:4.5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid rgba(0,0,0,.15);vertical-align:-2px;margin-right:4px}
+.hex{font-family:var(--mono);font-size:7.8pt;color:var(--muted)}
+.tok{font-family:var(--mono);font-size:8.2pt}
+.steps{counter-reset:s;margin:0;padding:0;list-style:none}
+.steps li{position:relative;padding:7px 0 7px 32px;border-bottom:1px solid var(--line);font-size:9.8pt}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:7px;width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:8.5pt;font-weight:700;display:grid;place-items:center}
+.yes{color:var(--green);font-weight:700}.no{color:var(--red-ink);font-weight:700}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:7mm}
+.dd ul{list-style:none;margin:0;padding:0}
+.dd li{position:relative;padding:5px 0 5px 20px;border-bottom:1px solid var(--line);font-size:9.3pt;line-height:1.4}
+.dd .do li::before{content:"✓";position:absolute;left:2px;color:var(--green);font-weight:700}
+.dd .dont li::before{content:"✕";position:absolute;left:2px;color:var(--red-ink);font-weight:700}
+.dd h3.do{color:var(--green)}.dd h3.dont{color:var(--red-ink)}
+.foot{position:absolute;left:15mm;right:15mm;bottom:9mm;font-size:7.8pt;color:var(--muted);display:flex;justify-content:space-between}
+.two-col{display:grid;grid-template-columns:1.08fr 1fr;gap:6mm}
+.mini li{font-size:9.3pt;margin-bottom:4px}
+.mini{margin:0;padding-left:16px}
+.p1low img{height:42mm;object-fit:cover;object-position:top left}
+.p4 pre.code{font-size:8pt;padding:9px 12px}
+.new{display:inline-block;font-size:6.8pt;font-weight:700;letter-spacing:.1em;background:var(--red);color:#fff;border-radius:20px;padding:1px 6px;vertical-align:2px;margin-left:4px}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page">
+	<div class="hero">
+		<div class="wordmark">GETONNET</div>
+		<div class="kicker">How-to · November 2026 · kit 1.1</div>
+		<h1>emdash-kit</h1>
+		<p class="lead" style="margin-top:3mm">One shared EmDash setup for every client site. Improve it once, and every site gets it overnight, while each site keeps <b>its own colours, logo, fonts and custom code</b>.</p>
+		<div class="flow">
+			<div class="dark"><b>emdash-kit</b>shared admin, roles, email</div>
+			<div class="arr">→</div>
+			<div><b>getonnet-emdash</b>own colours · logo · pages</div>
+			<div><b>next client site</b>own colours · logo · pages</div>
+			<div><b>…</b>any EmDash site</div>
+		</div>
+		<p class="small">Also included: branded login and invite emails · logout at midnight · buttons that open Gmail, Outlook or iCloud Mail · visit counter without cookies · about 2,500 Norwegian translations · Vibe Editor (optional) · main-domain redirect and HSTS · works on phones.</p>
+	</div>
+
+	<h2>What every site gets from the kit</h2>
+	<img class="shot" src="img/p1_0.png" alt="Dashboard">
+	<p class="cap"><b>/admin</b>: the dashboard with greeting, shortcuts based on the user's role, visit statistics and (further down) the article list.</p>
+	<div class="grid2 p1low" style="margin-top:3mm">
+		<div><img class="shot" src="img/p1_1.png" alt="EmDash admin"><p class="cap"><b>EmDash admin</b> in the site's colours and fonts, in Norwegian, with unused menu items hidden.</p></div>
+		<div><img class="shot" src="img/p1_2.png" alt="Tilganger"><p class="cap"><b>/admin/tilganger</b>: five roles, which tabs each role sees, and "view as" another role.</p></div>
+	</div>
+	<div class="foot"><span>emdash-kit how-to</span><span>1 / 6</span></div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page">
+	<div class="kicker">Each site, its own look</div>
+	<h2>Same kit, different design</h2>
+	<p class="lead" style="font-size:10.5pt;margin-bottom:5mm">Every site runs the exact same kit code. What makes them look different is <b>one config per site</b>: <code>web/astro.config.mjs → defineKit({ … })</code>. Change the colours there, deploy, and the dashboard, Tilganger, the EmDash admin and the emails all follow.</p>
+
+	<span class="tag aes">AESTO colours · same kit</span>
+	<img class="shot" src="img/aesto-desktop.png" alt="Dashboard in AESTO colours">
+	<p class="cap">The dashboard from page 1 with AESTO's teal and navy palette and a serif heading font. No logo file set, so the kit shows the name as text.</p>
+
+	<h3 style="margin-top:6mm">On phones <span class="new">NEW IN 1.1</span></h3>
+	<div class="phones">
+		<div><span class="tag gon">GetOnNet</span><img src="img/gon-phone-dash.png" alt=""></div>
+		<div><span class="tag aes">AESTO</span><img src="img/aesto-phone-dash.png" alt=""></div>
+		<div><span class="tag gon">GetOnNet · menu</span><img src="img/gon-phone-menu.png" alt=""></div>
+		<div><span class="tag aes">AESTO · EmDash</span><img src="img/aesto-phone-third.png" alt=""></div>
+	</div>
+	<p class="cap">Top bar with menu, logo and "view site" on every admin page; shortcuts as a list; fields big enough that iOS doesn't zoom. Colours come from the same config as desktop. AESTO shown with its colours on a test server; AESTO itself hasn't moved to the kit yet.</p>
+	<div class="foot"><span>emdash-kit how-to</span><span>2 / 6</span></div>
+</section>
+
+<!-- ============ PAGE 3 ============ -->
+<section class="page">
+	<div class="kicker">Each site's own file</div>
+	<h2>What a site sets in <code style="font-size:16pt">defineKit</code></h2>
+	<div class="two-col">
+		<div>
+<pre class="code"><span class="c">// web/astro.config.mjs (one per site)</span>
+const kit = defineKit({
+  brand: {
+    name: <span class="r">"GetOnNet"</span>,
+    logo: <span class="r">"/…/logo.svg"</span>,   <span class="c">// wide wordmark</span>
+    icon: <span class="r">"/…/icon.svg"</span>,   <span class="c">// square</span>
+    favicon: <span class="r">"/…/favicon.svg"</span>,
+    tagline: { nb: <span class="r">"…"</span>, en: <span class="r">"…"</span> },
+    fontsCss: <span class="r">"/assets/css/admin-fonts.css"</span>,
+    font: <span class="r">"Figtree"</span>,
+    headingFont: <span class="r">"Bricolage Grotesque"</span>,
+    colors: { <span class="c">/* table → */</span> },
+  },
+  prefix: <span class="r">"getonnet"</span>, <span class="c">// D1: never change</span>
+  email: { from, company, wordmark },
+  collections: { articles, pages },
+  hooks: <span class="r">"./src/emdash-kit.ts"</span>,
+  translations: <span class="r">"./translations/…json"</span>,
+  extraHiddenAdminPaths: [<span class="r">"/settings/email"</span>],
+  vibeEditor: <span class="k">true</span>,
+});</pre>
+			<p class="small" style="margin-bottom:4mm">Everything except <code>prefix</code> and <code>collections</code> has a default. No logo → name as text; no icon → logo; no <code>email.from</code> → EmDash's own emails.</p>
+
+			<h3>Custom stuff beyond colours</h3>
+			<table>
+				<tr><td style="width:36%"><b>Page names</b></td><td><code>hooks</code> → <code>pageName(path)</code>: readable names in "Mest besøkt"</td></tr>
+				<tr><td><b>Own wording</b></td><td><code>translations</code>: add or override Norwegian admin texts</td></tr>
+				<tr><td><b>Hide more menus</b></td><td><code>extraHiddenAdminPaths</code> <span class="new">1.1</span></td></tr>
+				<tr><td><b>No Vibe Editor</b></td><td><code>vibeEditor: false</code> <span class="new">1.1</span>: tabs disappear from Tilganger</td></tr>
+				<tr><td><b>Collection names</b></td><td><code>collections</code>: slug, URL, nb/en names</td></tr>
+				<tr><td><b>Emails</b></td><td><code>email</code>: sender, company line, wordmark</td></tr>
+				<tr><td><b>The website itself</b></td><td>Pages, templates, 404, tracking: in the site's <code>src/</code>, never in the kit</td></tr>
+			</table>
+		</div>
+		<div>
+			<h3>The colour tokens</h3>
+			<table>
+				<thead><tr><th>Token · where it shows</th><th>GetOnNet</th><th>AESTO</th></tr></thead>
+				<tbody>
+				<tr><td><span class="tok">paper</span><br><span class="small">page background</span></td><td><span class="sw" style="background:#F1F0EE"></span><span class="hex">F1F0EE</span></td><td><span class="sw" style="background:#F5F3EE"></span><span class="hex">F5F3EE</span></td></tr>
+				<tr><td><span class="tok">card</span><br><span class="small">cards, menu, panels</span></td><td><span class="sw" style="background:#FFFFFF"></span><span class="hex">FFFFFF</span></td><td><span class="sw" style="background:#FFFEFB"></span><span class="hex">FFFEFB</span></td></tr>
+				<tr><td><span class="tok">ink</span> · <span class="tok">muted</span><br><span class="small">text, quieter text</span></td><td><span class="sw" style="background:#232323"></span><span class="sw" style="background:#5C5956"></span></td><td><span class="sw" style="background:#0B2A45"></span><span class="sw" style="background:#56646F"></span></td></tr>
+				<tr><td><span class="tok">accent</span><br><span class="small">buttons, chart, ticks</span></td><td><span class="sw" style="background:#EB5757"></span><span class="hex">EB5757</span></td><td><span class="sw" style="background:#01B699"></span><span class="hex">01B699</span></td></tr>
+				<tr><td><span class="tok">accentInk</span><br><span class="small">links, active menu text</span></td><td><span class="sw" style="background:#C93838"></span><span class="hex">C93838</span></td><td><span class="sw" style="background:#00796A"></span><span class="hex">00796A</span></td></tr>
+				<tr><td><span class="tok">wash</span><br><span class="small">active menu item, icons</span></td><td><span class="sw" style="background:#FFF4F4"></span><span class="hex">FFF4F4</span></td><td><span class="sw" style="background:#DDEFEB"></span><span class="hex">DDEFEB</span></td></tr>
+				<tr><td><span class="tok">dark</span> · <span class="tok">darkAlt</span><br><span class="small">main shortcut, tooltips</span></td><td><span class="sw" style="background:#232323"></span><span class="sw" style="background:#3A3836"></span></td><td><span class="sw" style="background:#012745"></span><span class="sw" style="background:#02515F"></span></td></tr>
+				<tr><td><span class="tok">onDarkAccent</span><br><span class="small">icons on dark</span></td><td><span class="sw" style="background:#FF8F8F"></span><span class="hex">FF8F8F</span></td><td><span class="sw" style="background:#35C9D9"></span><span class="hex">35C9D9</span></td></tr>
+				<tr><td><span class="tok">line</span> · <span class="tok">lineStrong</span><br><span class="small">borders, hover</span></td><td><span class="sw" style="background:#E3E0DD"></span><span class="sw" style="background:#C9C4BF"></span></td><td><span class="sw" style="background:#E2DCD0"></span><span class="sw" style="background:#CFC7B8"></span></td></tr>
+				</tbody>
+			</table>
+			<p class="small" style="margin-top:3mm">Also: <span class="tok">paperDeep</span>, <span class="tok">interact</span>, <span class="tok">label</span>, <span class="tok">accentHover</span>, <span class="tok">accentText</span> (text on the accent, usually white), <span class="tok">onDarkMuted</span>, <span class="tok">grid</span>. Any you leave out use the kit's neutral defaults (blue accent).</p>
+			<div class="callout" style="margin-top:4mm"><b>Easiest way:</b> give Claude the client's website and ask it to take the colours from there (prompt D on the next page). It fills in all 19 tokens and checks contrast.</div>
+			<div class="callout"><b>Accent text must be readable:</b> white text on a light accent (yellow, light green) fails. Use a darker <span class="tok">accent</span> or set <span class="tok">accentText</span> to the dark ink.</div>
+		</div>
+	</div>
+	<div class="foot"><span>emdash-kit how-to</span><span>3 / 6</span></div>
+</section>
+
+<!-- ============ PAGE 4 ============ -->
+<section class="page p4">
+	<div class="kicker">Step 1</div>
+	<h2>Copy the right prompt</h2>
+	<p>Open Claude Code <b>in the project folder</b>, paste the prompt, and fill in the <span style="color:var(--red-ink)">[brackets]</span>.</p>
+
+	<span class="label">A · New site</span>
+<pre class="code">Create a new EmDash website for <span class="r">[client name]</span> in this folder, using the shared setup
+@getonnet/emdash-kit (github.com/Getonnet/emdash-kit – read its README first).
+
+- Client: <span class="r">[name]</span>, <span class="r">[address · phone · email]</span> (company line in emails)
+- Colours: <span class="r">[main #…, text #…, background #…]</span> (or: take them from <span class="r">[URL]</span>)
+- Fonts: <span class="r">[body font]</span> and <span class="r">[heading font]</span>, self-hosted
+- Logo: <span class="r">[wide wordmark file]</span> and icon: <span class="r">[square icon file]</span>
+- Collections: <span class="r">[e.g. "artikler" at /artikler/ and "sider"]</span>
+- Address: <span class="r">[client]</span>.getonnet.cloud, Cloudflare account Getonnet AS, D1 and R2 in Western Europe
+- GitHub repo: <span class="r">[Getonnet/repo-name]</span> (empty, created by me)
+
+Set up deploys with GitHub Actions and the nightly "Oppdater EmDash" workflow, like getonnet-emdash.
+Don't change emdash-kit, aesto or trening-for-deg. Check /admin on desktop and phone width,
+run QA before publishing, and ask me before creating anything in Cloudflare.</pre>
+
+	<span class="label">B · Move an existing EmDash site onto the kit</span>
+<pre class="code">Move <span class="r">[project, e.g. C:\Users\geton\aesto]</span> over to the shared setup @getonnet/emdash-kit
+(github.com/Getonnet/emdash-kit – read its README first), the same way getonnet-emdash uses it.
+
+- Keep the project's own colours, fonts, logo, name and company details in the defineKit config
+- Use the same prefix as the project's current D1 tables (e.g. "aesto") so data, visits and roles carry over
+- Delete the files the kit now provides (middleware, /admin, APIs, email plugin, translations),
+  but keep everything specific to the site
+- Add the nightly "Oppdater EmDash" workflow like getonnet-emdash
+- If something in the project is better than in the kit, propose it as a new kit version instead
+
+You have permission to change <span class="r">[project]</span> for this. Run QA locally before pushing, and show me
+what changes before it's published.</pre>
+
+	<span class="label">C · Improve the kit (all sites)</span>
+<pre class="code">In emdash-kit (C:\Users\geton\emdash-kit): <span class="r">[describe the change]</span>.
+Test it in getonnet-emdash with a local copy first (desktop and phone width),
+then release it as a new patch/minor version (version in package.json + CHANGELOG
++ annotated tag) and push.</pre>
+
+	<span class="label">D · Change one site's colours, logo or fonts <span class="new" style="margin-left:2px">NEW</span></span>
+<pre class="code">In <span class="r">[project, e.g. getonnet-emdash]</span>, change the look in web/astro.config.mjs
+→ defineKit brand: <span class="r">[new colours / take them from URL / new logo file / new fonts]</span>.
+Only change this site, not emdash-kit. Fill in all colour tokens and check contrast.
+Check /admin, /admin/tilganger and /_emdash/admin on desktop and phone width locally,
+then push (it deploys itself).</pre>
+	<div class="foot"><span>emdash-kit how-to</span><span>4 / 6</span></div>
+</section>
+
+<!-- ============ PAGE 5 ============ -->
+<section class="page">
+	<div class="kicker">Step 2</div>
+	<h2>Do these yourself (Claude can't)</h2>
+	<ol class="steps">
+		<li><b>Create the GitHub repo</b> (empty, no README). Claude can't create repos.</li>
+		<li><b>Approve Cloudflare resources</b> when asked: D1 database, R2 bucket and Worker.</li>
+		<li><b>Add the deploy token</b>: in Cloudflare, go to Worker → Settings → Builds → "API token for external CI/CD" → <b>Create token</b>. In GitHub, go to repo → Settings → Secrets and variables → Actions → <b>New repository secret</b>, name it <code>CLOUDFLARE_API_TOKEN</code> and paste the token.</li>
+		<li><b>Claim the admin account right after the first deploy</b>: open <code>/_emdash/admin</code> and create your account with a passkey. Until then, whoever opens it first becomes the admin.</li>
+		<li><b>Invite editors</b> under Users. Then set their roles under Tilganger.</li>
+	</ol>
+
+	<div class="kicker" style="margin-top:8mm">How updates reach the sites</div>
+	<h2>Nothing changes until you release</h2>
+	<table>
+		<thead><tr><th style="width:42%">You do this in emdash-kit</th><th>Reaches the sites?</th></tr></thead>
+		<tbody>
+			<tr><td>Commit and push to <code>main</code></td><td class="no">No. Sites follow version tags, not commits.</td></tr>
+			<tr><td>Release a patch or minor version: <code>git tag -a v1.1.1 -m "v1.1.1"</code>, then <code>git push --follow-tags</code></td><td><span class="yes">Yes, automatically</span> at 02:17 UTC, or right away with Actions → "Oppdater EmDash" → Run workflow. Live about a minute after the bot's commit.</td></tr>
+			<tr><td>Release a major version: <code>v2.0.0</code></td><td class="no">No. Each site is updated by hand.</td></tr>
+			<tr><td>Change a site's own <code>defineKit</code> (colours, logo …)</td><td><span class="yes">Only that site</span>, as soon as you push it.</td></tr>
+		</tbody>
+	</table>
+	<p style="margin-top:4mm">The nightly <b>Oppdater EmDash</b> workflow updates the kit, EmDash and Vibe Editor within the same major version, builds the site, and <b>only commits and deploys if the build passes</b>. You'll see it as a commit by <code>github-actions[bot]</code>.</p>
+	<div class="callout"><b>Tag with <code>-a</code>.</b> A plain <code>git tag</code> is not sent by <code>--follow-tags</code>, so the release silently never reaches GitHub.</div>
+
+	<div class="grid2" style="margin-top:4mm">
+		<div><img class="shot" src="img/p3_0.png" alt=""><p class="cap">github.com/Getonnet/emdash-kit is <b>public</b>, so sites install it without a token.</p></div>
+		<div><img class="shot" src="img/p3_1.png" alt=""><p class="cap">Login and invite emails get each site's name, button colour and company line.</p></div>
+	</div>
+	<div class="foot"><span>emdash-kit how-to</span><span>5 / 6</span></div>
+</section>
+
+<!-- ============ PAGE 6 ============ -->
+<section class="page">
+	<div class="kicker">Rules of thumb</div>
+	<h2>Do's and don'ts</h2>
+	<div class="dd">
+		<div>
+			<h3 class="do">Do</h3>
+			<ul class="do">
+				<li>Put a site's <b>colours, logo, fonts and texts in its own <code>defineKit</code></b></li>
+				<li>Make shared improvements <b>in the kit</b>, then release a version</li>
+				<li>Test kit changes in one site first, on <b>desktop and phone width</b>, then tag</li>
+				<li>Bump <code>version</code> in <code>package.json</code> (the kit reads it from there) and update the CHANGELOG</li>
+				<li>Keep site-specific things (pages, templates, 404, tracking) <b>in the site</b></li>
+				<li>Keep the <b>prefix</b> the same as the site's existing D1 tables</li>
+				<li>Claim the admin account <b>immediately</b> after the first deploy</li>
+				<li>Check the bot's commits now and then under Actions</li>
+			</ul>
+		</div>
+		<div>
+			<h3 class="dont">Don't</h3>
+			<ul class="dont">
+				<li>Don't put client names, colours or secrets in the kit</li>
+				<li>Don't edit the kit's files inside a site's <code>node_modules</code>; the next update overwrites them</li>
+				<li>Don't copy kit code into a site to restyle it; set it in <code>defineKit</code> or a hook</li>
+				<li>Don't make the kit repo private; every site would then need a token</li>
+				<li>Don't change a live site's <b>prefix</b>; visits, roles and settings would start empty</li>
+				<li>Don't upgrade Astro past 7.3 without testing (7.4 needs Node 22.23.4+)</li>
+				<li>Don't commit <code>.env</code>, tokens or the 226 MB <code>site/</code> copy</li>
+				<li>Don't move aesto or trening without saying so explicitly</li>
+			</ul>
+		</div>
+	</div>
+
+	<h2 style="margin-top:7mm">Good to know</h2>
+	<div class="callout"><b>A site looks wrong after changing colours?</b> Check that every token is set (missing ones fall back to the kit's blue default) and that <span class="tok">accentText</span> is readable on <span class="tok">accent</span>.</div>
+	<div class="callout"><b>Site returns 503 after an EmDash update?</b> The database migration got cut off and left its lock behind. Wait a few minutes, then ask Claude to "release the stale EmDash migration lock". The steps are in web/README.md → Databasemigreringer.</div>
+	<div class="callout"><b>Admin looks half English?</b> The kit makes Norwegian the default. Each user can switch under Innstillinger → Språk.</div>
+	<div class="callout"><b>A kit change didn't show up?</b> Check that it was <b>tagged with <code>-a</code></b> (not only pushed) and that the tag isn't a new major version. Then run "Oppdater EmDash" by hand.</div>
+
+	<h3 style="margin-top:5mm">Where things are</h3>
+	<table>
+		<tr><td style="width:34%"><b>Shared kit</b></td><td>github.com/Getonnet/emdash-kit · local: C:\Users\geton\emdash-kit</td></tr>
+		<tr><td><b>A site's look and settings</b></td><td><code>web/astro.config.mjs → defineKit({ … })</code></td></tr>
+		<tr><td><b>A site's fonts</b></td><td><code>web/public/assets/css/admin-fonts.css</code> (set as <code>fontsCss</code>)</td></tr>
+		<tr><td><b>A site's custom hooks</b></td><td><code>web/src/emdash-kit.ts</code> (e.g. page names on the dashboard)</td></tr>
+		<tr><td><b>Deploy / nightly update</b></td><td><code>.github/workflows/deploy.yml</code> · <code>oppdater-emdash.yml</code></td></tr>
+		<tr><td><b>Example site</b></td><td>getonnet-emdash.getonnet.cloud · github.com/Getonnet/getonnet-emdash</td></tr>
+	</table>
+	<div class="foot"><span>emdash-kit 1.1.0 · EmDash 1.5 · Astro 7.3 · Cloudflare Workers (D1, R2) · GetOnNet AS</span><span>6 / 6</span></div>
+</section>
+</body>
+</html>
