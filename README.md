@@ -110,7 +110,7 @@ Slik slippes en ny versjon:
 
 1. Endre koden her, og oppdater `version` i `package.json` (`VERSION` i `index.mjs` leses derfra).
 2. Skriv hva som er endret i `CHANGELOG.md`.
-3. `git commit`, `git tag v1.0.1`, `git push --follow-tags`.
+3. `git commit`, `git tag -a v1.0.1 -m "v1.0.1"`, `git push --follow-tags` (taggen må være annotert (`-a`), ellers sendes den ikke med).
 
 Prosjektene får den ved neste nattlige kjøring, eller med en gang med «Run workflow» på «Oppdater EmDash» i prosjektet.
 
