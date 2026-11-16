@@ -5,6 +5,8 @@ Felles EmDash-oppsett for GetOnNet-prosjekter. Samme kontrollpanel og admin som 
 
 Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash).
 
+**Kom i gang:** [How-to (PDF, 4 sider)](docs/emdash-kit-how-to.pdf) – ferdige prompter, sjekkliste, do's and don'ts og skjermbilder.
+
 ## Hva kit-en gir
 
 - **Kontrollpanel** på `/admin`: hilsen, snarveier etter rollen, besøksgraf med periodevelger, mest besøkte side,
