@@ -1,6 +1,6 @@
 # Kilde for emdash-kit-how-to.pdf
 
-`how-to.html` er kilden til `../emdash-kit-how-to.pdf` (6 sider A4). Endre HTML-en, og skriv ut på nytt med Chrome:
+`how-to.html` er kilden til `../emdash-kit-how-to.pdf` (7 sider A4). Endre HTML-en, og skriv ut på nytt med Chrome:
 
 ```sh
 cd docs/how-to-kilde

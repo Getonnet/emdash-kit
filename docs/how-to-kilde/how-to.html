@@ -95,7 +95,7 @@ td{padding:4.5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
 		<div><img class="shot" src="img/p1_1.png" alt="EmDash admin"><p class="cap"><b>EmDash admin</b> in the site's colours and fonts, in Norwegian, with unused menu items hidden.</p></div>
 		<div><img class="shot" src="img/p1_2.png" alt="Tilganger"><p class="cap"><b>/admin/tilganger</b>: five roles, which tabs each role sees, and "view as" another role.</p></div>
 	</div>
-	<div class="foot"><span>emdash-kit how-to</span><span>1 / 6</span></div>
+	<div class="foot"><span>emdash-kit how-to</span><span>1 / 7</span></div>
 </section>
 
 <!-- ============ PAGE 2 ============ -->
@@ -116,7 +116,7 @@ td{padding:4.5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
 		<div><span class="tag aes">AESTO · EmDash</span><img src="img/aesto-phone-third.png" alt=""></div>
 	</div>
 	<p class="cap">Top bar with menu, logo and "view site" on every admin page; shortcuts as a list; fields big enough that iOS doesn't zoom. Colours come from the same config as desktop. AESTO shown with its colours on a test server; AESTO itself hasn't moved to the kit yet.</p>
-	<div class="foot"><span>emdash-kit how-to</span><span>2 / 6</span></div>
+	<div class="foot"><span>emdash-kit how-to</span><span>2 / 7</span></div>
 </section>
 
 <!-- ============ PAGE 3 ============ -->
@@ -176,11 +176,11 @@ const kit = defineKit({
 				</tbody>
 			</table>
 			<p class="small" style="margin-top:3mm">Also: <span class="tok">paperDeep</span>, <span class="tok">interact</span>, <span class="tok">label</span>, <span class="tok">accentHover</span>, <span class="tok">accentText</span> (text on the accent, usually white), <span class="tok">onDarkMuted</span>, <span class="tok">grid</span>. Any you leave out use the kit's neutral defaults (blue accent).</p>
-			<div class="callout" style="margin-top:4mm"><b>Easiest way:</b> give Claude the client's website and ask it to take the colours from there (prompt D on the next page). It fills in all 19 tokens and checks contrast.</div>
+			<div class="callout" style="margin-top:4mm"><b>Easiest way:</b> give Claude the client's website and ask it to take the colours from there (prompt D on page 5). It fills in all 19 tokens and checks contrast.</div>
 			<div class="callout"><b>Accent text must be readable:</b> white text on a light accent (yellow, light green) fails. Use a darker <span class="tok">accent</span> or set <span class="tok">accentText</span> to the dark ink.</div>
 		</div>
 	</div>
-	<div class="foot"><span>emdash-kit how-to</span><span>3 / 6</span></div>
+	<div class="foot"><span>emdash-kit how-to</span><span>3 / 7</span></div>
 </section>
 
 <!-- ============ PAGE 4 ============ -->
@@ -204,6 +204,36 @@ const kit = defineKit({
 Set up deploys with GitHub Actions and the nightly "Oppdater EmDash" workflow, like getonnet-emdash.
 Don't change emdash-kit, aesto or trening-for-deg. Check /admin on desktop and phone width,
 run QA before publishing, and ask me before creating anything in Cloudflare.</pre>
+
+	<span class="label">E · Static website → EmDash with the kit <span class="new" style="margin-left:2px">NEW</span></span>
+<pre class="code">Turn the static website <span class="r">[live URL, or folder with the HTML files]</span> into an EmDash site for
+<span class="r">[client name]</span> in this folder, using @getonnet/emdash-kit (github.com/Getonnet/emdash-kit –
+read its README first), the same way getonnet-emdash was built from getonnet.no.
+
+- Mirror the site into site/ (not in git) and keep the design exactly as it is
+- Each page becomes a template + editable fields (headings, texts, images) in the "sider"
+  collection; header, footer, menus and forms stay in the template
+- Same URLs as today, plus a 404 page and sitemap.xml
+- <span class="r">[Blog/news at /… → "artikler" collection]</span> (or: no articles)
+- Kit config taken from the site: colours, fonts, logo and icon, company line
+- Visit counter (BESOK) on every page; tracking only on the real domain
+- noindex until launch; NETTSTED = <span class="r">[domain]</span> when it goes live
+- Files over 25 MiB in R2; keep the Worker under 3 MB (large templates as static files)
+- Address: <span class="r">[client]</span>.getonnet.cloud, Cloudflare Getonnet AS, D1 + R2 in Western Europe
+- GitHub repo: <span class="r">[Getonnet/repo-name]</span> (empty, created by me)
+
+Set up deploys and the nightly "Oppdater EmDash" workflow like getonnet-emdash. Compare every
+page with the original on desktop and phone before publishing, and ask me before creating
+anything in Cloudflare.</pre>
+	<p class="small">Works for any static site: an HTML export, a WordPress/Elementor site, Webflow, or files in a folder. Editors can then change texts and images in EmDash while the design stays the same.</p>
+	<div class="foot"><span>emdash-kit how-to</span><span>4 / 7</span></div>
+</section>
+
+<!-- ============ PAGE 5 ============ -->
+<section class="page p4">
+	<div class="kicker">Step 1 · continued</div>
+	<h2>More prompts</h2>
+	<p>Same as before: open Claude Code <b>in the project folder</b> and fill in the <span style="color:var(--red-ink)">[brackets]</span>.</p>
 
 	<span class="label">B · Move an existing EmDash site onto the kit</span>
 <pre class="code">Move <span class="r">[project, e.g. C:\Users\geton\aesto]</span> over to the shared setup @getonnet/emdash-kit
@@ -231,10 +261,21 @@ then release it as a new patch/minor version (version in package.json + CHANGELO
 Only change this site, not emdash-kit. Fill in all colour tokens and check contrast.
 Check /admin, /admin/tilganger and /_emdash/admin on desktop and phone width locally,
 then push (it deploys itself).</pre>
-	<div class="foot"><span>emdash-kit how-to</span><span>4 / 6</span></div>
+	<h3 style="margin-top:7mm">Which prompt do I use?</h3>
+	<table>
+		<thead><tr><th style="width:52%">You have …</th><th>Use</th></tr></thead>
+		<tbody>
+			<tr><td>Nothing yet: a brand new client site</td><td><b>A</b> · new site</td></tr>
+			<tr><td>A static site (HTML files, WordPress/Elementor, Webflow …) that should become editable</td><td><b>E</b> · static website → EmDash with the kit</td></tr>
+			<tr><td>An EmDash site with its own copy of the admin code (aesto, trening)</td><td><b>B</b> · move onto the kit</td></tr>
+			<tr><td>Something every site should get</td><td><b>C</b> · improve the kit, release a version</td></tr>
+			<tr><td>One site needs new colours, logo or fonts</td><td><b>D</b> · change that site's defineKit only</td></tr>
+		</tbody>
+	</table>
+	<div class="foot"><span>emdash-kit how-to</span><span>5 / 7</span></div>
 </section>
 
-<!-- ============ PAGE 5 ============ -->
+<!-- ============ PAGE 6 ============ -->
 <section class="page">
 	<div class="kicker">Step 2</div>
 	<h2>Do these yourself (Claude can't)</h2>
@@ -264,10 +305,10 @@ then push (it deploys itself).</pre>
 		<div><img class="shot" src="img/p3_0.png" alt=""><p class="cap">github.com/Getonnet/emdash-kit is <b>public</b>, so sites install it without a token.</p></div>
 		<div><img class="shot" src="img/p3_1.png" alt=""><p class="cap">Login and invite emails get each site's name, button colour and company line.</p></div>
 	</div>
-	<div class="foot"><span>emdash-kit how-to</span><span>5 / 6</span></div>
+	<div class="foot"><span>emdash-kit how-to</span><span>6 / 7</span></div>
 </section>
 
-<!-- ============ PAGE 6 ============ -->
+<!-- ============ PAGE 7 ============ -->
 <section class="page">
 	<div class="kicker">Rules of thumb</div>
 	<h2>Do's and don'ts</h2>
@@ -315,7 +356,7 @@ then push (it deploys itself).</pre>
 		<tr><td><b>Deploy / nightly update</b></td><td><code>.github/workflows/deploy.yml</code> · <code>oppdater-emdash.yml</code></td></tr>
 		<tr><td><b>Example site</b></td><td>getonnet-emdash.getonnet.cloud · github.com/Getonnet/getonnet-emdash</td></tr>
 	</table>
-	<div class="foot"><span>emdash-kit 1.1.0 · EmDash 1.5 · Astro 7.3 · Cloudflare Workers (D1, R2) · GetOnNet AS</span><span>6 / 6</span></div>
+	<div class="foot"><span>emdash-kit 1.1.0 · EmDash 1.5 · Astro 7.3 · Cloudflare Workers (D1, R2) · GetOnNet AS</span><span>7 / 7</span></div>
 </section>
 </body>
 </html>
