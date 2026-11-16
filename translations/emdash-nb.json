@@ -1,0 +1,3915 @@
+{
+	"+6vltR": "Flytter du fra et annet EmDash-nettsted?",
+	"+7E1Vt": "Daglige automatiske sikkerhetskopier",
+	"+7iHD5": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" referanse"
+				],
+				"other": [
+					"#",
+					" referanser"
+				]
+			}
+		]
+	],
+	"+8Nek/": "Månedlig",
+	"+8ZaXM": "Beskåret kopi opprettet.",
+	"+93d02": "Pakken bruker et språk som dette nettstedet ikke har",
+	"+FqjxM": "Poster refererer til hverandre i en løkke",
+	"+JzqYq": "Klikk på knappen under for å opprette kontoen din:",
+	"+L2ab9": "{0} kan ikke flyttes hit. Overordnet oppføring har ingen oversettelse på dette språket, så denne listen er ikke gruppen den tilhører.",
+	"+Npb99": "Hva er en passnøkkel?",
+	"+TdjxB": "Du er invitert til {siteName}",
+	"+UN6+J": "Blandet",
+	"+W+R6P": "Dette sletter {0} permanent fra lagringen.",
+	"+YtRFL": "Fjern lagret verdi",
+	"+Z5TTh": "Klikk på denne lenken for å logge inn på {siteName}:",
+	"+cN7XM": "Importerer gjenbrukbare blokker …",
+	"+dJzVR": "Kunne ikke laste mapper.",
+	"+fH/Zw": "Sett inn blokk under",
+	"+finrM": "URL-mal (f.eks. /blogg/:slug)",
+	"+iQCQ3": "Sett inn avsnitt etter",
+	"+ivZB3": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Legg til ",
+					"#",
+					" bilde"
+				],
+				"other": [
+					"Legg til ",
+					"#",
+					" bilder"
+				]
+			}
+		]
+	],
+	"+lysmz": "Du er invitert",
+	"+nKO5i": "La til et bilde",
+	"+oeaXl": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" samsvarende stikkord"
+				],
+				"other": [
+					"#",
+					" samsvarende stikkord"
+				]
+			}
+		]
+	],
+	"+rFVEp": "EmDash beholder ikke det ubeskårne bildet.",
+	"+thJJv": "Opprettes",
+	"+ywFGw": "Kunne ikke laste importplanen",
+	"+ywUTE": "Dra og slipp filer her",
+	"+z4vhM": "Kunne ikke avbryte importen",
+	"/+Ke1y": "Videoopplasting mislyktes. Prøv igjen.",
+	"/11EIJ": "Samlinger og felt, alt innhold med utkast, versjoner, planlagte innlegg og papirkurv, oversettelser, taksonomier, bylines, mediefiler, menyer, widgeter, seksjoner, omdirigeringer, SEO og nettstedsinnstillinger.",
+	"/21okH": "Om fokuspunkt",
+	"/3O5R/": "Forespørselen mislyktes",
+	"/40GhR": "Bygger om søk og hurtigbuffer",
+	"/75BHY": "Hvis du sletter «{0}», slettes også alle termer i den, på alle språk, og termene fjernes fra innholdet som er knyttet til dem. Oppføringene beholdes. Dette kan ikke angres.",
+	"/8h8wp": "Fant ikke utvidelsen «{pluginId}»",
+	"/ADdcC": "Kunne ikke laste importplanen på nytt",
+	"/ApbZk": "Pakken trenger en funksjon som denne versjonen av EmDash ikke støtter",
+	"/D8unP": "Sett inn video",
+	"/DFChQ": "Én",
+	"/H+l2h": "Endret {label}",
+	"/IX/7x": "Annet",
+	"/KRLSe": [
+		[
+			"sent",
+			"plural",
+			{
+				"one": [
+					"Sendte e-post til ",
+					"#",
+					" bruker"
+				],
+				"other": [
+					"Sendte e-post til ",
+					"#",
+					" brukere"
+				]
+			}
+		]
+	],
+	"/LAVtu": "Importerer menyer og nettstedsinnstillinger …",
+	"/NInpe": "Hold denne fanen åpen. Importen kjører i små trinn og kan trygt kjøres på nytt hvis den avbrytes.",
+	"/PACVa": "Utgivelsesnotater",
+	"/PWMy/": "Lukk bildeinnstillinger",
+	"/Q5jBu": "Tilbakekall token {0}",
+	"/SuxH7": "Kunne ikke endre rekkefølgen på widgeter",
+	"/VVOLO": "Kunne ikke hente oversettelser",
+	"/Y3DXA": "Endret sluggen til «{slug}»",
+	"/Zmxnq": "Flytt {0} senere",
+	"/dFice": "Lagre eller forkast de andre endringene før du beskjærer.",
+	"/g7RHh": "Ikke noe innhold i denne samlingen",
+	"/gVVuB": "Tabell satt inn",
+	"/hy/Sp": "{plural} publiseres nå. Utkastendringer forblir upubliserte.",
+	"/kavNB": "Reaksjoner på kommentarer",
+	"/nJBXE": "Velg …",
+	"/qTAdA": "Åpne oppsett",
+	"/v0W1R": "Kunne ikke oppdatere innstillinger for sikkerhetskopi",
+	"/w5ad2": "Poster uten overordnet ble utelatt",
+	"/xOaKh": [
+		[
+			"rows",
+			"plural",
+			{
+				"one": [
+					"Raden er slettet"
+				],
+				"other": [
+					"#",
+					" rader er slettet"
+				]
+			}
+		]
+	],
+	"/xR+E0": "Byggopprinnelse bekreftet",
+	"/zQc7A": "Kunne ikke starte importen",
+	"/zXDjr": "Overskrift 5",
+	"00YkHe": "Ingen blokker ennå",
+	"01m4Y/": "Bla gjennom <0>registeret</0> for å installere utvidelser.",
+	"05MRDk": "{name} er påkrevd.",
+	"07jrxo": "Hvorfor er dette viktig for titler i søkeresultater?",
+	"07q4RG": "La til et sitat",
+	"0CJ1zA": "Skann den med en telefon eller et nettbrett i nærheten.",
+	"0CbfOu": "Rollen din kan bare redigere egne oppføringer mens de er utkast.",
+	"0Cl44D": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" opplasting mislyktes"
+				],
+				"other": [
+					"#",
+					" opplastinger mislyktes"
+				]
+			}
+		]
+	],
+	"0DcEKp": "Kunne ikke hente foreldreløse tabeller",
+	"0EcUWz": "Forkaste endringer?",
+	"0GqamQ": "Fjernet en kodeblokk",
+	"0IiIv1": "Valgfri bildetekst",
+	"0Io5gK": "Velg filer å laste opp",
+	"0JMPeZ": "Søk i {label}…",
+	"0NgUi0": "Endre størrelse på beskjæringen fra venstre kant. Bruk piltastene for å endre størrelse.",
+	"0O49jU": "Flyttet til {0}",
+	"0TcyE0": "Passnøkler fungerer bare på adressen der de ble opprettet. Legg til en her slik at du kan logge inn på denne adressen neste gang.",
+	"0U0g2+": "Oppdaterer bruk",
+	"0U76NR": "Flyttet en tabell",
+	"0aDfus": "Søk i bylines …",
+	"0cam0H": "Kunne ikke opprette mediemappe",
+	"0eCoEw": "Kunne ikke oppdatere MCP-tilgang for utvidelsen",
+	"0lkuMH": "Pakkeformatet støttes ikke av denne versjonen av EmDash",
+	"0rBPE2": "Beskriv bildets formål og viktige detaljer for personer som ikke kan se det.",
+	"0ruX1k": "Fremhevede bilder",
+	"0sGUdK": "Planlagte endringer",
+	"0sgUak": "Utgiverens brukernavn peker ikke tilbake til identiteten. Installasjon er deaktivert til utgiveren har rettet den.",
+	"0tJ/49": "Rolle på dette innlegget (valgfritt)",
+	"0vUd27": "Flytt {0} tidligere",
+	"0zZ04n": "{completedCount} av {0} fullført",
+	"0zidZp": "Lenkende side (entall)",
+	"1+6BOG": "Last ned sikkerhetskopi",
+	"1+CX5m": "Dette utklippet er for stort. Lim inn færre celler eller mindre tekst om gangen.",
+	"12yCV3": "Endringene ble lagret, men hurtigbufrede sider kan fortsatt vise gamle {pluralLower}. Prøv å oppdatere hurtigbufferen på nytt.",
+	"135JuL": "Velg {title}",
+	"13h/Qa": "Gjennomgå foreslåtte endringer",
+	"16zszX": "Navn på ny {singularLower}",
+	"19WSvR": "Les skjema",
+	"1AOEB6": "Start en ny import",
+	"1DA6ap": "Kvadrat",
+	"1DijfL": "Kunne ikke legge til term i oppføringer",
+	"1Ezl+G": "Flytt {0} opp",
+	"1GC1na": "Slett byline {0}",
+	"1JAzL/": "Kunne ikke oppdatere widgeten",
+	"1JSbbk": "Kontrollerer pakkestruktur",
+	"1OIj6g": "La til en innbygging",
+	"1QVOr9": "Publiseringsregler blokkerte planlagt innhold",
+	"1RGubx": "Byline-krediteringer",
+	"1T6HI8": "Sett inn blokk",
+	"1TNIig": "Åpne",
+	"1XRQbW": "Denne importen har allerede startet",
+	"1df4eL": "Kunne ikke laste godkjenningsforespørsler",
+	"1eiyMI": "eller koble til med URL",
+	"1fv1af": "Passnøkkel lagt til",
+	"1nLY+I": "Byline oppdatert",
+	"1oIGxu": "Jeg har satt det opp, kontroller igjen",
+	"1titQF": "Tillat MCP-tokens med omfang for utvidelsesverktøy å kalle disse rutene.",
+	"1u3kyJ": "Slett taksonomi",
+	"1uoQCt": "La til {label}",
+	"1vSYsG": "Last ned sikkerhetskopi",
+	"1wBLoT": "Redigerte et avsnitt",
+	"1xwZj/": "Forrige måned",
+	"2+dmYa": "Blokktyper",
+	"21qvrK": "Skjul fra navigasjon",
+	"2378LH": "Gjenoppretting til et tidspunkt",
+	"23pdJW": "Bruk en sikkerhetsnøkkel",
+	"24/CYc": "{name} er ikke et felt i denne samlingen.",
+	"28+Y98": "Fjern lagret verdi for {fieldKey}",
+	"28LDjy": "Kunne ikke hente passnøkler",
+	"28x9RX": "Velg bylines",
+	"2Ak/da": "Pakken ble kontrollert mot dette nettstedet. Gå gjennom hva som importeres, velg hvem innholdet tilhører, og start importen.",
+	"2AmBUD": "Serveren ble oppdatert mens dette pågikk. Last inn siden på nytt og prøv igjen.",
+	"2AxsUD": "Alle steder som bruker dette bildet oppdateres til den valgte versjonen.",
+	"2BBAbc": "Liste",
+	"2BPVq8": "Endre rekkefølge på {0}",
+	"2CWN0D": "Versjon {0} (aktiv)",
+	"2DA2bV": "Videoen ligger i mediebiblioteket, men denne oppføringen er nå skrivebeskyttet.",
+	"2DwuuY": "Kunne ikke aktivere søk",
+	"2IFZ5p": "La til et avsnitt",
+	"2MPcep": "Importen er fullført",
+	"2N6mgR": "Planlagte oppføringer vises her med publiseringstidspunkt.",
+	"2P1Vhw": [
+		[
+			"count",
+			"plural",
+			{
+				"one": [
+					"#",
+					" oppføring"
+				],
+				"other": [
+					"#",
+					" oppføringer"
+				]
+			}
+		]
+	],
+	"2PGDe0": "Importer et eksisterende EmDash-nettsted",
+	"2RR7Q0": "Allerede tildelt eller duplikat",
+	"2VYBbc": "Agenttilgang",
+	"2XQLbr": "Fullfør eventuelle pågående redigeringer.",
+	"2YfH3r": "Slett rader",
+	"2Z3fWd": "Kunne ikke hente widgetområdet",
+	"2aK1ul": "Tekniske detaljer for verifisering",
+	"2aihSG": "Din tid: {viewerTime}",
+	"2fjs7Q": "Send en invitasjon på e-post til et nytt teammedlem.",
+	"2gmDT6": "Koble til nettverksverter og laste eksterne administrasjonsbilder fra utvidelser",
+	"2lLDKF": "Kunne ikke gjennomgå innlegg",
+	"2lWRW0": "Importerer innhold ({0} av {totalSelectedPosts}) …",
+	"2ogPWQ": "Innholdsreferanser",
+	"2sfwCE": "{name} må være en gyldig URL.",
+	"2so1C8": "Kunne ikke endre domenet",
+	"2vP0Qd": "Ingenting publisert eller planlagt i {monthTitle}",
+	"2yHajh": "Fjern fra innlegg",
+	"3+8sla": "Skriv inn et domene som example.com, uten sti eller port",
+	"3/Aa1I": "Kunne ikke laste medier.",
+	"318+fs": "Første versjon",
+	"349b3Q": "Prøv et annet søk eller samlingsfilter.",
+	"353pJE": "Opprett passnøkkel",
+	"354Uf1": "Angi egendefinert bredde og høyde for dette bildet i dokumentet. Tilbakestill bruker de opprinnelige mediedimensjonene. Den opprinnelige mediefilen er uendret.",
+	"35E2My": "Alle forfattere",
+	"35xbl6": "Mappenavigasjon",
+	"36GKaZ": "Fullføring av registrering mislyktes",
+	"38dh6D": "Installert fra markedsplassen (v{0})",
+	"39gOFD": "Du har ikke lenger låsen på denne oppføringen",
+	"39z0dq": "Definisjoner lagret i databasen som er tilgjengelige for blokkfelt.",
+	"3BT97B": "Tidligste lagrede versjon",
+	"3Cz86c": "Fjern fullførte",
+	"3EdpI3": "Koderedigeringen kunne ikke lastes. Lagre arbeidet ditt og last inn siden på nytt.",
+	"3GJo3a": "Redigerte et listeelement",
+	"3Gwdoc": "EmDash beholder ikke det forrige bildet.",
+	"3H9oKt": "Det importerte nettstedet samsvarte ikke med pakken da den ble kontrollert.",
+	"3MBUd+": "Plassholdertekst",
+	"3PGw6b": "Redigerte {label}",
+	"3SK4tS": "Noe innhold vil ikke ha forfatter",
+	"3TgBG1": "Relasjonen og den refererte samlingen kan ikke endres etter opprettelsen. Hvor mange oppføringer dette feltet godtar, angis på relasjonen.",
+	"3UcvlX": "Kunne ikke legge til passnøkkel",
+	"3Wn1ph": "Flyttet et galleri",
+	"3Wvzjo": "Plukket opp {label}.",
+	"3Y7dkO": "Avbryter …",
+	"3Z2QHa": "Importen stoppet etter at den begynte å skrive til dette nettstedet, så redigering er satt på pause. Avbryt importen for å låse opp redigering. Innhold som allerede er skrevet, blir liggende.",
+	"3bV9gD": "Stående",
+	"3fKrQA": "Planlagt til {0}",
+	"3hECLi": "ACF-felt",
+	"3iIiv1": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" taksonomitildeling"
+				],
+				"other": [
+					"#",
+					" taksonomitildelinger"
+				]
+			}
+		]
+	],
+	"3ltRcO": "Nettstedstittel",
+	"3mqjHo": "feltet {0} på {1}, som velger oppføringer det lenker til",
+	"3nRszo": "Delvis",
+	"3r2p+J": "Ingen byline",
+	"3rAUFp": "La til «{snippet}»",
+	"3tE7ZF": "{subLabel} ({label}, element {position})",
+	"3tdCgJ": "Kunne ikke laste denne mappen.",
+	"3wG7HI": "Lastet opp",
+	"3xRGMR": "Velg tabell",
+	"40LvOV": "Planlegg endringer",
+	"46Prz9": "{0} oppdatert overalt det vises.",
+	"48kPql": "Autoriserte godkjennere",
+	"4CbJTa": "{name}: dette nettstedet har allerede noen",
+	"4HdbGH": "Skriv inn en slug.",
+	"4IVlne": "Pakken kunne ikke lastes opp",
+	"4KwpOx": "Du er logget inn på {0}",
+	"4LVjsa": "URL-er til innlegg (én per linje)",
+	"4M2DVv": "Kunne ikke laste godkjenningsforespørsler",
+	"4NkbDs": "Det kan ikke genereres en slug fra disse rollenavnene. Skriv inn en manuelt med små bokstaver, tall og understrekingstegn.",
+	"4QFnBu": "La til en skillelinje",
+	"4RO4A5": "Forbereder kategorier og stikkord …",
+	"4T8ArT": "Utkast og private",
+	"4Tt2CR": "Ingen samsvarende medier",
+	"4UFBNX": "Kunne ikke starte eksporten",
+	"4V3Ahr": "Menyen heter nå «{0}».",
+	"4Y5H+g": "Termer",
+	"4YyhQC": "Enhetens legitimasjonsbehandler lagrer den og viser deg hvor før den opprettes.",
+	"4dDVIg": "JavaScript-kode",
+	"4gCq8e": "Legg til blokk",
+	"4gg3Kv": "Konfigurasjonsfeil i utvidelsesregisteret",
+	"4iKRH4": "EmDash-nettstedspakke",
+	"4kyjCt": "{title} publiseres nå {when}.",
+	"4l7BEM": "Valgte {label}",
+	"4lIvAN": "Bilde {0}",
+	"4ndzOJ": "Innholdet refererer til medier som ikke finnes i pakken",
+	"4oaM9h": "Eksporterer: {stage}",
+	"4pSxwB": "Gå",
+	"4pvSP0": "Fokuspunkt",
+	"4sCLNF": "Dette feltet viser <0>{linkingSide}</0> som lenker til denne {linkedSide}",
+	"4sZSYN": "<0>{name}</0> redigerer denne oppføringen. Ingenting du endrer her blir lagret.",
+	"4t5g1b": "Sett inn avsnitt før",
+	"4vJApM": "Slo av {label}",
+	"4vJgbu": "Oppretter samlinger og felt",
+	"4wzJje": "Last opp nettstedspakker og kontroller om de kan importeres. Admin inkluderer dette. Velg dette i stedet for Admin for å gi en agent snevrere tilgang.",
+	"4zZ3l0": "Er satt nå. Skriv inn en ny verdi for å erstatte den.",
+	"51/7z8": "Verktøytipstekst",
+	"54Imp0": "feltet {0} på {1}, som viser oppføringer som lenker til det",
+	"57VuPS": "Slipp et bilde her eller <0>bla gjennom</0>",
+	"5BSH/u": "{added} innlegg oppdatert",
+	"5FcOPn": "Denne blokken kan ikke redigeres fordi den lagrede definisjonen ikke er tilgjengelig.",
+	"5GGN6t": "Bildehandlinger",
+	"5IFNMM": "Kunne ikke laste opp medier",
+	"5IPKj5": "Kunne ikke duplisere innhold",
+	"5MWmuq": "I papirkurven",
+	"5OXS9U": "Slugen kan ikke endres etter at feltet er opprettet.",
+	"5R/Sn+": "nettstedsidentitet tatt i bruk (tittel, slagord, logo)",
+	"5S0RE5": "Kunne ikke hente brukere",
+	"5V1YiO": "Denne tabellen kan ikke redigeres trygt",
+	"5YQYqs": "Kunne ikke deaktivere søk",
+	"5ZLwXV": "Ingen utvidelser samsvarer med «{debouncedQuery}».",
+	"5dJK4M": "Roller",
+	"5f+hHt": "Noen byline-avatarer ble utelatt",
+	"5gQbgr": "Nettstedseksport",
+	"5icJIE": "Skjul blokk",
+	"5iuWOc": "Mer informasjon om visningsstørrelse",
+	"5nDQdG": "Medieresultater",
+	"5neSsZ": "Viser {pageShowingRange} av {0}",
+	"5p/4w0": "Rollen din kan ikke redigere denne oppføringen.",
+	"5qAMoV": "Start med malens eksempelinnlegg og -sider. Anbefalt for nye nettsteder.",
+	"5yIPLp": "Noe gikk galt",
+	"5z435K": [
+		[
+			"overdueCount",
+			"plural",
+			{
+				"one": [
+					"Ett planlagt element er forsinket, og planleggerens hjerteslag er utdatert. Kjør `npx emdash doctor` og kontroller den utrullede Cron Trigger-en."
+				],
+				"other": [
+					"#",
+					" planlagte elementer er forsinket, og planleggerens hjerteslag er utdatert. Kjør `npx emdash doctor` og kontroller den utrullede Cron Trigger-en."
+				]
+			}
+		]
+	],
+	"63lY3K": "<0>Dra</0> for å flytte",
+	"63yWbR": "Hovedbibliotek",
+	"65Ckwc": "Lagre en daglig sikkerhetskopi i nettstedets lagringsbøtte. Gamle sikkerhetskopier fjernes automatisk.",
+	"65Ew2q": [
+		[
+			"failedCount",
+			"plural",
+			{
+				"one": [
+					"#",
+					" opplasting mislyktes"
+				],
+				"other": [
+					"#",
+					" opplastinger mislyktes"
+				]
+			}
+		]
+	],
+	"68Y9MY": "/ny-side eller /artikler/[slug]",
+	"68aUb4": "Flyttet et bilde",
+	"69Gavs": "Tekniske detaljer",
+	"69j1iA": "La til en overskrift",
+	"6BXtoH": "Kunne ikke laste kalenderen",
+	"6C8ISV": "Opprinnelse valgfri",
+	"6DPjZO": "Hevet skrift",
+	"6ELX9Y": "Fjern formatering",
+	"6JYs5D": "Fortsett importen",
+	"6LG0Il": "Slett seksjon",
+	"6Nj5iP": "MCP-verktøy som agenter kan kalle",
+	"6QCZMo": "Legg til rad under",
+	"6REbbZ": "Legitimasjonsbehandleren på telefonen eller nettbrettet du velger, lagrer den. EmDash mottar ikke passnøkkelen.",
+	"6UYTy8": "Minutt",
+	"6V3Ea3": "Kopiert",
+	"6XgEPi": "Time",
+	"6XtCKk": [
+		[
+			"selectedCount",
+			"plural",
+			{
+				"one": [
+					"#",
+					" valgt"
+				],
+				"other": [
+					"#",
+					" valgt"
+				]
+			}
+		]
+	],
+	"6Y7qzZ": "Ingen relasjoner ennå.",
+	"6YmZsV": "Mer formatering",
+	"6Z0nnS": "Tilbakestill beskjæring",
+	"6cfXYN": "Kunne ikke sende e-post til brukere",
+	"6eg6TR": "Windows viser hvilken legitimasjonsbehandler som lagrer den før den opprettes.",
+	"6gt3Lb": "Spor hvor medier brukes i innholdet ditt.",
+	"6nJK6y": "Antall innlegg",
+	"6pSHJ5": "Skrivebeskyttet",
+	"6pzrAz": "Vises for lesere i denne rekkefølgen.",
+	"6rAd8p": "Taksonomi slettet",
+	"6ruzBH": "Prøv et annet filnavn eller tøm søket.",
+	"6sIaEZ": "Eksporten er klar",
+	"6vk8Rm": "Fortsett å skrive for å begrense listen.",
+	"6yTN55": "Pakken er større enn dette nettstedet tillater.",
+	"6z1v6+": "Fordel kolonner jevnt",
+	"70QfpA": "Verifisert utgiver",
+	"72d1Kl": "Installer EmDash Exporter-utvidelsen på WordPress-nettstedet ditt og generer en nøkkel under Verktøy → EmDash Migration.",
+	"75js2e": "Alternativer for {label}",
+	"76++pR": "Advarsler",
+	"773FRx": "Flyttet «{snippet}»",
+	"7A6Ppu": "Last ned en komplett sikkerhetskopi av nettstedet: alt innhold (inkludert utkast og papirkurv), samlinger, taksonomier, menyer, widgeter, mediemetadata og nettstedsinnstillinger. Brukerkontoer og hemmeligheter er aldri med.",
+	"7Er7uw": "Opprett beskåret kopi",
+	"7FCZPo": "Innholdsspråk",
+	"7ID1ib": "Nettstedsimport",
+	"7KcTZB": "Utvidelsen {pluginId} avviste lagringen: {reason}",
+	"7OCkHZ": "Publiserte og planlagte oppføringer på tvers av samlinger, i nettstedets tidssone.",
+	"7OGcBq": "Indekserer eksisterende innhold",
+	"7RGTJ4": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" rad"
+				],
+				"other": [
+					"#",
+					" rader"
+				]
+			}
+		],
+		" × ",
+		[
+			"1",
+			"plural",
+			{
+				"one": [
+					"#",
+					" kolonne"
+				],
+				"other": [
+					"#",
+					" kolonner"
+				]
+			}
+		],
+		" valgt"
+	],
+	"7UPH5k": "Kunne ikke hente blokktyper",
+	"7XlAAF": "Opprett {singularLower}",
+	"7YEih5": "Endre publiseringsdato: {0}",
+	"7YjlDw": "Laster opp pakken",
+	"7Zdnlq": "Dokument",
+	"7hutMh": "Vis eldre versjoner",
+	"7iFP6/": "Velg en innholdstype",
+	"7iyedL": "Forfattere tildeles brukere på dette nettstedet",
+	"7jiAF6": "Noen filer i manifestet finnes ikke i denne pakken.",
+	"7oibsn": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" oppføring"
+				],
+				"other": [
+					"#",
+					" oppføringer"
+				]
+			}
+		]
+	],
+	"7p5kLi": "Oversikt",
+	"7s3WlU": "Blokker",
+	"7vQyJA": "Velkommen til EmDash, {firstName}",
+	"7w2lA2": "Erstatt {label}",
+	"7wHm8g": "Kunne ikke opprette samling",
+	"7xJMBF": "Velg standardbilde for sosiale medier",
+	"7zZ8+E": "Sjekksum for pakken",
+	"8+/C6+": "Flere handlinger for {0}",
+	"8/OSSY": "Noen medier ligger hos en ekstern leverandør",
+	"831HBd": "Denne utvidelsen har ingen innstillinger som kan konfigureres.",
+	"83gg/3": "Utvid blokk",
+	"87b3pD": "Oppdater",
+	"88cOh2": "Skriv inn URL …",
+	"89wSN8": "Fjernet et bilde",
+	"8CCjrU": "Blokkhandlinger: dra for å endre rekkefølge, klikk for meny",
+	"8CQWmn": "La redigeringen stå på pause, rett serverproblemet og prøv oppsettet på nytt.",
+	"8Eeh1J": "Laster relasjoner …",
+	"8Fizoc": "Overskriftskolonne lagt til",
+	"8IIEL+": "Vis kategoriliste",
+	"8RUDOM": "Har egen URL",
+	"8We0n8": "Skriver filindeksen",
+	"8ZrIlw": "Endre størrelse på beskjæringen fra øvre venstre hjørne. Bruk piltastene for å endre størrelse.",
+	"8bSOY+": "Fjernet en HTML-blokk",
+	"8bmiFb": "Denne dagen ble ikke lastet. Perioden har flere oppføringer enn kalenderen kan vise.",
+	"8e4xwP": "Sjekksum for planen",
+	"8eS8w0": "Ingen relasjoner ennå",
+	"8iODpy": "Viser versjonen fra {when} av {name}.",
+	"8ibNJ9": "Minst {min}",
+	"8jgSg3": "Gi denne navigasjonen en etikett og en nettstedsidentifikator.",
+	"8nOdkO": "Midtstill",
+	"8nVVMR": "Grunnleggende blokker",
+	"8nzS9o": "Lagres umiddelbart. Termendringer venter ikke på Publiser endringer.",
+	"8o3dPc": "Slipp filer for å laste opp",
+	"8pK+Uz": "Nytt domene",
+	"8qiEUa": "Maksimalt antall stikkord",
+	"8qzdwr": "Omdirigeringer som går i løkke, importeres som deaktivert",
+	"8rtatN": "Kunne ikke hente medieelement",
+	"8sP5tp": "Sporing av mediebruk",
+	"8tCFSV": "Innstillinger for {pluginName}",
+	"8uOF9B": "Flytt {0} ned",
+	"8ukTgv": "Søk etter en IANA-tidssone (f.eks. Europe/Oslo)",
+	"8vUNDk": "Denne utvidelsen kan ikke installeres fordi utgivelsens opprinnelse ikke kunne bekreftes. Be utgiveren publisere en ny verifisert utgivelse.",
+	"8wksCM": "Importerer kommentarer ({0}) …",
+	"8wu9lr": "I kø",
+	"8xDd/4": "Ødelagte referanser ble fjernet",
+	"8ydGzJ": "Trykk Escape for å forlate koderedigeringen.",
+	"9/FDoS": "Gi seksjonen et navn, og legg deretter til innholdet i redigeringen.",
+	"91Laix": "Erstatt med tom liste",
+	"9391k1": "{when}, publisert, {author}",
+	"93LafJ": "Kunne ikke avslå forespørselen",
+	"941yCp": "Skriv HTML …",
+	"94vfmm": "Pakken inneholder en duplisert ID",
+	"96G6Re": "Ny mappe",
+	"9DNTTa": [
+		"Original:"
+	],
+	"9EjaTd": "La til en HTML-blokk",
+	"9FctRm": "Bruk små bokstaver, tall og bindestreker.",
+	"9GXxYr": "Ingen eksakte treff på dette nettstedet",
+	"9HMOoj": "Denne måneden ble ikke lastet",
+	"9IF/1+": "Den opplastede pakken forkastes. Ingenting på dette nettstedet er endret.",
+	"9Pd+JF": "Legg til bilder",
+	"9RUHh1": "Forlate uten å lagre?",
+	"9SYeZ/": "Mappen ble redigert",
+	"9TbgkO": "Søk etter blokktyper",
+	"9XrV3P": "{completedCount} av {0} opplastinger fullført",
+	"9YjY73": "Lokal tid",
+	"9ZbFXy": "Velg innhold",
+	"9ZyrpE": "Koblet via e-postadresse",
+	"9c44h0": "Velg rad",
+	"9ms+e0": "Juster",
+	"9sj0G8": "Kopiering mislyktes",
+	"9tLiQ/": "Denne oppføringen har ingen URL før den er publisert. Lim inn en URL i stedet.",
+	"9zFZIo": "Migreringsnøkkel",
+	"A+609b": "Taksonomi ikke funnet: {taxonomyName}",
+	"A/enus": "La redigeringen stå på pause, og rull ut en kompatibel EmDash-versjon før du fortsetter.",
+	"A10lA2": "Laster mapper …",
+	"A4IEw6": "Skriv inn et visningsnavn.",
+	"A4n3hM": "Innhold i metataggen for verifisering i Bing Webmaster Tools",
+	"A6xK0W": "Lukk galleriinnstillinger",
+	"A70Bkk": "Slett også relasjonen dette feltet bruker",
+	"ABCjd9": "Publisering",
+	"AC6lIw": "Nå · {time}",
+	"AEfArz": "Fortsett nummerering",
+	"AG/4qg": "Endret en innbygging",
+	"AGDzO1": "Nettstedets lagring kunne ikke leses eller skrives til.",
+	"ALXz3j": "Lagrede sikkerhetskopier",
+	"ALoP4W": "Grupper etter",
+	"ALrHmF": "Overskriftsrad lagt til",
+	"AMO1Ll": "Kolonnebredde endret",
+	"AQOf03": "Slo på {label}",
+	"ARS4+q": "Ingen overordnet (øverste nivå)",
+	"ASTAv6": "Slette «{0}»?",
+	"ASl1sb": "Slugs for underfelt må være unike.",
+	"AT8F84": "Byline-felt",
+	"AVD0mB": "Godkjenne denne eksporten?",
+	"AXZKIF": "Kolonner fordelt jevnt",
+	"AZMpQr": "Redigerte en bildetekst",
+	"AbhKNE": "Gjeldende celle",
+	"AcpYeQ": "Erstatt original er tilgjengelig med det opprinnelige sideforholdet.",
+	"Aef4ny": "Hvorfor kan ikke dette endres?",
+	"AgTsvS": "Mappen ble slettet",
+	"AjVXBS": "Kalender",
+	"An354l": "Laster opp video …",
+	"Aq8Z7e": "Rediger ressurs",
+	"As5JWy": "Flyttet en overskrift",
+	"AsyqqW": "Kunne ikke bekrefte hvor mange verdier som refererer til «{0}». Sletting fjerner likevel alle lagrede verdier for dette feltet, men antallet ovenfor kunne ikke kontrolleres.",
+	"AvTP2C": "Maksimalt …",
+	"Axuggg": "Opplastingen er ikke ferdig",
+	"AyRrjB": "Bytt til lys modus",
+	"Azl1ZU": "Viser en knapp for å opprette en ny oppføring",
+	"B09ofB": "Domenet ble endret til {url}",
+	"B2HjEn": "Personer som vises offentlig på dette innlegget.",
+	"B9pPkt": "{0}-reserve",
+	"BEgPXj": "Godkjenner …",
+	"BG/Rz5": "Endre planlegging",
+	"BLmMfr": "En mediefil mangler i pakken",
+	"BM2h7k": "{name} har en verdi som ikke er et av alternativene.",
+	"BM38m1": "Seksjonen «{slug}» ble ikke funnet.",
+	"BPRHPD": "Dette bildet kunne ikke lastes for beskjæring.",
+	"BR/kzD": "Avsnitt satt inn etter tabell",
+	"BRMXj0": "I morgen",
+	"BTrkRg": "{position} av {total}",
+	"BUeYF7": "Hierarkisk (som kategorier, med overordnede og underordnede termer)",
+	"BY8TeG": "En fil i pakken har ikke den størrelsen manifestet oppgir.",
+	"BYV9Kc": "Ingen versjoner ennå",
+	"Bafahl": "4. Klikk «Download Export File»",
+	"BeYkjA": "Kunne ikke oppdatere forespørselen",
+	"BfnC0i": "Opptaket forberedes. La redigeringen stå på pause til oppsettet er fullført.",
+	"BhK9lR": "Søk i {label}",
+	"Bi3Onf": "Brukt i",
+	"BjitBo": "Last ned {0}",
+	"Bk1Tv6": "Tomt galleri. Åpne innstillinger for å legge til bilder.",
+	"BmSRKn": "Denne pakken trenger funksjoner som denne versjonen av EmDash ikke støtter.",
+	"BnKocq": "Det kan ikke genereres en slug fra denne etiketten. Skriv inn en manuelt med små bokstaver, tall og understrekingstegn.",
+	"BoGWlg": "Endre hvor besøkende sendes",
+	"Bq5KVf": "Velg minst én oppføring.",
+	"BtLZNM": "Administreres av identitetsleverandøren din. Endre navnet der.",
+	"Bv1f9G": "Pakken er endret. Velg den på nytt før du importerer.",
+	"BvuF5U": "Flyttet et listeelement",
+	"C1yY5x": "Bruker for {0}",
+	"C5tbXq": "Oppretter beskåret kopi …",
+	"C6rdr/": "Indekser eksisterende innhold, så «Brukt i» alltid er oppdatert.",
+	"CACdOi": "Laster meny …",
+	"CEv4Y+": "Kunne ikke hente seksjoner",
+	"CGZvFe": "Hvert stisegment kan inneholde maksimalt én plassholder, f.eks. {0}",
+	"CIy3SM": "Navn på passnøkkel (valgfritt)",
+	"CJkEfx": "Blokk",
+	"CKYLT2": "Kontrollerer kode …",
+	"CKfcdc": "Rute: {0} · Tillatelse: {1}",
+	"CLC4Ay": "Dette nettstedet har ikke innhold ennå, så du kan importere en .emdash-pakke eksportert fra et annet EmDash-nettsted.",
+	"CMDAbJ": "Flytting av {label} ble avbrutt.",
+	"COhrZ5": "<0>Klikk</0> for å åpne menyen",
+	"CP3D8G": "Fremdrift",
+	"CPOeX9": "Hold denne siden åpen mens filene lastes opp. Hvis opplastingen stopper, velger du den samme filen igjen for å fortsette der den slapp.",
+	"CUxWxh": "Åpne skrivebeskyttet",
+	"CVlrjJ": "Denne eksporten er stor",
+	"CWq+iA": "Prøv å laste {pluralLower} på nytt",
+	"CX+JfZ": "Dette nettstedet ble satt opp med startinnhold. Det har ingen egne oppføringer, og importen sletter det før pakkens innhold legges til.",
+	"CcM7AR": "Versjonen fra {when} er nå utkastet ditt. Publiser når du er klar.",
+	"Ck/bB5": "Eksporterer",
+	"Ckd9Na": "Importplanen er endret. Gå gjennom den på nytt før du importerer.",
+	"ClBlrB": "Samlingen «{0}» ble opprettet på dette nettstedet",
+	"CmHSIV": "Opprettet «{0}».",
+	"Cr8wjP": "Reduser kolonnebredde",
+	"Cr9Ei6": "Ingen blokktyper definert",
+	"CrIfbU": "Fjernet {label}",
+	"CrVi2m": "Bruk en URL som slutter med en gjenkjent bildeendelse, som .jpg eller .png.",
+	"Czg17I": "Lenker til {0}",
+	"D+NlUC": [
+		"System"
+	],
+	"D2DiuY": "{when}, gjeldende versjon, {author}",
+	"D2GlhT": "Be en administrator fullføre dette oppsettet.",
+	"D4Nq7K": "Bildeopplasting mislyktes. Prøv igjen.",
+	"D4Z+MN": "Opprett oversettelse for {0}",
+	"D5B+4M": "Fjern {0} fra utvalget",
+	"D6t8TI": "Kodeblokkhandlinger",
+	"D9JyS0": "Velg en samling",
+	"DBNYwx": "Pakkemanifestet er ugyldig.",
+	"DGZIOS": "Legg til {singularLower} i {ready} innlegg",
+	"DJAufk": "Samtykke til tilganger",
+	"DLF01L": "Slette medier?",
+	"DNDcgS": "Laster utvidelsespanel",
+	"DRM0sZ": "Rå metadata",
+	"DWvioR": "Hovednavigasjon",
+	"DbFk6j": "Eller bla gjennom filer fra datamaskinen din",
+	"Dfhyk7": "Gå gjennom importen",
+	"DgzInP": "Kunne ikke hente detaljer om mediebruk",
+	"DjReuA": "Fra pakken (tom)",
+	"DkbVK4": "Celle delt",
+	"Dnn2XG": "Automatisk",
+	"DyPcUA": "Kopier denne tokenen nå. Den vises ikke igjen.",
+	"E2I5Lf": "En annen import bruker allerede denne pakken.",
+	"E7lU9R": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Legg til ",
+					"#",
+					" fil"
+				],
+				"other": [
+					"Legg til ",
+					"#",
+					" filer"
+				]
+			}
+		]
+	],
+	"E9owmZ": "Slå på sporing av mediebruk?",
+	"EAHgfx": "Startinnholdet som er oppført over, slettes og erstattes med pakkens innhold. Importen kan ikke angres når den har startet. For å gå tilbake trenger du en sikkerhetskopi av dette nettstedet.",
+	"EBuucK": "Genereres automatisk fra tittelen. Du kan endre den.",
+	"EFCw0e": [
+		[
+			"hiddenCount",
+			"plural",
+			{
+				"one": [
+					"Vis ",
+					"#",
+					" til"
+				],
+				"other": [
+					"Vis ",
+					"#",
+					" til"
+				]
+			}
+		]
+	],
+	"EFjRh4": "Åpne Windows-innstillinger",
+	"EM56TT": "Bildet ligger i mediebiblioteket, men denne oppføringen er nå skrivebeskyttet.",
+	"ENKBRK": "Fant ingen {label}.",
+	"ENQK9i": "Flyttet en HTML-blokk",
+	"EPV8iS": "Laster medier",
+	"EQia3h": "Laster seksjoner …",
+	"ERUesW": "Laster importer …",
+	"EUHnZw": "Fant ingen sporede referanser",
+	"EWaYRd": "Byline-skjema",
+	"EWtV6Q": "Denne utvidelsen eksponerer følgende ruter uten autentisering:",
+	"EdNI4G": "Senket skrift",
+	"EdQY6l": "Ingen",
+	"EeUenc": "Bare https-lenker kan bygges inn.",
+	"EfnYk7": "Sjekk registry.aggregatorUrl i astro.config.mjs, og start EmDash på nytt.",
+	"EhSMcD": "Medier i denne mappen flyttes tilbake til hovedbiblioteket. Ingen filer slettes.",
+	"EhcMP7": "Dette feltet godtar ikke {mimeType}-filer.",
+	"EkPjKu": "{origin} omdirigerer til {target}. Skriv inn den adressen i stedet.",
+	"EmSrGB": "Før",
+	"ErI+F6": "Planen ble endret et annet sted, for eksempel fra kommandolinjen eller en AI-assistent, etter at denne siden lastet den. Gå gjennom den på nytt, og start deretter importen.",
+	"Est/Sy": "Minimum antall blokker",
+	"Exw33T": "Kunne ikke oppdatere kommentarstatus",
+	"Ey2vK5": "Innhold som bruker dette medieelementet kan vise en ødelagt referanse.",
+	"EyPzog": "Ny byline",
+	"Eyc3ic": "Verifiserer importen",
+	"F4RllF": "Alt importert innhold blir stående uten forfatter. Du kan tildele forfattere senere fra innholdsredigeringen.",
+	"F4Z1m6": "Prøv oppsettet på nytt",
+	"F54FZw": "Får ikke kontakt med markedsplassen",
+	"F7/0vW": "Mappen finnes ikke lenger",
+	"F9RgUO": "Erstatt variant for mørk modus for {label}",
+	"FAE5Hd": "Fjern tildeling",
+	"FAQCNs": "Filer lastes opp så snart du legger dem til.",
+	"FJkcUG": "Les og endre e-post nettstedet sender",
+	"FJwss+": "Denne lenken kan ikke brukes. Skriv inn en nettadresse, for eksempel https://example.com.",
+	"FP9tMm": "Kunne ikke endre rekkefølgen på termer",
+	"FSq1OB": "Importen returnerte ikke en fullføringsmarkør",
+	"FWamtZ": "Forkaster …",
+	"FY3DEc": "Kunne ikke opprette widgeten",
+	"FZIf6L": "Nedlastingen stoppet",
+	"FZWkIF": "Plassering utilgjengelig",
+	"FZmyhf": "Kunne ikke hente seksjon",
+	"FcOml+": "Importen ble avbrutt",
+	"Fe+VGP": "Kunne ikke hente underordnede referanser",
+	"FeV0iU": "Pakkens innhold skrives til dette nettstedet. Importen kan ikke angres når den har startet. For å gå tilbake trenger du en sikkerhetskopi av dette nettstedet.",
+	"FjJx2y": "Rediger bilde {0}",
+	"FoXSRA": "Etter at du eksplisitt kjører denne utvidelsen, kan den sende valgt ulagret redigeringsinnhold til eksterne nettsteder uten vertsbegrensning.",
+	"Fqube2": "Kunne ikke slette mediemappe",
+	"Fqw7bO": "Kunne ikke fjerne planleggingen av innholdet",
+	"Fs36Uv": "{lateness} forsinket",
+	"Ft2JqP": "Kunne ikke hente tillatte domener",
+	"Ftz4gW": "Innholdstypene og sluggen er låst. Hva hver side kalles og hvor mange oppføringer den har, er ikke det.",
+	"FzetNs": "Publisere nå?",
+	"G+kT7j": "Dette feltet kan ikke redigeres av denne versjonen av EmDash.",
+	"G/lGis": "Del sammenslått celle",
+	"G5pSH2": "Kunne ikke bekrefte utgiverens brukernavn",
+	"G5zccl": "Endre størrelse på beskjæringen fra øvre kant. Bruk piltastene for å endre størrelse.",
+	"G8woRt": "Hva som spores",
+	"GB9iI8": "Kunne ikke hente innhold",
+	"GBzHiD": "Opprett «{0}»",
+	"GCJTE0": "Bli på siden",
+	"GCk4uw": "Flytt dette nettstedet til en annen EmDash-installasjon, eller importer en nettstedspakke hit.",
+	"GF9iNR": "Gå tilbake til redigering først.",
+	"GI3Efb": "Bekreft med Face ID, Touch ID eller enhetens tilgangskode.",
+	"GIrclX": "Kunne ikke oppdatere innhold",
+	"GIw9QC": "Den valgte mappen finnes ikke lenger. Velg et annet sted og lagre på nytt.",
+	"GJIQ9P": "Opprettet og oppdatert",
+	"GL0PAE": "Hvor mange",
+	"GLH854": "Sjekk registry.policy.minimumReleaseAge i astro.config.mjs, og start EmDash på nytt.",
+	"GLYB+o": "Avbryt gjenværende",
+	"GN6Hcz": "Rett ugyldige felt før du endrer planleggingen",
+	"GOoV+w": "Standardbilde for sosiale medier",
+	"GPsv/X": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" meny importeres"
+				],
+				"other": [
+					"#",
+					" menyer importeres"
+				]
+			}
+		]
+	],
+	"GQV0hl": "{name} lenker til en oppføring som ikke finnes eller ligger i papirkurven.",
+	"GRq7C1": "Ingen e-postadresse",
+	"GS+Mus": "Eksporter",
+	"GSHB2m": "Kunne ikke hente widgetkomponenter",
+	"GT0PDv": "Pakken bruker en felttype dette nettstedet ikke kjenner",
+	"Gd6RqB": "Ingenting denne dagen.",
+	"Gi0VDy": "Overskriftsrad",
+	"GqrV7F": "Endret en skillelinje",
+	"GrS9eC": "Gå gjennom innlegg",
+	"GtAPom": "Blokkhandlinger",
+	"GtRAA3": "Flytt {0} opp",
+	"GxLh1D": "Oppføringer som lenker til denne",
+	"GyFMCm": "Kunne ikke oppdatere planen",
+	"H+XODI": "Prøv mislykkede på nytt",
+	"H+xZG6": "Godkjenningsforespørsler",
+	"H08laz": "{0} av {1} koblet via e-post",
+	"H10HG/": "Token {0} · utløper {expires}",
+	"H3w4lB": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Raden er slettet"
+				],
+				"other": [
+					"#",
+					" rader er slettet"
+				]
+			}
+		]
+	],
+	"H4zNW3": "Noen referanser peker til innhold som ikke finnes i pakken",
+	"H9TwBs": "Versjonen fra {when} er nå utkastet ditt. Den publiseres på det planlagte tidspunktet.",
+	"HAXm1M": "Denne oppføringen er endret et annet sted. Lagre likevel, eller last inn på nytt for å få den nyeste versjonen.",
+	"HCzRIl": "Bruksindekseringen kunne ikke fullføres.",
+	"HEBFEG": "Flyttet {total} elementer til papirkurven",
+	"HFc1Xe": "Ingen felt på denne innholdstypen bruker den ennå",
+	"HHh1Tx": "Laster planen på nytt …",
+	"HIhjJJ": "Min. verdi",
+	"HJr//3": "EmDash fortsetter oppsettet og gjenopptar skanningen av eksisterende innhold.",
+	"HMpfdQ": "Sidestørrelse",
+	"HPyrsV": "Flyttet {filename} til posisjon {0}.",
+	"HS8GaZ": "Kunne ikke hente autentiseringsmodus",
+	"HSh8u/": "Mapper",
+	"HVyFAk": "På nettstedet",
+	"HXbqzT": [
+		[
+			"needsNewCollections",
+			"plural",
+			{
+				"one": [
+					"#",
+					" ny samling opprettes"
+				],
+				"other": [
+					"#",
+					" nye samlinger opprettes"
+				]
+			}
+		]
+	],
+	"HY1DXo": "Fjern variant for mørk modus",
+	"HY4nP5": "Innebygd",
+	"Ha0lwp": "Tillat flere referanser",
+	"HajiZl": "Måned",
+	"HcJBhE": "Sporing av mediebruk trenger oppmerksomhet",
+	"Hd06oy": "Gjeldende versjon",
+	"HdgXMz": "Lås en oppføring mens noen redigerer den, og hindre andre i å lagre",
+	"Hdq095": "Skriv bildetekst for bildet (valgfritt)",
+	"HflfhU": "Utvidelseskolonne utilgjengelig",
+	"HhVD6Z": "Nettsteder på Cloudflare D1 kan i tillegg gjenopprette databasen til et hvilket som helst minutt de siste 30 dagene med D1 Time Travel. Dette er alltid på og krever ikke noe oppsett.",
+	"HjItFk": "Slett galleri",
+	"HlDXpJ": "Tilgjengelig i {0}",
+	"Hlpb2f": "Eksporter innholdet ditt fra WordPress for å importere alt, inkludert utkast.",
+	"Hlutqa": "Øk kolonnebredde",
+	"Hm7xfQ": "Månedlige/årlige arkiver",
+	"Hp9Qio": "Fjernet:",
+	"HukFNj": "Kvadrat (1:1)",
+	"Hxays7": "Innholdet refererer til medier på en ugyldig måte",
+	"HyBJn1": "Velg en gjenkjent tidssone for pålitelig datovisning.",
+	"I0S95b": "Legg til en person eller et team som skal krediteres på innholdet ditt.",
+	"I0TZ7p": "Aktiv v{0}",
+	"I1iNGD": "Kunne ikke lagre innstillinger for sikkerhetskopi",
+	"I2pTnV": "Taksonomien «{0}» brukes av innhold på dette nettstedet",
+	"I5S9ZE": "Bred",
+	"I6/uPI": "Laster konfigurasjon …",
+	"I89uD4": "Gjenoppretter …",
+	"I8tJEM": "Hvorfor er dette viktig for synlighet i søk?",
+	"I9khHE": "Denne operasjonen er utløpt. Start på nytt.",
+	"IA0gPX": "Kunne ikke hente innhold i papirkurven",
+	"IInVIL": "{siteName} ligger nå på {siteHost}. Logg inn der fra nå av.",
+	"IMm99K": "Laster byline-felt …",
+	"INSpH5": "Ukjent forfatter",
+	"IP9CTE": "Denne oppføringen finnes ikke eller er ikke publisert. Rollen din kan bare se publisert innhold.",
+	"IQiVXD": "Formatvalg",
+	"IR6Txi": "Venstrejuster",
+	"IWCpf0": "Kontrollerer mediefiler",
+	"IYdDk3": "Flyttet {total} elementer til utkast",
+	"IZPHXp": "Kunne ikke hente statistikk for oversikten",
+	"IdUdFF": "Markedsplasskonfigurasjon er utdatert",
+	"IdYwGe": "Startinnholdet fjernes",
+	"Ij+DFS": "Sett andre verktøy som oppdaterer innhold på pause.",
+	"IjVVCh": "{0} medier, {1} poster",
+	"Ik60OC": "Åpne i redigeringsverktøyet",
+	"ImE3lA": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Ytterligere én blokkert oppføring vises ikke."
+				],
+				"other": [
+					"#",
+					" flere blokkerte oppføringer vises ikke."
+				]
+			}
+		]
+	],
+	"Imc2wU": "Gå gjennom verifisert oppdatering",
+	"IrZQLE": "Dette fjerner planleggingen og publiserer umiddelbart.",
+	"ItMGda": "Datoperiode",
+	"IxUlpN": "Skriv bildetekst for videoen (valgfritt)",
+	"J+OaLB": "Dette fjerner byline-profilen. Byline-koblingene i innholdet fjernes, og den fjernes som hovedbyline.",
+	"J/ctzi": "Skriv JavaScript …",
+	"J1GVgl": "Erstattet et bilde",
+	"J6dJ1p": "Stil endret:",
+	"J8SFJw": "Metatitler, beskrivelser og bilder for sosiale medier",
+	"JAJ/Lo": "{0} av {1} elementer",
+	"JD3In6": "Starter …",
+	"JE4m6Q": "Slå på sporing",
+	"JFQZdb": "Dette feltet inneholder Portable Text-merker som ikke støttes: <0>{markList}</0>. Fjern dem via API-et før du redigerer eller lagrer dette innholdet.",
+	"JFciKP": "Slå av/på",
+	"JHEP18": "Utvidelsesregisteret er ikke konfigurert.",
+	"JJpL/3": "Omplanlagt",
+	"JKi9lM": "Dette sletter «{0}» permanent og fjerner det fra alt innhold.",
+	"JKl1C3": "Behandler {selectedCount} elementer …",
+	"JL4J+m": "Brukerkontoer, passnøkler, API-tokens, hemmeligheter og utvidelsesdata eksporteres aldri. Navn og e-postadresse til hver forfatter tas med slik at de kan kobles til brukere på det andre nettstedet.",
+	"JMI44A": "Nettleseren bestemmer hvordan dialogen ser ut, og kan tilby en annen kompatibel metode.",
+	"JN/D//": "Kontrollerer dette nettstedet",
+	"JOvQ/Q": "Valgt bilde",
+	"JQvaVr": "Forkaste denne importen?",
+	"JXIruj": "Denne lenken utløper om 7 dager.",
+	"JYZYJA": "Utløper ikke",
+	"JYj5R2": "Bla gjennom filer",
+	"JZePnT": "Lenker i e-poster og utvidelser, nettstedskart og absolutte URL-er i metadata for søk og sosiale medier bruker det nye domenet.",
+	"JafWm/": "Lagre relasjon",
+	"JddocZ": "Slå av/på overskriftskolonne",
+	"JewPst": "«{0}» blir slettet permanent.",
+	"Jf0I57": "Ny relasjon",
+	"JkBPQX": "Med en passnøkkel trenger du ikke huske kompliserte passord",
+	"JlWfBN": "Kunne ikke oppdatere menyen",
+	"Jn5DbR": "Fritt format",
+	"Jp5bz2": "Send e-post til brukere",
+	"Jp9T/m": "Søk for å snevre inn listen",
+	"Jpo8Rh": "Oppdater profilen til {0}.",
+	"JtUYuE": "Opprettet oversettelse: {0}",
+	"JutGy+": "Opprett en for å la oppføringer her lenke til oppføringer i en annen innholdstype.",
+	"JzCKGh": "Kunne ikke opprette widgetområdet",
+	"K1SpKS": "En relasjon er påkrevd",
+	"K1dNyS": "Forhåndsvis utkast",
+	"K3GOZ1": "Velg kolonne",
+	"K3y+3u": "Innholdsoversikt",
+	"K4sp1K": "Gå til innlogging",
+	"K5mLPS": "Fjernet {0} fra utvalget.",
+	"K6W8rt": "Sett inn tabell",
+	"K6zIME": "Validering av invitasjon mislyktes",
+	"KA81UQ": "Importen stopper etter det gjeldende trinnet. Innhold som allerede er importert blir liggende på nettstedet, og redigering er satt på pause til du forkaster importen.",
+	"KAiacs": "Rediger mappen {0}",
+	"KD1S+g": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" tillatelse forespurt"
+				],
+				"other": [
+					"#",
+					" tillatelser forespurt"
+				]
+			}
+		]
+	],
+	"KF+b1s": "Denne seksjonen inneholder Portable Text-merker som ikke støttes: <0>{0}</0>. Oppdater seksjonen før du setter den inn.",
+	"KGLUOD": "Rollen er oppdatert for {0}.",
+	"KKBlUU": "Bygg inn",
+	"KQPy5B": [
+		[
+			"needsNewFields",
+			"plural",
+			{
+				"one": [
+					"Felt legges til i ",
+					"#",
+					" eksisterende samling"
+				],
+				"other": [
+					"Felt legges til i ",
+					"#",
+					" eksisterende samlinger"
+				]
+			}
+		]
+	],
+	"KRCsZV": "Avsnitt satt inn før tabellen",
+	"KSYOGG": "Hindringer",
+	"KZ9XTd": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" MCP-verktøy"
+				],
+				"other": [
+					"#",
+					" MCP-verktøy"
+				]
+			}
+		]
+	],
+	"Kd9Ewv": "Kunne ikke opprette byline",
+	"KhtfXd": "Kunne ikke liste filer som skal lastes opp",
+	"KkA7Q0": "Hvis nettstedet ikke kan nås fra internett ennå, for eksempel på localhost eller bak en innlogging, kan du bruke adressen uten kontrollen.",
+	"Klvn7W": "En tidligere import av denne pakken stoppet etter at den hadde begynt å skrive til dette nettstedet. Forkast den importen, og tilbakestill deretter dette nettstedet eller sett opp et nytt før du importerer igjen.",
+	"KmOCMu": "Det kan ikke genereres en slug fra denne etiketten. Skriv inn en manuelt.",
+	"Kmhahx": "Importerer menyer, widgets og innstillinger",
+	"KpnwJK": "Slette «{0}»?",
+	"KsPh8m": "Oppdater statusen før du fortsetter.",
+	"Kw/eii": "Ingen beskrivelse ennå",
+	"Kzw7X7": "Flere tabellhandlinger",
+	"L37pTm": "Størrelse på beskjært bilde",
+	"L3Lmcq": "Godkjenning fra utgiveren kreves for hver delegerte utgivelse",
+	"L6GT4c": "Pakken er lastet ned",
+	"L7/rsx": "Laster opp bilde …",
+	"L7VPGJ": "Oppdaging av nye utvidelser bruker registeret. Eksisterende markedsplassutvidelser kan fortsatt oppdateres eller avinstalleres mens du bytter over.",
+	"L8fEEm": "Gruppe",
+	"L8mk8d": "Velg Windows Hello eller en annen tilgjengelig legitimasjonsbehandler, og bekreft deretter med PIN-kode, fingeravtrykk eller ansikt.",
+	"L9MJd7": "MCP-verktøy i utvidelser krever eksplisitt samtykke",
+	"LCigah": "Maksimalt antall blokker",
+	"LD335l": "Kobler innhold",
+	"LD6dSx": "Fra URL",
+	"LGF0vE": "Dra for å endre rekkefølgen på {label}",
+	"LIlNb7": "«{0}» blir slettet fra medieleverandøren.",
+	"LIm+1B": "Last inn forhåndsvisning",
+	"LIx5pG": "Kunne ikke hente relasjoner",
+	"LM+JSO": "Erstatt bilde for mørk modus",
+	"LQOCuy": "4. Skriv inn «EmDash» og klikk «Add New»",
+	"LRGNcW": "Prøv en bredere medietype eller fjern filtrene.",
+	"LUtobW": "Assistenten kan starte én eksport av dette nettstedet innen 15 minutter. Pakken inneholder alt innhold samt forfatternes navn og e-postadresser.",
+	"LXqM95": "Overtar …",
+	"LYh6LO": "Start med malens innholdstyper og uten innhold.",
+	"LaZ/IA": "Mappen er opprettet",
+	"LadTMo": "Import mislyktes",
+	"LcGYiH": "Type: Mappe",
+	"LdXdk9": "Pakkens filindeks er ikke gyldig.",
+	"Ldel3M": "Dette tidsrommet har flere enn {maxEntries} oppføringer",
+	"LgT7fB": "Legg til ny mappe",
+	"LhMjLm": "Tid",
+	"Llcakz": "Oppdatert",
+	"LlvGGi": "Foreslå ulagrede endringer i valgte redigeringsfelt for gjennomgang",
+	"LmuJKt": "Versjoner av blokktyper",
+	"LoHYMG": "Publiseres {countdown}",
+	"LpVyOm": "Definer hvordan innholdstyper lenker til hverandre",
+	"Lwh9i5": "Rett opp ugyldige felt før du endrer publiseringsdatoen",
+	"M0mbN8": "Fjernet en innbygging",
+	"M1RnFv": "Utløpt",
+	"M33cCt": "Sjekk registry i astro.config.mjs, og start EmDash på nytt.",
+	"M3jG+v": "Vis dato",
+	"M5mfAe": "Legg til stikkord",
+	"M8OJ5W": "Dra widgeter hit for å legge dem til",
+	"M8kJqa": "Utkast",
+	"MAv+uq": "Administreres av {providerName}",
+	"MFe/fU": "Fant ikke noe samsvarende innhold.",
+	"MGUTjM": "Medielenker ble gjort relative",
+	"MHHpsB": "Last inn flere mapper",
+	"MKRvZY": "Ingen samsvarende bylines",
+	"MMw1hG": "Søk etter et språk …",
+	"MQ3T10": "Versjon fra {when}",
+	"MRYhxu": "Innhold i metataggen for verifisering i Google Search Console",
+	"MTqQMG": "Ikke angitt",
+	"MVX6jN": "{label} flyttet til posisjon {0}.",
+	"MZotPc": "Filtrer etter tillatelse",
+	"MdsNde": "CSS-klasser",
+	"MfYfa0": "Kall MCP-verktøy fra utvidelsen {pluginId}",
+	"Mftxjp": "Behold dette nettstedets (tomme)",
+	"MixEym": "Innholdstypene og sluggen kan ikke endres etter at en relasjon er opprettet.",
+	"MjbKc1": "Kunne ikke hente versjonen",
+	"MlheGZ": "Skriv for å filtrere",
+	"MmvxuN": "Destruktiv",
+	"MrXkgR": "Lagre likevel",
+	"Msb/cT": "Til {0}",
+	"MtFEdH": "Kunne ikke hente felt",
+	"Mv8CyJ": "Forlat",
+	"MvGDaL": "410 Innhold slettet (borte)",
+	"MvM5wK": "Lever all e-post nettstedet ditt sender",
+	"MvUsWY": "Slett meny",
+	"Mvw+8j": "Last opp bilder, videoer og dokumenter for å ha gjenbrukbare ressurser på ett sted.",
+	"N2S1rs": "Tom",
+	"N33X5f": "Variant for mørk modus",
+	"N33xnA": "passnøkkelvinduet i Android",
+	"N5RCak": "Velkommen til EmDash",
+	"N6GAt7": "Lukk seksjonsfeil",
+	"N6kdf/": "Rediger {itemLabel}",
+	"NBJTjL": "Kildenettstedets ID",
+	"NDAqJk": "Oppføringen er ikke godkjent for visning. Prøv igjen senere.",
+	"NDocjQ": "Fortsett med en annen enhet",
+	"NEvT67": "Gjennomgår …",
+	"NJ+t9a": "Mindre seksjonsoverskrift",
+	"NJDW+z": "Det ble funnet flere problemer enn det som er listet opp",
+	"NKvTB9": "Last opp til {providerName}",
+	"NL9xsV": "Kunne ikke opprette seksjon",
+	"NLcXYd": "Importen har hindringer som må løses først.",
+	"NOxVXm": "Forkast import",
+	"NP5Nbf": "Formatert tekst",
+	"NPSxqr": "Vis stikkordsky",
+	"NQNdTW": "Dette nettstedet har ikke noe innhold ennå, så det kan motta en import. Velg en .emdash-pakkefil. Den kontrolleres i nettleseren din og lastes opp i deler. Ingenting på dette nettstedet endres før du har gjennomgått og bekreftet importen.",
+	"NR5CnB": "Det er ikke valgt noe publiseringstidspunkt",
+	"NRI9tu": "MCP-tilgang for utvidelsen er oppdatert",
+	"NUT4if": "Tabeller kan ikke limes inn i lister eller sitater. Lim tabellen inn i et eget avsnitt og prøv igjen.",
+	"NV/gQ6": "Forsinket · {lateness}",
+	"NVKeXU": "Den ble startet et annet sted, så planen kan ikke lenger endres. Fremdriften vises her.",
+	"NahJNj": "Bruken oppdateres. Noe innhold vises kanskje ikke her ennå.",
+	"NawEr2": "Etter",
+	"Nb1f25": "Dette feltet velger",
+	"NbFtQm": "Slett mappe",
+	"NevMu9": "Rediger alternativ tekst, bildetekster og fokuspunkter for medier",
+	"Nhb2sU": "Administrer omdirigeringer og se 404-feil.",
+	"NlYC4D": "Kjør forhåndsvisning",
+	"NmMC5u": "Hvis du lagrer en samling her, blir dette feltet til en oppføringsvelger. De lagrede oppførings-ID-ene flyttes til relasjonen, og feltet kan ikke lenger søkes i eller filtreres på.",
+	"NmPNJJ": "Kopier kode",
+	"NnWA6j": "Kall bare de aktiverte MCP-verktøyene i denne utvidelsen",
+	"Npuhmz": "Skriv CSS …",
+	"Nt6OOZ": "Avslutt distraksjonsfri modus (⌘⇧\\)",
+	"NtQvjo": "Periode",
+	"NvcfWN": "Prøv å kopiere på nytt",
+	"NzluOx": "(valgfritt)",
+	"O+Uyo7": "Kunne ikke hente tema",
+	"O1wAlQ": "Gjest",
+	"O2fN3w": "En fil i pakken samsvarer ikke med manifestet. Pakken kan være skadet.",
+	"O3UrvY": "Kunne ikke opprette oversettelse av byline",
+	"O4m/OS": "Ingen bruk å vise ennå",
+	"O8a6y7": "Åpne oversikten",
+	"OAwAtK": "Beskriv bildet",
+	"OHftV2": "Pek domenet mot dette nettstedet. I Cloudflare åpner du Worker-en din under Workers & Pages, går til fanen Domains og legger til domenet.",
+	"OLIuIZ": "Godkjenne denne importen?",
+	"ONAVuM": "Lagres per språk. Hver oversettelse av en byline får sin egen verdi.",
+	"OP+10I": "Installasjon er ikke tilgjengelig.",
+	"OQGcr0": "Administreres av en ekstern medieleverandør",
+	"OQSr2H": "Du vil ikke lenger kunne bruke «{0}» til å logge inn. Denne handlingen kan ikke angres.",
+	"OUCIe5": "Eksempelinnhold",
+	"OV1ctD": "Den offentlige adressen til nettstedet ditt. Den brukes i lenker i e-poster og utvidelser, nettstedskart og absolutte URL-er i metadata for søk og sosiale medier",
+	"OVGM1I": "Du registrerer deg som <0>{roleName}</0>",
+	"OXJLdo": "Den siste medieforespørselen mislyktes. Viser forrige side.",
+	"OYHzN1": "Stikkord",
+	"OYxuPg": "Horisontalt {0} %, vertikalt {1} %",
+	"Odo/NM": "Se hvor denne filen brukes.",
+	"Odtzli": "Kunne ikke hente termoversettelser",
+	"Oe8+1b": "Åpne mappen {0}",
+	"OfXSt7": [
+		[
+			"maximum",
+			"plural",
+			{
+				"one": [
+					[
+						"name"
+					],
+					" kan ha maks ",
+					"#",
+					" tegn."
+				],
+				"other": [
+					[
+						"name"
+					],
+					" kan ha maks ",
+					"#",
+					" tegn."
+				]
+			}
+		]
+	],
+	"OfhWJH": "Tilbakestill",
+	"OlB9YF": "Forhåndsvisning er ikke tilgjengelig for dette formatet",
+	"OngPWf": "Innlegg og sider",
+	"Otwmac": "Dette kan ikke angres",
+	"OwgJ28": "Termtilordninger",
+	"Ox5JEg": "For en fullstendig import inkludert utkast og alt innhold, eksporter fra WordPress.",
+	"P/mvvM": "Merk som borte (410). Forteller søkemotorer at siden er slettet permanent.",
+	"P07gq6": "Denne enheten ber om tillatelse til å bruke:",
+	"P23zBB": "Kreditering",
+	"P4J0Wb": "Erstatt originalen",
+	"P9waa+": "Ingen samsvarende tidssoner",
+	"PA74MB": "Kall MCP-verktøy fra alle aktiverte utvidelser",
+	"PAz3M7": "Kontroller og bytt",
+	"PBAVHO": "Kategorier og stikkord",
+	"PBTTSZ": "Noe innhold lenker til mediefiler som kildenettstedet ikke har. Disse lenkene vil ikke fungere",
+	"PCmfqP": "Tidspunkter er i {zoneName}.",
+	"PEcyhG": "Last opp eller velg en video",
+	"PFmFfT": "Begge referansefeltene som er knyttet til denne relasjonen deler disse grensene, slik at de to sidene ikke kan være uenige om de samme lenkene.",
+	"PHfgUd": "Velg en legitimasjonsbehandler på denne enheten, en annen enhet eller en sikkerhetsnøkkel.",
+	"PIlaPM": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" meny importert"
+				],
+				"other": [
+					"#",
+					" menyer importert"
+				]
+			}
+		]
+	],
+	"PK7bWl": "Opprett ny {singularLabel}",
+	"PKd7Rn": "Avbryt import",
+	"PKjGhT": "Overskrifter",
+	"PMX8ve": "Filtrer etter byline",
+	"PNUsI/": "Ufullførte medieopplastinger ble utelatt",
+	"PWh9Ii": "Bruk endringer",
+	"PXSKfe": "Det er for mange omdirigeringer til å kontrollere dem for sløyfer før import",
+	"PZGTfj": "Samlingen «{0}» har oppføringer",
+	"Pc/evR": "Publisere endringer?",
+	"Pcayka": "Pakken er større enn det dette nettstedet tillater",
+	"PeCY2L": "Kunne ikke laste utvidelsesinnstillinger",
+	"PfSa3c": "Sjekker {urlInput} …",
+	"PfkhI9": "EmDash skanner eksisterende innhold for å vise hvor medier brukes.",
+	"Pfw/cp": "Ingen medier tilgjengelig fra denne leverandøren.",
+	"Pg2lDZ": "Laster omdirigeringer …",
+	"Pg5swf": "Endre størrelse på beskjæringen fra øvre høyre hjørne. Bruk piltastene for å endre størrelse.",
+	"Pkw7J9": "Denne mappen er tom.",
+	"Pl7IAQ": "Denne oppføringen finnes ikke eller er slettet.",
+	"Pl95Ds": "Laster innstillinger …",
+	"PmvG8K": "Vilkårlig tall",
+	"PnRbc/": "Lim inn en innbyggingskode eller en https-lenke …",
+	"PpZFDZ": "Hvordan genereres sluggen?",
+	"PtSW+3": "Lagt til:",
+	"PtU+/W": "Visningsstørrelse",
+	"PuR6N3": "Fant ikke utvidelsen. Utgiveren eller sluggen kan være feil.",
+	"Pwqkdw": "Laster …",
+	"PzlMJU": [
+		[
+			"failed",
+			"plural",
+			{
+				"one": [
+					"#",
+					" e-post kunne ikke sendes. Sjekk e-postleverandøren."
+				],
+				"other": [
+					"#",
+					" e-poster kunne ikke sendes. Sjekk e-postleverandøren."
+				]
+			}
+		]
+	],
+	"Q/Gg7P": "En annen redaktør",
+	"Q/HIiC": "Utvidelsens feltwidget kunne ikke vises.",
+	"Q8MCN2": "Velg Touch ID eller en annen tilgjengelig legitimasjonsbehandler, og bekreft deretter med fingeravtrykket eller Mac-passordet ditt.",
+	"QBOwbf": "Lukk innstillinger",
+	"QDEWii": "Verifisert",
+	"QHyO9d": "Denne videoen kan ikke spilles av.",
+	"QPYTbx": "Et hero-banner i full bredde med overskrift, tekst og CTA-knapp",
+	"QWfQ8p": "Maksimalt {max}",
+	"QY3U2x": "Velg filer som skal lastes opp",
+	"QYA+2y": "Menyen har fått nytt navn",
+	"QYjxkG": "Ny taksonomi",
+	"QZDXMs": "Kunne ikke bekrefte opplastingen",
+	"Qdlvcg": "Send alle andre brukere en e-post med lenke til innloggingssiden på {siteHost}.",
+	"Qnr74m": "Små bokstaver, tall og understrekingstegn. Referansefelt lagrer dette.",
+	"QpOp1w": "Ingen resultater for «{activeSearch}»",
+	"Qq85g/": "Navn på Phosphor-ikon, f.eks. calendar-blank eller trophy",
+	"QqW27M": "Endre tidspunkt",
+	"QtjT8L": "Tabell på {previewRows} × {previewColumns}",
+	"QwxfcZ": "Som administrator kan du invitere andre brukere under Brukere.",
+	"QxS/sM": "Kunne ikke hente e-postinnstillinger",
+	"QxhWGI": "Kunne ikke endre navn på mediemappen",
+	"R50XHi": "Sett opp sporing av mediebruk",
+	"R6789z": "Kunne ikke laste inn mer bruk.",
+	"R6KMNs": "Passnøkler fungerer bare på adressen der de ble opprettet.",
+	"R6fdlW": "Tilbake til hovedbiblioteket",
+	"R7tYdb": "Endre domene",
+	"RAXQwS": "Oppdater nettstedsinnstillinger",
+	"RD4/di": "innhold",
+	"RDKIkt": "La til et galleri",
+	"REhJhj": "Endre publiseringsdato",
+	"RI7iGI": "Et trinn mislyktes og forsøkes på nytt ({0}).",
+	"RKlb1Y": "Oppdaterer planen …",
+	"RL/jYv": "Tidsrommet har flere oppføringer enn kalenderen kan vise.",
+	"RLe7Vk": "Kontrollerer …",
+	"RMu0Ur": "Behold sideforhold",
+	"RNpYrG": "Laster innstillinger for sporing av mediebruk …",
+	"RQI5BH": "Kunne ikke hente nettstedets domene",
+	"RQpbnP": "Kunne ikke hente relasjonen",
+	"RQxP0p": "Kunne ikke gjenopprette versjonen",
+	"RR0ADZ": "Nettstedsidentitet, logo, favicon og leseinnstillinger",
+	"RS0o7b": "Tilstand",
+	"RTYfgk": "<0>Klikk</0> for å legge til nedenfor",
+	"RUXmgy": "Utvidelseshandlingen mislyktes",
+	"RVb9/S": "Mer informasjon om {label}",
+	"RdsRcZ": "Denne tabellen har celleformatering, sammenslåtte celler eller kolonnebredder som ikke støttes. Lim den inn som ren tekst eller forenkle tabellen og prøv igjen.",
+	"ReQVeH": "Opprett relasjon",
+	"RgslFN": [
+		[
+			"overdueCount",
+			"plural",
+			{
+				"one": [
+					"Ett planlagt element er forsinket, men ingen kjøring av planleggeren er fullført. Kjør `npx emdash doctor` og kontroller den publiserte Cron Trigger-en."
+				],
+				"other": [
+					"#",
+					" planlagte elementer er forsinket, men ingen kjøring av planleggeren er fullført. Kjør `npx emdash doctor` og kontroller den publiserte Cron Trigger-en."
+				]
+			}
+		]
+	],
+	"RiNAcj": "Dette er ikke pakken importen ble startet med. Velg den samme filen på nytt.",
+	"RiUrRR": "Seksjonene kunne ikke lastes.",
+	"Rj2Y2b": [
+		[
+			"totalDrafts",
+			"plural",
+			{
+				"one": [
+					"Utkast"
+				],
+				"other": [
+					"Utkast"
+				]
+			}
+		]
+	],
+	"RkoiQ5": "Forby AI-trening",
+	"Rl4XPW": "Dette tilbakestiller til den publiserte versjonen. Endringene i utkastet går tapt.",
+	"Rl8wz/": "Kunne ikke opprette menyoversettelse",
+	"RmDfXS": "Skriv inn en full URL som starter med https:// eller http://.",
+	"RmTgYO": "Planlagt dato",
+	"RqSvT0": "Importerer",
+	"RswEt7": "CID for utgivelsen",
+	"Ru+KMo": "Kunne ikke hente overordnede referanser",
+	"Ry2ZBw": "Utkastversjon",
+	"RyoBPr": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					[
+						"counted"
+					],
+					" av ",
+					"#",
+					" tegn, minst ",
+					[
+						"min"
+					]
+				],
+				"other": [
+					[
+						"counted"
+					],
+					" av ",
+					"#",
+					" tegn, minst ",
+					[
+						"min"
+					]
+				]
+			}
+		]
+	],
+	"Ryvl3r": "Denne utvidelsen er ikke tilgjengelig ennå",
+	"S1RGkV": "EmDash mottar aldri PIN-koden, passordet eller biometrisk informasjon.",
+	"S8ALhp": "Kunne ikke opprette tillatt domene",
+	"SBTElJ": "Søker …",
+	"SIXKt2": "Fant ingen iframe i denne koden. For en innbygging som kjører et skript, bruk en HTML-blokk.",
+	"SK4LsM": "Redaktører kan velge et ekstra bilde som nettstedet viser i mørk modus.",
+	"SQarev": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" lenke"
+				],
+				"other": [
+					"#",
+					" lenker"
+				]
+			}
+		]
+	],
+	"STGb3x": "Legg til en passnøkkel for {0}",
+	"SUhU2W": "Les samlings- og feltdefinisjoner",
+	"SXyP4I": "Kontrollerer referanser",
+	"SaMbeY": "{when}, gjeldende versjon, publisert, {author}",
+	"SaYfFe": "Denne versjonen er ikke synlig på nettstedet",
+	"SagCAA": "Ny seksjon",
+	"Scw22S": "Du trenger administratortilgang for å administrere sporing av mediebruk.",
+	"Sdx1KW": "Denne lagrede tidssonen gjenkjennes ikke. Velg et forslag for pålitelig datovisning.",
+	"Sf7Deb": "Hvordan vil du starte?",
+	"SfmfPQ": "Kunne ikke hente antall kommentarer",
+	"SiGjdj": "Slett byline",
+	"SijIKZ": "Sikkerhetskopier som beholdes",
+	"SjzPpR": "Kunne ikke oppdatere samlingen",
+	"SkeHSD": "Velg et datointervall",
+	"SmiiB0": "UGYLDIG BRUKERNAVN",
+	"SoFk6b": "Fjernet en tabell",
+	"StNbtE": "Kunne ikke slette widgetområdet",
+	"SuT4YO": "{name} har en ugyldig verdi.",
+	"SwV+Bo": "Kunne ikke sammenligne versjoner",
+	"SzEhiU": [
+		[
+			"filesMissing",
+			"plural",
+			{
+				"one": [
+					"#",
+					" fil må fortsatt lastes opp. Velg den samme pakkefilen på nytt for å fullføre. Filer som allerede er lastet opp, hoppes over."
+				],
+				"other": [
+					"#",
+					" filer må fortsatt lastes opp. Velg den samme pakkefilen på nytt for å fullføre. Filer som allerede er lastet opp, hoppes over."
+				]
+			}
+		]
+	],
+	"T+nIu0": "Slett video",
+	"T/tC+i": "De ulagrede medieendringene dine går tapt.",
+	"T09SwD": "Fokuspunkt. Bruk piltastene for å flytte det.",
+	"T3iFwq": "passnøkkelvinduet på enheten din",
+	"T4RJ1p": "Nettstedet ditt ligger for øyeblikket på {currentUrl}.",
+	"T6/kdN": "Pakken inneholder en fil som ikke er en del av formatet for nettstedspakker.",
+	"T7x7bT": "Bildelenke",
+	"TB95hG": "Publiser {countdown}",
+	"TDJIQZ": "Dette feltet viser oppføringer som lenker til denne.",
+	"TDR2cW": "Beskjæringsområde. Bruk piltastene for å flytte det.",
+	"TIDZXO": "Denne mappen er tom",
+	"TIniyU": "La til en video",
+	"TNFBJj": "Lesetilgang til medier",
+	"TNKBrC": "Besøkende ser denne publiserte versjonen",
+	"TPesd4": "Versjonen fra {when} blir utkastet ditt. Det publiserte nettstedet endres ikke før du publiserer.",
+	"TQJouj": "Skriv inn en URL (https:// …) eller en relativ sti (/ …)",
+	"TR7IBc": "Last ned pakke",
+	"TRQtzs": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Minst ",
+					"#",
+					" tegn"
+				],
+				"other": [
+					"Minst ",
+					"#",
+					" tegn"
+				]
+			}
+		]
+	],
+	"TSIucq": "Forhåndsvisning av {0}",
+	"TT2Wpx": "Ta sikkerhetskopi nå",
+	"TX3IWP": "Denne passnøkkelen er allerede registrert på denne enheten.",
+	"TZ7G2G": "En post refererer til noe som mangler i pakken",
+	"TZTwr4": "Besøkende ser den publiserte versjonen frem til den planlagte oppdateringen",
+	"TZktjo": "Passnøkkelen er registrert",
+	"Ta0ts5": "Vis endringer",
+	"TaEi6Z": "En pakkefil samsvarer ikke med manifestet",
+	"TaphXR": "Hold denne siden åpen til oppsettet er ferdig. Hvis du forlater den, kommer du tilbake hit for å fortsette der det stoppet.",
+	"TdItDB": "Kopier kvittering",
+	"TdaJPU": "Start importen",
+	"TdfEV7": "Arkivert",
+	"TdjAgL": "De planlagte endringene i {title} blir liggende som utkast.",
+	"TjxoN6": "Gjenopprettet versjonen fra {date}",
+	"Tl6SeQ": "Bekreft med den sikre dialogen fra enheten eller legitimasjonsbehandleren din.",
+	"TmpRMW": "Et tall er for stort for dette nettstedets database",
+	"TpSTgK": "Hvorfor engelsk brukes",
+	"Tq7U8A": "Laster referanser …",
+	"Trutmd": "Når dette er angitt, blir bildet en klikkbar lenke til denne URL-en.",
+	"Ts1Pjn": "Fortsett for å fullføre innloggingen. Lenken fungerer bare én gang.",
+	"TtX8pa": "Rad lagt til under",
+	"TwuaQO": "Laster ned pakken",
+	"Tymx1h": "Endre størrelse på beskjæringen fra nedre kant. Bruk piltastene for å endre størrelse.",
+	"U+kFad": "Galleri",
+	"U/ZRDr": "Endringer i denne versjonen",
+	"U/uwnx": "Hva retningen endrer",
+	"U0zpj6": "Du trenger administratortilgang for å overføre dette nettstedet.",
+	"U1vVfL": "Administrasjonsgrensesnittets sikkerhetspolicy blokkerte noen ressurser denne blokken laster, som eksterne skript, skrifttyper eller rammer. Nettstedet ditt kan likevel laste dem.",
+	"U1z+O3": "Kunne ikke laste overføringsinnstillinger",
+	"U5HZQs": "Velg et {0}-bilde som ikke er tomt.",
+	"U5RYS9": "Du har ikke tillatelse til å redigere denne ressursen.",
+	"U8AOID": "Gjenopprettet en tidligere versjon",
+	"U8bWCH": "SEO-innstillinger",
+	"U9DmZf": "Koble denne bylinen til en bruker eller merk den som en gjesteprofil.",
+	"U9ddT1": "Også forespurt, men ikke tilgjengelig for rollen din:",
+	"UBsYr0": "Fant ingen samsvarende passnøkkel for denne kontoen.",
+	"UCDn5f": "Kunne ikke hente menyoversettelser",
+	"UCpyLY": "Kunne ikke opprette innhold",
+	"UD//Er": "Flyttet til avsnitt etter tabellen",
+	"UDcpDO": "Dette nettstedet har allerede innhold",
+	"UEbwZ4": "Kunne ikke hente taksonomier",
+	"UFQR+K": "Velg når dette utkastet blir offentlig.",
+	"UG+tu1": "Importen kan ikke starte før disse er løst.",
+	"UGK1Dr": "Ingen filer lagt til",
+	"UH7gLq": "Denne versjonen kan ikke vises.",
+	"UICog0": "Kunne ikke opprette meny",
+	"URmyfc": "Detaljer",
+	"URsNrp": "{0} lagt til i dette innlegget.",
+	"Ug1SQm": "Taksonomitermer",
+	"UkNS88": "Bla gjennom og installer utvidelser for å gi nettstedet flere funksjoner.",
+	"UlCdXr": [
+		[
+			"minimum",
+			"plural",
+			{
+				"one": [
+					[
+						"name"
+					],
+					" må ha minst ",
+					"#",
+					" tegn."
+				],
+				"other": [
+					[
+						"name"
+					],
+					" må ha minst ",
+					"#",
+					" tegn."
+				]
+			}
+		]
+	],
+	"UlKSMd": "Venstre",
+	"UlcztO": "Hvis du velger en byline, erstatter den denne automatiske krediteringen.",
+	"UmcnJv": "Kunne ikke hente mediemappen",
+	"UoVdGV": "Opprett en blokktype før du legger til et blokkfelt.",
+	"Urn4QX": "Dra widgeter inn i et område for å legge dem til",
+	"UsbCOm": "Lukk fullført {0}",
+	"UsxcTw": "Flytt fokuspunktet for å velge hva som forblir synlig i beskårede bilder.",
+	"UvYOcJ": "Kolonnebredden ble økt",
+	"Uyw6sf": "Sett inn blokk etter gjeldende blokk",
+	"UzInYh": "Ingen resultater for «{debouncedQuery}». Prøv et annet søkeord.",
+	"V1+iON": "Endret en video",
+	"V2C5t8": "Filen er ikke en gyldig EmDash-nettstedspakke.",
+	"V2btfr": "Bare bildefiler kan lastes opp her.",
+	"V57p5A": "Postene er i feil rekkefølge",
+	"V7Ot46": "Ingen referanser valgt.",
+	"V7fgEK": "Søk etter tidssoner …",
+	"V8yTm6": "Tøm søk",
+	"VE+iZA": "Filtrer etter datointervall: {rangeLabel}",
+	"VHreO1": "{ready} av {0} klare",
+	"VINwRP": [
+		[
+			"overflowCount",
+			"plural",
+			{
+				"one": [
+					"#",
+					" fil ble ikke lagt til fordi opplastingslisten er full."
+				],
+				"other": [
+					"#",
+					" filer ble ikke lagt til fordi opplastingslisten er full."
+				]
+			}
+		]
+	],
+	"VITSyo": "Nyere versjon",
+	"VLe0JL": "Kunne ikke endre rekkefølgen på innholdstyper",
+	"VN70bO": "Ingen bylines tilgjengelig.",
+	"VNufe4": "Ta med kommentarer",
+	"VOCj0c": "Vis antall innlegg",
+	"VTRXqB": "Midtstilt",
+	"VUo2Bt": "Eksportert med",
+	"VX5sSg": "Erstatter originalen …",
+	"VbM4Sv": "Søk i mapper",
+	"Vcr4P3": "Blokktypen «{0}» ble opprettet på dette nettstedet",
+	"VfTqm5": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" fil lastes opp"
+				],
+				"other": [
+					"#",
+					" filer lastes opp"
+				]
+			}
+		]
+	],
+	"Vl1Xtu": "{0} av {1} trinn",
+	"VmtOUn": "Galleriinnstillinger",
+	"VnC/si": "Kunne ikke forkaste utkastet",
+	"VnOHrZ": "Nettstedet endret seg mens det ble eksportert. Prøv igjen når det er roligere i redigeringen.",
+	"VqWtrC": "Publiseres",
+	"VrAdaA": "Når oppsettet er ferdig, laster du opp en .emdash-pakke eksportert fra et annet EmDash-nettsted.",
+	"Vud+K1": "Relasjon",
+	"Vv4iDV": "Lastet ned",
+	"VvkeKP": "Originalbildet er beskåret.",
+	"VzKL3b": "Forskjeller fra kildenettstedet",
+	"W+2P5V": "Prøv igjen. Hvis det fortsatt ikke fungerer, sjekk serverloggene.",
+	"W0qup5": "I dette feltet velger du oppføringer som denne oppføringen lenker til.",
+	"W3+mU2": "Kunne ikke nå {origin}",
+	"W4d8F6": "Erstatt dette nettstedets innhold med en pakke eksportert fra et annet EmDash-nettsted.",
+	"W5382e": "OAuth-autorisering krever HTTPS. Bruk manuell legitimasjon.",
+	"W6ZFpO": "Søk eller skriv inn en URL",
+	"W86hhx": "Engelsk brukes fordi det ikke er konfigurert noe innholdsspråk. Innholdsspråket lagres sammen med oppføringen og er adskilt fra administrasjonsspråket ditt.",
+	"W9GZ3f": "Fant ikke WordPress",
+	"W9UVyE": "Bygg inn en side fra et annet nettsted",
+	"WC5dad": "Verifiser utvidelsen før du installerer den",
+	"WF4die": "Kunne ikke hente omdirigeringer",
+	"WIOGOz": "Kontrollerer pakken",
+	"WL1bge": "Du kan se, gi nytt navn til eller legge til flere passnøkler senere i sikkerhetsinnstillingene.",
+	"WN/cAT": "Migreringsveiledning",
+	"WNZS5l": "{label} i {menuName}",
+	"WQvcj9": "{0} av {1} trinn · {2} av {3}",
+	"WRFtqg": "Brukere fra <0>{domain}</0> kan ikke lenger registrere seg uten invitasjon. Eksisterende brukere påvirkes ikke.",
+	"WSBKil": "Hvor lagres den?",
+	"WU/vvH": "Automatiske sikkerhetskopier trenger en lagringsbackend (R2, S3 eller lokal lagring). Konfigurer lagring i EmDash-konfigurasjonen for å aktivere dem.",
+	"WctEss": "Velg opptil 50 innlegg om gangen.",
+	"WdccjW": "Hver {linkedSideName} er lenket fra",
+	"WeKBmZ": "Sjekker hvor mange lagrede verdier som refererer til «{0}» …",
+	"WjKzTI": "Oppdatering planlagt",
+	"WkVrym": "Kalenderen viser de første {maxEntries}, som slutter {cutOffDay}.",
+	"WoLY2R": "Ingen oppføringer samsvarer med disse filtrene",
+	"WofJni": "{siteName} har flyttet til {siteHost}",
+	"WosrF7": "Bruk {fallbackUrl} likevel",
+	"WotisL": "Kunne ikke laste eksportmanifestet",
+	"WtMC7E": "Flytt {0} opp (ikke tilgjengelig, det overordnede elementet har ingen oversettelse på dette språket)",
+	"WtsmDd": "Nettstedsinnstillinger",
+	"WvzSdW": "Ingenting på dette nettstedet ble endret.",
+	"WwHBte": "Velg pakkefil",
+	"X7eZwN": "Inaktiv versjon",
+	"X974Zi": "Termen «{0}» ble opprettet i {1}.",
+	"X9I1I3": "Kunne ikke laste overføringsfunksjoner",
+	"XB76jM": "Kunne ikke kontrollere denne koden.",
+	"XCRrpy": "Opprett seksjon",
+	"XDa2R7": "Noen desimaltall blir avrundet",
+	"XFIjvm": "Kunne ikke planlegge innhold",
+	"XIDyNX": "Laster inn bruksdata",
+	"XKIyBP": "Valgte {selectedItemTitle}",
+	"XMcEUU": "{0} {1} påkrevd. Du har {2}.",
+	"XQFMOm": "Rediger bilde",
+	"XSBfu1": "{origin} leverer ikke dette nettstedet ennå",
+	"XSnkda": "Publiserte {total} elementer",
+	"XUH9K1": "Prøv {0} på nytt",
+	"XVnpHC": "Kunne ikke laste inn importene",
+	"XWBJCf": "Tomt nettsted",
+	"XYlJJT": "Setter opp",
+	"XYsRQL": "Kunne ikke avbryte importen",
+	"XbLmT+": "Kunne ikke opprette {0}",
+	"XhXaJ+": "Merk {0} som fjernet (410)",
+	"XhvaX7": "Innholdet er satt tilbake til utkast",
+	"XiE2Fn": "Kunne ikke opprette omdirigering",
+	"XiYR2F": "Flyttet en kodeblokk",
+	"Xjcp9O": "Menyelementer",
+	"XklovM": "Jobber …",
+	"XnRCjs": "Kunne ikke laste versjoner",
+	"XpDeOw": "Laster kommentarer …",
+	"XqM/BD": "Fylt ut fra visningsnavnet. Bruk små bokstaver, tall og bindestreker.",
+	"Xr5FCa": "Endret stilen på et avsnitt",
+	"XwBw3h": "Godkjenn kommentarer og merk dem som ventende eller spam",
+	"XxIeKn": "Liggende",
+	"Xzq2I+": "Skriv inn en gjenkjent tidssone for å lagre",
+	"Y+d+yi": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					[
+						"counted"
+					],
+					" av ",
+					"#",
+					" tegn"
+				],
+				"other": [
+					[
+						"counted"
+					],
+					" av ",
+					"#",
+					" tegn"
+				]
+			}
+		]
+	],
+	"Y0NiWS": "Oversettelser:",
+	"Y1/P++": "Pakken inneholder den samme filen to ganger.",
+	"Y19CbP": "Dette fjerner også:",
+	"Y1Ub1P": "Mediebiblioteket ditt er tomt",
+	"Y2bM9K": "Overskriftskolonne fjernet",
+	"Y6FSS6": "Kunne ikke oppdatere relasjonen",
+	"Y7/Lts": "Mediedetaljer",
+	"Y8ApNJ": "Ikke funnet",
+	"YC1HEC": "Velg en term og skriv inn mellom 1 og 50 innlegg.",
+	"YF5avu": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Mediefil"
+				],
+				"other": [
+					"Mediefiler"
+				]
+			}
+		]
+	],
+	"YFHEdN": "Flere detaljer",
+	"YGkkfw": "Tabell slettet",
+	"YH/fGW": "Denne oppføringen er åpen et annet sted",
+	"YHApG/": "Slår på …",
+	"YHUSr7": "Noe innhold vises kanskje ikke her ennå.",
+	"YMIArw": "Fjern bilde {0}",
+	"YO9pBt": "Kunne ikke avpublisere innhold",
+	"YOTCl6": "Koble til alle nettverksverter og last eksterne administrasjonsbilder fra utvidelser (ubegrenset)",
+	"YOlXBr": "Endret tittelen",
+	"YOzD/a": "Erstatt bilde",
+	"YPMSe4": "Prøve oppsettet på nytt?",
+	"YPw0x9": "velger {0}",
+	"YQjPn6": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" fil ble ikke lagt til fordi opplastingslisten er full."
+				],
+				"other": [
+					"#",
+					" filer ble ikke lagt til fordi opplastingslisten er full."
+				]
+			}
+		]
+	],
+	"YSXm8I": [
+		[
+			"hidden",
+			"plural",
+			{
+				"one": [
+					"#",
+					" oppføring til (",
+					[
+						"date"
+					],
+					")"
+				],
+				"other": [
+					"#",
+					" oppføringer til (",
+					[
+						"date"
+					],
+					")"
+				]
+			}
+		]
+	],
+	"YTKTMb": "Kunne ikke hente opplastings-URL",
+	"YTnzuP": "Denne koden har utløpt. Start innloggingen på nytt fra terminalen for å få en ny.",
+	"YUGe4m": "Feltverdier for byline",
+	"YUviZE": "Send e-post",
+	"YbH0Y5": "Alternativer for iframe-blokk",
+	"Yd3mS4": "Besto ikke sikkerhetsvurderingen",
+	"Yj3duQ": "Celler",
+	"YjS/z6": [
+		"Sletting av «",
+		[
+			"0"
+		],
+		"» fjerner også ",
+		[
+			"1",
+			"plural",
+			{
+				"one": [
+					"#",
+					" lagret verdi"
+				],
+				"other": [
+					"#",
+					" lagrede verdier"
+				]
+			}
+		],
+		" på tvers av alle bylines. Dette kan ikke angres."
+	],
+	"YkLTCK": "Brukes som standard Open Graph-bilde når en side ikke har et eget. Anbefalt størrelse: 1200×630.",
+	"YlFNaV": "passnøkkelvinduet i Windows",
+	"YoLFRp": "{0} fjernet fra dette innlegget.",
+	"YorYMj": "Velg favorittikon",
+	"YpCHKo": "Overskrift 6",
+	"Yqct57": "Planlagt publisering",
+	"Yx5G2l": "Endret:",
+	"Z/hN8v": "Windows Hello er fortsatt ikke tilgjengelig for denne nettleseren. Du kan prøve en annen enhet eller en sikkerhetsnøkkel i stedet.",
+	"Z0KVRL": "{title} er nå publisert.",
+	"Z1XBBo": "Begynn å skrive med ren tekst",
+	"Z3FXyt": "Laster …",
+	"Z4OdvO": "Legger til …",
+	"Z4bccS": "Utkastet ditt erstattes med versjonen fra {when}. Det gjeldende utkastet blir værende i Versjoner, og det publiserte nettstedet endres ikke før du publiserer.",
+	"Z5HWHd": "På",
+	"Z774CX": "Fjernet et sitat",
+	"Z7V4V+": "Filtrer etter forfatter",
+	"ZC7vIb": "Eksisterende {pluralLower} blir værende.",
+	"ZCMzhe": "Mediesideinndeling",
+	"ZCf57W": "Deretter åpnes nettleserens passnøkkelvindu",
+	"ZEyJEY": "Leser innhold",
+	"ZIgY2y": "Overskrifter",
+	"ZKpK5T": "Tar sikkerhetskopi …",
+	"ZMOPx2": "Det du skrev er fortsatt her. Hvis du lagrer, erstattes den nyere versjonen.",
+	"ZNFz4n": "MCP-verktøy i utvidelser",
+	"ZPhJIK": "Utvidelsen har ikke lagret disse endringene. Se gjennom dem før du oppdaterer redigeringsprogrammet.",
+	"ZQsYbN": "Opprinnelse kreves",
+	"ZViyFG": "Lukk importforslag",
+	"ZXVR5r": "Redigerte en overskrift",
+	"ZY/22v": "Ikke lastet inn",
+	"ZZWuwg": "Laster menyer …",
+	"ZdWn/b": "Versjoner",
+	"ZdzwVD": "Byline opprettet",
+	"ZgJFZ+": "Avpubliser {itemLabel}",
+	"ZirqdT": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" kommentar importert"
+				],
+				"other": [
+					"#",
+					" kommentarer importert"
+				]
+			}
+		]
+	],
+	"Zk89y4": "Importplanen ble endret",
+	"ZkYCmd": "Last opp medier for å ha gjenbrukbare ressurser på ett sted.",
+	"Zl6Nbm": [
+		[
+			"rejectedCount",
+			"plural",
+			{
+				"one": [
+					"#",
+					" fil ble ikke lagt til."
+				],
+				"other": [
+					"#",
+					" filer ble ikke lagt til."
+				]
+			}
+		]
+	],
+	"Zm+UKW": "Begynn å skrive, eller skriv «/» for kommandoer",
+	"Zn6MK5": "Du er invitert til å bli med i {siteName}.",
+	"ZpKoGq": "En kryptert digital nøkkel du låser opp med fingeravtrykk, ansikt, PIN-kode eller enhetspassord.",
+	"ZpP0HR": "Lagre innhold som utkast før publisering",
+	"ZqhuvA": "Fra innleggets eier",
+	"ZrDiVv": "Kunne ikke hente leverandørens medier",
+	"Zvp4Nd": "Oppføringer denne lenker til",
+	"ZyDyEK": "Kunne ikke teste URL-en",
+	"a1Qo+y": [
+		[
+			"minimum",
+			"plural",
+			{
+				"one": [
+					[
+						"name"
+					],
+					" må ha minst ",
+					"#",
+					" element."
+				],
+				"other": [
+					[
+						"name"
+					],
+					" må ha minst ",
+					"#",
+					" elementer."
+				]
+			}
+		]
+	],
+	"aAFmtx": "Rollen din tillater ingen av tillatelsene denne enheten ba om.",
+	"aBzSl7": "<0>{name}</0> redigerer denne oppføringen. Åpne den skrivebeskyttet, eller ta over. Vedkommende får beskjed om at oppføringen er overtatt.",
+	"aCu6FM": "Oversett «{0}»",
+	"aETJnp": "Ingen bilder i dette galleriet ennå.",
+	"aETRCY": "Innebygd innhold",
+	"aFWxws": "Profil-CID",
+	"aH2zQM": "Lagre endringene før du kjører utvidelseshandlinger",
+	"aI8vWD": "Laster utvidelser …",
+	"aIk+8y": "Sett som utkast",
+	"aKxUfr": "Velg en video fra biblioteket eller last opp en ny.",
+	"aOIC6V": "{0} oppdatert til v{installedVersion}",
+	"aOw1l+": "Besøkende ser disse endringene umiddelbart.",
+	"aPij5P": "Kunne ikke hente versjoner",
+	"aPptko": "Sporing av mediebruk settes opp",
+	"aPuP4O": "Last ned sikkerhetskopier og planlegg automatiske sikkerhetskopier til lagring",
+	"aTofd0": "Innebygd innhold",
+	"aV/4Zq": [
+		[
+			"importedFiles",
+			"plural",
+			{
+				"one": [
+					"<count>",
+					"#",
+					"</count> fil importert"
+				],
+				"other": [
+					"<count>",
+					"#",
+					"</count> filer importert"
+				]
+			}
+		]
+	],
+	"aWMJUE": "Kunne ikke lukke varselet om avslått planlagt publisering",
+	"aY0/p6": "Hva pakken inneholder",
+	"aYLE9z": "Laster godkjenningsforespørsler …",
+	"aZ75QG": "Kunne ikke laste inn bruksdata.",
+	"abl0k2": "Kunne ikke oppdatere feltet",
+	"acZeX2": "Sist redigert",
+	"aeS7hl": "Flytt {0} ned (ikke tilgjengelig, det overordnede elementet har ingen oversettelse på dette språket)",
+	"agF5Ng": "Kunne ikke laste inn administrasjonspanelet",
+	"aio6Hc": "Ingen API-tokener ennå. Opprett et for å komme i gang.",
+	"ajEWgm": "Last inn siden på nytt eller prøv igjen.",
+	"aqtBkh": "Kalenderen viser de første {maxEntries}.",
+	"av9n8c": "Du har ikke tillatelse til å flytte denne filen.",
+	"aywdyd": "Fant ingen mapper",
+	"az8lvo": "Av",
+	"b+uc4g": "Gjentakende gruppe",
+	"b0/ldu": "Deaktiver MCP-verktøy i utvidelser",
+	"b1jUL6": "En fil samsvarer ikke med pakkemanifestet. Pakken kan være skadet.",
+	"b2IO7F": "Slett kolonner",
+	"b3Thhd": "Opplasting mislyktes",
+	"b3UlQN": "Dupliserte omdirigeringer ble utelatt",
+	"b6kwDf": "Nettleseren viser vanligvis en QR-kode.",
+	"b8Msis": "Innlogging mislyktes. Prøv igjen.",
+	"b9XOHo": "Opprett {0}",
+	"b9qeLt": "EmDash {latest} er tilgjengelig (du kjører {0})",
+	"bAG4xT": "Første side",
+	"bC793y": "Passnøkler fungerer bare på adressen der de ble opprettet. Fortsett på {handoverHost} for å logge inn der uten passnøkkel, og legg deretter til en for den adressen.",
+	"bD8I7O": "Fullført",
+	"bJAzAQ": "Endret stilen på en overskrift",
+	"bJoZb9": "Byline slettet",
+	"bLQ9X/": "Sjekker om denne enheten støtter passnøkler …",
+	"bPJ4Ar": "Planleggingen er fjernet",
+	"bRv6T5": "Avbryte denne importen?",
+	"bSTJOT": "Denne innloggingslenken er ugyldig eller allerede brukt. Be om en ny fra innloggingssiden.",
+	"bTw3DH": "Dette fjerner relasjonen, alle lenker lagret under den og referansefeltene som bruker den:",
+	"bWqAah": "Tilbake til redigering.",
+	"bWyYvz": "Markedsplassen er ikke lenger tilgjengelig.",
+	"bXT+sn": "Mer informasjon om alternativ tekst",
+	"bcB8wt": "Utkastet ditt erstattes med versjonen fra {when}. Det gjeldende utkastet blir værende i Versjoner, og den gjenopprettede versjonen publiseres på det planlagte tidspunktet.",
+	"bdS5IG": "Hvorfor vises bylines i denne rekkefølgen?",
+	"bg9pi/": "Denne seksjonen inneholder tabellinnhold som redigeringsprogrammet ikke kan bevare. Oppdater seksjonen før du setter den inn.",
+	"bhZqHh": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Legg til ",
+					"#",
+					" video"
+				],
+				"other": [
+					"Legg til ",
+					"#",
+					" videoer"
+				]
+			}
+		]
+	],
+	"bi/SA4": "Opprett meny",
+	"biK4DL": "Eksport forespurt av {requester}",
+	"bk+HBf": "Overskriftsrad fjernet",
+	"boWGW1": "Ingen kommentarer samsvarer med filtrene dine.",
+	"bp04ce": "Ingenting å forhåndsvise ennå.",
+	"bs+sVd": "Rediger rolle",
+	"buv46d": "Bruksdetaljer er ikke tilgjengelige for kontoen din.",
+	"bzSI52": "Forkast",
+	"c/TbuO": "Valgte medier",
+	"c/gOLn": "Lenket side (flertall)",
+	"cCwAYA": "Jeg har fullført disse trinnene og forstår at sporing ikke kan slås av.",
+	"cCyATW": "Kunne ikke oppdatere seksjon",
+	"cDHcnt": "Det beskårede bildet kunne ikke opprettes.",
+	"cJ0mV2": "Ny {itemLabel}",
+	"cLNITC": "Ingen treff. Trykk Enter for å bruke «{freeFormLanguage}».",
+	"cLrEuE": "em1. …",
+	"cOGcmu": "Laster importplanen …",
+	"cQPKZt": "Gå til oversikten",
+	"cQe/XY": "Senere oppføringer ble ikke lastet inn. Tidsrommet har flere oppføringer enn kalenderen kan vise.",
+	"cWt9ym": "Installasjon av utvidelser krever eksplisitt samtykke",
+	"cYsdNA": "Vis på nettstedet",
+	"cYswid": "Redigerte et sitat",
+	"caiuBO": "Dette innholdet kan ikke redigeres trygt",
+	"ce1oAy": "Tillatte blokktyper",
+	"ceMA7u": "Bla gjennom og installer utvidelser som er publisert i det desentraliserte registeret.",
+	"cfmmVf": "Tidspunktene vises i {zoneName}. Nettleseren din bruker {viewerZoneName}.",
+	"cfxcLa": "Prøv et annet søk eller filter.",
+	"cifajE": "Opprett taksonomitermer og endre innholdsklassifiseringer",
+	"cjldFu": "Opprett en relasjon raskt",
+	"cnWZqN": "Legitimasjonsbehandleren din, for eksempel Google Passordbehandling, lagrer den og kan synkronisere den til de andre enhetene dine.",
+	"cr1cJz": "Legger til regler i robots.txt som ber AI-roboter om ikke å bruke dette nettstedet til trening. Søkemotorer kan fortsatt indeksere det.",
+	"csjlSj": "Velg et sted",
+	"czM4OK": "Godkjenning fra utgiveren kreves bare når utvidelsen ber om flere tillatelser",
+	"czfxRX": "Fremdriften stoppet",
+	"d+0l21": "3. Velg «All content»",
+	"d3zjea": "Utdatastørrelse",
+	"d5g67y": "Feil ved oppdatering av widget",
+	"d5ybJG": [
+		[
+			"readingTime",
+			"plural",
+			{
+				"one": [
+					"#",
+					" min lesetid"
+				],
+				"other": [
+					"#",
+					" min lesetid"
+				]
+			}
+		]
+	],
+	"d8Bxup": "Velg video",
+	"d9Atef": "Opprett relasjon",
+	"d9lVyw": "Rediger byline",
+	"dAiQeX": "Bruksdata lastet inn",
+	"dAtmDl": "Planlegg publisering",
+	"dH7Vt4": "Importen returnerte ikke en forberedelsesmarkør",
+	"dJ4Sfp": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Vis ",
+					"#",
+					" til"
+				],
+				"other": [
+					"Vis ",
+					"#",
+					" til"
+				]
+			}
+		]
+	],
+	"dOmzuf": "Indekserer",
+	"dPFFy+": "Skriv inn Markdown-innhold …",
+	"dSfnXn": "Kunne ikke hente utvidelsesinnstillinger",
+	"dTDJdm": "Kunne ikke laste inn denne versjonen. Tilbake til redigering.",
+	"dZjoIo": "Sporing av mediebruk er klar",
+	"dabDUH": "Inneholder en oppførings-ID. Angi en målsamling under Innholdstyper for å velge oppføringer i stedet.",
+	"dbDjdV": "Naviger",
+	"ddrz1m": "Forsinket",
+	"deQtHJ": "CSS-klasser:",
+	"dg9itW": "Les kommentarinnhold, forfatterens e-postadresser, pseudonymiserte IP-hasher, brukeragenter og modereringsmetadata",
+	"dhJ10k": "Kunne ikke laste inn widget",
+	"dj0g4F": "Bruksindeksering har ikke startet.",
+	"dqtuGc": "Nettstedskart og absolutte URL-er i søke- og sosiale metadata vil bruke det nye domenet. Lenker i e-poster og utvidelser bruker fortsatt {configuredUrl}, satt av distribusjonskonfigurasjonen.",
+	"dsPiA2": "Kunne ikke sende innloggingslenke",
+	"dsVR1E": "Legg til variant for mørk modus",
+	"dvg41q": "Velg den samme pakkefilen på nytt for å fullføre opplastingen.",
+	"dw5i7Y": "Nettstedsoverføring",
+	"dx/FKi": "Denne utgiveridentiteten finnes ikke lenger.",
+	"dzxib8": "Vi har sendt en bekreftelseslenke til <0>{email}</0>",
+	"e+qbba": "Søk etter stikkord …",
+	"e/5Oxg": "Last ned en kopi av hele nettstedet, inkludert utkast, medier, innstillinger og forfatteres e-postadresser. Administrator inkluderer dette. Velg dette i stedet for administrator for å gi en agent snevrere tilgang.",
+	"e1fZwu": "Analyse av nettstedsimport",
+	"e1jzhZ": "Kunne ikke fjerne planleggingen",
+	"e1reOI": "Slår opp utgiverens brukernavn …",
+	"e2u9PQ": [
+		[
+			"columns",
+			"plural",
+			{
+				"one": [
+					"Kolonnen er slettet"
+				],
+				"other": [
+					"#",
+					" kolonner er slettet"
+				]
+			}
+		]
+	],
+	"eE91I2": "Tokenverifisering mislyktes",
+	"eEJcJA": "Importer alt innhold direkte, inkludert utkast, egendefinerte innleggstyper, ACF-felt og SEO-data. Du trenger ikke laste ned noen fil.",
+	"eF3K9j": "Kobler til",
+	"eHQxL1": "Fortsett med {0}.",
+	"eHR0Ms": "Per side",
+	"eIsHAQ": "Cloudflares botbeskyttelse svarte med en utfordringsside, så EmDash kan ikke nå EmDash Exporter API. Tillat forespørsler til /wp-json/emdash/v1/ (og ?rest_route=/emdash/v1/ på nettsteder uten pene permalenker), for eksempel med en egendefinert WAF-regel som hopper over botbeskyttelse, eller sett botbeskyttelsen på pause under migreringen, og prøv deretter igjen.",
+	"eJ6QZ9": "3. Bla ned til «Application Passwords»",
+	"eK8vc1": "Løs hindringene for å fortsette.",
+	"eKdEkZ": "Denne oppføringen er skrivebeskyttet fordi skjemaet bruker felttyper som denne versjonen av EmDash ikke støtter.",
+	"eMGLfJ": "Søk slås av for noen samlinger",
+	"eOlUTr": "{name} må være minst {bound}.",
+	"eR8Ano": "Eksempel: {pattern} → {preview}",
+	"eRqMgm": "Sett opp en e-postleverandør i e-postinnstillingene for å sende e-post til brukere.",
+	"eU/vf4": "Fjernet et galleri",
+	"eUWFsn": "Fjernet «{snippet}»",
+	"eW6PYJ": "Bruk URL",
+	"eX/8iK": "Rad lagt til over",
+	"ebLo22": "Følgende tabeller inneholder innhold, men er ikke registrert som samlinger. Registrer dem for å administrere dette innholdet i administrasjonspanelet.",
+	"ecUA8p": "I dag",
+	"ef6vAZ": "Oppføringer",
+	"efTwE3": "Vis hierarki",
+	"eh/71w": "Kunne ikke laste inn eksportene",
+	"ehyc5h": "Kunne ikke hente byline",
+	"ejkICo": "Velg galleribilder",
+	"emzPpY": "Denne innloggingslenken har utløpt. Be om en ny fra innloggingssiden.",
+	"eneWvv": "Utkast",
+	"eyDHTj": "Trykk på mellomromstasten for å plukke opp et bilde. Bruk piltastene for å flytte det, og trykk på mellomromstasten for å slippe det.",
+	"eyhifB": "Den lagres av autentiseringsenheten eller legitimasjonsbehandleren du valgte i den sikre systemdialogen.",
+	"f2t4QL": "Vis en liste over nylige innlegg",
+	"fAUSZy": "Trenger oppmerksomhet",
+	"fCtEyU": "Importere denne pakken?",
+	"fHLMhg": "Sikkerhetskopiinnstillinger lagret",
+	"fIgUYf": "Innebygde blokker bruker nettstedets stiler. Nettstedet fjerner skript, style-tagger og style-attributter, og tømmer iframes bortsett fra YouTube og Vimeo.",
+	"fLsMGc": "Dette medieelementet kunne ikke lastes. Prøv igjen.",
+	"fbl+Af": "Endringene fra utvidelsen ble ikke tatt i bruk",
+	"fd18BP": "Bruk en annen enhet",
+	"fd6o+d": "Kunne ikke oppdatere byline",
+	"feNgiX": "E-postmellomvare",
+	"fi++Jz": "Åpne innloggingssiden på den nye adressen:",
+	"fiu8Bt": "Prøv å oppdatere hurtigbufferen på nytt",
+	"flIuI3": "Denne pakken ble laget av en nyere eller annen versjon av EmDash.",
+	"fo0FXe": "Versjon gjenopprettet",
+	"foMWA+": "Ingen passnøkler registrert",
+	"fppdqC": "Før du fortsetter:",
+	"fqSfXY": "Erstatt",
+	"fqTtjm": "Angi rolle",
+	"fsgdbk": "Laster mapper",
+	"g0zqOw": "Bygg inn {0}",
+	"g27owX": "Eksempelinnholdet som er lagt til så langt, beholdes. Fortsett for å legge til resten.",
+	"g2Tj8R": [
+		"Full bredde"
+	],
+	"g4y/Lc": "Alle importerte oppføringer og mediefiler ble lest tilbake og samsvarte med pakken. Ta vare på denne kvitteringen som dokumentasjon på overføringen.",
+	"g626ih": "Kolonnebredden ble redusert",
+	"g7HthQ": "Den eksporterte pakken og denne importen endrer innholdet på disse måtene.",
+	"g87L9j": "Relasjoner",
+	"g8JmSC": "Neste måned",
+	"gAGWPJ": "Den lagrede verdien samsvarer ikke med typen til dette feltet",
+	"gAY6lh": "Gjennomgå og blokker publisering, planlegging og avpublisering av innhold",
+	"gAdNB8": "Kunne ikke hente innholdsforfattere",
+	"gAdkPd": "{name} kan ikke være mer enn {bound}.",
+	"gBDj2T": "Legg til {singularLower} i 1 innlegg",
+	"gIZkFQ": "{matchedCount} av {totalCount} forfattere ble koblet via e-postadresse",
+	"gKSHR7": "Stabil identifikator for nettstedet ditt, for eksempel primary eller footer.",
+	"gRHpoy": "Ingen felt",
+	"gcm10t": "Kunne ikke laste innstillingene for sporing av mediebruk.",
+	"gdokSj": "Administrer personene og teamene som krediteres på innholdet ditt.",
+	"gg3B6D": "Ordnede blokker for sidebygging",
+	"gg3Rpy": "Gjenopprette denne versjonen?",
+	"gi93Yg": [
+		[
+			"records",
+			"plural",
+			{
+				"one": [
+					"#",
+					" post skrevet"
+				],
+				"other": [
+					"#",
+					" poster skrevet"
+				]
+			}
+		]
+	],
+	"gqERK4": [
+		[
+			"words",
+			"plural",
+			{
+				"one": [
+					"#",
+					" ord"
+				],
+				"other": [
+					"#",
+					" ord"
+				]
+			}
+		]
+	],
+	"gqKNvM": "Sende e-post til alle brukere?",
+	"gqwt7u": "Signert utgivelse verifisert",
+	"gtFAk8": "Kunne ikke hente medier",
+	"gtocm4": "{title} er et utkast igjen.",
+	"guLK/N": "Hvorfor er dette viktig for deling i sosiale medier?",
+	"guO1+G": [
+		[
+			"count",
+			"plural",
+			{
+				"one": [
+					"#",
+					" blokk"
+				],
+				"other": [
+					"#",
+					" blokker"
+				]
+			}
+		]
+	],
+	"gvTkLN": "Fant ikke utvidelsen",
+	"gwt0N7": "Kunne ikke hente mediemapper",
+	"gxxEF7": "En post i pakken er ugyldig",
+	"gyJgZO": "Kunne ikke bekrefte at bruksdataene er fullstendige.",
+	"h081HY": "Skriv for å søke",
+	"h0W4PA": "Alle opplastinger er ferdige",
+	"h5PZw6": "Sporing av mediebruk er av",
+	"hBgnr5": "Fjernet et listeelement",
+	"hBlIcx": "Velg {label}",
+	"hCVxfe": "Kunne ikke fortsette importen",
+	"hDqqh3": "Behold verdien på dette nettstedet: «{targetValue}»",
+	"hETySW": "Utvidelseshandlinger",
+	"hGDVDa": "Fra {0}",
+	"hHMv6l": "Slett blokk",
+	"hK3QYn": "Kunne ikke hente bylines",
+	"hL5+/P": "Rader",
+	"hLJQ+W": "Kunne ikke hente kommentar",
+	"hRwNme": "Klikk på knappen under for å logge inn:",
+	"hT2KP5": "Nytt byline-felt",
+	"hTXYdY": "Kunne ikke opprette sikkerhetskopi",
+	"hTbTly": "Les om hvordan du installerer utvidelser i <0>dokumentasjonen<1/></0>.",
+	"hV3s4Y": "Alle steder som bruker dette bildet, oppdateres til den beskårede versjonen.",
+	"hXNlao": "Kunne ikke opprette en innloggingslenke",
+	"hXYtlb": "Flyttet et sitat",
+	"hYc9Pk": "https://example.com eller /side",
+	"hYmcmG": "Dette nettstedet har delvise data fra en tidligere import",
+	"hZOIL7": "Bruk også bylinen som er knyttet til forfatteren av oppføringen når oppføringen ikke har noen tildelt.",
+	"hdn5o4": "Versjonen fra {when} blir utkastet ditt og publiseres på det planlagte tidspunktet.",
+	"hfcUuW": "Ulagret innhold kan bli sendt ut av nettstedet ditt",
+	"hfvN4D": "Import forespurt av {requester}",
+	"hh3GJ1": "Ikke-gjest",
+	"hjUom+": "Eldre versjon",
+	"hnBEKE": "Kunne ikke laste inn data til oversikten",
+	"hnN6ru": "Denne koden er ugyldig eller har allerede blitt brukt.",
+	"hp8OtS": "Lagt til",
+	"hq3MQD": "Bare bilde- og filfelt, bilder i rik tekst og nettstedsinnstillinger spores. Egendefinerte riktekstblokker og malkode kontrolleres ikke.",
+	"htIIJR": "Fant ingen innebygd autentisering for passnøkler",
+	"htLaPx": "Validerer pakken",
+	"htYVEg": "Kunne ikke laste inn importen",
+	"hzSjTD": "Denne filen er ikke en EmDash-nettstedspakke: den må begynne med manifest.json.",
+	"i+RFid": "Opprett en profil for noen som krediteres på innholdet ditt.",
+	"i+UQOf": "Fortell brukerne hvor de kan logge inn",
+	"i+rN2j": "Feil ved endring av rekkefølgen på widgetene",
+	"i0bp4h": "Opprett og legg til",
+	"i2U0Zg": "Kvitteringssammendrag",
+	"i3IBD6": "Kunne ikke hente API-tokener",
+	"i4SjUg": "Slå sammen valgte celler",
+	"i4t0Wx": "Kunne ikke laste alle referanser.",
+	"iAWWaD": "Passnøkkel opprettet",
+	"iBKrt/": "Lim inn migreringsnøkkelen din",
+	"iBbn0P": "Forbereder dette nettstedet",
+	"iCTKag": "Kunne ikke opprette relasjon",
+	"iEYxO4": "Vis miniatyrbilder",
+	"iEsPsR": "Flyttet en skillelinje",
+	"iFf7XA": "Velg et bilde fra biblioteket eller last opp et nytt.",
+	"iFlmsp": "Bruk som sluttdato",
+	"iHJNhc": "Velg variant for mørk modus for {label}",
+	"iHZ/1s": "Valgte innlegg",
+	"iHZkLX": "Fjerner punktet i sidepanelet, lenken i kommandopaletten og hurtighandlingen på oversikten. Oppføringer kan fortsatt nås via URL, API og utvidelser",
+	"iIumPn": "CSS-kode",
+	"iJ9a7m": "Forhåndsvisning av HTML-blokk",
+	"iJzkLd": "Ta med utledede bylines",
+	"iKM2jY": "Sideforhold",
+	"iLF5a0": "Automatiske sikkerhetskopier",
+	"iMkWoF": "Slå på",
+	"iQx1bt": "{origin} omdirigerer til et annet sted",
+	"iVR8JQ": "Kunne ikke aktivere versjonen av blokktypen",
+	"iX2lr6": "Laster {pluralLower} …",
+	"iar5oy": "Skjul verktøylinje",
+	"ic5Ln1": "Den versjonen er ikke lenger tilgjengelig. Tilbake til redigering.",
+	"icMNgx": "Kunne ikke slette taksonomi",
+	"icvBtJ": "Det valgte bildet kunne ikke leses.",
+	"ihAyuO": "Importer en nettstedspakke til dette nettstedet mens det er tomt, og overskriv det opprinnelige oppsettet. Administrator inkluderer dette. Velg dette i stedet for Administrator for å gi en agent snevrere tilgang.",
+	"it9DFq": "Utvidelsens resultat er utdatert fordi redigeringsprogrammet ble endret mens den jobbet.",
+	"iug3Zc": "Kunne ikke frigi oppføringslåsen",
+	"izLgiq": "Endre størrelse på innstillingspanelet",
+	"izu0p1": "Fra pakken: «{packageValue}»",
+	"j5XF5E": "Pakken kontrolleres mot dette nettstedet før noe endres. Du kan forlate siden og komme tilbake.",
+	"j66jlb": "Kunne ikke laste opp til leverandør",
+	"jBxmgY": "Erstatte originalbildet?",
+	"jC1HCZ": "Noen medielenker kunne ikke kobles til filer",
+	"jCBgBj": "Kunne ikke laste {pluralLower}.",
+	"jEu4bB": "Kolonner",
+	"jFwa3U": "Når du velger oppføringer som denne lenker til, kan redaktører dra dem i ønsket rekkefølge. Den andre retningen viser alt som peker til oppføringen, og kan ikke sorteres.",
+	"jG7B4P": "En tidligere import av denne pakken skrev til dette nettstedet før den ble avbrutt. Tilbakestill dette nettstedet eller sett opp et nytt før du importerer igjen.",
+	"jHs3Nr": "Tilbake til menyer",
+	"jK5MgX": "Endre størrelse på beskjæringen fra nederste høyre hjørne. Bruk piltastene for å endre størrelse.",
+	"jOvRfh": "Ingenting annet er planlagt denne måneden.",
+	"jPRo6i": "Slipp et bilde her, eller bla gjennom filene for å velge {label}",
+	"jSZF9q": "Flytt medier hit fra Mediedetaljer.",
+	"jZEoSm": "Utløper {expires}",
+	"jcHJE5": "Kunne ikke slette relasjon",
+	"jg4pGU": "Gjenopprettet fra {restoredDate}",
+	"jgiNnq": "Eksisterende innhold er indeksert. Nye endringer spores automatisk.",
+	"jiFxYd": "Bruker uten navn",
+	"jmIApf": "Velg en utgivelse før du verifiserer den",
+	"jn2wHh": "Erstatt referanse",
+	"joTH2x": "Flyttet et avsnitt",
+	"jovliM": [
+		[
+			"maximum",
+			"plural",
+			{
+				"one": [
+					[
+						"name"
+					],
+					" kan ha maks ",
+					"#",
+					" element."
+				],
+				"other": [
+					[
+						"name"
+					],
+					" kan ha maks ",
+					"#",
+					" elementer."
+				]
+			}
+		]
+	],
+	"jpE323": "Registreringsforespørselen mislyktes",
+	"jxaujo": "Hurtighandling på oversikten",
+	"jxfXw4": "Deretter åpnes {0}",
+	"jzXZ5u": "Kunne ikke laste importplanen",
+	"k0Ch9Z": "Sideinndeling for papirkurven",
+	"k2rSfm": "Hvorfor er dette viktig for dupliserte sider?",
+	"k3GUUV": "Slipp ett bilde om gangen.",
+	"k3JXF8": "451 Utilgjengelig av juridiske årsaker",
+	"k3JZ6w": "Kunne ikke kontrollere denne koden",
+	"k4GKvk": "Hvorfor er dette viktig?",
+	"k5+pKI": "Støttes ikke",
+	"k52dpC": "Endre størrelse på beskjæringen fra nederste venstre hjørne. Bruk piltastene for å endre størrelse.",
+	"k76x3g": "Sett inn HTML",
+	"kAHu5P": "Sjekk registry.policy.minimumReleaseAgeExclude i astro.config.mjs, og start EmDash på nytt.",
+	"kAT3rX": "Referert samling",
+	"kBzS9X": "La til et listeelement",
+	"kCEh0m": "En pakkefil mangler",
+	"kClAcb": "{rows} × {columns}-tabell limt inn",
+	"kEobCF": "Kunne ikke laste opp en pakkefil",
+	"kG6wfm": [
+		[
+			"totalScheduled",
+			"plural",
+			{
+				"one": [
+					"Planlagt"
+				],
+				"other": [
+					"Planlagt"
+				]
+			}
+		]
+	],
+	"kIAYIl": "Passnøkler krever en <0>sikker kontekst</0>: bruk <1>HTTPS</1>, eller åpne administrasjonspanelet på <2>http://localhost</2> (med utviklingsporten din). Vanlig <3>http://</3> på et egendefinert vertsnavn regnes ikke som sikkert, heller ikke på loopback.",
+	"kIDmfX": "Importer en nettstedspakke",
+	"kJxoq6": "I Windows-innstillinger åpner du Kontoer, deretter Påloggingsalternativer, og setter opp en PIN-kode. Fingeravtrykk og ansiktsgjenkjenning er valgfrie.",
+	"kK6/lB": "{label} flyttet til posisjon {0} av {1}.",
+	"kLWL3Y": "Kunne ikke bekrefte om medieelementet eller den valgte mappen fortsatt finnes. Prøv igjen.",
+	"kNGLX6": "Prøver på nytt …",
+	"kNqMMd": "Mappe",
+	"kSBNhg": "Samme som gjeldende versjon",
+	"kSqJQS": "<0>Alt-klikk</0> for å legge til over",
+	"kX6puK": "Kunne ikke hente blokktype",
+	"kbVDwN": "Publisert av <0/>",
+	"kePYri": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" relasjon denne innholdstypen inngår i"
+				],
+				"other": [
+					"#",
+					" relasjoner denne innholdstypen inngår i"
+				]
+			}
+		]
+	],
+	"kf0oY6": "Vi sjekket dette før nettleserens passnøkkelvindu ble åpnet, slik at du kan velge hva som skal skje videre.",
+	"kgbMzZ": "Animerte WebP-filer blir stillbilder når de beskjæres.",
+	"khtYSH": "utkast, publisert eller arkivert",
+	"kjxCep": "Prøv et annet filnavn, eller fjern søket og filtrene.",
+	"kk6uJR": "Laster blokktyper …",
+	"kkFodk": "Flyttet et innebygd element",
+	"kknhfj": "Ingen endringer",
+	"km075c": "Mindre seksjonsoverskrift",
+	"knExCm": "Start nummereringen på nytt",
+	"koOGsw": "{widgetType} i {areaName}",
+	"kocuzf": "For best mulig import bør du installere utvidelsen <0>EmDash Exporter</0> på WordPress-nettstedet ditt.",
+	"krTDl6": "En relasjon definerer hvordan to innholdstyper henger sammen. Referansefelt på begge sider velger deretter oppføringer gjennom den.",
+	"krqCMu": "Ingen samsvarende blokktyper",
+	"ktIwfR": "Kunne ikke registrere {slug}",
+	"kx0s+n": "Resultater",
+	"kx5WgX": "Ingen byline tildelt",
+	"kxknTb": "Blokktyper kunne ikke lastes.",
+	"l/Oars": "Kopierer medier",
+	"l05B5N": "Slugs for underfelt kan ikke endres etter opprettelsen.",
+	"l2SZuE": "Fant ikke noe innhold",
+	"l6GfXr": "Starter",
+	"l9DTm9": "Vis antall",
+	"lIixwS": "Assistenten kan starte akkurat denne importen én gang, innen 15 minutter. Den erstatter dette nettstedets startinnhold med pakken den analyserte.",
+	"lJLrPL": "Fjerner startinnhold",
+	"lKhv/y": "Kunne ikke hente utvidelser",
+	"lLhYZw": "Denne lenken utløper om 15 minutter.",
+	"lMzLP1": "Disse verktøyene forblir deaktivert etter installasjonen til du eksplisitt slår på agenttilgang.",
+	"lPkPMD": "Bruksdetaljer er utilgjengelige",
+	"lTuqBe": "1 innlegg oppdatert",
+	"lUJ2Yb": "Mappe utilgjengelig",
+	"lUZWLK": "Fjernet et avsnitt",
+	"lWhqAL": "Kunne ikke flytte filen",
+	"lX7zb2": "Størrelse gjelder ikke for mapper",
+	"lXyrmd": "Velg en fil fra biblioteket eller last opp en ny.",
+	"lYI6Dg": "Nylige eksporter",
+	"lZu8gw": "Denne oppføringen skulle vært publisert {lateness}, men er ikke publisert. Planlagt publisering kjører kanskje ikke.",
+	"lbgh2Q": "Alle kilder",
+	"lcAr+f": "Dette ser ikke ut som en gyldig migreringsnøkkel. Generer en ny i utvidelsen og lim inn hele strengen som starter med «em1.».",
+	"llDXYJ": "Sikkerhetskopier",
+	"lnWve4": "Søk i stikkord",
+	"loZ617": "Kunne ikke hente meny",
+	"lpEnE5": "Om utledede bylines",
+	"ltPxNt": "Kunne ikke hente widgetområder",
+	"luDTEb": "Utvidelsespanelet er utilgjengelig.",
+	"lwkfCT": "Offentlige ruter",
+	"m+Ua7e": "Fjernet en skillelinje",
+	"m64wqx": "Lagret «{0}».",
+	"mEVdEp": "Send e-post via nettstedet ditt",
+	"mFgQ0x": "«{0}» blir slettet fra {providerName}.",
+	"mHHKzj": "Kunne ikke laste detaljene for denne oppføringen.",
+	"mJEjsc": "Fjernet en video",
+	"mMQ3MX": "Kunne ikke godkjenne forespørselen",
+	"mMqZDg": "WordPress-autorisasjonen ble avvist",
+	"mNurrH": "Vent til pågående oppdateringer er ferdige.",
+	"mOFgdC": "Maksimum",
+	"mOl6IT": "Søkeskjema",
+	"mSOqav": "Slipp for å legge til widget",
+	"mSj/dN": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"+",
+					"#",
+					" til"
+				],
+				"other": [
+					"+",
+					"#",
+					" til"
+				]
+			}
+		]
+	],
+	"mWCZbu": "URL og språk",
+	"mWr6me": "Mellom {min} og {max}",
+	"mXT7xX": "Sjekk serverloggene, og bruk deretter API-et for gjenoppretting av mediebruk på jobbene som mislyktes.",
+	"mXch1T": "La til en kodeblokk",
+	"mXyHVa": "Ubrukte referanser ble utelatt",
+	"mabZXr": "Legg til minst {minItems} blokker.",
+	"mbwlvg": "Passnøkler fra den gamle adressen fungerer ikke der. Logg inn med en e-postlenke, og legg deretter til en passnøkkel i sikkerhetsinnstillingene.",
+	"meooBf": "Lenker i e-poster og utvidelser bruker {0}, satt av distribusjonskonfigurasjonen.",
+	"mhsnB6": "Utgått",
+	"mia08l": "Sett inn bilde",
+	"mjuIQ9": "Sjekk tilkoblingen din og prøv igjen.",
+	"mlZLUs": "Rediger ressurs for mørk modus",
+	"mx+777": "Ren tekst over flere linjer",
+	"myOsfJ": "Kunne ikke endre rekkefølgen på menyelementer",
+	"myiIYc": "Publisert {liveSince}",
+	"n5Ynvk": "En import erstatter startinnholdet på et nytt nettsted, så den kan bare kjøres på et nettsted uten eget innhold. For å flytte innhold hit, sett opp et nytt EmDash-nettsted og importer til det. Dette er det dette nettstedet allerede har:",
+	"n6+BBp": "Skriv skjema",
+	"n9a3Ju": "La til en tabell",
+	"nAGBQY": "Skriv medier",
+	"nBliHU": "Den siste eksporten mislyktes",
+	"nBqgQb": "E-postadressen din",
+	"nGhnco": "Sikkerhetskopi opprettet: {0}",
+	"nHtY8k": "Pakken inneholder en fil som er større enn dette nettstedet godtar.",
+	"nJeKmw": "Overskrift 4",
+	"nLxiib": "Bruk små bokstaver, tall og bindestreker, og begynn med en bokstav.",
+	"nMPsXp": "Denne blokken bygger inn en side fra {0}.",
+	"nOPbWJ": "Høyre",
+	"nPK0j/": "Velg når disse endringene skal erstatte den publiserte versjonen.",
+	"nPNM1c": "Last ned eksport fra {created}",
+	"nPzw/d": "Etter at du eksplisitt kjører denne utvidelsen, kan den sende valgt ulagret redigeringsinnhold til: {0}",
+	"naCprc": "Kunne ikke hente innstillinger",
+	"nasPCC": "Administrer innholdswidgeter i widgetområdene dine",
+	"nbqMXQ": "Velg logo",
+	"nfTDQ3": "Mappenavnet må være mellom 1 og 200 tegn",
+	"ngIHBb": "Antall poster samsvarer ikke med manifestet",
+	"nk9Szt": "Lenker til",
+	"nku2Y8": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" taksonomi opprettet"
+				],
+				"other": [
+					"#",
+					" taksonomier opprettet"
+				]
+			}
+		]
+	],
+	"noAbDn": "Kunne ikke erstatte mediebildet",
+	"noe69S": "Legg til referanse",
+	"nr0Bxd": "Kunne ikke oppdatere medier",
+	"nsDYSY": "Kunne ikke opprette API-token",
+	"nvVzbM": "Sikkerhetsvurderingen merket denne utvidelsen som mulig utrygg.",
+	"nwN/Cb": "Mønster for generering av URL-er, f.eks. /blog/{0}. Tokener: {1}, {2} og datotokener {3}/{4}/{5} (også {6}/{7}/{8}) fra publiseringsdatoen, f.eks. {9} for permalenker i WordPress-stil.",
+	"nwSGij": "Mer enn ett innlegg samsvarer med denne lenken",
+	"nxhNRp": "To forfattere med bylines i samme språkvariant er tilordnet samme bruker",
+	"o1F8x+": "Endret et bilde",
+	"o7J4JM": "Filtrer",
+	"oA88Qj": "https://dittnettsted.no",
+	"oGA1Eu": "Ingen ventende forespørsler",
+	"oH5bTG": "Dette nettstedet har ingen øktlagring konfigurert, så innlogging kan ikke fullføres. Be nettstedsadministratoren om å angi session.driver i astro.config.mjs.",
+	"oI0J2K": "oppføring på den lenkede siden",
+	"oIc3o6": "Denne utvidelsen kan ikke installeres fordi utgiverprofilen mangler gyldige verifiseringsmetadata. Be utgiveren publisere den på nytt med nyeste versjon av CLI-et for EmDash-utvidelser.",
+	"oJbqOl": "Publiseringssammendrag",
+	"oL6utZ": "Fjernet sluggen",
+	"oLMeIl": "Fortsett til import",
+	"oMUUWP": "Logg inn på {siteName}",
+	"oNxGCM": "Velg et annet alternativ",
+	"oSnMbX": "Kunne ikke oppdatere omdirigering",
+	"oWdb1T": "Bildet er erstattet.",
+	"obAYfl": "Se gjennom det uavhengig verifiserte utgivelsesbeviset og tillatelsene for {pluginName} før du fortsetter.",
+	"oc3LDV": "Alternativ tekst gjelder ikke for mapper",
+	"od+Hc+": "Aktiver MCP-verktøy i utvidelser",
+	"ojLvJk": "Sett inn et bildegalleri",
+	"omF0Wi": "Flyttet til avsnitt før tabell",
+	"ooYkBi": "Denne blokken kjører JavaScript.",
+	"os4X4a": "Erstatt video",
+	"os7rRw": "Legg til enda en byline",
+	"ouFUUj": "En mediefil er større enn dette nettstedet godtar",
+	"ow+RHz": "Legitimasjonsbehandleren din, for eksempel iCloud-nøkkelring, lagrer den og kan synkronisere den til de andre enhetene dine.",
+	"oxe9Dw": "Egendefinerte taksonomier",
+	"oxlXy9": "Laster widgeter …",
+	"oydYuF": "Kunne ikke laste innstillinger for sikkerhetskopi",
+	"p/83Hr": "<0>{from}</0> blir <1>{to}</1>",
+	"p21F1U": [
+		[
+			"policyRejected",
+			"plural",
+			{
+				"one": [
+					"Åpne den berørte oppføringen, løs årsaken til avvisningen og planlegg den på nytt. Meldingen forsvinner når planleggingen eller publiseringen lykkes."
+				],
+				"other": [
+					"Åpne de berørte oppføringene, løs årsakene til avvisningen og planlegg dem på nytt. Hver melding forsvinner når planleggingen eller publiseringen lykkes."
+				]
+			}
+		]
+	],
+	"p3XUkk": "Hold denne siden åpen. Hvis du forlater den, fortsetter eksporten når du kommer tilbake.",
+	"p4Upc/": "Forkaste endringene i utkastet?",
+	"p4txGJ": "Tilbake til redigering (Esc)",
+	"p6XqKo": "Kunne ikke slette widget",
+	"p7/fS2": "Utvalg",
+	"pCFvly": "Kunne ikke legge til widget",
+	"pKPJ1a": "Tilgjengelige bylines",
+	"pLF02K": "{name} samsvarer ikke med det påkrevde formatet.",
+	"pLXmSj": "Dette innholdet blir synlig på nettstedet umiddelbart.",
+	"pMK7+r": "Skjul tidligere oppføringer",
+	"pOo4Aa": "Ren tekst",
+	"pQszWq": "Sikkerhetsvurderingen fant mulige problemer",
+	"pSJJY/": "Startinnhold som fjernes",
+	"pTGa/J": "Oppdater status",
+	"pUbcSv": "Lenkealternativer",
+	"pUbgxd": "Ingen passnøkler registrert ennå.",
+	"pV4KKD": "Velg alle på denne siden",
+	"pWqmAE": "Denne utvidelsen kan ikke installeres fordi de signerte utgiverpostene ikke ble bekreftet. Be utgiveren publisere en rettet utgivelse.",
+	"pYWoRW": "Fortsett med sikkerhetsnøkkel",
+	"paxAB8": "Redigerte en HTML-blokk",
+	"pd0UH2": "Høyrejuster",
+	"piEV3l": "Pakken inneholder en oppføring som ikke er en vanlig fil.",
+	"pmIIan": "Endret stilen på et sitat",
+	"pt6YJE": "Fjerne bildet?",
+	"puz3fx": "Rull for å gjennomgå alt",
+	"pvuH/k": "Legg til byline",
+	"pvzjDj": "Hva skjer videre?",
+	"pwv4w6": "Kunne ikke se etter oppdateringer",
+	"q+bMmy": "Tabellkontroller",
+	"q3AOio": "Kunne ikke starte eksport",
+	"q5LKWN": "Dette feltet viser <0>{0}</0> som denne {linkingSide} lenker til",
+	"q5kJP2": "Skriv HTML, eller lim inn et utdrag med stiler og skript …",
+	"q5z0dQ": "Redigering er låst opp igjen. Innhold som importen allerede har skrevet, blir værende på nettstedet og fjernes ikke. Fordi nettstedet ikke lenger er tomt, kan det ikke kjøres en ny import her.",
+	"qAEphQ": "Eksporter nettsted",
+	"qC30Qv": "Endre <0>{0}</0> fra <1>{1}</1> til <2>{2}</2>? Brukeren mister tilgang til funksjoner på høyere nivå.",
+	"qDrMta": "{0} av {1} filer · {2} av {3}",
+	"qKx+US": "Beskjær",
+	"qLgcL9": "Les taksonomiene og termene dine",
+	"qNUKgA": "Kopier {label}",
+	"qO2D3K": "Lukk feilmelding om tabellliming",
+	"qOeDqt": "Tabellceller godtar bare tekst, lenker og formatering.",
+	"qQnJrl": "Klar til å publiseres nå eller planlegges til senere",
+	"qWQs2j": "Fortsett på {handoverHost}",
+	"qY8wNa": "Forside",
+	"qagQlw": "Hva hver side kalles. Disse navngir feltene som er knyttet til denne relasjonen.",
+	"qazRzL": "Assistenter som er koblet til via MCP trenger godkjenning fra en administrator for å starte en eksport eller import, med mindre tokenet har fått overføringsomfang. Forespørsler utløper etter 15 minutter.",
+	"qcawwg": "Publiser nå",
+	"qcloGZ": "Ikke bestått",
+	"qdDcwx": "Språkvarianter bruker dette nettstedets store og små bokstaver",
+	"qgqapu": "Legg til i innlegg",
+	"qhiF8U": "Videohandlinger",
+	"qqN/PZ": "Mappen finnes ikke lenger. Du er tilbake i hovedbiblioteket.",
+	"qr0gpK": "Slett stikkord",
+	"qsOSDG": "Kunne ikke legge til {singularLower}",
+	"qsWIqh": "Uløst tildeling",
+	"qtntpY": "Kunne ikke hente innstillinger for sikkerhetskopi",
+	"qz7mwn": "Navn på passnøkkel",
+	"r/umJ2": "Sett inn eller trykk på sikkerhetsnøkkelen din når nettleseren ber om det.",
+	"r1W1oz": "Lukk byline-søk",
+	"r4VQCT": "Kolonne lagt til foran",
+	"r7ZckI": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Bruker"
+				],
+				"other": [
+					"Brukere"
+				]
+			}
+		]
+	],
+	"rGQ48w": "Rekkefølgen bestemmer hvordan blokktyper vises i velgeren.",
+	"rLmrr+": "Kunne ikke hente byline-felt",
+	"rLxH/7": "Hvis du ikke ba om dette, kan du trygt ignorere denne e-posten.",
+	"rOEnQ0": "Kunne ikke hente kommentarer",
+	"rPrVeZ": "Hva som importeres",
+	"rRWwGM": "Slett taksonomi",
+	"rRZjIm": "Flytt til papirkurven",
+	"rSCGc2": "Åpne {0} i en ny fane",
+	"rTFvEI": "Kunne ikke opprette blokktype",
+	"rTiG7s": "Dette feltet godtar ikke {0}-filer.",
+	"rUWN6C": "Legg til referanser",
+	"rUk2md": "Laster oppsett …",
+	"rWQEPM": "Importerer innhold",
+	"rYvD/C": "Bekreft med fingeravtrykk, ansikt eller PIN-kode.",
+	"ra+K+/": "Taksonomi",
+	"repL42": "Tilbakestill kolonnebredder",
+	"rf0dyS": "Opprett ny {singularLower}",
+	"rg9pXu": "Søket mislyktes",
+	"riB3A8": "Kunne ikke oppdatere menyelement",
+	"rls/Ro": "Kommentarer med denne statusen vises her.",
+	"rmzLH5": "Kunne ikke oppdatere bruker",
+	"rnJiDp": "Opptil {MAX_SELECTED} bylines kan velges",
+	"rnvdGQ": "Kunne ikke laste importer",
+	"roAe2K": "Lenke-URL",
+	"rqCo6p": "Standardbilde for sosiale medier",
+	"rvO3Ox": "Last ned dette nettstedet som én enkelt .emdash-pakkefil som et annet EmDash-nettsted kan importere.",
+	"rvl6W6": "Sporing av mediebruk indekserer eksisterende innhold",
+	"rvofnW": "Last ned pakke henter eksportfilen fil for fil og kontrollerer hver enkelt, så det fungerer for nettsteder av alle størrelser. Last ned som én fil ber serveren om ett enkelt arkiv, noe som er raskere for små nettsteder, men kan mislykkes for store nettsteder på Cloudflare Workers.",
+	"ry0rz8": "Flytt dette nettstedet til en annen EmDash-installasjon, eller importer en nettstedspakke",
+	"rzyTUJ": "Legg til {singularLower} i innlegg",
+	"s+CRdP": "Hver {linkingSideName} lenker til",
+	"s0euVD": "Kolonne lagt til etter",
+	"s2+GNH": "Kunne ikke laste kalenderen",
+	"s308Wd": "Kunne ikke opprette taksonomi",
+	"s3qWED": "Kunne ikke opprette termoversettelse",
+	"s41ouF": "Kontrollerer poster",
+	"s4Vv8l": "Sjekker autentisering …",
+	"s5v0OK": "Gjennomgå og moderer kommentarer på tvers av innholdet ditt.",
+	"s6B3oh": [
+		[
+			"characters",
+			"plural",
+			{
+				"one": [
+					"#",
+					" tegn"
+				],
+				"other": [
+					"#",
+					" tegn"
+				]
+			}
+		]
+	],
+	"s6v5Qv": "{host} løses ikke til en offentlig adresse",
+	"s6vhNy": "Forhåndsvis endringer",
+	"s7ZvZ3": "Lenket side (entall)",
+	"sA8nS5": "Redigerte en kodeblokk",
+	"sCtyHQ": "Last opp filer",
+	"sDDRDu": "Kunne ikke registrere foreldreløs tabell",
+	"sDeL8C": "Redigering er satt på pause til importen er ferdig. Hold denne siden åpen; hvis du forlater den, fortsetter importen når du kommer tilbake.",
+	"sEi4uU": "Ikke lenket",
+	"sHcEup": "Nettstedsidentitet",
+	"sKgNxK": "Les bevart versjonshistorikk for innhold",
+	"sLdd/B": "Les innholdet i mediefiler",
+	"sPw5vr": "Kjører HTML, CSS og JavaScript i en sandkasse.",
+	"sR7PBA": "Valgfritt verktøytips",
+	"sRwdGR": "To poster har samme verdi der den må være unik",
+	"sTNsJ9": "YouTube-kanal-ID-en eller -aliaset ditt",
+	"sTqIDm": "Mediemapper",
+	"sXjbtR": "Redigerte en bildebeskrivelse",
+	"sYt5+N": "Les valgt ulagret redigeringsinnhold etter at du eksplisitt kjører utvidelsen",
+	"sZ4Zv2": "Slå på sporing for å indeksere eksisterende innhold og holde referanser oppdatert.",
+	"scUdcJ": "Filter: {activeCount} valgt",
+	"sdFXHq": "Ny gjenbrukbar profil",
+	"se9WaZ": [
+		[
+			"earlierCount",
+			"plural",
+			{
+				"one": [
+					"Vis ",
+					"#",
+					" tidligere oppføring"
+				],
+				"other": [
+					"Vis ",
+					"#",
+					" tidligere oppføringer"
+				]
+			}
+		]
+	],
+	"seoGtg": "{0} av {total} kunne ikke oppdateres",
+	"sg7lpL": "Kunne ikke laste importkvittering",
+	"sj4xOB": "Kunne ikke hente medieleverandører",
+	"skwzjK": "Ikke koble",
+	"srTx9k": "Dupliser blokk",
+	"suc/Mf": "Søket i markedsplassen mislyktes",
+	"svTuH8": "Utgiverens utgivelsespolicy",
+	"svdJpI": "Kilde- og målspråk er påkrevd",
+	"sxYfTR": "Last opp en video for å komme i gang",
+	"sxkWRg": "Avansert",
+	"t+6D04": "Du har ikke tillatelse til å se kalenderen.",
+	"t/Xn8Y": "Aktiveringen kan ikke bekreftes. La redigeringen være satt på pause, og oppdater statusen.",
+	"t0m/8s": "{label} (vis oversettelse)",
+	"t0rW/2": [
+		[
+			"hidden",
+			"plural",
+			{
+				"one": [
+					"+",
+					"#",
+					" til"
+				],
+				"other": [
+					"+",
+					"#",
+					" til"
+				]
+			}
+		]
+	],
+	"t4Hz92": "EmDash skanner eksisterende innhold.",
+	"t4bAuS": "Velg en relasjon",
+	"t6MUfm": "Temasøk mislyktes",
+	"tC1/1M": "2. Gå til <0>Verktøy → Eksporter</0>",
+	"tDV36S": "Lagre dato",
+	"tF1WrU": "Skriv inn domenet nedenfor. EmDash kontrollerer at domenet peker til dette nettstedet før byttet.",
+	"tF5Smn": "Last inn siden på nytt",
+	"tKFjj3": "Velg et nytt publiseringstidspunkt for dette utkastet.",
+	"tMI6JZ": "Alle andre brukere med en aktiv konto får en e-post om at nettstedet nå ligger på {siteHost}, med en lenke for å logge inn der. Passnøkler fra en annen adresse fungerer ikke på {siteHost}, så brukerne logger inn med en e-postlenke og legger til en ny passnøkkel.",
+	"tOcErW": "Kunne ikke oppdatere innstillinger",
+	"tS68Vv": "Relasjonen avgjør hvilken samling som refereres og hvor mange oppføringer dette feltet godtar.",
+	"tT/bSk": "Legg til rad over",
+	"tUQdft": "Kolonnebredder tilbakestilt",
+	"tXzUI9": "Endre størrelse på beskjæringen fra høyre kant. Bruk piltastene for å endre størrelse.",
+	"tY2D4M": "<0>{name}</0> har nå låst denne oppføringen, så endringene dine lagres ikke lenger. Ta den tilbake for å fortsette.",
+	"tYyhL4": "Kunne ikke analysere importen",
+	"tZObH3": "Oppsettet kunne ikke fortsette. Prøv igjen.",
+	"tcfTaG": "Kunne ikke invitere bruker",
+	"td7OMU": "Flyttet en video",
+	"tdbeIu": "Bare HTML, renset, med nettstedets stiler.",
+	"teI8N3": "Laster redigeringsverktøyet …",
+	"tf4hgA": "Kunne ikke sette inn seksjon",
+	"thrRWq": "Importert per samling",
+	"to5reH": "Passnøkkelen er lagret på den fysiske sikkerhetsnøkkelen din og kan brukes på kompatible enheter.",
+	"toJdZA": "Endre rekkefølge",
+	"tspiKT": "Flytt {0} ned",
+	"tvBbr6": "Nettstedets URL er satt til {url}",
+	"tvhPVo": "Ingen offentlig URL tilgjengelig",
+	"tviyyh": "En verdi passer ikke i dette nettstedets database",
+	"twIfSX": "Et navn kan ikke genereres fra denne etiketten. Skriv inn ett manuelt med små bokstaver, tall og understrekingstegn.",
+	"txPjmn": "{added} oppdatert · {0} mislyktes",
+	"u/DP73": "Alternativ tekst",
+	"u0fx2B": "Widgetområder",
+	"u0kPUH": "Kunne ikke laste innhold.",
+	"u1j0YH": "Tilbake til redigering",
+	"u2HXZY": "Kunne ikke oppdatere",
+	"u2KaNc": "Dette nettstedet har allerede innhold, så det kan ikke motta en import.",
+	"u39s3I": "Skulle vært publisert",
+	"u4L+qv": "{0} av {total} kunne ikke publiseres",
+	"u8COxo": "Kunne ikke hente menyer",
+	"uAWsVn": "Ikke registrert i denne versjonen",
+	"uBgQ6t": "Celler slått sammen",
+	"uCoU/G": "Kunne ikke søke etter bylines.",
+	"uG5MdG": "oppføring på den lenkende siden",
+	"uGtxaX": "Prøv de mislykkede på nytt",
+	"uIy91B": "Endringer i utkast",
+	"uJfSfr": "Endret stilen på «{snippet}»",
+	"uJl9hF": "Kunne ikke publisere",
+	"uKXX6z": "Publiser, avpubliser, planlegg og fjern planlegging av innhold",
+	"uPHscS": "Rediger mappe",
+	"uQvtZq": "Minste seksjonsoverskrift",
+	"uRnN/D": "Endret et galleri",
+	"uVb37H": "Beskjæringsområde: {0} × {1} piksler.",
+	"uWCO8D": "Utgiveridentiteten kan ikke bekreftes.",
+	"uXX7lw": "Passnøkler fungerer bare på adressen der de ble opprettet. Etter byttet fortsetter du å logge inn på gjeldende adresse, eller bruker en e-postinnloggingslenke på den nye.",
+	"uZ9JMU": "For å flytte et nettsted til en annen EmDash-installasjon, bruk <0>Overføring</0>.",
+	"ug8XC3": "Passnøkkelen har fått nytt navn",
+	"ukH0aS": "Justering",
+	"ulsJ4S": "Vis oppsett",
+	"unVZzy": "Datofelt å filtrere på",
+	"uvDELM": "Botbeskyttelse blokkerte tilkoblingen",
+	"uyG1Zq": "HTML-kode",
+	"v1ykzM": "Importen mislyktes",
+	"v2Mz8J": "Prøv igjen.",
+	"v49gqW": "Utvidelsesverktøy: {0}",
+	"vB0sPd": "Kunne ikke låse oppføringen",
+	"vBjVdO": "Søk i gjenbrukbare offentlige profiler.",
+	"vEWQoI": "Kunne ikke laste ned en pakkefil",
+	"vI66Ue": "Last inn på nytt etter at du har oppdatert EmDash, før du prøver igjen.",
+	"vJCFBD": "Les og gjenopprett innhold i papirkurven",
+	"vLMk1e": "Fant EmDash Exporter-utvidelsen. Du kan importere direkte.",
+	"vW6bMd": "Spor hvor medier brukes i innholdet ditt",
+	"vWHUXv": "Innholdstyper med samme gruppe deler en sammenleggbar mappe i sidefeltet",
+	"vXDEVQ": "Bredder",
+	"vaizKG": "Publiseringsdato",
+	"vcyrja": "Gi menyen nytt navn",
+	"ve0TRD": "Agenttilgang for {0} er oppdatert",
+	"vew4eH": "Sett opp Windows Hello",
+	"vh1W9Q": "Les omdirigeringsregler",
+	"viEewP": "Kunne ikke oppdatere utvidelsesinnstillinger",
+	"viJSRT": "Siste side",
+	"viTYvt": "Kunne ikke oppdatere tillatt domene",
+	"vijobM": "Bare bilder og videoer kan lastes opp her.",
+	"visualEditing.altText": "Alternativ tekst",
+	"visualEditing.altTextPlaceholder": "Beskriv bildet",
+	"visualEditing.back": "Tilbake",
+	"visualEditing.draft": "Utkast",
+	"visualEditing.editMode": "Redigeringsmodus",
+	"visualEditing.hideToolbar": "Skjul verktøylinje",
+	"visualEditing.image": "Bilde",
+	"visualEditing.loading": "Laster …",
+	"visualEditing.mediaLibrary": "Mediebibliotek",
+	"visualEditing.mediaLoadFailed": "Kunne ikke laste medier",
+	"visualEditing.noImageSelected": "Ikke noe bilde valgt",
+	"visualEditing.noImagesFound": "Fant ingen bilder",
+	"visualEditing.openInAdmin": "Åpne i administrasjonspanelet",
+	"visualEditing.publish": "Publiser",
+	"visualEditing.publishFailed": "Publisering mislyktes. Sjekk tillatelsene dine og prøv igjen.",
+	"visualEditing.published": "Publisert",
+	"visualEditing.publishing": "Publiserer …",
+	"visualEditing.refreshPage": "Oppdater siden",
+	"visualEditing.removeImage": "Fjern",
+	"visualEditing.replaceImage": "Erstatt",
+	"visualEditing.saveFailed": "Lagring mislyktes",
+	"visualEditing.saved": "Lagret",
+	"visualEditing.saving": "Lagrer …",
+	"visualEditing.sessionExpired": "Redigeringsøkten har utløpt. Oppdater siden for å fortsette.",
+	"visualEditing.unpublishedChanges": "Upubliserte endringer",
+	"visualEditing.unsaved": "Ulagret",
+	"visualEditing.uploadImage": "Last opp",
+	"visualEditing.uploadingFile": "Laster opp {filename} …",
+	"vjMDVU": "Bildet er erstattet:",
+	"vl1Yse": "Isolert ramme",
+	"vm7+GO": "Søkeresultater for innhold",
+	"vogWqR": "Disse regnearkdataene har celler med ugyldige anførselstegn. Rett opp anførselstegnene eller fjern tabulatorene, og prøv igjen.",
+	"vqwaka": "Ingen innlastede oppføringer samsvarer med disse filtrene",
+	"vwKERN": "Kunne ikke slette sikkerhetskopi",
+	"vwUH1R": "Ingen bylines ennå",
+	"vyGmFh": "Kunne ikke hente samlinger",
+	"vyh9vR": "Kunne ikke publisere innhold",
+	"w/q0/5": "Bildekontroller",
+	"w2VeUP": "Innholdstyper",
+	"w38AuA": "Hurtigopprettelse gir relasjonen navn etter dette feltet og denne samlingen, henter hvor mange oppføringer den rommer fra bryteren ovenfor, og setter ingen grense for hvor mange oppføringer som lenker tilbake i den andre retningen. <0>Opprett relasjonen selv</0> for å angi sluggen, navnet hver side går under og begge grensene, og velg den deretter ovenfor.",
+	"w6BEI8": "Oppdater emdash-pakken i prosjektet ditt og distribuer på nytt for å få de nyeste rettelsene.",
+	"w7Xe3/": "Fant ingen Windows Hello-autentiserer",
+	"wBhZEG": "{siteZone} · Din tid: {viewerZone}",
+	"wDXdlA": "Ingen kommentarer merket som søppelpost.",
+	"wEAAqK": "Dette nettstedet kan ikke motta en import",
+	"wEB7zZ": "Redigeringslåsing",
+	"wFuvsd": "Markedsplassen er ikke lenger tilgjengelig. Administrer installerte utvidelser fra Utvidelser.",
+	"wIP0Ho": "Rediger {label}",
+	"wJijgU": "Plassering",
+	"wKx8c3": "Endringer gjelder overalt der denne bylinen vises.",
+	"wM54bm": "Alternativer for HTML-blokk",
+	"wSkue+": "Fjern planlegging",
+	"wUfiAA": "Lenkende side (flertall)",
+	"wWgUTd": "Hva den utelater",
+	"wWuBjR": "Byggopprinnelsen samsvarer med denne utgivelsen og pakken.",
+	"wZeUYU": "Lenker fra",
+	"wZf3QK": "Godkjenn med ansiktet, fingeravtrykket, PIN-koden eller koden på den enheten.",
+	"wc0yWA": "Kunne ikke hente byline-oversettelser",
+	"wcydjE": "{row} × {column}-tabell",
+	"we01sJ": "Planlagt publisering trenger oppmerksomhet",
+	"wf6nBY": "Se gjennom verifisert utvidelse",
+	"wg0rmC": "Importerer termer og bylines",
+	"wiQMMj": "Legg til valgte",
+	"wlBilt": "Dette feltet inneholder tabellinnhold som redigeringsverktøyet ikke kan bevare. Oppdater det via API-et før du redigerer eller lagrer dette innholdet.",
+	"wm4mjb": "Lenket fra {0}",
+	"wmGsBA": "Sideinndeling for {collectionLabel}",
+	"wnLUVf": "Kunne ikke laste eksporter",
+	"wnZGEi": "Velg erstatningsbilde",
+	"wni60G": "/gammel-side eller /blogg/[slug]",
+	"wwu18a": "Ikon",
+	"wzIy8K": [
+		[
+			"selectedCount",
+			"plural",
+			{
+				"one": [
+					"Flytte ",
+					"#",
+					" element til papirkurven? Du kan gjenopprette det senere."
+				],
+				"other": [
+					"Flytte ",
+					"#",
+					" elementer til papirkurven? Du kan gjenopprette dem senere."
+				]
+			}
+		]
+	],
+	"wzbER6": "Kunne ikke hente oppdateringsstatus",
+	"wzyfku": "Kunne ikke opprette menyelement",
+	"x/4m9x": "Laster termer …",
+	"x/F04H": "Eksportert",
+	"x1fMXJ": "Lagre planlegging",
+	"x1jh1m": "Redigerte «{snippet}»",
+	"x5jP2m": "Søk etter bylines å legge til …",
+	"x9SwuG": "Søket mislyktes. Sjekk tilkoblingen din og prøv igjen.",
+	"x9WS62": "Avbryt {0}",
+	"xAJS75": "Skill klassenavn med mellomrom. Temaer kan bruke dem til å utforme lenken.",
+	"xAUsvz": "Last ned som én fil",
+	"xBpDzm": "Siste innlegg",
+	"xC+c8f": "Kunne ikke oppdatere blokktype",
+	"xCJdfg": "Tøm",
+	"xIxm0t": "Innbyggingskode",
+	"xLUnC0": "Besøkende ser fortsatt den publiserte versjonen",
+	"xOdw7g": "Dette medieelementet finnes ikke lenger.",
+	"xVT291": "Publisert versjon",
+	"xYTqB8": "Flytter {label} til posisjon {0} av {1}.",
+	"xbKose": "Første publisering",
+	"xc5SAj": "Laster eksporter …",
+	"xcyQXa": [
+		[
+			"rewrittenUrls",
+			"plural",
+			{
+				"one": [
+					"<rewrittenCount>",
+					"#",
+					"</rewrittenCount> bilde-URL oppdatert i ",
+					[
+						"updatedContentItems",
+						"plural",
+						{
+							"one": [
+								"<contentCount>",
+								"#",
+								"</contentCount> innholdselement"
+							],
+							"other": [
+								"<contentCount>",
+								"#",
+								"</contentCount> innholdselementer"
+							]
+						}
+					]
+				],
+				"other": [
+					"<rewrittenCount>",
+					"#",
+					"</rewrittenCount> bilde-URL-er oppdatert i ",
+					[
+						"updatedContentItems",
+						"plural",
+						{
+							"one": [
+								"<contentCount>",
+								"#",
+								"</contentCount> innholdselement"
+							],
+							"other": [
+								"<contentCount>",
+								"#",
+								"</contentCount> innholdselementer"
+							]
+						}
+					]
+				]
+			}
+		]
+	],
+	"xowKks": "Passnøkkel uten navn",
+	"xphcYh": "Vises i administrasjonen. Noen temaer viser det også på nettstedet.",
+	"xqLdqA": "E-postadressen er bekreftet",
+	"xrv1F0": "Endret stilen på et listeelement",
+	"xs63gu": "Publiser endringer",
+	"xsZhu+": "Sidenummer",
+	"xvY086": "Avbryter …",
+	"xyvx9A": "Verdier for byline-feltgruppe",
+	"y+JWgj": "Laster samlinger …",
+	"y/0uwd": "I går",
+	"y00sPs": "Kunne ikke hente 404-sammendrag",
+	"y1R3Ie": "Fjernet en overskrift",
+	"y1yJhg": "Brukernavnet er ikke tilgjengelig",
+	"y24uYP": "Krev en slug før innhold kan publiseres",
+	"y28hnO": "Innlegg",
+	"y3e9pF": "Slette sikkerhetskopien?",
+	"y51dQ+": "Blokk {0}",
+	"y69WaF": "En mediemappe med dette navnet finnes allerede",
+	"y7HzMf": "En fil har ikke størrelsen pakkemanifestet oppgir. Pakken kan være skadet.",
+	"y9fIj7": "Tabellstørrelse",
+	"yAVWdL": "Pakken er ikke gyldig",
+	"yB+txc": "Prøv med dataene mine",
+	"yE5A+4": "Alle relasjoner denne innholdstypen inngår i, slettes også:",
+	"yHG/AV": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Kolonne slettet"
+				],
+				"other": [
+					"#",
+					" kolonner slettet"
+				]
+			}
+		]
+	],
+	"yHTMc+": "Legg til bilder i galleri",
+	"yKJSrH": "Utvidelsessider",
+	"yKjPWm": "Dette sletter «{0}» permanent. Denne handlingen kan ikke angres.",
+	"yMQVaU": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" mappe lastet inn"
+				],
+				"other": [
+					"#",
+					" mapper lastet inn"
+				]
+			}
+		]
+	],
+	"yQE2r9": "Laster",
+	"yRkqG9": "Grense",
+	"yUucYn": "Valgfritt verktøytips",
+	"yVnsoV": "https://example.com/blogg/mitt-innlegg",
+	"yXD9HA": "Administrer bylines i {entryLocale}",
+	"yXUtsJ": "Filen eller mappen finnes ikke lenger.",
+	"yYyG5z": "Definer egendefinerte felter som lagres på hver byline, for eksempel stillingstittel, pronomen og brukernavn på sosiale medier.",
+	"yaVw5B": "Importen kan gå videre, men sjekk disse først.",
+	"yc9sZc": "Denne filen er ikke en lesbar EmDash-nettstedspakke.",
+	"ycwotv": "Importerer innhold … {0}",
+	"ygCKqB": "Stopp",
+	"yk6YSd": "Legg til term",
+	"ykwnOx": "Filene i eksporten samsvarer ikke lenger med eksporten. Start en ny eksport.",
+	"ylwkGW": "Kunne ikke opprette {singularLower}",
+	"yn3Cdh": "Strukturert",
+	"yohALU": "Redigering på dette nettstedet er satt på pause til importen er ferdig.",
+	"yqwjpd": "Overta",
+	"yuO/Gh": "Kunne ikke analysere filen",
+	"yulyqL": "Legg til skript og stiler på sidene til nettstedet ditt",
+	"yvPHuV": "Opprett din første innholdstype",
+	"ywhIEe": "Referert samling er påkrevd",
+	"yzF66j": "Lenke",
+	"z/d3kJ": "Kunne ikke oppdatere term",
+	"z0LWiY": "Importen stoppet ({0}). Ingenting på dette nettstedet ble endret.",
+	"z1v42r": "Bytt til mørk modus",
+	"z2T50R": "Erstatter bildet …",
+	"z36QYN": "Mottakerens e-postadresse",
+	"z37zLd": "passnøkkelforespørselen i macOS",
+	"z7YnYI": "Søk i blokker",
+	"z7c0y1": "En publiseringshandling pågår allerede",
+	"z84WRD": "Hvorfor er dette viktig for sammendrag i søkeresultater?",
+	"z899SM": "Laster innhold …",
+	"z8P3QU": "Denne nettleseren holder hele pakken i minnet til nedlastingen er ferdig. For en eksport av denne størrelsen, bruk en Chromium-basert nettleser, som lagrer direkte til disk, eller kjør emdash site export fra CLI.",
+	"z9sI8N": "Leser pakken",
+	"zF8Ga4": "Stopper importen",
+	"zI3qXJ": "De signerte utgiverpostene og pakken er gyldige. Byggopprinnelse ble ikke oppgitt.",
+	"zMBo+S": "Slett stikkordet {0}",
+	"zMPl/f": "Fjernes ved lagring",
+	"zNdkE9": "Eksporten stoppet",
+	"zPGNJm": "Overføring",
+	"zPUuMZ": "Sikkerhetsvurderingen fant mulige problemer med denne utvidelsen.",
+	"zQnSow": "Ulagrede endringer går tapt.",
+	"zQsEi8": "Denne oppføringen ble endret et annet sted etter at du åpnet den.",
+	"zRxoM2": "Ingen samsvarende stikkord",
+	"zUXMWi": "Redigerte en tabell",
+	"zVTBk2": "Les offentlige byline-profiler og innholdskreditter",
+	"zZdNdu": "Klikk på denne lenken for å opprette kontoen din:",
+	"zfqQSN": "Kunne ikke verifisere utvidelsen",
+	"zkWmBh": "Årlig",
+	"zoD+LC": "Kunne ikke fortsette eksporten",
+	"zqvQ/C": "Dette feltet forventer en liste. Den lagrede verdien forblir uendret til du erstatter den med en tom liste, noe som sletter den. Kopier alt du trenger fra den først.",
+	"zsslJv": "Ikke noe innhold",
+	"zu/kzk": "{0} av {total} kunne ikke slettes",
+	"zvIDAh": "Brukere overføres ikke. Velg brukeren på dette nettstedet som skal eie innholdet til hver forfatter. Innhold fra forfattere du ikke kobler, får ingen forfatter.",
+	"zwBp5t": "Privat",
+	"zwWKhA": "Les mer",
+	"zxiTLq": "Bruksdataene kan være utdatert.",
+	"zyTWI0": "Feil i widget fra utvidelse",
+	"zzGK7U": "{label} (ingen oversettelse)",
+	"+5Yc64": "Fyll ut minst ett felt.",
+	"+RIIrS": "Flytt øverst",
+	"+n2F0A": "Denne slugen er reservert. Skriv inn en annen.",
+	"+r6NzZ": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" annen person her"
+				],
+				"other": [
+					"#",
+					" andre personer her"
+				]
+			}
+		]
+	],
+	"/8sq0/": "Temamarkedsplass",
+	"/EtEwg": "Kunne ikke legge til menyelementet",
+	"/HVMG5": "En annen mappe bruker allerede dette navnet. Skriv inn et annet.",
+	"/HgF9q": "Sorter etter",
+	"/S9G4c": "Skriv inn {formatted} eller mer",
+	"/wcM4+": "{name} · Ser på",
+	"0Nr3Cf": "Godkjenn enhet",
+	"0Sx8TJ": "Ingen gruppe",
+	"0wdd7X": "Bli med",
+	"1CalO6": "Stil",
+	"1F61KQ": "«{0}» fjernes fra denne menyen. Dette kan ikke angres.",
+	"1Jdlzo": [
+		[
+			"minimum",
+			"plural",
+			{
+				"one": [
+					"Legg til minst ",
+					"#",
+					" element"
+				],
+				"other": [
+					"Legg til minst ",
+					"#",
+					" elementer"
+				]
+			}
+		]
+	],
+	"1OAdnO": "Kontroller formatet",
+	"1OZAjn": "Et annet widgetområde bruker allerede dette navnet. Skriv inn et annet.",
+	"1P4C0K": "Svaradresse (valgfritt)",
+	"1SlsPf": "Kontur",
+	"1ahsTX": "Kunne ikke laste sidefeltene dine",
+	"1eFf/T": "Vis publisert versjon",
+	"1haDZE": "Filtrer etter gruppe",
+	"21bXBT": "Avsendernavn (valgfritt)",
+	"22YJG8": "Skjult for søkemotorer",
+	"2PC79D": "Den lagrede definisjonen av denne blokken er ikke tilgjengelig, så den kan ikke gjenopprettes etter at du har slettet den.",
+	"2gjMty": "Skriv inn et tall mellom {min} og {max}.",
+	"2hmfpd": [
+		[
+			"maximum",
+			"plural",
+			{
+				"one": [
+					"Bruk høyst ",
+					"#",
+					" element"
+				],
+				"other": [
+					"Bruk høyst ",
+					"#",
+					" elementer"
+				]
+			}
+		]
+	],
+	"2qtCQl": "Publiser nettstedet",
+	"3+tQ+K": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Én oppføring til vises ikke."
+				],
+				"other": [
+					"#",
+					" oppføringer til vises ikke."
+				]
+			}
+		]
+	],
+	"3T+geK": "{label} · versjon {versionNumber}",
+	"3dU/av": "Rediger innholdstype",
+	"3iQloa": "«{0}» og elementene under fjernes fra denne menyen. Dette kan ikke angres.",
+	"3vpVnj": "Skriv inn et gyldig regulært uttrykk.",
+	"41gLhU": "Skriv inn et mål som er forskjellig fra kilden.",
+	"46YgRZ": "Legg til blokk under",
+	"4euLF7": "Legg til element i {label}",
+	"4lQCk/": "De ulagrede endringene dine ligger i en gjenopprettingsversjon. Last inn siden på nytt for å redigere sammen med andre.",
+	"4lvGWf": "Denne blokktypen kan ikke lenger legges til i dette feltet, så blokken kan ikke gjenopprettes etter at du har slettet den.",
+	"5+/68j": "Denne omdirigeringen er allerede slettet.",
+	"5adgpS": "Skriv inn et heltall på 2 eller mer.",
+	"5b1PT3": "Skriv inn et klokkeslett",
+	"5h3GgV": "Du er frakoblet",
+	"5i7Ipf": "Fjerner punktet i sidefeltet, lenken i kommandopaletten, hurtighandlingen på oversikten og raden i Innhold-kortet på oversikten. Oppføringer kan fortsatt nås via URL, API og utvidelser",
+	"5lLGxe": "Den har formatering som redigeringsprogrammet ikke kan beholde.",
+	"5wHyWo": "Bytt tilbake til staging",
+	"6Aih4U": "Frakoblet",
+	"6GtJc4": "Host og bruker må fylles ut.",
+	"6HoH6F": "Denne blokken ble slettet, så endringene dine kan ikke lagres.",
+	"6MuJ9z": "Sorter etter {label}, synkende",
+	"6QsDsr": "La stå tomt for å beholde nåværende passord",
+	"6Ubeca": "Flyttet {moved} til posisjon {position} av {total}",
+	"6WKlSm": "Standard",
+	"6oh7uv": "Legg til blokk over",
+	"6pu0Dg": "SMTP-passordet krypteres før det lagres i databasen. La passordet stå tomt for å beholde det lagrede.",
+	"6vJh2J": "Skriv inn et gyldig klokkeslett",
+	"6vxLZM": "Velg når de upubliserte endringene skal publiseres.",
+	"7+vA7a": "Kunne ikke bli med. Prøv igjen.",
+	"775jFv": "Samle medier i en mappe i biblioteket.",
+	"79BopM": "Når du lagrer, opprettes et utkast som ikke vises på nettstedet. Du kan publisere det etter første lagring.",
+	"7MuXko": "Personlig",
+	"7YbJgV": "Skriv inn et domene.",
+	"7fVyHR": "Dra, eller trykk <0>Alt <1/></0> <2>Alt <3/></2>",
+	"7gbY7g": "Skriv inn SMTP-passord",
+	"7sNhEz": "Brukernavn",
+	"7sv2e6": "Aktiver omdirigering {0}",
+	"8059nw": "Velg når denne oppføringen publiseres.",
+	"8F1i42": "Fant ikke siden",
+	"8UhBIM": [
+		[
+			"toFix",
+			"plural",
+			{
+				"one": [
+					"#",
+					" å rette. Gå til problemet"
+				],
+				"other": [
+					"#",
+					" å rette. Gå til neste problem"
+				]
+			}
+		]
+	],
+	"8ZsakT": "Passord",
+	"8vETh9": "Vis",
+	"8z7tp4": "Ugyldig port",
+	"98uiM9": "Endre hvordan bylines fyller ut denne opplysningen.",
+	"9M2CU4": "Kunne ikke starte innlogging med AT Protocol",
+	"9bnP+T": "Endre etiketten, lenken og plasseringen til dette elementet i menyen.",
+	"9oK9Zc": "«{0}» fjernes fra dette widgetområdet. Dette kan ikke angres.",
+	"9zWebh": "Det klokkeslettet finnes ikke i din tidssone",
+	"A/7gxn": "Slette {confirmName}?",
+	"Always visible": "Alltid synlig",
+	"Autoresponder body": "Tekst i autosvar",
+	"Autoresponder subject": "Emne for autosvar",
+	"Autoresponder subject and body are required": "Emne og tekst for autosvar må fylles ut",
+	"B6gYSi": "Oppgi hvert alternativ bare én gang.",
+	"BD3iSb": "Du finner den i versjonene til denne oppføringen.",
+	"BgEycd": "Implisitt TLS",
+	"BqNnoJ": "Bruk 200 alternativer eller færre.",
+	"C0jnKL": "Fjernet {fieldLabel}",
+	"C6+ZRl": "Noen",
+	"CP2vX2": "Skriv inn en tittel.",
+	"CPO+El": "Port 25 støttes ikke",
+	"Cko536": "Synkende",
+	"CoBfKA": "En annen relasjon bruker allerede denne slugen. Skriv inn en annen.",
+	"Condition operator": "Betingelsesoperator",
+	"Condition value": "Betingelsesverdi",
+	"CtG4lx": "Skriv inn et tall på {max} eller mindre.",
+	"CuoNxf": "Blir med …",
+	"CwRQi+": "Innhold som krediterer denne bylinen, mister krediteringen.",
+	"D+ga9m": "Skriv inn en URL som starter med https://, http://, mailto:, tel:, / eller #.",
+	"D7WJHr": [
+		[
+			"minimum",
+			"plural",
+			{
+				"one": [
+					"Bruk minst ",
+					"#",
+					" tegn"
+				],
+				"other": [
+					"Bruk minst ",
+					"#",
+					" tegn"
+				]
+			}
+		]
+	],
+	"Daily digest": "Daglig sammendrag",
+	"DbcLr7": "Seksjoner i redigeringssidefeltet",
+	"Default value": "Standardverdi",
+	"Digest hour (UTC)": "Tidspunkt for sammendrag (UTC)",
+	"Does not equal": "Er ikke lik",
+	"Dwv1LI": "Besøkende kan åpne nettstedet, men søkemotorer blir bedt om ikke å indeksere det. Publiser nettstedet når det er klart til å bli funnet.",
+	"E+pFSe": "SMTP er konfigurert via miljøvariabler på serveren.",
+	"E8PhG1": "Gi denne menyen en ny etikett.",
+	"EHE25F": "Dette domenet står allerede i listen. Skriv inn et annet.",
+	"EnaNq6": "Velg hva slags innhold feltet skal inneholde.",
+	"EobqVm": "Rediger {itemLabel}: {tabEntryTitle}",
+	"Equals": "Er lik",
+	"FODtFi": "Skriv inn en e-postadresse.",
+	"FaFb6G": "{name} · Redigerer {field}",
+	"FbxYaI": "Velg hvilken dato som vises i innholdslisten.",
+	"Fhpop2": "Slette widget?",
+	"G6zfrF": "Svar til",
+	"GDjd3Y": "Denne oppføringen ble flyttet til papirkurven eller slettet. Endringene dine er fortsatt på denne siden.",
+	"GkU1SC": "Handlinger for {label}",
+	"H9Tjh6": "Slettet {name}",
+	"HC7flO": "Velg en dato",
+	"HDrjqv": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Vis ",
+					"#",
+					" person her"
+				],
+				"other": [
+					"Vis de ",
+					"#",
+					" personene her"
+				]
+			}
+		]
+	],
+	"HK8qfR": "Flytter til papirkurven …",
+	"Help text": "Hjelpetekst",
+	"HgB+Ud": "En annen bruker har allerede denne e-postadressen. Skriv inn en annen.",
+	"Hk3tKf": "Deaktiver omdirigering {0}",
+	"HpK/8d": "Last inn på nytt",
+	"HzdcX3": "Konfigurer e-postleverandøren, se status for e-postutsendingen og send test-e-poster",
+	"I1VuHA": "Bruk 200 tegn eller færre.",
+	"IF7Wj3": "Slapp {label}.",
+	"IGYbzW": "Velg en gyldig dato",
+	"IGeWgp": "Søk etter eller opprett {label}",
+	"IN5ImF": "Verifisering for søkemotorer",
+	"IYew11": [
+		[
+			"toFix",
+			"plural",
+			{
+				"one": [
+					"#",
+					" å rette"
+				],
+				"other": [
+					"#",
+					" å rette"
+				]
+			}
+		]
+	],
+	"IgvW2m": "Ikke lagret ennå",
+	"IlOSb5": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" treff"
+				],
+				"other": [
+					"#",
+					" treff"
+				]
+			}
+		]
+	],
+	"Is empty": "Er tom",
+	"Is filled": "Er fylt ut",
+	"IvxI7y": "{state}, {lateness} forsinket, {time}:",
+	"J28zul": "Kobler til …",
+	"J4LjD0": "Innstillinger for sosiale medier",
+	"J9GiDO": "Skriv inn et navn ovenfor for å opprette en ny {singularLabel}.",
+	"JDTwEq": "Tilbakestill navigasjon",
+	"JYRKpN": "Temadetaljer",
+	"JeXWIK": "Synlig for søkemotorer",
+	"Jf18bl": "{label} flyttet til posisjon {position} av {count}.",
+	"Jk6x2R": "Gjelder alle samlinger. Seksjoner som en samling ikke bruker, hoppes over.",
+	"JoCHlr": "{name} er over posisjon {position} av {total}",
+	"JzrlfN": "Skriv inn en kildesti.",
+	"K5+3xg": "Godta invitasjonen",
+	"KSSdUc": "De ulagrede endringene dine kunne ikke beholdes",
+	"KZTDgt": "Test-e-post sendt til {to}",
+	"KaIGOj": "Dupliserte {copied}",
+	"KcRFkj": "Andres endringer vises her igjen når du er tilkoblet igjen.",
+	"KcTh37": "Ingen omdirigeringer samsvarer med disse filtrene",
+	"KmFagX": "Skriv inn et navn.",
+	"Kn/iSM": "Skriv inn en fullstendig URL, for eksempel https://example.com.",
+	"KruUWz": "Skriv inn en sti som starter med én /.",
+	"Kx2DqC": "Redigeringssidefelt",
+	"LCyGLJ": "Sidefelt",
+	"LZ/RR5": "Et annet felt bruker allerede denne slugen. Skriv inn en annen.",
+	"LaDNU5": "Videospiller for {0}",
+	"LiXh11": "Skriv inn et heltall på 0 eller mer.",
+	"Lwq9vr": "Kobler til den aktive versjonen av denne oppføringen.",
+	"M3n37D": "Endringene dine kunne ikke lagres, så dette ble ikke kjørt. Prøv igjen.",
+	"MB6Bs/": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" felt"
+				],
+				"other": [
+					"#",
+					" felt"
+				]
+			}
+		]
+	],
+	"MBjVHY": "Du trenger administratortillatelser for å se denne siden.",
+	"MFOH6Z": "Nytt innhold",
+	"MiuXlj": "Handlinger for {title}",
+	"MuDTSp": "Nettstedet ditt er publisert",
+	"MzM+1P": "Skjult for søkemotorer til du publiserer nettstedet",
+	"N7JGe8": "Kunne ikke lagre oppsettet for sidefeltet",
+	"N9uren": "Rediger seksjon",
+	"NO2FUE": "Nettstedsstatus",
+	"NQ5wGz": "Skriv inn et tall på {min} eller mer.",
+	"NSE2y+": "Skriv inn en målsti.",
+	"NwMcFG": "Endringene dine er fortsatt på denne siden. Last den inn på nytt for å redigere sammen med andre.",
+	"O0VguC": "Rett {field} i blokken {block} for å fortsette lagringen.",
+	"O19t+D": "Porten må være mellom 1 og 65535.",
+	"O5WDyE": "Handlinger for kommentar fra {author}",
+	"OGD8MV": "Kopier endringene mine",
+	"OMdNiD": "Fant ikke versjonen: {revisionId}",
+	"OQTmqw": "Legg til element under",
+	"ORyn5w": "Flytt nederst",
+	"OTY+d9": "Delingsbildet trenger en URL",
+	"OaA1KC": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" versjon"
+				],
+				"other": [
+					"#",
+					" versjoner"
+				]
+			}
+		]
+	],
+	"OlAl5i": "Utvid alle",
+	"P2Yhga": "Avsenderadresse",
+	"PAQ7cj": "De ulagrede endringene dine ligger i en gjenopprettingsversjon",
+	"Peyx+e": "En annen meny bruker allerede dette navnet. Skriv inn et annet.",
+	"Placeholder": "Plassholder",
+	"PuDL/n": "E-postinnstillingene er lagret",
+	"Q8j6Q5": "Velkommen til {siteName}!",
+	"QYh42R": "Skriv inn et tall.",
+	"Qft4yD": "Blir med i denne oppføringen",
+	"R7/pym": "Skriv inn en URL.",
+	"RDjuBN": "Oppsett",
+	"RU3w66": "sorterbar",
+	"RVWz5F": "Ser på",
+	"Re8ToK": "Plukket opp {label}, posisjon {position} av {count}.",
+	"RlLl3G": "Handlinger for {0}",
+	"S/E4g6": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" felt må sjekkes"
+				],
+				"other": [
+					"#",
+					" felt må sjekkes"
+				]
+			}
+		]
+	],
+	"S4Ubfr": "Legg til element over",
+	"S8Yqbl": "Sett inn",
+	"SJmfuf": "Nettstedsnavn",
+	"SYFtze": "Velkommen til {siteName}, {firstName}!",
+	"Send a daily summary to the notification recipients instead of an email for each submission. Email must be configured.": "Send et daglig sammendrag til varslingsmottakerne i stedet for én e-post per innsending. E-post må være konfigurert.",
+	"Send a reply to the first email field in the form. Email must be configured.": "Send et svar til adressen i det første e-postfeltet i skjemaet. E-post må være konfigurert.",
+	"Send an autoresponder": "Send autosvar",
+	"Show when field": "Vis når feltet",
+	"Sy2dpd": "Kunne ikke lagre sidefeltene dine",
+	"SyPBts": "{name} ble ikke flyttet",
+	"TArzUY": "Administrasjonspanelet ble oppdatert",
+	"TPJQ8d": "Nettstedet er satt til staging",
+	"TijSDz": "Lenk til en hvilken som helst side med adressen, på dette nettstedet eller et annet.",
+	"TvXaMW": "Personer i denne oppføringen",
+	"U+w/3X": "Velg og konfigurer leverandøren som leverer all utgående e-post.",
+	"U2vXeC": "Implisitt TLS (port 465)",
+	"UBBCJ8": "Fant ikke samlingen «{collection}»",
+	"UM4Cr2": "På Cloudflare Workers kan kontrollen mislykkes fordi en Worker ikke alltid når sitt eget domene. Åpne den nye adressen i nettleseren, og bekreft at den blir på den adressen og viser dette nettstedet før du velger å bruke den likevel.",
+	"UQvDjm": "{moved} er allerede sist",
+	"UYUgdb": "Rekkefølge",
+	"Unnamed field": "Felt uten navn",
+	"Uqvj39": "Rett prosentkodingen i stien.",
+	"V0ajAu": "{name} endret denne oppføringen",
+	"VAcecG": "En annen seksjon bruker allerede denne slugen. Skriv inn en annen.",
+	"VeiCYA": "Fortsett å skrive. Endringene blir i denne fanen og lagres når du er tilkoblet igjen, så hold fanen åpen. Til da kan du ikke publisere eller forhåndsvise.",
+	"Vesjvv": "Den lagrede medie-ID-en fungerer kanskje ikke i delte lenker. Lagre bilde-URL-en for å bruke denne filen til deling.",
+	"VqWXpV": "Lim inn adressen til det du vil bygge inn.",
+	"Vs0gss": "Legg til en opplysning som alle bylines kan fylle ut, for eksempel en stillingstittel.",
+	"W6AGzV": "Legg til blokk under {label}",
+	"WDY3CJ": "Skriv inn en gyldig e-postadresse, for eksempel navn@example.com.",
+	"WWnwKI": "Planlagt innhold ble ikke publisert",
+	"WWy8TN": "Topp",
+	"Webhook URL (optional)": "Webhook-URL (valgfritt)",
+	"WlzdeM": "Skriv inn et tall på 100 eller mindre.",
+	"WtSHA2": "Kunne ikke lagre e-postinnstillingene",
+	"WvHsqS": "Fant ikke temaet «{id}»",
+	"XixV93": "De endret publiseringen eller tidsplanen, eller erstattet utkastet.",
+	"Yi3eXi": "Legg til minst ett alternativ.",
+	"YuY82G": "En annen term bruker allerede denne slugen. Skriv inn en annen.",
+	"ZFAnQp": "Velg hva navigasjonen og redigeringssidefeltet viser, og i hvilken rekkefølge",
+	"ZJSXmz": "Fjern ..-segmentene fra stien.",
+	"ZePGHc": "Sorter etter {label}, stigende",
+	"Zfkr9e": "SMTP er konfigurert i administrasjonspanelet. Passordet er kryptert i databasen.",
+	"ZrBcR+": [
+		[
+			"others",
+			"plural",
+			{
+				"one": [
+					"#",
+					" annen person"
+				],
+				"other": [
+					"#",
+					" andre personer"
+				]
+			}
+		]
+	],
+	"Zu7pXF": "Trykk mellomrom eller Enter for å plukke opp et element. Bruk piltastene opp og ned for å flytte det, og trykk mellomrom eller Enter for å slippe det, eller Esc for å avbryte. Alt med pil opp eller ned flytter det ett trinn med en gang.",
+	"aKa+70": "Velg en relasjon.",
+	"aNTu6D": "Lagre bilde-URL",
+	"aa0LJz": "Søk etter eller opprett {label} …",
+	"aemBRq": "Leverandør",
+	"ahRW/X": "Legg til en bildetekst",
+	"aqcbYg": "Rett blokken {block} for å fortsette lagringen.",
+	"b+J0UQ": "Denne blokken har ingen felt.",
+	"b8A5lr": "De tidligere endringene dine ble ikke beholdt",
+	"bKd4GQ": "Denne oppføringen lastes fortsatt inn.",
+	"bspG20": "Forskjeller",
+	"byDBGn": "Søkemotorer kan indeksere dette nettstedet. Bytt tilbake til staging for å skjule det igjen, for eksempel under en relansering.",
+	"c8R9iA": "Rediger innhold",
+	"cSLWlp": "Laster inn administrasjonspanelet på nytt",
+	"cYOmri": "Legg til én eller flere lenkeknapper",
+	"co7jQO": "Fant ikke utvidelsen «{id}» på markedsplassen",
+	"csAdn5": "Et widgetområde er et sted i temaet, for eksempel et sidefelt, som inneholder widgeter.",
+	"ctPmlI": "Automatisk lagring er satt på pause",
+	"d1vGeT": "Skriv inn et domene, for eksempel example.com.",
+	"dDyQ9B": "Dupliserte {name}",
+	"dF6vP6": "Publisert",
+	"dO2edy": "Navigasjonen er tilbakestilt",
+	"dju7ks": "Avsenderadresse (valgfritt)",
+	"e+RpCP": "Registrer deg",
+	"e3qUKL": [
+		[
+			"maxItems",
+			"plural",
+			{
+				"one": [
+					"Dette feltet kan inneholde opptil ",
+					"#",
+					" blokk."
+				],
+				"other": [
+					"Dette feltet kan inneholde opptil ",
+					"#",
+					" blokker."
+				]
+			}
+		]
+	],
+	"e4jSeT": "Den vises skrivebeskyttet. En oppføring i papirkurven kan gjenopprettes derfra.",
+	"eKHY3W": "Utvidelsesinnstillinger",
+	"eV1PLq": "Alt som skrives inn i de endrede feltene under gjenopprettingen, går tapt.",
+	"ef/S1U": "En annen taksonomi bruker allerede dette navnet. Skriv inn et annet.",
+	"f6Hub0": "Sorter",
+	"fB620L": "Skriv inn {formatted} eller mindre",
+	"fYcpIK": "Bli med for å redigere sammen, eller åpne den skrivebeskyttet.",
+	"fjLsSr": "Slette menyelement?",
+	"fn2WVu": "Har felt som må rettes",
+	"g1mogq": "Avansert: {blockLabel}",
+	"g4a0UA": "Rediger meny",
+	"g8uNNj": "Velg en innholdstype.",
+	"gCbBH+": "Kunne ikke hente hvem som redigerte versjonene",
+	"gLevHc": "Velg ett av alternativene",
+	"gQtLII": "Lukk lagringsfeilen",
+	"gVi7YD": "Redigeringssidefeltet er tilbakestilt",
+	"h1Pkb3": "Velg en samling.",
+	"h3ct0c": "Knapper",
+	"h9o+Mz": "Termen er oppdatert",
+	"hGWOzU": "Utvidelsesmarkedsplass",
+	"hJrmUB": "Prøv å endre eller fjerne filtrene.",
+	"hfO3Xh": "Gi nytt navn til denne mappen, eller slett den.",
+	"hsM9zP": "Kunne ikke lagre en gjenopprettingsversjon",
+	"hxjpaE": "Tilpass sidefeltet",
+	"i/JKLb": "Forhåndsvisningen åpnes når endringene dine er lagret",
+	"iUCDRB": "Invitasjon sendt til {email}",
+	"ieQLlf": "Ny innholdstype",
+	"j2Yp4a": "{label} vises alltid",
+	"jCKB/+": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"Slette ",
+					"#",
+					" kommentar permanent? Dette kan ikke angres."
+				],
+				"other": [
+					"Slette ",
+					"#",
+					" kommentarer permanent? Dette kan ikke angres."
+				]
+			}
+		]
+	],
+	"jECwyV": "Ingen redigeringsvisning er tilgjengelig for denne blokktypen. Innholdet blir bevart.",
+	"jS2X6L": "Logg inn med Bluesky-/Atmosphere-handle",
+	"jTHg7I": "Sletting av samlingen «{0}» mislyktes. Prøv på nytt ved å sende {body} til {action} før du importerer.",
+	"jgMVWt": "Endringen din i {refusedFieldLabel} ble ikke lagret",
+	"jsO9VG": "Venter på å bli med",
+	"jtbUJc": "{moved} er allerede først",
+	"kW44I0": "Kunne ikke bekrefte at {origin} leverer dette nettstedet",
+	"kZZUSL": "Resultatet fra utvidelsen har formatering som redigeringsprogrammet ikke kan vise, så det ble ikke brukt.",
+	"kl27kk": "Denne blokken bruker en eldre versjon av typen sin, så den kan ikke gjenopprettes etter at du har slettet den.",
+	"krhUbU": "Termen er opprettet",
+	"ktOF/q": "Skriv inn et maksimum som er minst like stort som minimum.",
+	"l3hdQ0": "Endre rekkefølgen på {label}",
+	"lPlMTo": "Kunne ikke ta over denne oppføringen. Prøv igjen.",
+	"lhkkg/": "Sist oppdatert (standard)",
+	"loE+dZ": "Fant ikke brukeren: {id}",
+	"lp5tFf": "Flere redigerer denne oppføringen sammen",
+	"ltRxeQ": "Bruk 587 (STARTTLS) eller 465 (implisitt TLS).",
+	"lyG0LW": "Eksakt gruppenavn …",
+	"m0azfq": "Bruk 63 tegn eller færre.",
+	"m7EBon": "Bekreft innloggingslenke",
+	"mAnKHK": "Slapp {label} på posisjon {position} av {count}.",
+	"mBciIo": "Rediger bildetekst",
+	"mMW8tl": "Velg datoen denne oppføringen vises som publisert.",
+	"mX/isJ": "Vertikal",
+	"mc9NDr": "Velg et tidspunkt i fremtiden",
+	"meXvKf": "Skriv inn et mappenavn.",
+	"myNfuo": "Skriv inn en etikett.",
+	"nJm+wK": "Velg hva sidefeltene viser, og i hvilken rekkefølge. Bare du ser oppsettet ditt, og det følger deg til alle nettlesere.",
+	"nYD/Cq": "Stigende",
+	"njvYzY": "Handlinger for omdirigering {0}",
+	"ns+IDu": [
+		[
+			"maximum",
+			"plural",
+			{
+				"one": [
+					"Bruk høyst ",
+					"#",
+					" tegn"
+				],
+				"other": [
+					"Bruk høyst ",
+					"#",
+					" tegn"
+				]
+			}
+		]
+	],
+	"nu/1gP": "Avbrutt. {label} er tilbake på posisjon {position} av {count}.",
+	"o3Li3j": "Endringene dine blir ikke lenger lagret.",
+	"oQw4Jd": "SMTP-host",
+	"oV8yPh": "Plukket opp {name}, posisjon {position} av {total}",
+	"os+5pv": "Tilbakestill redigeringssidefeltet",
+	"pvkgOC": "Gå til neste problem",
+	"pzu7v4": "Horisontal",
+	"q5SRBn": "SMTP-transport",
+	"qA8Zp+": "Vises alltid",
+	"qDvaCR": "SMTP-konfigurasjon mangler",
+	"qYen5b": "SMTP-passordet krypteres før det lagres i databasen.",
+	"qauRnR": "Kunne ikke kopiere. Merk teksten på siden og kopier den i stedet.",
+	"qvWGzP": "Skjul alle",
+	"qwypNn": "Fyll ut det denne blokken skal vise.",
+	"qzsXzo": "Ikke lagret",
+	"rkN2Gw": "En annen byline bruker allerede denne slugen. Skriv inn en annen.",
+	"s7W7rE": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" byline"
+				],
+				"other": [
+					"#",
+					" bylines"
+				]
+			}
+		]
+	],
+	"sCTlv5": "Ulagrede endringer",
+	"sO/y/u": "E-postleverandør",
+	"sQia9P": "Logg inn",
+	"t0xvms": "En annen omdirigering bruker allerede denne kildestien. Skriv inn en annen.",
+	"t4eJcM": "Redigert av <0>{people}</0>",
+	"t8Lc2X": "Blir med …",
+	"tErmBG": "Skriv inn et heltall på 1 eller mer.",
+	"tKy02X": "Last opp filer her, eller flytt medier hit fra Mediedetaljer.",
+	"tQcMdF": "Et annet underfelt bruker allerede denne slugen. Skriv inn en annen.",
+	"tRILGh": "Kilde for datokolonnen",
+	"tX7IU8": "Gi feltet et navn, og velg hva det godtar.",
+	"tXAHcY": "Mediebruk",
+	"tZ5xQy": "Bruk små bokstaver, tall og understreker, og start med en bokstav.",
+	"tfb1DX": "Denne nettleseren kan ikke bli med, så ingenting du endrer her, blir lagret.",
+	"txKknS": "Denne oppføringen ble flyttet til papirkurven eller slettet",
+	"u62wQ4": "Prøv igjen om et øyeblikk.",
+	"u6Yagz": "Velg SMTP ovenfor, eller installer en e-postutvidelse for å aktivere e-postfunksjoner som invitasjoner, innloggingslenker og gjenoppretting av passord.",
+	"u9zyEx": [
+		[
+			"more",
+			"plural",
+			{
+				"one": [
+					"Vis ",
+					"#",
+					" person til"
+				],
+				"other": [
+					"Vis ",
+					"#",
+					" personer til"
+				]
+			}
+		]
+	],
+	"uFYAoe": "Slå av sider du ikke bruker, og dra for å endre rekkefølgen innenfor gruppen.",
+	"uPbhPm": "Fant ikke samlingen «{slug}»",
+	"ujQPYb": "Du har ikke lenger redigeringstilgang til denne oppføringen. Endringene dine er fortsatt på denne siden.",
+	"vcyBmO": "Fyll",
+	"vdjzRn": "Pil opp",
+	"vfhQv8": "Utvidelsesdetaljer",
+	"vgpfCi": "Lagre utkast",
+	"vkzGCv": [
+		[
+			"policyRejected",
+			"plural",
+			{
+				"one": [
+					"Åpne den berørte oppføringen, rett årsaken som vises, og planlegg den på nytt. En vellykket planlegging eller publisering fjerner dette varselet."
+				],
+				"other": [
+					"Åpne de berørte oppføringene, rett årsakene som vises, og planlegg dem på nytt. En vellykket planlegging eller publisering fjerner hvert varsel."
+				]
+			}
+		]
+	],
+	"vl5yC2": "Passordbeskyttede oppføringer ({0})",
+	"wdpIHN": "Skriv inn et heltall",
+	"wgV7hh": "Flyttet {name} til posisjon {position} av {total}",
+	"x5yfUx": "De siste endringene dine kunne ikke lagres",
+	"xeiujy": "Tekst",
+	"xs5QVi": "Velg minst én blokktype.",
+	"xwwlRF": "Alt vises igjen, i standard rekkefølge.",
+	"y05IVV": "Endringene dine blir ikke lenger lagret. Bli med for å fortsette.",
+	"y6WrfU": "De siste endringene dine ble ikke lagret",
+	"yWXI3x": "Pil ned",
+	"yjeERL": "knapp",
+	"yxF19Y": [
+		[
+			"0",
+			"plural",
+			{
+				"one": [
+					"#",
+					" utvidelse"
+				],
+				"other": [
+					"#",
+					" utvidelser"
+				]
+			}
+		]
+	],
+	"yynT8E": "Vis {label}",
+	"zBo3i7": "Legg til bildetekst",
+	"zJVyK8": "Redigerer {field}",
+	"zfnQ4v": "Ingenting du endrer her, blir lagret.",
+	"zvrb5h": "Endre etiketten til feltet og hva det godtar."
+}

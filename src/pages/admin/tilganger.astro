@@ -1,0 +1,248 @@
+---
+// Roller og tilganger: bare for super admin. Hvem har hvilken rolle, hvilke faner hver rolle ser, og «se som».
+// Samme side som på AESTO og Trening for deg, i prosjektets farger (kit-oppsettet). Logikken ligger i src/roller.ts og /api/tilganger.
+import { UserRepository } from "emdash";
+import AdminSidebar from "../../components/AdminSidebar.astro";
+import { dict, type Lang } from "./_i18n";
+import { accessFor, DEFAULT_TABS, ROLES, TABS, VIEW_AS_COOKIE, loadState, roleOf, type Access, type Role, type Tab } from "../../roller";
+import { cssVars, kit, names } from "../../config";
+
+export const prerender = false;
+
+const user = Astro.locals.user;
+if (!user) return Astro.redirect("/_emdash/admin/login?redirect=%2Fadmin%2Ftilganger");
+const access: Access = (Astro.locals as any)[names.localsAccess] ?? (await accessFor(user, Astro.cookies.get(VIEW_AS_COOKIE)?.value));
+if (access.realRole !== "superadmin") return Astro.redirect("/admin");
+Astro.response.headers.set("Cache-Control", "private, no-store");
+Astro.response.headers.set("X-Robots-Tag", "noindex, nofollow");
+
+const lang: Lang = Astro.cookies.get(names.langCookie)?.value === "en" ? "en" : "nb";
+const t = dict[lang];
+const nb = lang === "nb";
+
+const state = await loadState();
+const db = (Astro.locals as any).emdash?.db;
+type U = { id: string; email: string; name: string | null; role: number };
+const users: U[] = [];
+if (db) {
+	const repo = new UserRepository(db);
+	let cursor: string | undefined;
+	do {
+		const page = await repo.findMany({ limit: 100, cursor });
+		users.push(...(page.items as U[]));
+		cursor = page.nextCursor ?? undefined;
+	} while (cursor);
+}
+users.sort((a, b) => (a.name || a.email).localeCompare(b.name || b.email, t.locale));
+
+const TAB_LABELS: Record<Tab, string> = {
+	oversikt: t.overview, artikler: t.articles, sider: t.pages, medier: t.media,
+	brukere: t.users, innstillinger: t.settings, vibe: "Vibe Editor", vibeinnstillinger: t.vibeSettings, tilganger: t.tilganger,
+};
+// Forklaring under fanenavnet der det trengs
+const TAB_HINT: Partial<Record<Tab, string>> = nb
+	? { vibe: "Verktøyet på nettsiden: redigere tekst og bilder rett på siden", vibeinnstillinger: "Fanen i menyen: koble til og fra Vibe Editor" }
+	: { vibe: "The tool on the website: edit text and images on the page", vibeinnstillinger: "The menu tab: connect and disconnect Vibe Editor" };
+const ROLE_DESC: Record<Role, string> = nb
+	? {
+		superadmin: "Full kontroll over nettsiden, brukere og innstillinger. Bestemmer hva de andre rollene ser.",
+		admin: "Administrerer nettsiden, innhold og brukere.",
+		innholdsansvarlig: "Oversikt og alt under Innhold, og kan redigere og publisere.",
+		innholdsmedarbeider: "Oversikt og alt under Innhold, men kan ikke publisere eller endre andres innhold.",
+		lesetilgang: "Ser bare det rollen er gitt tilgang til.",
+	}
+	: {
+		superadmin: "Full control over the site, users and settings. Decides what the other roles see.",
+		admin: "Manages the site, content and users.",
+		innholdsansvarlig: "Overview and everything under Content, and can edit and publish.",
+		innholdsmedarbeider: "Overview and everything under Content, but cannot publish or change others' content.",
+		lesetilgang: "Sees only what the role has been given access to.",
+	};
+const s = nb
+	? {
+		title: `Tilganger – ${kit.brand.name}`, eyebrow: "Administrasjon", h1: "Roller og tilganger",
+		intro: "Her bestemmer du hvem som har hvilken rolle, og hvilke faner hver rolle ser i menyen. Super admin ser alltid alt.",
+		usersH: "Brukere", usersSub: "Nye brukere inviteres under Brukere. Rollen her styrer både menyen og hva de kan gjøre.",
+		you: "deg", role: "Rolle", tab: "Fane", tabsH: "Hva rollene ser", tabsSub: "Kryss av fanene hver rolle skal se. Oversikt er alltid med.", swipe: "Sveip sidelengs for å se alle rollene.",
+		reset: "Tilbakestill til standard", save: "Lagre", saved: "Lagret", saving: "Lagrer …", failed: "Kunne ikke lagre. Prøv igjen.",
+		viewH: "Se som", viewSub: "Se kontrollpanelet slik en annen rolle ser det. Varer til du avslutter, eller i to timer.",
+		viewBtn: "Se som", noUsers: "Fant ingen brukere.",
+	}
+	: {
+		title: `Access – ${kit.brand.name}`, eyebrow: "Admin", h1: "Roles and access",
+		intro: "Decide who has which role and which tabs each role sees in the menu. Super admin always sees everything.",
+		usersH: "Users", usersSub: "New users are invited under Users. The role here controls both the menu and what they can do.",
+		you: "you", role: "Role", tab: "Tab", tabsH: "What the roles see", tabsSub: "Tick the tabs each role should see. The overview is always included.", swipe: "Swipe sideways to see all roles.",
+		reset: "Reset to defaults", save: "Save", saved: "Saved", saving: "Saving …", failed: "Could not save. Try again.",
+		viewH: "View as", viewSub: "See the control panel the way another role sees it. Lasts until you exit, or two hours.",
+		viewBtn: "View as", noUsers: "No users found.",
+	};
+const configurable = ROLES.filter((r): r is Exclude<Role, "superadmin"> => r !== "superadmin");
+---
+
+<!doctype html>
+<html lang={lang}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{s.title}</title>
+<link rel="icon" href={kit.brand.favicon || kit.brand.icon}>
+{kit.brand.fontsCss && <link rel="stylesheet" href={kit.brand.fontsCss}>}
+<Fragment set:html={`<style>:root{${cssVars()}}</style>`} />
+<style is:inline>
+:root{--paper:var(--ek-paper);--paper-deep:var(--ek-paper-deep);--card:var(--ek-card);--ink:var(--ek-ink);--muted:var(--ek-muted);--line:var(--ek-line);--navy:var(--ek-dark);--petrol:var(--ek-dark-alt);--teal:var(--ek-accent);--teal-ink:var(--ek-accent-ink);--wash:var(--ek-wash);--cyan:var(--ek-on-dark-accent);--sand:#F3EAD8;--sand-ink:#7B5C27;--label:var(--ek-label);--font:var(--ek-font);--serif:var(--ek-heading)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inherit}button{border:0;background:none;cursor:pointer}:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+svg.ph{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+#emdash-toolbar{display:none!important}
+main{max-width:1100px;margin:auto;padding:32px 36px 60px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-ink);font-weight:600;margin-bottom:10px}
+.eyebrow::before{content:"";width:26px;height:9px;background:linear-gradient(90deg,var(--teal),var(--petrol));clip-path:polygon(0 0,100% 62%,92% 100%)}
+h1{font-size:40px;line-height:1.12;margin-bottom:8px}.intro{color:var(--muted);max-width:640px;margin-bottom:28px}
+.panel{border:1px solid var(--line);background:var(--card);border-radius:18px;overflow:hidden;margin-bottom:22px}
+.panel-head{padding:22px 22px 14px}.panel h2{font-size:24px}.panel-head p{color:var(--muted);font-size:13px;margin-top:4px}
+table{width:100%;border-collapse:collapse}th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--label);font-weight:600;padding:10px 22px;border-top:1px solid var(--line);background:var(--paper)}
+td{padding:12px 22px;border-top:1px solid var(--line);vertical-align:middle}td.c,th.c{text-align:center}
+.who{display:flex;align-items:center;gap:11px}.av{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border-radius:50%;background:var(--wash);color:var(--teal-ink);font:400 16px/1 var(--serif)}
+.who strong{display:block;font-size:13.5px}.who small{display:block;font-size:12px;color:var(--muted)}
+select{padding:8px 32px 8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B2A45' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center/14px;appearance:none;font-size:13px;min-width:200px;cursor:pointer}
+select:disabled{opacity:.6;cursor:default}
+.role-desc{font-size:12px;color:var(--muted);max-width:360px;display:block}
+.hint{display:block;font-size:12px;color:var(--muted)}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal-ink);cursor:pointer}
+.fixed{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:5px;background:var(--wash);color:var(--teal-ink)}.fixed svg{width:12px;height:12px}
+.scroll{overflow-x:auto}
+.panel-foot{border-top:1px solid var(--line);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:30px;padding:10px 20px;background:var(--navy);color:#fff;font-weight:600;font-size:13.5px}.btn:disabled{opacity:.6;cursor:wait}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
+.status{font-size:13px;color:var(--muted)}.status.err{color:#9B2C2C}
+.viewrow{display:flex;gap:12px;align-items:center;padding:0 22px 22px;flex-wrap:wrap}
+.swipe{display:none}
+@media(max-width:768px){main{padding:64px 16px 40px}h1{font-size:30px}td,th{padding-inline:14px}select{min-width:0}.hide-sm{display:none}}
+/* Mobil: hver bruker som en blokk med rollevalget under, og fanenavnene står fast mens rollene sveipes sidelengs */
+@media(max-width:600px){
+.users-table thead{display:none}
+.users-table tr{display:grid;gap:10px;padding:14px 16px;border-top:1px solid var(--line)}
+.users-table td{padding:0;border:0}
+.users-table select{width:100%}
+.swipe{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
+.matrix th,.matrix td{padding:10px 8px;white-space:nowrap}
+.matrix th.c{font-size:10px;letter-spacing:.04em;min-width:86px;white-space:normal}
+.matrix td:first-child,.matrix th:first-child{position:sticky;left:0;z-index:1;background:var(--card);min-width:128px;max-width:128px;white-space:normal;padding-left:16px;box-shadow:6px 0 8px -6px color-mix(in srgb,var(--ek-ink) 20%,transparent)}
+.matrix th:first-child{background:var(--paper)}
+.matrix .hint{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></symbol></defs></svg>
+<AdminSidebar t={t} user={user} access={access} current="tilganger" />
+
+<div class="shell">
+	<main id="main">
+		<div class="eyebrow">{s.eyebrow}</div>
+		<h1>{s.h1}</h1>
+		<p class="intro">{s.intro}</p>
+
+		<form id="roles" class="panel">
+			<div class="panel-head"><h2>{s.usersH}</h2><p>{s.usersSub}</p></div>
+			<table class="users-table">
+				<thead><tr><th>{t.users}</th><th>{s.role}</th><th class="hide-sm"></th></tr></thead>
+				<tbody>
+					{users.length === 0 && <tr><td colspan="3" style="color:var(--muted)">{s.noUsers}</td></tr>}
+					{users.map((u) => {
+						const r = roleOf(u, state);
+						const label = u.name || u.email;
+						const ini = label.split(/[\s@.]/).filter(Boolean).slice(0, 2).map((w) => w[0]!.toUpperCase()).join("");
+						return (
+							<tr>
+								<td><div class="who"><span class="av">{ini}</span><div><strong>{label}{u.id === user.id && <span style="color:var(--muted);font-weight:500"> ({s.you})</span>}</strong><small>{u.email}</small></div></div></td>
+								<td>
+									<select name={u.id} data-initial={r} disabled={u.id === user.id} aria-label={label}>
+										{ROLES.map((role) => <option value={role} selected={role === r}>{t.roleNames[role]}</option>)}
+									</select>
+								</td>
+								<td class="hide-sm"><span class="role-desc" data-desc>{ROLE_DESC[r]}</span></td>
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+			<div class="panel-foot"><span class="status" data-status></span><button class="btn" type="submit">{s.save}</button></div>
+		</form>
+
+		<form id="tabs" class="panel">
+			<div class="panel-head"><h2>{s.tabsH}</h2><p>{s.tabsSub}</p><p class="swipe">{s.swipe}</p></div>
+			<div class="scroll"><table class="matrix">
+				<thead><tr><th>{s.tab}</th><th class="c">{t.roleNames.superadmin}</th>{configurable.map((r) => <th class="c">{t.roleNames[r]}</th>)}</tr></thead>
+				<tbody>
+					{TABS.map((tab) => (
+						<tr>
+							<td>{TAB_LABELS[tab]}{TAB_HINT[tab] && <small class="hint">{TAB_HINT[tab]}</small>}</td>
+							<td class="c"><span class="fixed" title={t.roleNames.superadmin}><svg class="i"><use href="#check"/></svg></span></td>
+							{configurable.map((r) => (
+								<td class="c">
+									{tab === "oversikt"
+										? <span class="fixed"><svg class="i"><use href="#check"/></svg></span>
+										: <input type="checkbox" name={r} value={tab} checked={state.tabs[r].includes(tab)} aria-label={`${t.roleNames[r]}: ${TAB_LABELS[tab]}`} />}
+								</td>
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table></div>
+			<div class="panel-foot">
+				<span class="status" data-status></span>
+				<div style="display:flex;gap:8px"><button class="btn ghost" type="button" data-reset>{s.reset}</button><button class="btn" type="submit">{s.save}</button></div>
+			</div>
+		</form>
+
+		<section class="panel">
+			<div class="panel-head"><h2>{s.viewH}</h2><p>{s.viewSub}</p></div>
+			<div class="viewrow">
+				<select id="viewas-select" aria-label={s.viewH}>
+					{configurable.map((r) => <option value={r}>{t.roleNames[r]}</option>)}
+				</select>
+				<button class="btn" type="button" id="viewas-go">{s.viewBtn}</button>
+			</div>
+		</section>
+	</main>
+</div>
+
+<script is:inline define:vars={{ s, ROLE_DESC, DEFAULT_TABS }}>
+const api = (body) =>
+	fetch("/api/tilganger", { method: "PUT", headers: { "Content-Type": "application/json", "X-EmDash-Request": "1" }, credentials: "same-origin", body: JSON.stringify(body) })
+		.then((r) => (r.ok ? r.json() : Promise.reject(r)));
+const run = async (form, body) => {
+	const st = form.querySelector("[data-status]"), btn = form.querySelector("button[type=submit]");
+	st.textContent = s.saving; st.classList.remove("err"); btn.disabled = true;
+	try { await api(body); st.textContent = s.saved; } catch { st.textContent = s.failed; st.classList.add("err"); }
+	btn.disabled = false;
+};
+const roles = document.getElementById("roles");
+roles.querySelectorAll("select").forEach((sel) => sel.addEventListener("change", () => { const d = sel.closest("tr").querySelector("[data-desc]"); if (d) d.textContent = ROLE_DESC[sel.value]; }));
+roles.addEventListener("submit", (e) => {
+	e.preventDefault();
+	const changed = {};
+	roles.querySelectorAll("select:not(:disabled)").forEach((sel) => { if (sel.value !== sel.dataset.initial) changed[sel.name] = sel.value; });
+	run(roles, { roles: changed }).then(() => roles.querySelectorAll("select").forEach((sel) => (sel.dataset.initial = sel.value)));
+});
+const tabs = document.getElementById("tabs");
+tabs.addEventListener("submit", (e) => {
+	e.preventDefault();
+	const body = {};
+	tabs.querySelectorAll("input[type=checkbox]").forEach((c) => { (body[c.name] ||= ["oversikt"]); if (c.checked) body[c.name].push(c.value); });
+	run(tabs, { tabs: body });
+});
+tabs.querySelector("[data-reset]").addEventListener("click", () => {
+	tabs.querySelectorAll("input[type=checkbox]").forEach((c) => { c.checked = (DEFAULT_TABS[c.name] || []).includes(c.value); });
+});
+document.getElementById("viewas-go").addEventListener("click", () =>
+	api({ viewAs: document.getElementById("viewas-select").value }).then(() => location.assign("/admin")));
+</script>
+</body>
+</html>

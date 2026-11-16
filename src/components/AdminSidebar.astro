@@ -1,0 +1,127 @@
+---
+// Menyen på kontrollpanelet (/admin og /admin/tilganger). Samme punkter og utseende som EmDash-menyen,
+// filtrert etter fanene rollen har (src/roller.ts). Tilganger vises bare for super admin.
+// Brukeren nederst åpner Hjelp (der siden har en hjelp-dialog), Avslutt «Se som» og Logg ut.
+import type { Access, Tab } from "../roller";
+import { kit } from "../config";
+
+interface Props {
+	t: any;
+	user: { name?: string | null; email: string; role: number };
+	access: Access;
+	current: "oversikt" | "tilganger";
+	help?: boolean;
+}
+
+const { t, user, access, current, help = false } = Astro.props;
+const E = "/_emdash/admin";
+const logo = kit.brand.logo;
+const has = (tab: Tab) => access.tabs.includes(tab);
+const name = user.name || user.email;
+const initials = name.split(/[\s@.]/).filter(Boolean).slice(0, 2).map((w) => w[0]!.toUpperCase()).join("");
+const roleLabel = t.roleNames[access.role];
+const viewAs = access.viewAs ? t.roleNames[access.viewAs] : null;
+const ext = { target: "_blank", rel: "noopener" };
+const adminGroup = has("brukere") || has("innstillinger") || has("vibeinnstillinger") || has("tilganger");
+---
+
+<style is:inline>
+/* Meny – samme mål og tekster som EmDash-menyen */
+.sidebar{width:260px;position:fixed;inset:0 auto 0 0;background:var(--card);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:20}
+/* stor logo med undertittel, luftige menypunkter og brukeren nederst (likt i EmDash-menyen) */
+.side-head{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:28px 20px 14px}
+.side-head img{width:150px;height:auto}
+.side-head small{font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--ek-label)}
+.side-nav{flex:1;overflow:auto;padding:6px 14px 18px;display:flex;flex-direction:column;gap:1px}
+.group-label{margin-top:12px;height:37px;display:flex;align-items:flex-end;padding:0 12px 8px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ek-label)}
+.nav-link{display:flex;align-items:center;gap:11px;min-height:40px;padding:0 14px;border-radius:10px;font-size:13.5px;font-weight:500;color:var(--muted)}
+.nav-link:hover{background:var(--paper)}.nav-link[aria-current]{background:var(--wash);color:var(--teal-ink);font-weight:600}
+.nav-link svg{opacity:.4}.nav-link[aria-current] svg{opacity:1}
+/* «Vis nettsted» som ikon til høyre for logoen (ingen toppbar, likt EmDash-sidene) */
+.side-site{position:absolute;top:24px;right:14px;display:flex;padding:7px;border-radius:8px;color:var(--muted)}.side-site:hover{background:var(--paper);color:var(--ink)}.side-site svg{width:16px;height:16px}
+/* Brukeren nederst: klikk åpner Hjelp, Avslutt «Se som» og Logg ut */
+.side-user{position:relative;border-top:1px solid var(--line)}
+.side-user summary{list-style:none;display:flex;align-items:center;gap:11px;padding:14px 20px;cursor:pointer;text-align:left}.side-user summary::-webkit-details-marker{display:none}.side-user summary:hover{background:var(--paper)}
+.side-user .uname{min-width:0}
+.side-user .av{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border-radius:50%;background:var(--wash);color:var(--teal-ink);font:400 16px/1 var(--serif)}
+.side-user strong{display:block;font-size:13px;font-weight:600;line-height:1.3}.side-user small{display:block;font-size:11.5px;color:var(--muted)}
+.shell{margin-left:260px}
+.menu-btn{display:none;position:fixed;top:12px;left:12px;z-index:18;padding:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 4px 14px color-mix(in srgb,var(--ek-ink) 9%,transparent)}
+.menu-pop{position:absolute;left:12px;right:12px;bottom:calc(100% + 6px);min-width:230px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-ink) 9%,transparent);padding:6px;z-index:30}
+.menu-pop .who{padding:10px 12px 8px;border-bottom:1px solid var(--line);margin-bottom:6px}.menu-pop .who strong{display:block;font-size:13px}.menu-pop .who small{font-size:12px;color:var(--muted)}
+.menu-pop button,.menu-pop .menu-item{width:100%;display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:13px;text-align:left}.menu-pop button:hover,.menu-pop .menu-item:hover{background:var(--paper)}.menu-pop svg{width:16px;height:16px}
+.backdrop{display:none}
+/* «Se som»: stripe nederst så det er tydelig at man ser siden som en annen rolle */
+.viewas-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;background:var(--navy);color:#fff;border-radius:30px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-ink) 19%,transparent);font-size:13px;font-weight:500;white-space:nowrap}
+.viewas-bar button{background:var(--teal);color:var(--navy);border-radius:30px;padding:6px 12px;font-weight:600;font-size:12.5px}
+@media(max-width:768px){.sidebar{transform:translateX(-100%);transition:transform .2s}.sidebar.open{transform:none}.backdrop.show{display:block;position:fixed;inset:0;background:color-mix(in srgb,var(--ek-ink) 38%,transparent);z-index:19}.shell{margin-left:0}.menu-btn{display:block}.viewas-bar{white-space:normal;width:calc(100% - 32px)}}
+</style>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="m-dash" viewBox="0 0 256 256"><path d="M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48Z"/></symbol>
+<symbol id="m-doc" viewBox="0 0 256 256"><path d="M213.66,66.34l-40-40A8,8,0,0,0,168,24H88A16,16,0,0,0,72,40V56H56A16,16,0,0,0,40,72V216a16,16,0,0,0,16,16H168a16,16,0,0,0,16-16V200h16a16,16,0,0,0,16-16V72A8,8,0,0,0,213.66,66.34ZM136,192H88a8,8,0,0,1,0-16h48a8,8,0,0,1,0,16Zm0-32H88a8,8,0,0,1,0-16h48a8,8,0,0,1,0,16Zm64,24H184V104a8,8,0,0,0-2.34-5.66l-40-40A8,8,0,0,0,136,56H88V40h76.69L200,75.31Z"/></symbol>
+<symbol id="m-pages" viewBox="0 0 256 256"><path d="M213.66,66.34l-40-40A8,8,0,0,0,168,24H88A16,16,0,0,0,72,40V56H56A16,16,0,0,0,40,72V216a16,16,0,0,0,16,16H168a16,16,0,0,0,16-16V200h16a16,16,0,0,0,16-16V72A8,8,0,0,0,213.66,66.34ZM168,216H56V72h76.69L168,107.31v84.53c0,.06,0,.11,0,.16s0,.1,0,.16V216Zm32-32H184V104a8,8,0,0,0-2.34-5.66l-40-40A8,8,0,0,0,136,56H88V40h76.69L200,75.31Zm-56-32a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h48A8,8,0,0,1,144,152Zm0,32a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h48A8,8,0,0,1,144,184Z"/></symbol>
+<symbol id="m-media" viewBox="0 0 256 256"><path d="M208,32H80A16,16,0,0,0,64,48V64H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V192h16a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM80,48H208v69.38l-16.7-16.7a16,16,0,0,0-22.62,0L93.37,176H80Zm96,160H48V80H64v96a16,16,0,0,0,16,16h96Zm32-32H116l64-64,28,28v36Zm-88-64A24,24,0,1,0,96,88,24,24,0,0,0,120,112Zm0-32a8,8,0,1,1-8,8A8,8,0,0,1,120,80Z"/></symbol>
+<symbol id="m-users" viewBox="0 0 256 256"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/></symbol>
+<symbol id="m-gear" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"/></symbol>
+<symbol id="m-key" viewBox="0 0 256 256"><path d="M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A16,16,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM224,98.1c-1.09,34.09-29.75,61.86-63.89,61.9H160a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A63.72,63.72,0,0,1,96,96c0-34.1,27.77-62.78,61.86-63.9A64,64,0,0,1,224,98.1ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></symbol>
+<symbol id="out" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+<symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 1 1 5 2c-1 1-2 1-2 3M12 17h.01"/></symbol>
+<symbol id="logout" viewBox="0 0 24 24"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+</defs></svg>
+
+<button class="backdrop" aria-label={t.closeMenu}></button>
+
+<aside class="sidebar" id="sidebar">
+	<a class="side-head" href="/admin"><img src={logo} alt={kit.brand.name} width="150" height="14"><small>{t.studio}</small></a>
+	<a class="side-site" href="/" {...ext} aria-label={t.viewSite} title={t.viewSite}><svg class="i"><use href="#out"/></svg></a>
+	<nav class="side-nav" aria-label={t.mainMenu}>
+		<a class="nav-link" aria-current={current === "oversikt" ? "page" : undefined} href="/admin"><svg class="ph"><use href="#m-dash"/></svg>{t.overview}</a>
+		{(has("artikler") || has("sider") || has("medier")) && <div class="group-label">{t.content}</div>}
+		{has("artikler") && <a class="nav-link" href={`${E}/content/${kit.collections.articles.slug}`}><svg class="ph"><use href="#m-doc"/></svg>{t.articles}</a>}
+		{has("sider") && <a class="nav-link" href={`${E}/content/${kit.collections.pages.slug}`}><svg class="ph"><use href="#m-pages"/></svg>{t.pages}</a>}
+		{has("medier") && <a class="nav-link" href={`${E}/media`}><svg class="ph"><use href="#m-media"/></svg>{t.media}</a>}
+		{adminGroup && <div class="group-label">{t.administration}</div>}
+		{has("brukere") && <a class="nav-link" href={`${E}/users`}><svg class="ph"><use href="#m-users"/></svg>{t.users}</a>}
+		{has("innstillinger") && <a class="nav-link" href={`${E}/settings`}><svg class="ph"><use href="#m-gear"/></svg>{t.settings}</a>}
+		{has("vibeinnstillinger") && <a class="nav-link" href={`${E}/plugins/vibe-editor/`}><svg class="ph" viewBox="0 0 256 256"><path d="M128 32l22 74 74 22-74 22-22 74-22-74-74-22 74-22z" fill="none" stroke="currentColor" stroke-width="16" stroke-linejoin="round"/></svg>Vibe Editor</a>}
+		{has("tilganger") && <a class="nav-link" aria-current={current === "tilganger" ? "page" : undefined} href="/admin/tilganger"><svg class="ph"><use href="#m-key"/></svg>{t.tilganger}</a>}
+	</nav>
+	<details class="side-user">
+		<summary><span class="av">{initials}</span><span class="uname"><strong>{name}</strong><small>{roleLabel}</small></span></summary>
+		<div class="menu-pop">
+			<div class="who"><strong>{name}</strong><small>{roleLabel} · {user.email}</small></div>
+			{help && <button data-open="help"><svg class="i"><use href="#help"/></svg>{t.help}</button>}
+			<a class="menu-item" href={`${E}/settings/security`}><svg class="i"><use href="#lock"/></svg>{t.security}</a>
+			{viewAs && <button data-exit-viewas><svg class="i"><use href="#eye"/></svg>{t.exitViewAs}</button>}
+			<button id="logout-btn"><svg class="i"><use href="#logout"/></svg>{t.logout}</button>
+		</div>
+	</details>
+</aside>
+
+<button class="menu-btn" aria-label={t.openMenu} aria-controls="sidebar" aria-expanded="false"><svg class="i"><use href="#menu"/></svg></button>
+
+{viewAs && <div class="viewas-bar" role="status">{t.viewingAs.replace("{role}", viewAs)}<button type="button" data-exit-viewas>{t.exitViewAs}</button></div>}
+
+<script is:inline>
+(() => {
+	const userMenu = document.querySelector("details.side-user");
+	document.addEventListener("click", (e) => { if (userMenu.open && !userMenu.contains(e.target)) userMenu.open = false; });
+	const menu = document.querySelector(".menu-btn"), sidebar = document.getElementById("sidebar"), backdrop = document.querySelector(".backdrop");
+	const toggle = (open) => { sidebar.classList.toggle("open", open); backdrop.classList.toggle("show", open); menu.setAttribute("aria-expanded", String(open)); };
+	menu.addEventListener("click", () => toggle(!sidebar.classList.contains("open")));
+	backdrop.addEventListener("click", () => toggle(false));
+	document.addEventListener("keydown", (e) => { if (e.key === "Escape") { toggle(false); userMenu.open = false; } });
+	document.querySelectorAll("[data-open=help]").forEach((b) => b.addEventListener("click", () => (userMenu.open = false)));
+	document.querySelectorAll("[data-exit-viewas]").forEach((b) => b.addEventListener("click", () =>
+		fetch("/api/tilganger", { method: "PUT", headers: { "Content-Type": "application/json", "X-EmDash-Request": "1" }, credentials: "same-origin", body: JSON.stringify({ viewAs: null }) })
+			.then(() => location.assign("/admin"))));
+	document.getElementById("logout-btn").addEventListener("click", async () => {
+		await fetch("/_emdash/api/auth/logout", { method: "POST", headers: { "X-EmDash-Request": "1" }, credentials: "same-origin" });
+		location.href = "/_emdash/admin/login?redirect=%2Fadmin";
+	});
+})();
+</script>
