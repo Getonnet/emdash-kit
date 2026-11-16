@@ -7,13 +7,17 @@ import { kit, names } from "./config";
 
 export type Role = "superadmin" | "admin" | "innholdsansvarlig" | "innholdsmedarbeider" | "lesetilgang";
 // «vibe» er selve Vibe Editor-verktøyet på nettsiden, «vibeinnstillinger» er fanen i menyen der det kobles til
-export type Tab = "oversikt" | "artikler" | "sider" | "medier" | "brukere" | "innstillinger" | "vibe" | "vibeinnstillinger" | "tilganger";
+// Ekstra samlinger (collections.extra) får hver sin fane, med navnet fra «tab» (f.eks. "artister")
+type BaseTab = "oversikt" | "artikler" | "sider" | "medier" | "brukere" | "innstillinger" | "vibe" | "vibeinnstillinger" | "tilganger";
+export type Tab = BaseTab | (string & {});
+const EXTRA = kit.collections.extra ?? [];
+const EXTRA_TABS: Tab[] = EXTRA.map((c) => c.tab);
 
 export const ROLES: Role[] = ["superadmin", "admin", "innholdsansvarlig", "innholdsmedarbeider", "lesetilgang"];
 // Fanene super admin kan slå av og på for de andre rollene («tilganger» er bare for super admin).
 // Vibe Editor-fanene finnes bare når Vibe Editor er slått på (defineKit({ vibeEditor }))
 const VIBE_TABS: Tab[] = ["vibe", "vibeinnstillinger"];
-export const TABS: Tab[] = (["oversikt", "artikler", "sider", "medier", "brukere", "innstillinger", "vibe", "vibeinnstillinger"] as Tab[]).filter(
+export const TABS: Tab[] = (["oversikt", "artikler", ...EXTRA_TABS, "sider", "medier", "brukere", "innstillinger", "vibe", "vibeinnstillinger"] as Tab[]).filter(
 	(t) => kit.vibeEditor || !VIBE_TABS.includes(t),
 );
 
@@ -25,9 +29,9 @@ export const LEVEL: Record<Role, number> = { superadmin: 50, admin: 50, innholds
 // Vibe Editor-innstillinger og Innstillinger er bare for super admin, til de slås på her.
 const withVibe = (tabs: Tab[]) => tabs.filter((t) => TABS.includes(t));
 export const DEFAULT_TABS: Record<Exclude<Role, "superadmin">, Tab[]> = {
-	admin: withVibe(["oversikt", "artikler", "sider", "medier", "brukere", "vibe"]),
-	innholdsansvarlig: withVibe(["oversikt", "artikler", "sider", "medier", "vibe"]),
-	innholdsmedarbeider: ["oversikt", "artikler", "sider", "medier"],
+	admin: withVibe(["oversikt", "artikler", ...EXTRA_TABS, "sider", "medier", "brukere", "vibe"]),
+	innholdsansvarlig: withVibe(["oversikt", "artikler", ...EXTRA_TABS, "sider", "medier", "vibe"]),
+	innholdsmedarbeider: ["oversikt", "artikler", ...EXTRA_TABS, "sider", "medier"],
 	lesetilgang: ["oversikt"],
 };
 
@@ -42,6 +46,7 @@ export const TAB_PATHS: Record<Tab, string[]> = {
 	vibe: [],
 	vibeinnstillinger: ["/_emdash/admin/plugins/vibe-editor"],
 	tilganger: ["/admin/tilganger"],
+	...Object.fromEntries(EXTRA.map((c) => [c.tab, [`/_emdash/admin/content/${c.slug}`]])),
 };
 
 export const VIEW_AS_COOKIE = names.viewAsCookie;

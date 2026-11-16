@@ -5,7 +5,7 @@ import { UserRepository } from "emdash";
 import AdminSidebar from "../../components/AdminSidebar.astro";
 import { dict, type Lang } from "./_i18n";
 import { accessFor, DEFAULT_TABS, ROLES, TABS, VIEW_AS_COOKIE, loadState, roleOf, type Access, type Role, type Tab } from "../../roller";
-import { cssVars, kit, names } from "../../config";
+import { cssVars, kit, mode, names } from "../../config";
 
 export const prerender = false;
 
@@ -38,6 +38,8 @@ users.sort((a, b) => (a.name || a.email).localeCompare(b.name || b.email, t.loca
 const TAB_LABELS: Record<Tab, string> = {
 	oversikt: t.overview, artikler: t.articles, sider: t.pages, medier: t.media,
 	brukere: t.users, innstillinger: t.settings, vibe: "Vibe Editor", vibeinnstillinger: t.vibeSettings, tilganger: t.tilganger,
+	// Ekstra samlinger (collections.extra): fanen heter som samlingen
+	...Object.fromEntries((kit.collections.extra ?? []).map((c) => [c.tab, c[lang].plural])),
 };
 // Forklaring under fanenavnet der det trengs
 const TAB_HINT: Partial<Record<Tab, string>> = nb
@@ -85,7 +87,7 @@ const configurable = ROLES.filter((r): r is Exclude<Role, "superadmin"> => r !==
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content={mode}>
 <meta name="theme-color" content={kit.brand.colors.card}>
 <meta name="robots" content="noindex, nofollow">
 <title>{s.title}</title>
@@ -96,7 +98,7 @@ const configurable = ROLES.filter((r): r is Exclude<Role, "superadmin"> => r !==
 :root{--paper:var(--ek-paper);--paper-deep:var(--ek-paper-deep);--card:var(--ek-card);--ink:var(--ek-ink);--muted:var(--ek-muted);--line:var(--ek-line);--navy:var(--ek-dark);--petrol:var(--ek-dark-alt);--teal:var(--ek-accent);--teal-ink:var(--ek-accent-ink);--wash:var(--ek-wash);--cyan:var(--ek-on-dark-accent);--sand:#F3EAD8;--sand-ink:#7B5C27;--label:var(--ek-label);--font:var(--ek-font);--serif:var(--ek-heading)}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.55 var(--font);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inherit}button{border:0;background:none;cursor:pointer}:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
-h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
+h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:var(--ek-heading-weight);letter-spacing:-.02em}
 svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 svg.ph{width:16px;height:16px;fill:currentColor;flex-shrink:0}
 #emdash-toolbar{display:none!important}
@@ -118,7 +120,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal-ink);cursor:
 .fixed{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:5px;background:var(--wash);color:var(--teal-ink)}.fixed svg{width:12px;height:12px}
 .scroll{overflow-x:auto}
 .panel-foot{border-top:1px solid var(--line);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;border-radius:30px;padding:10px 20px;background:var(--navy);color:#fff;font-weight:600;font-size:13.5px}.btn:disabled{opacity:.6;cursor:wait}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:30px;padding:10px 20px;background:var(--navy);color:var(--ek-dark-text);font-weight:600;font-size:13.5px}.btn:disabled{opacity:.6;cursor:wait}
 .btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
 .status{font-size:13px;color:var(--muted)}.status.err{color:#9B2C2C}
 .viewrow{display:flex;gap:12px;align-items:center;padding:0 22px 22px;flex-wrap:wrap}
@@ -143,7 +145,7 @@ input[type=checkbox]{width:22px;height:22px}
 .swipe{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
 .matrix th,.matrix td{padding:10px 8px;white-space:nowrap}
 .matrix th.c{font-size:10px;letter-spacing:.04em;min-width:86px;white-space:normal}
-.matrix td:first-child,.matrix th:first-child{position:sticky;left:0;z-index:1;background:var(--card);min-width:128px;max-width:128px;white-space:normal;padding-left:16px;box-shadow:6px 0 8px -6px color-mix(in srgb,var(--ek-ink) 20%,transparent)}
+.matrix td:first-child,.matrix th:first-child{position:sticky;left:0;z-index:1;background:var(--card);min-width:128px;max-width:128px;white-space:normal;padding-left:16px;box-shadow:6px 0 8px -6px color-mix(in srgb,var(--ek-shadow) 20%,transparent)}
 .matrix th:first-child{background:var(--paper)}
 .matrix .hint{display:none}
 }

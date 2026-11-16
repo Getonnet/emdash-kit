@@ -6,7 +6,7 @@
 import { env } from "cloudflare:workers";
 import { defineMiddleware } from "astro:middleware";
 import { osloDay } from "./besok";
-import { cssVars, kit, names } from "./config";
+import { allCollections, cssVars, kit, mode, names } from "./config";
 import { autoLogoutOn } from "./innstillinger";
 import { accessFor, allows, TAB_PATHS, VIBE_CLIENT, VIEW_AS_COOKIE, type Access, type Tab } from "./roller";
 
@@ -22,7 +22,8 @@ const ICON = kit.brand.icon || kit.brand.logo;
 const keep = KEEP.map((p) => `:not([href^="${p}"])`).join("");
 const links = HIDDEN.map((p) => `a[href^="${ADMIN}${p}"]${keep}`);
 
-// Prosjektets farger i EmDash (samme som /admin), som CSS-variabler fra kit-oppsettet; alltid lys modus
+// Prosjektets farger i EmDash (samme som /admin), som CSS-variabler fra kit-oppsettet; alltid lys eller alltid mørk
+// modus (brand.mode)
 const theme = `:root,html[data-theme][data-mode]{${cssVars()}}
 html[data-theme][data-mode]{
 --color-kumo-canvas:var(--ek-paper);--color-kumo-base:var(--ek-card);--color-kumo-elevated:var(--ek-card);--color-kumo-recessed:var(--ek-paper-deep);
@@ -30,9 +31,14 @@ html[data-theme][data-mode]{
 --color-kumo-fill-hover:var(--ek-paper-deep);--color-kumo-interact:var(--ek-interact);--color-kumo-contrast:var(--ek-ink);
 --color-kumo-line:color-mix(in srgb,var(--ek-ink) 10%,transparent);--color-kumo-hairline:var(--ek-line);--color-kumo-brand:var(--ek-accent);--color-kumo-brand-hover:var(--ek-accent-hover);
 --color-kumo-focus:var(--ek-accent);--text-color-kumo-default:var(--ek-ink);--text-color-kumo-strong:var(--ek-ink);--text-color-kumo-subtle:var(--ek-muted);
---text-color-kumo-placeholder:var(--ek-label);--text-color-kumo-brand:var(--ek-accent-ink);--text-color-kumo-link:var(--ek-accent-ink);
-color-scheme:light;background:var(--ek-paper);font-family:var(--ek-font)}
+--text-color-kumo-placeholder:var(--ek-label);--text-color-kumo-inactive:var(--ek-label);--text-color-kumo-inverse:var(--ek-paper);--text-color-kumo-brand:var(--ek-accent-ink);--text-color-kumo-link:var(--ek-accent-ink);
+color-scheme:${mode};background:var(--ek-paper);font-family:var(--ek-font)}
 .bg-kumo-brand,.bg-kumo-brand *{color:var(--ek-accent-text)!important}
+/* Hovedknappene («Lagre», «Publiser») i hovedfargen. EmDash setter knappefargen i style-attributtet, derfor !important */
+html[data-theme] [class*="kumo-button-emphasis-bg"]{--kumo-button-emphasis-bg:var(--ek-accent)!important;--kumo-button-emphasis-ring:var(--ek-accent)!important;--color-white:var(--ek-accent-text)}
+html[data-theme] [class*="kumo-button-emphasis-bg"]:hover{--kumo-button-emphasis-bg:var(--ek-accent-hover)!important}
+/* Brytere og avkrysningsbokser i hovedfargen (ellers EmDash-blå) */
+[data-kumo-component=Switch],[data-kumo-component=Checkbox]{--color-blue-300:var(--ek-line-strong);--color-blue-500:var(--ek-accent);--color-blue-600:var(--ek-accent)}
 body,main{background:var(--ek-paper)!important}
 /* Velkomstdialogen setter logoen i en firkant på 32×32 (laget for et ikon). Logoen er et bredt ordmerke: vis det i riktige proporsjoner */
 ${kit.brand.logo ? `[role=dialog] img[src="${kit.brand.logo}"]` : "[data-ek-none]"}{width:140px!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:contain}
@@ -72,13 +78,13 @@ ${kit.brand.logo ? `img.h-10[src="${kit.brand.logo}"]{height:auto!important;widt
 .ek-user small{display:block;font-size:11.5px;color:var(--ek-muted)}
 main h1{font-family:var(--ek-heading)!important;font-weight:500!important;letter-spacing:-.02em}
 .ek-switch{position:relative;flex-shrink:0;width:36px;height:20px;border-radius:20px;border:0;padding:0;background:var(--ek-interact);cursor:pointer;transition:background .15s}
-.ek-switch::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--ek-card);box-shadow:0 1px 2px color-mix(in srgb,var(--ek-ink) 20%,transparent);transition:transform .15s}
+.ek-switch::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--ek-card);box-shadow:0 1px 2px color-mix(in srgb,var(--ek-shadow) 20%,transparent);transition:transform .15s}
 .ek-switch[aria-checked=true]{background:var(--ek-accent-ink)}.ek-switch[aria-checked=true]::after{transform:translateX(16px)}
 .ek-switch:disabled{opacity:.5;cursor:wait}.ek-switch:focus-visible{outline:2px solid var(--ek-accent-ink);outline-offset:2px}
 .ek-mailapps{margin-top:4px;text-align:center}.ek-mailapps p{font-size:13px;color:var(--ek-muted);margin:0 0 10px}
 .ek-mailapps div{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .ek-mailapps a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--ek-line);border-radius:10px;background:var(--ek-card);color:var(--ek-ink);font-size:14px;font-weight:600;text-decoration:none;transition:border-color .15s,box-shadow .15s}
-.ek-mailapps a:hover{border-color:var(--ek-accent-ink);box-shadow:0 2px 8px color-mix(in srgb,var(--ek-ink) 8%,transparent)}.ek-mailapps a:focus-visible{outline:2px solid var(--ek-accent-ink);outline-offset:2px}
+.ek-mailapps a:hover{border-color:var(--ek-accent-ink);box-shadow:0 2px 8px color-mix(in srgb,var(--ek-shadow) 8%,transparent)}.ek-mailapps a:focus-visible{outline:2px solid var(--ek-accent-ink);outline-offset:2px}
 .ek-mailapps a.first{border-color:var(--ek-accent-ink);background:var(--ek-wash)}.ek-mailapps svg{width:18px;height:18px;flex-shrink:0}
 /* Ingen toppbar i EmDash (som på /admin): «Vis nettsted» er et ikon ved logoen, Logg ut ligger på brukeren nederst. På mobil beholdes bare menyknappen */
 header.sticky:has(>[data-sidebar=trigger])>div:not(.ek-mbar){display:none!important}
@@ -88,11 +94,11 @@ header.sticky:has(>[data-sidebar=trigger])>div:not(.ek-mbar){display:none!import
 .ek-site svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .emdash-sidebar[data-state=collapsed] .ek-site{display:none}
 .ek-user{position:relative;cursor:pointer}.ek-user:hover{background:var(--ek-paper)}
-.ek-pop{position:absolute;left:12px;right:12px;bottom:calc(100% + 6px);background:var(--ek-card);border:1px solid var(--ek-line);border-radius:12px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-ink) 9%,transparent);padding:6px;z-index:30;cursor:default}
+.ek-pop{position:absolute;left:12px;right:12px;bottom:calc(100% + 6px);background:var(--ek-card);border:1px solid var(--ek-line);border-radius:12px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-shadow) 9%,transparent);padding:6px;z-index:30;cursor:default}
 .ek-pop .who{padding:10px 12px 8px;border-bottom:1px solid var(--ek-line);margin-bottom:6px}.ek-pop .who strong{display:block;font-size:13px;color:var(--ek-ink)}.ek-pop .who small{font-size:12px;color:var(--ek-muted)}
 .ek-pop button{width:100%;display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;text-align:left;background:none;border:0;color:var(--ek-ink);cursor:pointer;font:inherit;font-size:13px}.ek-pop button:hover{background:var(--ek-paper)}
 .ek-pop svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.ek-viewas{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;background:var(--ek-ink);color:var(--ek-card);border-radius:30px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-ink) 19%,transparent);font-size:13px;font-weight:500;white-space:nowrap}
+.ek-viewas{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;background:var(--ek-ink);color:var(--ek-card);border-radius:30px;box-shadow:0 14px 40px color-mix(in srgb,var(--ek-shadow) 19%,transparent);font-size:13px;font-weight:500;white-space:nowrap}
 .ek-viewas button{background:var(--ek-accent);color:var(--ek-accent-text);border:0;border-radius:30px;padding:6px 12px;font:inherit;font-weight:600;font-size:12.5px;cursor:pointer;white-space:nowrap}
 /* Mobil: logoen og «Vis nettsted» i toppbaren til EmDash (samme som toppstripen på /admin) */
 .ek-mbar{display:flex;flex:1;min-width:0;align-items:center;justify-content:space-between;gap:8px;margin-left:6px}
@@ -113,7 +119,7 @@ header.sticky>[data-sidebar=trigger]{width:40px;height:40px}
 
 
 // Samlingene på norsk og engelsk (fra kit-oppsettet), til tekstrettingene i admin
-const COLLECTIONS = [kit.collections.articles, kit.collections.pages];
+const COLLECTIONS = allCollections();
 const NB_NAMES = COLLECTIONS.flatMap((c) => [c.nb.plural, c.nb.singular]);
 const COLLECTION_EN_MAP = Object.fromEntries(COLLECTIONS.flatMap((c) => [[c.nb.plural, c.en.plural], [c.nb.singular, c.en.singular]]));
 // Settes rett inn i skriptet på siden (ikke som en JavaScript-streng), så én skråstrek foran spesialtegn holder
@@ -125,10 +131,10 @@ ${theme}
 ${links.join(",")},${links.map((l) => `li:has(> ${l})`).join(",")}{display:none!important}
 </style>
 <script>
-// Alltid lys modus, slik at EmDash ser ut som kontrollpanelet på /admin
-const light = () => document.documentElement.getAttribute("data-mode") !== "light" && document.documentElement.setAttribute("data-mode", "light");
-light();
-new MutationObserver(light).observe(document.documentElement, { attributes: true, attributeFilter: ["data-mode"] });
+// Alltid samme modus (lys eller mørk, brand.mode), slik at EmDash ser ut som kontrollpanelet på /admin
+const fixMode = () => document.documentElement.getAttribute("data-mode") !== "${mode}" && document.documentElement.setAttribute("data-mode", "${mode}");
+fixMode();
+new MutationObserver(fixMode).observe(document.documentElement, { attributes: true, attributeFilter: ["data-mode"] });
 
 // "Oversikt" og logoen i EmDash peker til forsiden av EmDash; send dem til /admin i stedet
 document.addEventListener("click", (e) => {
@@ -468,7 +474,7 @@ const tidy = () => {
 		box.append(title, row);
 		mailBox.insertBefore(box, mailBack);
 	}
-	// Mørk/lys-knappen trengs ikke, EmDash vises alltid lyst
+	// Mørk/lys-knappen trengs ikke, EmDash vises alltid i samme modus
 	document.querySelectorAll("button[aria-label]").forEach((b) => {
 		if (/^(switch to (light|dark)|bytt til (lys|mørk))/i.test(b.getAttribute("aria-label"))) b.style.display = "none";
 	});

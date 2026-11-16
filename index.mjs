@@ -46,6 +46,10 @@ const DEFAULTS = {
 		fontsCss: "",
 		font: "system-ui",
 		headingFont: "system-ui",
+		// Vekt på titlene (400 passer en serif/display-skrift, 600 en vanlig grotesk)
+		headingWeight: 400,
+		// "light" eller "dark": EmDash-admin, kontrollpanelet og e-postene vises alltid i denne modusen
+		mode: "light",
 		colors: {
 			paper: "#F3F2EF", // bakgrunn
 			paperDeep: "#E9E7E3", // dypere bakgrunn (bilder som lastes)
@@ -66,6 +70,10 @@ const DEFAULTS = {
 			onDarkAccent: "#93C5FD", // ikoner på mørke flater
 			onDarkMuted: "#E2E0DC", // dempet tekst på mørke flater
 			grid: "#EEECE8", // rutenett i grafen
+			darkText: "#FFFFFF", // tekst på mørke flater (dark/darkAlt)
+			sand: "#F3EAD8", // merkelapp «Utkast» o.l.
+			sandInk: "#7B5C27",
+			shadow: "", // farge på skygger; tom = tekstfargen (lys modus) eller svart (mørk modus)
 		},
 	},
 	// Forstavelse for D1-tabeller (<prefix>_settings, <prefix>_visits, <prefix>_user_roles), cookies og økt
@@ -76,11 +84,23 @@ const DEFAULTS = {
 		company: "", // én linje nederst i e-postene
 		// Ordmerket øverst i e-posten (tekst, fordi Gmail/Outlook ikke viser SVG)
 		wordmark: "",
+		// Logo som bilde i stedet for ordmerket: { src: "/logo.png", width: 150, height: 51 } (PNG/JPG, ikke SVG)
+		logo: null,
+		// Tekst i firmalinjen som skal være lenker, f.eks. { "22 20 13 13": "tel:+4722201313" }
+		// (ellers gjør Gmail adresser og telefonnumre til blå lenker)
+		links: {},
+		// Skrift i titlene i e-posten (systemskrift som standard), f.eks. "Georgia, serif"
+		headingFont: "",
 	},
 	collections: {
 		articles: { slug: "artikler", urlBase: "/artikler/", nb: { plural: "Artikler", singular: "Artikkel" }, en: { plural: "Articles", singular: "Article" } },
 		pages: { slug: "sider", nb: { plural: "Sider", singular: "Side" }, en: { plural: "Pages", singular: "Page" } },
+		// Flere samlinger med egen fane i menyen og under Tilganger, f.eks.
+		// { slug: "artister", tab: "artister", urlBase: "/artist/", icon: "user", nb: {…}, en: {…} }
+		extra: [],
 	},
+	// Språket innholdet listes på i kontrollpanelet når samlingene har oversettelser (f.eks. "nb"); null = alle
+	contentLocale: null,
 	// Menypunkter i EmDash som skjules (sti under /_emdash/admin). Erstatter hele listen; bruk
 	// extraHiddenAdminPaths for å skjule noe i tillegg.
 	hiddenAdminPaths: [
@@ -116,6 +136,16 @@ export function defineKit(options = {}) {
 		if (!c?.slug || !c.nb?.plural || !c.nb?.singular || !c.en?.plural || !c.en?.singular)
 			throw new Error(`[emdash-kit] collections.${key} trenger slug og nb/en { plural, singular }`);
 	}
+	const TAB_IDS = ["oversikt", "artikler", "sider", "medier", "brukere", "innstillinger", "vibe", "vibeinnstillinger", "tilganger"];
+	if (!Array.isArray(config.collections.extra)) throw new Error("[emdash-kit] collections.extra må være en liste");
+	for (const c of config.collections.extra) {
+		if (!c?.slug || !c.nb?.plural || !c.nb?.singular || !c.en?.plural || !c.en?.singular)
+			throw new Error(`[emdash-kit] collections.extra «${c?.slug ?? "?"}» trenger slug og nb/en { plural, singular }`);
+		c.tab = c.tab || c.slug;
+		if (!/^[a-z][a-z0-9_-]{1,30}$/.test(c.tab) || TAB_IDS.includes(c.tab)) throw new Error(`[emdash-kit] collections.extra: ugyldig eller opptatt fane «${c.tab}»`);
+	}
+	if (!["light", "dark"].includes(config.brand.mode)) throw new Error(`[emdash-kit] brand.mode må være "light" eller "dark" (fikk «${config.brand.mode}»)`);
+	if (!config.brand.colors.shadow) config.brand.colors.shadow = config.brand.mode === "dark" ? "#000000" : config.brand.colors.ink;
 	config.hiddenAdminPaths = [...new Set([...(config.hiddenAdminPaths ?? []), ...(config.extraHiddenAdminPaths ?? [])])];
 	if (config.vibeEditor && !vibeEditor) {
 		console.warn("[emdash-kit] emdash-vibe-editor er ikke installert: Vibe Editor er slått av (installer pakken, eller sett vibeEditor: false)");
@@ -130,7 +160,19 @@ export function defineKit(options = {}) {
 			version: VERSION,
 			entrypoint: here("./src/email-plugin.ts"),
 			format: "native",
-			options: { from: config.email.from, brand: { name: config.brand.name, wordmark: config.email.wordmark || config.brand.name.toUpperCase(), company: config.email.company, colors: config.brand.colors } },
+			options: {
+				from: config.email.from,
+				brand: {
+					name: config.brand.name,
+					wordmark: config.email.wordmark || config.brand.name.toUpperCase(),
+					company: config.email.company,
+					colors: config.brand.colors,
+					mode: config.brand.mode,
+					logo: config.email.logo,
+					links: config.email.links,
+					headingFont: config.email.headingFont,
+				},
+			},
 			capabilities: ["hooks.email-transport:register"],
 		});
 	}

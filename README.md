@@ -3,7 +3,7 @@
 Felles EmDash-oppsett for GetOnNet-prosjekter. Samme kontrollpanel og admin som AESTO og Trening For Deg, men som
 én pakke: hvert prosjekt setter bare sine egne farger, navn og samlinger, og får forbedringer automatisk.
 
-Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash).
+Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash) og [attitude-tattoo](https://github.com/Getonnet/attitude-tattoo) (mørk modus, ekstra samling, e-post med logo).
 
 **Kom i gang:** [How-to (PDF, 7 sider)](docs/emdash-kit-how-to.pdf) – ferdige prompter (også for å gjøre et statisk nettsted om til EmDash), hva hvert nettsted setter selv (farger, logo, skrift, egne tilpasninger), sjekkliste, do's and don'ts og skjermbilder. Kilden ligger i `docs/how-to-kilde/`.
 
@@ -13,7 +13,7 @@ Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash).
   artiklene med besøk og status, og en veiledning. Norsk og engelsk.
 - **Roller og tilganger** på `/admin/tilganger`: super admin, administrator, innholdsansvarlig, innholdsmedarbeider og
   lesetilgang, hvilke faner hver rolle ser, og «se som» en annen rolle.
-- **EmDash-admin i prosjektets farger og skrift**: alltid lys modus, ingen toppbar, brukeren med Logg ut nederst, Vibe
+- **EmDash-admin i prosjektets farger og skrift**: alltid lys (eller mørk, `brand.mode`) modus, ingen toppbar, brukeren med Logg ut nederst, Vibe
   Editor og Tilganger i menyen, skjulte menypunkter, navnet EmDash byttet med prosjektets, og riktig logo også i
   sammenslått meny.
 - **Norsk admin**: rundt 2500 oversettelser (EmDash 1.5), norsk som standard (kan byttes under Innstillinger → Språk).
@@ -59,6 +59,11 @@ const kit = defineKit({
 	translations: "./translations/emdash-nb.json", // valgfritt: egne/overstyrte oversettelser
 	extraHiddenAdminPaths: ["/settings/email"], // valgfritt: skjul flere EmDash-sider (i tillegg til standardlisten)
 	vibeEditor: true, // false: uten Vibe Editor (pakken trenger da ikke være installert)
+	// Fra 1.2.0, alle valgfrie:
+	// brand.mode: "dark", brand.headingWeight: 600
+	// collections.extra: [{ slug: "artister", tab: "artister", urlBase: "/artist/", icon: "user", nb: {…}, en: {…} }]
+	// contentLocale: "nb" (innhold med oversettelser)
+	// email.logo: { src: "/logo.png", width: 150, height: 51 }, email.links: { "22 20 13 13": "tel:+4722201313" }
 });
 
 export default defineConfig({

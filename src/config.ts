@@ -22,10 +22,16 @@ export type Colors = {
 	onDarkAccent: string;
 	onDarkMuted: string;
 	grid: string;
+	darkText: string;
+	sand: string;
+	sandInk: string;
+	shadow: string;
 };
 
 type Names = { plural: string; singular: string };
 export type Collection = { slug: string; urlBase?: string; nb: Names; en: Names };
+/** En ekstra samling med egen fane (collections.extra). icon: ikonet i menyen på kontrollpanelet. */
+export type ExtraCollection = Collection & { tab: string; icon?: "doc" | "pages" | "media" | "user" };
 
 export type KitConfig = {
 	brand: {
@@ -37,11 +43,14 @@ export type KitConfig = {
 		fontsCss: string;
 		font: string;
 		headingFont: string;
+		headingWeight: number;
+		mode: "light" | "dark";
 		colors: Colors;
 	};
 	prefix: string;
 	email: { from: { email: string; name?: string } | null; company: string; wordmark: string };
-	collections: { articles: Collection; pages: Collection };
+	collections: { articles: Collection; pages: Collection; extra: ExtraCollection[] };
+	contentLocale: string | null;
 	hiddenAdminPaths: string[];
 	vibeEditor: boolean;
 	version: string;
@@ -49,8 +58,12 @@ export type KitConfig = {
 
 /** Valgfrie funksjoner i prosjektets hooks-modul (defineKit({ hooks: "./src/emdash-kit.ts" })). */
 export type KitHooks = {
-	/** Lesbart navn på en side ut fra stien besøkstelleren lagrer (uten / til slutt, "/" for forsiden). */
-	pageName?: (path: string, lang: "nb" | "en") => string | undefined;
+	/**
+	 * Lesbart navn på en side ut fra stien besøkstelleren lagrer (uten / til slutt, "/" for forsiden).
+	 * named(path) gir navnet kit-en selv finner (artikkeltitler og titler i collections.extra med urlBase),
+	 * f.eks. for å navngi /en/magasinet/<slug> ut fra den norske artikkelen.
+	 */
+	pageName?: (path: string, lang: "nb" | "en", named: (path: string) => string | undefined) => string | undefined;
 };
 
 export const kit = raw as KitConfig;
@@ -76,9 +89,19 @@ export function cssVars(): string {
 	const font = (f: string) => (/[\s,]/.test(f) && !f.includes(",") ? `"${f}"` : f);
 	const vars = Object.entries(c).map(([k, v]) => `--ek-${kebab(k)}:${v}`);
 	vars.push(`--ek-font:${font(kit.brand.font)},ui-sans-serif,system-ui,sans-serif`);
+	vars.push(`--ek-heading-weight:${kit.brand.headingWeight ?? 400}`);
 	vars.push(`--ek-heading:${font(kit.brand.headingFont)},${font(kit.brand.font)},ui-sans-serif,system-ui,sans-serif`);
 	return vars.join(";");
 }
+
+/** "light" eller "dark" (brand.mode) */
+export const mode = kit.brand.mode === "dark" ? "dark" : "light";
+
+/** Artikler, sider og de ekstra samlingene */
+export const allCollections = (): Collection[] => [kit.collections.articles, kit.collections.pages, ...(kit.collections.extra ?? [])];
+
+/** Stien besøkstelleren lagrer for en oppføring i en ekstra samling med urlBase (uten / til slutt) */
+export const extraPath = (c: ExtraCollection, slug: string) => (c.urlBase ? `${c.urlBase.replace(/\/?$/, "/")}${slug}` : null);
 
 /** Samlingsnavn på riktig språk */
 export const collectionLabel = (c: Collection, lang: "nb" | "en", form: keyof Names = "plural") => c[lang][form];
