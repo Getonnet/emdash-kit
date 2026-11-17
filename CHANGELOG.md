@@ -1,5 +1,18 @@
 # Endringer
 
+## 1.3.0 – 17. nov 2026
+
+Ingen endringer kreves i prosjektene. Begge funksjonene er på som standard og kan slås av.
+
+- **Bildekomprimering ved opplasting:** bilder krympes i nettleseren før EmDash laster dem opp (filvelger og
+  dra-og-slipp): lengste side høyst 2560 px, JPEG forblir JPEG, PNG og WebP blir WebP (gjennomsiktighet beholdes),
+  EXIF og GPS-posisjon fjernes. Små bilder og bilder som ikke blir mindre lastes opp som de er. Virker uten
+  Cloudflare Images. `images: { maxSize, quality }` eller `images: false`.
+- **Sporing og egne skript:** tre felt under Innstillinger → SEO i EmDash (i `<head>`, rett etter `<body>`, før
+  `</body>`) for Google Tag Manager, Analytics, Meta Pixel o.l. Bare administratorer. Settes inn på alle sider med
+  `<EmDashHead>`/`<EmDashBodyStart>`/`<EmDashBodyEnd>`, innen et halvt minutt etter lagring. `scripts: false` slår av.
+- `/api/innstillinger` gir og tar også `scripts`.
+
 ## 1.2.1 – 16. nov 2026
 
 Ingen endringer kreves i prosjektene.

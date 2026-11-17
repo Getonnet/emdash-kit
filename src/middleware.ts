@@ -7,6 +7,7 @@ import { env } from "cloudflare:workers";
 import { defineMiddleware } from "astro:middleware";
 import { osloDay } from "./besok";
 import { allCollections, cssVars, kit, mode, names } from "./config";
+import { adminExtraCss, adminExtraJs } from "./admin-extra";
 import { autoLogoutOn } from "./innstillinger";
 import { accessFor, allows, TAB_PATHS, VIBE_CLIENT, VIEW_AS_COOKIE, type Access, type Tab } from "./roller";
 
@@ -129,6 +130,7 @@ const NEW_FIX = COLLECTIONS.map((c) => ({ en: "New " + c.nb.singular, nb: "Ny " 
 const inject = `<style id="ek-admin">
 ${theme}
 ${links.join(",")},${links.map((l) => `li:has(> ${l})`).join(",")}{display:none!important}
+${adminExtraCss}
 </style>
 <script>
 // Alltid samme modus (lys eller mørk, brand.mode), slik at EmDash ser ut som kontrollpanelet på /admin
@@ -548,7 +550,7 @@ new MutationObserver(() => {
 	queued = true;
 	requestAnimationFrame(() => { queued = false; tidy(); });
 }).observe(document.documentElement, { childList: true, subtree: true });
-</script>`;
+</script>${adminExtraJs}`;
 
 // Be nettleseren alltid bruke https for nettstedet (HSTS)
 const HSTS = "max-age=31536000";

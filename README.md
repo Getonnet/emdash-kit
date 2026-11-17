@@ -22,6 +22,13 @@ Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash) og [at
 - **Innlogging med e-postlenke**: knapper til Gmail, Outlook og iCloud Mail, riktig tjeneste først.
 - **Besøksteller** uten cookies (roboter, skript og innloggede teller ikke).
 - **Sikkerhet**: HSTS, hoveddomene (`NETTSTED` → 301 fra andre adresser), hurtigbuffer for bilder fra mediebiblioteket.
+- **Bildekomprimering ved opplasting**: bilder krympes i nettleseren før de lastes opp (lengste side høyst 2560 px,
+  JPEG forblir JPEG, PNG/WebP blir WebP, EXIF og GPS fjernes). Virker uten Cloudflare Images. `images`
+- **Sporing og egne skript** (Google Tag Manager, Analytics, Meta Pixel o.l.): tre felt under Innstillinger → SEO
+  i EmDash (i `<head>`, rett etter `<body>`, før `</body>`), bare for administratorer. `scripts`
+- **SEO**: EmDash sine egne SEO-innstillinger (Innstillinger → SEO: tittelskille, standard delingsbilde, robots.txt,
+  Google/Bing-verifisering) er synlige. SEO-feltene per side kommer fra samlingene (`"supports": [..., "seo"]`) og
+  sidemalene (`getSeoMeta` og `<EmDashHead>`), se under.
 - **Vibe Editor** koblet inn.
 
 Det som er spesielt for nettstedet (sidene, malene, artikkelsidene, 404-siden osv.) ligger i prosjektet.
@@ -59,6 +66,9 @@ const kit = defineKit({
 	translations: "./translations/emdash-nb.json", // valgfritt: egne/overstyrte oversettelser
 	extraHiddenAdminPaths: ["/settings/email"], // valgfritt: skjul flere EmDash-sider (i tillegg til standardlisten)
 	vibeEditor: true, // false: uten Vibe Editor (pakken trenger da ikke være installert)
+	// Fra 1.3.0, valgfrie (standardverdiene vises):
+	images: { maxSize: 2560, quality: 0.82 }, // false: ingen komprimering ved opplasting
+	scripts: true, // false: ingen felt for egne skript under Innstillinger → SEO
 	// Fra 1.2.0, alle valgfrie:
 	// brand.mode: "dark", brand.headingWeight: 600
 	// collections.extra: [{ slug: "artister", tab: "artister", urlBase: "/artist/", icon: "user", nb: {…}, en: {…} }]
@@ -105,7 +115,8 @@ export const pageName: KitHooks["pageName"] = (path, lang) => (path === "/" ? (l
 Kit-en følger [semver](https://semver.org): `1.x.y`.
 
 - **Patch/minor (1.0.1, 1.1.0):** feilrettinger og nye funksjoner som ikke krever endringer i prosjektene. Prosjektene
-  henter dem automatisk: arbeidsflyten `.github/workflows/oppdater-emdash.yml` i hvert prosjekt kjører hver natt,
+  henter dem automatisk: arbeidsflyten `.github/workflows/oppdater-emdash.yml` i hvert prosjekt kjører hver morgen
+  kl. 09.00 norsk tid,
   oppdaterer kit-en, EmDash og Vibe Editor innenfor samme hovedversjon, bygger, og committer og publiserer bare hvis
   byggingen går gjennom.
 - **Major (2.0.0):** endringer som krever noe i prosjektene (nytt oppsett, ny config). Står i CHANGELOG.md med hva
@@ -117,7 +128,33 @@ Slik slippes en ny versjon:
 2. Skriv hva som er endret i `CHANGELOG.md`.
 3. `git commit`, `git tag -a v1.0.1 -m "v1.0.1"`, `git push --follow-tags` (taggen må være annotert (`-a`), ellers sendes den ikke med).
 
-Prosjektene får den ved neste nattlige kjøring, eller med en gang med «Run workflow» på «Oppdater EmDash» i prosjektet.
+Prosjektene får den ved neste kjøring (kl. 09.00 norsk tid), eller med en gang med «Run workflow» på «Oppdater EmDash» i prosjektet.
+
+## SEO, skript og bilder i sidemalene
+
+Kit-en setter ikke inn noe i selve sidene; det gjør sidemalene i prosjektet. For at SEO-feltene og de egne skriptene
+skal virke, må hver sidemal (sider, artikler, 404) ha:
+
+```astro
+---
+import { getSeoMeta } from "emdash";
+import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
+import { createPublicPageContext } from "emdash/page";
+const seo = getSeoMeta(entry, { siteUrl: Astro.url.origin, path: Astro.url.pathname });
+const page = createPublicPageContext({ Astro, kind: "content", title: seo.title, description: seo.description, canonical: seo.canonical, image: seo.ogImage, seo: { robots: seo.robots }, content: { collection: "sider", id: entry.id } });
+---
+<head>… <EmDashHead page={page} /></head>
+<body><EmDashBodyStart page={page} /> … <EmDashBodyEnd page={page} /></body>
+```
+
+og samlingene `"supports": ["drafts", "revisions", "seo", …]` i seed-filen. Se AESTO (`src/layouts/Site.astro`) for et
+fullt eksempel med sitemap.xml.
+
+Sporing som setter informasjonskapsler (GTM, Analytics, Meta Pixel) krever samtykke fra de besøkende; kit-en har ikke
+eget samtykkebanner, så legg det inn sammen med skriptet (f.eks. Cookiebot eller CookieYes).
+
+Bilder: originalene fra mediebiblioteket får 30 dagers hurtigbuffer. Komprimeringen skjer ved opplasting i
+EmDash-admin (filvelger og dra-og-slipp); bilder lastet opp før 1.3.0, eller via Vibe Editor, endres ikke.
 
 ## Mobil
 
@@ -141,4 +178,5 @@ engelske. Legg nye oversettelser i `translations/emdash-nb.json` her, og slipp e
 - `src/pages/admin/` – kontrollpanelet og Tilganger; `src/components/AdminSidebar.astro` – menyen der
 - `src/pages/api/` – `besok`, `innstillinger`, `tilganger`, `epostleverandor`
 - `src/email-plugin.ts` – e-post med prosjektets profil
+- `src/scripts-plugin.ts` – egne skript på sidene (page:fragments); `src/admin-extra.ts` – bildekomprimering og skriptfeltene i admin
 - `src/besok-snippet.ts` – skriptet for besøkstelleren på sidene

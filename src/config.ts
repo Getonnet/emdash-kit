@@ -53,6 +53,8 @@ export type KitConfig = {
 	contentLocale: string | null;
 	hiddenAdminPaths: string[];
 	vibeEditor: boolean;
+	scripts: boolean;
+	images: { maxSize: number; quality: number } | false;
 	version: string;
 };
 

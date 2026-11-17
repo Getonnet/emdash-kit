@@ -64,7 +64,7 @@ td{padding:4.5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
 .two-col{display:grid;grid-template-columns:1.08fr 1fr;gap:6mm}
 .mini li{font-size:9.3pt;margin-bottom:4px}
 .mini{margin:0;padding-left:16px}
-.p1low img{height:42mm;object-fit:cover;object-position:top left}
+.p1low img{height:36mm;object-fit:cover;object-position:top left}
 .p4 pre.code{font-size:8pt;padding:9px 12px}
 .new{display:inline-block;font-size:6.8pt;font-weight:700;letter-spacing:.1em;background:var(--red);color:#fff;border-radius:20px;padding:1px 6px;vertical-align:2px;margin-left:4px}
 </style>
@@ -75,9 +75,9 @@ td{padding:4.5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
 <section class="page">
 	<div class="hero">
 		<div class="wordmark">GETONNET</div>
-		<div class="kicker">How-to · November 2026 · kit 1.1</div>
+		<div class="kicker">How-to · November 2026 · kit 1.3</div>
 		<h1>emdash-kit</h1>
-		<p class="lead" style="margin-top:3mm">One shared EmDash setup for every client site. Improve it once, and every site gets it overnight, while each site keeps <b>its own colours, logo, fonts and custom code</b>.</p>
+		<p class="lead" style="margin-top:3mm">One shared EmDash setup for every client site. Improve it once, and every site gets it the next morning at 09:00, while each site keeps <b>its own colours, logo, fonts and custom code</b>.</p>
 		<div class="flow">
 			<div class="dark"><b>emdash-kit</b>shared admin, roles, email</div>
 			<div class="arr">→</div>
@@ -85,7 +85,7 @@ td{padding:4.5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
 			<div><b>next client site</b>own colours · logo · pages</div>
 			<div><b>…</b>any EmDash site</div>
 		</div>
-		<p class="small">Also included: branded login and invite emails · logout at midnight · buttons that open Gmail, Outlook or iCloud Mail · visit counter without cookies · about 2,500 Norwegian translations · Vibe Editor (optional) · main-domain redirect and HSTS · works on phones.</p>
+		<p class="small">Also included: branded login and invite emails · logout at midnight · buttons that open Gmail, Outlook or iCloud Mail · visit counter without cookies · about 2,500 Norwegian translations · Vibe Editor (optional) · main-domain redirect and HSTS · works on phones · <b>images compressed on upload</b> · <b>fields for GTM and other tracking scripts</b> <span class="new">1.3</span>.</p>
 	</div>
 
 	<h2>What every site gets from the kit</h2>
@@ -145,6 +145,7 @@ const kit = defineKit({
   translations: <span class="r">"./translations/…json"</span>,
   extraHiddenAdminPaths: [<span class="r">"/settings/email"</span>],
   vibeEditor: <span class="k">true</span>,
+  images: { maxSize: <span class="k">2560</span> }, scripts: <span class="k">true</span>,
 });</pre>
 			<p class="small" style="margin-bottom:4mm">Everything except <code>prefix</code> and <code>collections</code> has a default. No logo → name as text; no icon → logo; no <code>email.from</code> → EmDash's own emails.</p>
 
@@ -152,11 +153,13 @@ const kit = defineKit({
 			<table>
 				<tr><td style="width:36%"><b>Page names</b></td><td><code>hooks</code> → <code>pageName(path)</code>: readable names in "Mest besøkt"</td></tr>
 				<tr><td><b>Own wording</b></td><td><code>translations</code>: add or override Norwegian admin texts</td></tr>
-				<tr><td><b>Hide more menus</b></td><td><code>extraHiddenAdminPaths</code> <span class="new">1.1</span></td></tr>
-				<tr><td><b>No Vibe Editor</b></td><td><code>vibeEditor: false</code> <span class="new">1.1</span>: tabs disappear from Tilganger</td></tr>
+				<tr><td><b>Hide menus · no Vibe</b></td><td><code>extraHiddenAdminPaths</code> · <code>vibeEditor: false</code></td></tr>
+				<tr><td><b>Dark admin · more collections</b></td><td><code>brand.mode: "dark"</code> · <code>collections.extra</code> <span class="new">1.2</span></td></tr>
+				<tr><td><b>Image upload</b></td><td><code>images</code>: max size and quality, or <code>false</code> <span class="new">1.3</span></td></tr>
+				<tr><td><b>Tracking scripts</b></td><td><code>scripts</code>: GTM etc. under Innstillinger → SEO, or <code>false</code> <span class="new">1.3</span></td></tr>
 				<tr><td><b>Collection names</b></td><td><code>collections</code>: slug, URL, nb/en names</td></tr>
 				<tr><td><b>Emails</b></td><td><code>email</code>: sender, company line, wordmark</td></tr>
-				<tr><td><b>The website itself</b></td><td>Pages, templates, 404, tracking: in the site's <code>src/</code>, never in the kit</td></tr>
+				<tr><td><b>The website itself</b></td><td>Pages, templates, 404: in the site's <code>src/</code>, never in the kit</td></tr>
 			</table>
 		</div>
 		<div>
@@ -201,7 +204,8 @@ const kit = defineKit({
 - Address: <span class="r">[client]</span>.getonnet.cloud, Cloudflare account Getonnet AS, D1 and R2 in Western Europe
 - GitHub repo: <span class="r">[Getonnet/repo-name]</span> (empty, created by me)
 
-Set up deploys with GitHub Actions and the nightly "Oppdater EmDash" workflow, like getonnet-emdash.
+Page templates use getSeoMeta + EmDashHead/BodyStart/BodyEnd (SEO fields and tracking scripts).
+Set up deploys with GitHub Actions and the daily "Oppdater EmDash" workflow, like getonnet-emdash.
 Don't change emdash-kit, aesto or trening-for-deg. Check /admin on desktop and phone width,
 run QA before publishing, and ask me before creating anything in Cloudflare.</pre>
 
@@ -216,13 +220,13 @@ read its README first), the same way getonnet-emdash was built from getonnet.no.
 - Same URLs as today, plus a 404 page and sitemap.xml
 - <span class="r">[Blog/news at /… → "artikler" collection]</span> (or: no articles)
 - Kit config taken from the site: colours, fonts, logo and icon, company line
-- Visit counter (BESOK) on every page; tracking only on the real domain
+- Visit counter (BESOK) on every page; SEO fields, and EmDashHead/BodyStart/BodyEnd for tracking
 - noindex until launch; NETTSTED = <span class="r">[domain]</span> when it goes live
 - Files over 25 MiB in R2; keep the Worker under 3 MB (large templates as static files)
 - Address: <span class="r">[client]</span>.getonnet.cloud, Cloudflare Getonnet AS, D1 + R2 in Western Europe
 - GitHub repo: <span class="r">[Getonnet/repo-name]</span> (empty, created by me)
 
-Set up deploys and the nightly "Oppdater EmDash" workflow like getonnet-emdash. Compare every
+Set up deploys and the daily "Oppdater EmDash" workflow like getonnet-emdash. Compare every
 page with the original on desktop and phone before publishing, and ask me before creating
 anything in Cloudflare.</pre>
 	<p class="small">Works for any static site: an HTML export, a WordPress/Elementor site, Webflow, or files in a folder. Editors can then change texts and images in EmDash while the design stays the same.</p>
@@ -243,7 +247,7 @@ anything in Cloudflare.</pre>
 - Use the same prefix as the project's current D1 tables (e.g. "aesto") so data, visits and roles carry over
 - Delete the files the kit now provides (middleware, /admin, APIs, email plugin, translations),
   but keep everything specific to the site
-- Add the nightly "Oppdater EmDash" workflow like getonnet-emdash
+- Add the daily "Oppdater EmDash" workflow (09:00 Norwegian time) like getonnet-emdash
 - If something in the project is better than in the kit, propose it as a new kit version instead
 
 You have permission to change <span class="r">[project]</span> for this. Run QA locally before pushing, and show me
@@ -293,12 +297,12 @@ then push (it deploys itself).</pre>
 		<thead><tr><th style="width:42%">You do this in emdash-kit</th><th>Reaches the sites?</th></tr></thead>
 		<tbody>
 			<tr><td>Commit and push to <code>main</code></td><td class="no">No. Sites follow version tags, not commits.</td></tr>
-			<tr><td>Release a patch or minor version: <code>git tag -a v1.1.1 -m "v1.1.1"</code>, then <code>git push --follow-tags</code></td><td><span class="yes">Yes, automatically</span> at 02:17 UTC, or right away with Actions → "Oppdater EmDash" → Run workflow. Live about a minute after the bot's commit.</td></tr>
+			<tr><td>Release a patch or minor version: <code>git tag -a v1.3.1 -m "v1.3.1"</code>, then <code>git push --follow-tags</code></td><td><span class="yes">Yes, automatically</span> at 09:00 Norwegian time (summer and winter), or right away with Actions → "Oppdater EmDash" → Run workflow. Live about a minute after the bot's commit.</td></tr>
 			<tr><td>Release a major version: <code>v2.0.0</code></td><td class="no">No. Each site is updated by hand.</td></tr>
 			<tr><td>Change a site's own <code>defineKit</code> (colours, logo …)</td><td><span class="yes">Only that site</span>, as soon as you push it.</td></tr>
 		</tbody>
 	</table>
-	<p style="margin-top:4mm">The nightly <b>Oppdater EmDash</b> workflow updates the kit, EmDash and Vibe Editor within the same major version, builds the site, and <b>only commits and deploys if the build passes</b>. You'll see it as a commit by <code>github-actions[bot]</code>.</p>
+	<p style="margin-top:4mm">The daily <b>Oppdater EmDash</b> workflow (09:00 Norwegian time) updates the kit, EmDash and Vibe Editor within the same major version, builds the site, and <b>only commits and deploys if the build passes</b>. You'll see it as a commit by <code>github-actions[bot]</code>.</p>
 	<div class="callout"><b>Tag with <code>-a</code>.</b> A plain <code>git tag</code> is not sent by <code>--follow-tags</code>, so the release silently never reaches GitHub.</div>
 
 	<div class="grid2" style="margin-top:4mm">
@@ -320,7 +324,7 @@ then push (it deploys itself).</pre>
 				<li>Make shared improvements <b>in the kit</b>, then release a version</li>
 				<li>Test kit changes in one site first, on <b>desktop and phone width</b>, then tag</li>
 				<li>Bump <code>version</code> in <code>package.json</code> (the kit reads it from there) and update the CHANGELOG</li>
-				<li>Keep site-specific things (pages, templates, 404, tracking) <b>in the site</b></li>
+				<li>Keep site-specific things (pages, templates, 404) <b>in the site</b>; tracking code goes in Innstillinger → SEO</li>
 				<li>Keep the <b>prefix</b> the same as the site's existing D1 tables</li>
 				<li>Claim the admin account <b>immediately</b> after the first deploy</li>
 				<li>Check the bot's commits now and then under Actions</li>
@@ -353,10 +357,11 @@ then push (it deploys itself).</pre>
 		<tr><td><b>A site's look and settings</b></td><td><code>web/astro.config.mjs → defineKit({ … })</code></td></tr>
 		<tr><td><b>A site's fonts</b></td><td><code>web/public/assets/css/admin-fonts.css</code> (set as <code>fontsCss</code>)</td></tr>
 		<tr><td><b>A site's custom hooks</b></td><td><code>web/src/emdash-kit.ts</code> (e.g. page names on the dashboard)</td></tr>
-		<tr><td><b>Deploy / nightly update</b></td><td><code>.github/workflows/deploy.yml</code> · <code>oppdater-emdash.yml</code></td></tr>
+		<tr><td><b>Tracking (GTM) · SEO defaults</b></td><td><code>/_emdash/admin</code> → Innstillinger → SEO (administrators)</td></tr>
+		<tr><td><b>Deploy / daily update</b></td><td><code>.github/workflows/deploy.yml</code> · <code>oppdater-emdash.yml</code></td></tr>
 		<tr><td><b>Example site</b></td><td>getonnet-emdash.getonnet.cloud · github.com/Getonnet/getonnet-emdash</td></tr>
 	</table>
-	<div class="foot"><span>emdash-kit 1.1.0 · EmDash 1.5 · Astro 7.3 · Cloudflare Workers (D1, R2) · GetOnNet AS</span><span>7 / 7</span></div>
+	<div class="foot"><span>emdash-kit 1.3.0 · EmDash 1.5 · Astro 7.3 · Cloudflare Workers (D1, R2) · GetOnNet AS</span><span>7 / 7</span></div>
 </section>
 </body>
 </html>

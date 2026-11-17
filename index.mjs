@@ -7,7 +7,8 @@
 //
 // Kit-en legger inn: kontrollpanel (/admin, /admin/tilganger), API-er (/api/besok, /api/innstillinger,
 // /api/tilganger, /api/epostleverandor), middleware (EmDash-admin i prosjektets farger, roller og tilganger,
-// utlogging ved midnatt, hoveddomene, HSTS), e-post med prosjektets profil, norske oversettelser og Vibe Editor.
+// utlogging ved midnatt, hoveddomene, HSTS), e-post med prosjektets profil, norske oversettelser, Vibe Editor,
+// felt for egne skript (GTM o.l.) og komprimering av bilder ved opplasting.
 // Alt som er spesielt for prosjektet (navn, farger, skrift, logo, firmaopplysninger, samlinger) kommer fra config.
 // Selve nettsiden (sider, maler, artikkelsider) ligger i prosjektet.
 //
@@ -114,6 +115,12 @@ const DEFAULTS = {
 	// Ekstra norske oversettelser i prosjektet (samme format som translations/emdash-nb.json), går foran kit-ens
 	translations: null,
 	vibeEditor: true,
+	// Felt for egne skript (Google Tag Manager, Analytics, Meta Pixel o.l.) under Innstillinger → SEO i EmDash.
+	// Settes inn på alle sider med <EmDashHead>, <EmDashBodyStart> og <EmDashBodyEnd>. false = av.
+	scripts: true,
+	// Bilder komprimeres i nettleseren før de lastes opp i EmDash: lengste side høyst maxSize piksler,
+	// JPEG forblir JPEG, PNG og WebP blir WebP (gjennomsiktighet beholdes). GIF og SVG endres ikke. false = av.
+	images: { maxSize: 2560, quality: 0.82 },
 };
 
 function merge(base, over) {
@@ -151,6 +158,11 @@ export function defineKit(options = {}) {
 		console.warn("[emdash-kit] emdash-vibe-editor er ikke installert: Vibe Editor er slått av (installer pakken, eller sett vibeEditor: false)");
 		config.vibeEditor = false;
 	}
+	if (config.images) {
+		const { maxSize, quality } = config.images;
+		if (!Number.isInteger(maxSize) || maxSize < 320 || maxSize > 8192) throw new Error(`[emdash-kit] images.maxSize må være et heltall mellom 320 og 8192 (fikk «${maxSize}»)`);
+		if (typeof quality !== "number" || quality < 0.3 || quality > 1) throw new Error(`[emdash-kit] images.quality må være mellom 0.3 og 1 (fikk «${quality}»)`);
+	}
 	if (!config.brand.logo) console.warn("[emdash-kit] brand.logo mangler: navnet vises som tekst i menyen");
 
 	const plugins = [];
@@ -174,6 +186,16 @@ export function defineKit(options = {}) {
 				},
 			},
 			capabilities: ["hooks.email-transport:register"],
+		});
+	}
+	if (config.scripts) {
+		plugins.push({
+			id: "emdash-kit-skript",
+			version: VERSION,
+			entrypoint: here("./src/scripts-plugin.ts"),
+			format: "native",
+			options: {},
+			capabilities: ["hooks.page-fragments:register"],
 		});
 	}
 	if (config.vibeEditor) plugins.push(vibeEditor());
