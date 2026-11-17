@@ -179,7 +179,7 @@ const kit = defineKit({
 				</tbody>
 			</table>
 			<p class="small" style="margin-top:3mm">Also: <span class="tok">paperDeep</span>, <span class="tok">interact</span>, <span class="tok">label</span>, <span class="tok">accentHover</span>, <span class="tok">accentText</span> (text on the accent, usually white), <span class="tok">onDarkMuted</span>, <span class="tok">grid</span>. Any you leave out use the kit's neutral defaults (blue accent).</p>
-			<div class="callout" style="margin-top:4mm"><b>Easiest way:</b> give Claude the client's website and ask it to take the colours from there (prompt D on page 5). It fills in all 19 tokens and checks contrast.</div>
+			<div class="callout" style="margin-top:4mm"><b>Easiest way:</b> give Claude the client's website and ask it to take the colours from there (prompt E on page 5). It fills in all 19 tokens and checks contrast.</div>
 			<div class="callout"><b>Accent text must be readable:</b> white text on a light accent (yellow, light green) fails. Use a darker <span class="tok">accent</span> or set <span class="tok">accentText</span> to the dark ink.</div>
 		</div>
 	</div>
@@ -209,7 +209,7 @@ Set up deploys like getonnet-emdash, and copy maler/oppdater-emdash.yml from the
 Don't change emdash-kit, aesto or trening-for-deg. Check /admin on desktop and phone width,
 run QA before publishing, and ask me before creating anything in Cloudflare.</pre>
 
-	<span class="label">E · Static website → EmDash with the kit <span class="new" style="margin-left:2px">NEW</span></span>
+	<span class="label">B · Static website → EmDash with the kit <span class="new" style="margin-left:2px">NEW</span></span>
 <pre class="code">Turn the static website <span class="r">[live URL, or folder with the HTML files]</span> into an EmDash site for
 <span class="r">[client name]</span> in this folder, using @getonnet/emdash-kit (github.com/Getonnet/emdash-kit –
 read its README first), the same way getonnet-emdash was built from getonnet.no.
@@ -239,7 +239,7 @@ anything in Cloudflare.</pre>
 	<h2>More prompts</h2>
 	<p>Same as before: open Claude Code <b>in the project folder</b> and fill in the <span style="color:var(--red-ink)">[brackets]</span>.</p>
 
-	<span class="label">B · Move an existing EmDash site onto the kit</span>
+	<span class="label">C · Move an existing EmDash site onto the kit</span>
 <pre class="code">Move <span class="r">[project, e.g. C:\Users\geton\aesto]</span> over to the shared setup @getonnet/emdash-kit
 (github.com/Getonnet/emdash-kit – read its README first), the same way getonnet-emdash uses it.
 
@@ -253,13 +253,13 @@ anything in Cloudflare.</pre>
 You have permission to change <span class="r">[project]</span> for this. Run QA locally before pushing, and show me
 what changes before it's published.</pre>
 
-	<span class="label">C · Improve the kit (all sites)</span>
+	<span class="label">D · Improve the kit (all sites)</span>
 <pre class="code">In emdash-kit (C:\Users\geton\emdash-kit): <span class="r">[describe the change]</span>.
 Test it in getonnet-emdash with a local copy first (desktop and phone width),
 then release it as a new patch/minor version (version in package.json + CHANGELOG
 + annotated tag) and push.</pre>
 
-	<span class="label">D · Change one site's colours, logo or fonts <span class="new" style="margin-left:2px">NEW</span></span>
+	<span class="label">E · Change one site's colours, logo or fonts <span class="new" style="margin-left:2px">NEW</span></span>
 <pre class="code">In <span class="r">[project, e.g. getonnet-emdash]</span>, change the look in web/astro.config.mjs
 → defineKit brand: <span class="r">[new colours / take them from URL / new logo file / new fonts]</span>.
 Only change this site, not emdash-kit. Fill in all colour tokens and check contrast.
@@ -270,10 +270,10 @@ then push (it deploys itself).</pre>
 		<thead><tr><th style="width:52%">You have …</th><th>Use</th></tr></thead>
 		<tbody>
 			<tr><td>Nothing yet: a brand new client site</td><td><b>A</b> · new site</td></tr>
-			<tr><td>A static site (HTML files, WordPress/Elementor, Webflow …) that should become editable</td><td><b>E</b> · static website → EmDash with the kit</td></tr>
-			<tr><td>An EmDash site with its own copy of the admin code (aesto, trening)</td><td><b>B</b> · move onto the kit</td></tr>
-			<tr><td>Something every site should get</td><td><b>C</b> · improve the kit, release a version</td></tr>
-			<tr><td>One site needs new colours, logo or fonts</td><td><b>D</b> · change that site's defineKit only</td></tr>
+			<tr><td>A static site (HTML files, WordPress/Elementor, Webflow …) that should become editable</td><td><b>B</b> · static website → EmDash with the kit</td></tr>
+			<tr><td>An EmDash site with its own copy of the admin code (aesto, trening)</td><td><b>C</b> · move onto the kit</td></tr>
+			<tr><td>Something every site should get</td><td><b>D</b> · improve the kit, release a version</td></tr>
+			<tr><td>One site needs new colours, logo or fonts</td><td><b>E</b> · change that site's defineKit only</td></tr>
 		</tbody>
 	</table>
 	<div class="foot"><span>emdash-kit how-to</span><span>5 / 7</span></div>
@@ -302,10 +302,10 @@ then push (it deploys itself).</pre>
 			<tr><td>Change a site's own <code>defineKit</code> (colours, logo …)</td><td><span class="yes">Only that site</span>, as soon as you push it.</td></tr>
 		</tbody>
 	</table>
-	<p style="margin-top:4mm">The daily <b>Oppdater EmDash</b> workflow (09:00 Norwegian time) updates the kit, EmDash and Vibe Editor within the same major version, builds the site, and <b>only commits and deploys if the build passes</b>. You'll see it as a commit by <code>github-actions[bot]</code>.</p>
+	<p style="margin-top:4mm">The daily <b>Oppdater EmDash</b> workflow (09:00 Norwegian time) updates the kit, EmDash and Vibe Editor within the same major version, builds the site, and <b>only commits and deploys if the build passes</b>. <b>To turn it off</b> for one site, add the repo variable <code>EMDASH_AUTO_UPDATE</code> = <code>false</code> (Settings → Secrets and variables → Actions → Variables); manual runs still work.</p>
 	<div class="callout"><b>Tag with <code>-a</code>.</b> A plain <code>git tag</code> is not sent by <code>--follow-tags</code>, so the release silently never reaches GitHub.</div>
 
-	<div class="grid2" style="margin-top:4mm">
+	<div class="grid2" style="margin-top:2.5mm">
 		<div><img class="shot" src="img/p3_0.png" alt=""><p class="cap">github.com/Getonnet/emdash-kit is <b>public</b>, so sites install it without a token.</p></div>
 		<div><img class="shot" src="img/p3_1.png" alt=""><p class="cap">Login and invite emails get each site's name, button colour and company line.</p></div>
 	</div>

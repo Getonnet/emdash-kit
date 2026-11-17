@@ -6,6 +6,7 @@
 #   1. oppdaterer til nyeste versjon innenfor samme hovedversjon (kit ^1, emdash ^1, Vibe Editor ^0.3),
 #   2. bygger nettstedet,
 #   3. bare hvis noe er endret og byggingen går gjennom: committer til main og publiserer (kaller «Publiser til Cloudflare»).
+# Slå av den automatiske kjøringen: lag repo-variabelen EMDASH_AUTO_UPDATE = false (kjøring for hånd virker fortsatt).
 # Nye hovedversjoner (kit 2.x, EmDash 2.x) tas aldri automatisk; se CHANGELOG i emdash-kit for hva som må gjøres.
 # Astro holdes på 7.3 (se web/README.md) og oppdateres ikke her.
 name: Oppdater EmDash
@@ -35,9 +36,12 @@ jobs:
         id: oslo
         env:
           SCHEDULE: ${{ github.event.schedule }}
+          AUTO: ${{ vars.EMDASH_AUTO_UPDATE }}
         run: |
           # Kjørt for hånd: alltid. Ellers ut fra hvilken av de to tidene som startet (forsinkelser hos GitHub spiller ingen rolle)
           if [ -z "$SCHEDULE" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          # Automatisk oppdatering slått av: repo-variabelen EMDASH_AUTO_UPDATE = false (Settings → Secrets and variables → Actions → Variables)
+          if [ "$AUTO" = "false" ]; then echo "run=false" >> "$GITHUB_OUTPUT"; echo "Automatisk oppdatering er slått av (EMDASH_AUTO_UPDATE=false). Kjør for hånd ved behov."; exit 0; fi
           if [ "$(TZ=Europe/Oslo date +%z)" = "+0200" ]; then want="0 7 * * *"; else want="0 8 * * *"; fi
           if [ "$SCHEDULE" = "$want" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; else echo "run=false" >> "$GITHUB_OUTPUT"; echo "Ikke kl. 09 norsk tid nå, hopper over."; fi
 

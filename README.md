@@ -120,7 +120,8 @@ Kit-en følger [semver](https://semver.org): `1.x.y`.
   oppdaterer kit-en, EmDash og Vibe Editor innenfor samme hovedversjon, bygger, og committer og publiserer bare hvis
   byggingen går gjennom. Nye prosjekter kopierer malen [`maler/oppdater-emdash.yml`](maler/oppdater-emdash.yml)
   (kl. 09.00 norsk tid, sommer- og vintertid) til `.github/workflows/`; den trenger hemmeligheten `CLOUDFLARE_API_TOKEN`
-  og en `deploy.yml` som i getonnet-emdash.
+  og en `deploy.yml` som i getonnet-emdash. Vil et prosjekt ikke ha automatiske oppdateringer, lag repo-variabelen
+  `EMDASH_AUTO_UPDATE` = `false` (Settings → Secrets and variables → Actions → Variables); «Run workflow» virker fortsatt.
 - **Major (2.0.0):** endringer som krever noe i prosjektene (nytt oppsett, ny config). Står i CHANGELOG.md med hva
   som må gjøres; oppdateres for hånd i hvert prosjekt.
 
