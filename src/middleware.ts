@@ -404,35 +404,41 @@ const tidy = () => {
 		document.addEventListener("keydown", (e) => { if (e.key === "Escape") pop.hidden = true; });
 		footer.before(card);
 	}
-	// Innstillinger → Sikkerhet: bryter for automatisk utlogging ved midnatt (bare administratorer, gjelder alle brukere)
+	// Innstillinger → Sikkerhet: brytere for automatisk utlogging ved midnatt og automatisk oppdatering (bare administratorer, gjelder hele nettstedet)
 	const secGrid = location.pathname === "${ADMIN}/settings/security" && (u?.role ?? 0) >= 50 && document.querySelector("main .mt-6 > .grid.gap-8");
 	if (secGrid && !secGrid.querySelector("[data-ek=autologout]")) {
 		const nb = document.documentElement.lang.startsWith("nb");
-		const sec = document.createElement("section");
-		sec.setAttribute("data-ek", "autologout");
-		sec.innerHTML =
-			'<h2 class="text-lg font-semibold leading-6 text-balance"></h2>' +
-			'<div class="mt-3 overflow-hidden rounded-xl border border-kumo-line bg-kumo-base"><div class="flex items-center justify-between gap-4 px-4 py-4">' +
-			'<div class="min-w-0"><div class="font-medium"></div><div class="text-sm text-kumo-subtle"></div></div>' +
-			'<button type="button" role="switch" class="ek-switch" aria-checked="false" disabled></button></div></div>';
-		sec.querySelector("h2").textContent = nb ? "Innlogging" : "Sign-in";
-		sec.querySelector(".font-medium").textContent = nb ? "Logg ut automatisk ved midnatt" : "Sign out automatically at midnight";
-		sec.querySelector(".text-kumo-subtle").textContent = nb
-			? "Alle brukere logges ut ved slutten av hver dag (norsk tid) og må logge inn på nytt neste dag."
-			: "Everyone is signed out at the end of each day (Norwegian time) and signs in again the next day.";
-		const sw = sec.querySelector("button");
-		sw.setAttribute("aria-label", sec.querySelector(".font-medium").textContent);
 		const api = (init) => fetch("/api/innstillinger", { credentials: "same-origin", ...init }).then((r) => (r.ok ? r.json() : Promise.reject(r)));
-		const show = (d) => { sw.setAttribute("aria-checked", String(d.autoLogout)); sw.disabled = false; };
-		api().then(show).catch(() => {});
-		sw.addEventListener("click", () => {
-			const next = sw.getAttribute("aria-checked") !== "true";
-			sw.disabled = true;
-			api({ method: "PUT", headers: { "Content-Type": "application/json", "X-EmDash-Request": "1" }, body: JSON.stringify({ autoLogout: next }) })
-				.then(show)
-				.catch(() => { sw.disabled = false; });
-		});
-		secGrid.append(sec);
+		const toggle = (id, key, heading, label, hint) => {
+			const sec = document.createElement("section");
+			sec.setAttribute("data-ek", id);
+			sec.innerHTML =
+				'<h2 class="text-lg font-semibold leading-6 text-balance"></h2>' +
+				'<div class="mt-3 overflow-hidden rounded-xl border border-kumo-line bg-kumo-base"><div class="flex items-center justify-between gap-4 px-4 py-4">' +
+				'<div class="min-w-0"><div class="font-medium"></div><div class="text-sm text-kumo-subtle"></div></div>' +
+				'<button type="button" role="switch" class="ek-switch" aria-checked="false" disabled></button></div></div>';
+			sec.querySelector("h2").textContent = heading;
+			sec.querySelector(".font-medium").textContent = label;
+			sec.querySelector(".text-kumo-subtle").textContent = hint;
+			const sw = sec.querySelector("button");
+			sw.setAttribute("aria-label", label);
+			const show = (d) => { sw.setAttribute("aria-checked", String(d[key])); sw.disabled = false; };
+			api().then(show).catch(() => {});
+			sw.addEventListener("click", () => {
+				const next = sw.getAttribute("aria-checked") !== "true";
+				sw.disabled = true;
+				api({ method: "PUT", headers: { "Content-Type": "application/json", "X-EmDash-Request": "1" }, body: JSON.stringify({ [key]: next }) })
+					.then(show)
+					.catch(() => { sw.disabled = false; });
+			});
+			secGrid.append(sec);
+		};
+		toggle("autologout", "autoLogout", nb ? "Innlogging" : "Sign-in",
+			nb ? "Logg ut automatisk ved midnatt" : "Sign out automatically at midnight",
+			nb ? "Alle brukere logges ut ved slutten av hver dag (norsk tid) og må logge inn på nytt neste dag." : "Everyone is signed out at the end of each day (Norwegian time) and signs in again the next day.");
+		toggle("autoupdate", "autoUpdate", nb ? "Oppdateringer" : "Updates",
+			nb ? "Oppdater nettstedet automatisk" : "Update the website automatically",
+			nb ? "Hver morgen kl. 09.00 (norsk tid) installeres feilrettinger og sikkerhetsoppdateringer. Nettstedet publiseres bare hvis alt bygger som det skal." : "Every morning at 09:00 (Norwegian time) bug fixes and security updates are installed. The website is only published if everything builds correctly.");
 	}
 	// «Sjekk e-posten din» etter innloggingslenke: knapper som åpner de vanligste e-posttjenestene, riktig tjeneste først
 	const checkMail = [...document.querySelectorAll("h2")].find((h) => /^(Sjekk e-posten din|Check your email)$/.test(h.textContent.trim()));

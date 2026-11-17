@@ -18,6 +18,7 @@ Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash) og [at
   sammenslått meny.
 - **Norsk admin**: rundt 2500 oversettelser (EmDash 1.5), norsk som standard (kan byttes under Innstillinger → Språk).
 - **Automatisk utlogging ved midnatt** (norsk tid), med bryter under Innstillinger → Sikkerhet.
+- **Bryter for automatisk oppdatering** under Innstillinger → Sikkerhet: slår av den daglige oppdateringen kl. 09.00.
 - **E-post** (invitasjoner, innloggingslenker) i prosjektets profil, alltid på norsk, via Cloudflare Email Sending.
 - **Innlogging med e-postlenke**: knapper til Gmail, Outlook og iCloud Mail, riktig tjeneste først.
 - **Besøksteller** uten cookies (roboter, skript og innloggede teller ikke).
@@ -120,8 +121,10 @@ Kit-en følger [semver](https://semver.org): `1.x.y`.
   oppdaterer kit-en, EmDash og Vibe Editor innenfor samme hovedversjon, bygger, og committer og publiserer bare hvis
   byggingen går gjennom. Nye prosjekter kopierer malen [`maler/oppdater-emdash.yml`](maler/oppdater-emdash.yml)
   (kl. 09.00 norsk tid, sommer- og vintertid) til `.github/workflows/`; den trenger hemmeligheten `CLOUDFLARE_API_TOKEN`
-  og en `deploy.yml` som i getonnet-emdash. Vil et prosjekt ikke ha automatiske oppdateringer, lag repo-variabelen
-  `EMDASH_AUTO_UPDATE` = `false` (Settings → Secrets and variables → Actions → Variables); «Run workflow» virker fortsatt.
+  og en `deploy.yml` som i getonnet-emdash. Bytt `SITE` i malen til nettstedets adresse. Vil et prosjekt ikke ha automatiske
+  oppdateringer, slår en administrator av «Oppdater nettstedet automatisk» under Innstillinger → Sikkerhet i EmDash
+  (arbeidsflyten spør `/api/auto-oppdatering`), eller lag repo-variabelen `EMDASH_AUTO_UPDATE` = `false` i GitHub.
+  «Run workflow» virker fortsatt.
 - **Major (2.0.0):** endringer som krever noe i prosjektene (nytt oppsett, ny config). Står i CHANGELOG.md med hva
   som må gjøres; oppdateres for hånd i hvert prosjekt.
 

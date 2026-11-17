@@ -39,6 +39,28 @@ export async function setAutoLogout(on: boolean) {
 	cached = { value: on, at: Date.now() };
 }
 
+// Automatisk oppdatering (arbeidsflyten «Oppdater EmDash» kl. 09.00 i GitHub). På som standard.
+// GitHub spør /api/auto-oppdatering før hver kjøring og hopper over hvis den er slått av her.
+let updateCache: { value: boolean; at: number } | null = null;
+
+export async function autoUpdateOn() {
+	if (updateCache && Date.now() - updateCache.at < 30_000) return updateCache.value;
+	await ensureTable();
+	const row = await db().prepare(`SELECT value FROM ${names.settingsTable} WHERE key = ?`).bind("auto_update").first<{ value: string }>();
+	const value = row?.value !== "off";
+	updateCache = { value, at: Date.now() };
+	return value;
+}
+
+export async function setAutoUpdate(on: boolean) {
+	await ensureTable();
+	await db()
+		.prepare(`INSERT INTO ${names.settingsTable} (key, value) VALUES (?, ?) ON CONFLICT (key) DO UPDATE SET value = excluded.value`)
+		.bind("auto_update", on ? "on" : "off")
+		.run();
+	updateCache = { value: on, at: Date.now() };
+}
+
 // Egne skript på nettsiden (Google Tag Manager, Analytics, Meta Pixel, verifisering o.l.), lagt inn av administratorer
 // under Innstillinger → SEO i EmDash. Settes inn på alle offentlige sider av src/scripts-plugin.ts.
 export type CustomScripts = { head: string; bodyStart: string; bodyEnd: string };

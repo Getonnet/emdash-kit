@@ -1,6 +1,6 @@
-// Kit-innstillinger for administratorer: bryteren under Innstillinger → Sikkerhet og egne skript under Innstillinger → SEO i EmDash.
+// Kit-innstillinger for administratorer: bryterne under Innstillinger → Sikkerhet og egne skript under Innstillinger → SEO i EmDash.
 import type { APIRoute } from "astro";
-import { autoLogoutOn, customScripts, SCRIPT_FIELDS, SCRIPT_MAX, setAutoLogout, setCustomScripts, type CustomScripts } from "../../innstillinger";
+import { autoLogoutOn, autoUpdateOn, customScripts, SCRIPT_FIELDS, SCRIPT_MAX, setAutoLogout, setAutoUpdate, setCustomScripts, type CustomScripts } from "../../innstillinger";
 
 export const prerender = false;
 
@@ -11,16 +11,17 @@ const isAdmin = (locals: App.Locals) => (locals.user?.role ?? 0) >= 50;
 
 export const GET: APIRoute = async ({ locals }) => {
 	if (!isAdmin(locals)) return json({ error: "forbidden" }, 403);
-	return json({ autoLogout: await autoLogoutOn(), scripts: await customScripts() });
+	return json({ autoLogout: await autoLogoutOn(), autoUpdate: await autoUpdateOn(), scripts: await customScripts() });
 };
 
 export const PUT: APIRoute = async ({ request, locals }) => {
 	if (!isAdmin(locals)) return json({ error: "forbidden" }, 403);
 	// Samme vern mot forfalskede forespørsler som EmDash sitt API
 	if (request.headers.get("X-EmDash-Request") !== "1") return json({ error: "missing header" }, 400);
-	const body = (await request.json().catch(() => null)) as { autoLogout?: unknown; scripts?: Record<string, unknown> } | null;
-	if (!body || (body.autoLogout === undefined && body.scripts === undefined)) return json({ error: "autoLogout or scripts required" }, 400);
+	const body = (await request.json().catch(() => null)) as { autoLogout?: unknown; autoUpdate?: unknown; scripts?: Record<string, unknown> } | null;
+	if (!body || (body.autoLogout === undefined && body.autoUpdate === undefined && body.scripts === undefined)) return json({ error: "autoLogout, autoUpdate or scripts required" }, 400);
 	if (body.autoLogout !== undefined && typeof body.autoLogout !== "boolean") return json({ error: "autoLogout must be true or false" }, 400);
+	if (body.autoUpdate !== undefined && typeof body.autoUpdate !== "boolean") return json({ error: "autoUpdate must be true or false" }, 400);
 	let scripts: CustomScripts | undefined;
 	if (body.scripts !== undefined) {
 		if (!body.scripts || typeof body.scripts !== "object") return json({ error: "scripts must be an object" }, 400);
@@ -33,6 +34,7 @@ export const PUT: APIRoute = async ({ request, locals }) => {
 		scripts = Object.fromEntries(SCRIPT_FIELDS.map((k) => [k, typeof s[k] === "string" ? (s[k] as string).trim() : current[k]])) as CustomScripts;
 	}
 	if (body.autoLogout !== undefined) await setAutoLogout(body.autoLogout as boolean);
+	if (body.autoUpdate !== undefined) await setAutoUpdate(body.autoUpdate as boolean);
 	if (scripts) await setCustomScripts(scripts);
-	return json({ autoLogout: await autoLogoutOn(), scripts: await customScripts() });
+	return json({ autoLogout: await autoLogoutOn(), autoUpdate: await autoUpdateOn(), scripts: await customScripts() });
 };

@@ -1,5 +1,17 @@
 # Endringer
 
+## 1.4.0 – 17. nov 2026
+
+Ingen endringer kreves i prosjektene for å få bryteren. For at GitHub skal lese den, må «Oppdater EmDash» i prosjektet
+ha `SITE` og sjekken mot `/api/auto-oppdatering` i jobben «tid» (se `maler/oppdater-emdash.yml`). Uten den oppdateres
+nettstedet som før.
+
+- **Bryter for automatisk oppdatering:** «Oppdater nettstedet automatisk» under Innstillinger → Sikkerhet i EmDash
+  (bare administratorer, på som standard). Slått av hopper arbeidsflyten over kjøringen kl. 09.00; «Run workflow»
+  virker fortsatt. Svarer ikke nettstedet, kjører arbeidsflyten likevel, så en feilretting kan komme ut.
+- Nytt åpent endepunkt `/api/auto-oppdatering` (`{ "autoUpdate": true|false }`), og `/api/innstillinger` gir og tar `autoUpdate`.
+- Repo-variabelen `EMDASH_AUTO_UPDATE` = `false` i GitHub virker fortsatt og overstyrer.
+
 ## 1.3.0 – 17. nov 2026
 
 Ingen endringer kreves i prosjektene. Begge funksjonene er på som standard og kan slås av.

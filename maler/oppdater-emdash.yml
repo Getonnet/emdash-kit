@@ -1,12 +1,14 @@
 # MAL fra emdash-kit (maler/oppdater-emdash.yml): kopier til .github/workflows/oppdater-emdash.yml i prosjektet.
 # Ligger nettstedet i en undermappe (som web/ i getonnet-emdash), behold working-directory og stiene til web/.
+# Bytt SITE (i jobben «tid») til nettstedets adresse.
 # Ligger det i roten (som attitude-tattoo), fjern «defaults: run: working-directory: web» og «web/» i stiene.
 # Holder nettstedet oppdatert med det felles EmDash-oppsettet (@getonnet/emdash-kit), EmDash og Vibe Editor.
 # Hver morgen kl. 09.00 norsk tid (og for hånd: Actions → «Oppdater EmDash» → «Run workflow»):
 #   1. oppdaterer til nyeste versjon innenfor samme hovedversjon (kit ^1, emdash ^1, Vibe Editor ^0.3),
 #   2. bygger nettstedet,
 #   3. bare hvis noe er endret og byggingen går gjennom: committer til main og publiserer (kaller «Publiser til Cloudflare»).
-# Slå av den automatiske kjøringen: lag repo-variabelen EMDASH_AUTO_UPDATE = false (kjøring for hånd virker fortsatt).
+# Slå av den automatiske kjøringen: bryteren under Innstillinger → Sikkerhet i EmDash (kit 1.4+),
+# eller repo-variabelen EMDASH_AUTO_UPDATE = false. Kjøring for hånd virker fortsatt.
 # Nye hovedversjoner (kit 2.x, EmDash 2.x) tas aldri automatisk; se CHANGELOG i emdash-kit for hva som må gjøres.
 # Astro holdes på 7.3 (se web/README.md) og oppdateres ikke her.
 name: Oppdater EmDash
@@ -37,11 +39,15 @@ jobs:
         env:
           SCHEDULE: ${{ github.event.schedule }}
           AUTO: ${{ vars.EMDASH_AUTO_UPDATE }}
+          # Nettstedets adresse: bryteren «Oppdater nettstedet automatisk» under Innstillinger → Sikkerhet i EmDash
+          SITE: https://EKSEMPEL.getonnet.cloud
         run: |
           # Kjørt for hånd: alltid. Ellers ut fra hvilken av de to tidene som startet (forsinkelser hos GitHub spiller ingen rolle)
           if [ -z "$SCHEDULE" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; exit 0; fi
           # Automatisk oppdatering slått av: repo-variabelen EMDASH_AUTO_UPDATE = false (Settings → Secrets and variables → Actions → Variables)
           if [ "$AUTO" = "false" ]; then echo "run=false" >> "$GITHUB_OUTPUT"; echo "Automatisk oppdatering er slått av (EMDASH_AUTO_UPDATE=false). Kjør for hånd ved behov."; exit 0; fi
+          # Slått av i EmDash (Innstillinger → Sikkerhet)? Svarer ikke nettstedet, kjører vi likevel, så en feilretting kan komme ut.
+          if curl -fsS --max-time 15 "$SITE/api/auto-oppdatering" | grep -q '"autoUpdate":false'; then echo "run=false" >> "$GITHUB_OUTPUT"; echo "Automatisk oppdatering er slått av i EmDash (Innstillinger → Sikkerhet). Kjør for hånd ved behov."; exit 0; fi
           if [ "$(TZ=Europe/Oslo date +%z)" = "+0200" ]; then want="0 7 * * *"; else want="0 8 * * *"; fi
           if [ "$SCHEDULE" = "$want" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; else echo "run=false" >> "$GITHUB_OUTPUT"; echo "Ikke kl. 09 norsk tid nå, hopper over."; fi
 

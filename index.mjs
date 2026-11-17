@@ -6,7 +6,7 @@
 //   integrations: [react(), emdash({ database, storage, ...kit.emdash }), kit.integration]
 //
 // Kit-en legger inn: kontrollpanel (/admin, /admin/tilganger), API-er (/api/besok, /api/innstillinger,
-// /api/tilganger, /api/epostleverandor), middleware (EmDash-admin i prosjektets farger, roller og tilganger,
+// /api/tilganger, /api/epostleverandor, /api/auto-oppdatering), middleware (EmDash-admin i prosjektets farger, roller og tilganger,
 // utlogging ved midnatt, hoveddomene, HSTS), e-post med prosjektets profil, norske oversettelser, Vibe Editor,
 // felt for egne skript (GTM o.l.) og komprimering av bilder ved opplasting.
 // Alt som er spesielt for prosjektet (navn, farger, skrift, logo, firmaopplysninger, samlinger) kommer fra config.
@@ -229,6 +229,7 @@ export function defineKit(options = {}) {
 					["/admin/tilganger", "./src/pages/admin/tilganger.astro"],
 					["/api/besok", "./src/pages/api/besok.ts"],
 					["/api/innstillinger", "./src/pages/api/innstillinger.ts"],
+					["/api/auto-oppdatering", "./src/pages/api/auto-oppdatering.ts"],
 					["/api/tilganger", "./src/pages/api/tilganger.ts"],
 					["/api/epostleverandor", "./src/pages/api/epostleverandor.ts"],
 				];
