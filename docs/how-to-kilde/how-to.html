@@ -205,7 +205,7 @@ const kit = defineKit({
 - GitHub repo: <span class="r">[Getonnet/repo-name]</span> (empty, created by me)
 
 Page templates use getSeoMeta + EmDashHead/BodyStart/BodyEnd (SEO fields and tracking scripts).
-Set up deploys with GitHub Actions and the daily "Oppdater EmDash" workflow, like getonnet-emdash.
+Set up deploys like getonnet-emdash, and copy maler/oppdater-emdash.yml from the kit (09:00).
 Don't change emdash-kit, aesto or trening-for-deg. Check /admin on desktop and phone width,
 run QA before publishing, and ask me before creating anything in Cloudflare.</pre>
 
@@ -226,7 +226,7 @@ read its README first), the same way getonnet-emdash was built from getonnet.no.
 - Address: <span class="r">[client]</span>.getonnet.cloud, Cloudflare Getonnet AS, D1 + R2 in Western Europe
 - GitHub repo: <span class="r">[Getonnet/repo-name]</span> (empty, created by me)
 
-Set up deploys and the daily "Oppdater EmDash" workflow like getonnet-emdash. Compare every
+Set up deploys like getonnet-emdash and copy maler/oppdater-emdash.yml from the kit. Compare every
 page with the original on desktop and phone before publishing, and ask me before creating
 anything in Cloudflare.</pre>
 	<p class="small">Works for any static site: an HTML export, a WordPress/Elementor site, Webflow, or files in a folder. Editors can then change texts and images in EmDash while the design stays the same.</p>
@@ -247,7 +247,7 @@ anything in Cloudflare.</pre>
 - Use the same prefix as the project's current D1 tables (e.g. "aesto") so data, visits and roles carry over
 - Delete the files the kit now provides (middleware, /admin, APIs, email plugin, translations),
   but keep everything specific to the site
-- Add the daily "Oppdater EmDash" workflow (09:00 Norwegian time) like getonnet-emdash
+- Copy maler/oppdater-emdash.yml from the kit (daily update at 09:00 Norwegian time)
 - If something in the project is better than in the kit, propose it as a new kit version instead
 
 You have permission to change <span class="r">[project]</span> for this. Run QA locally before pushing, and show me
@@ -345,20 +345,20 @@ then push (it deploys itself).</pre>
 		</div>
 	</div>
 
-	<h2 style="margin-top:7mm">Good to know</h2>
+	<h2 style="margin-top:5mm">Good to know</h2>
 	<div class="callout"><b>A site looks wrong after changing colours?</b> Check that every token is set (missing ones fall back to the kit's blue default) and that <span class="tok">accentText</span> is readable on <span class="tok">accent</span>.</div>
 	<div class="callout"><b>Site returns 503 after an EmDash update?</b> The database migration got cut off and left its lock behind. Wait a few minutes, then ask Claude to "release the stale EmDash migration lock". The steps are in web/README.md → Databasemigreringer.</div>
 	<div class="callout"><b>Admin looks half English?</b> The kit makes Norwegian the default. Each user can switch under Innstillinger → Språk.</div>
 	<div class="callout"><b>A kit change didn't show up?</b> Check that it was <b>tagged with <code>-a</code></b> (not only pushed) and that the tag isn't a new major version. Then run "Oppdater EmDash" by hand.</div>
 
-	<h3 style="margin-top:5mm">Where things are</h3>
+	<h3 style="margin-top:3mm">Where things are</h3>
 	<table>
 		<tr><td style="width:34%"><b>Shared kit</b></td><td>github.com/Getonnet/emdash-kit · local: C:\Users\geton\emdash-kit</td></tr>
 		<tr><td><b>A site's look and settings</b></td><td><code>web/astro.config.mjs → defineKit({ … })</code></td></tr>
 		<tr><td><b>A site's fonts</b></td><td><code>web/public/assets/css/admin-fonts.css</code> (set as <code>fontsCss</code>)</td></tr>
 		<tr><td><b>A site's custom hooks</b></td><td><code>web/src/emdash-kit.ts</code> (e.g. page names on the dashboard)</td></tr>
 		<tr><td><b>Tracking (GTM) · SEO defaults</b></td><td><code>/_emdash/admin</code> → Innstillinger → SEO (administrators)</td></tr>
-		<tr><td><b>Deploy / daily update</b></td><td><code>.github/workflows/deploy.yml</code> · <code>oppdater-emdash.yml</code></td></tr>
+		<tr><td><b>Deploy / daily update</b></td><td><code>.github/workflows/deploy.yml</code> · <code>oppdater-emdash.yml</code> · mal: kit <code>maler/</code></td></tr>
 		<tr><td><b>Example site</b></td><td>getonnet-emdash.getonnet.cloud · github.com/Getonnet/getonnet-emdash</td></tr>
 	</table>
 	<div class="foot"><span>emdash-kit 1.3.0 · EmDash 1.5 · Astro 7.3 · Cloudflare Workers (D1, R2) · GetOnNet AS</span><span>7 / 7</span></div>

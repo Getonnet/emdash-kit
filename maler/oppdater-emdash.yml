@@ -1,0 +1,111 @@
+# MAL fra emdash-kit (maler/oppdater-emdash.yml): kopier til .github/workflows/oppdater-emdash.yml i prosjektet.
+# Ligger nettstedet i en undermappe (som web/ i getonnet-emdash), behold working-directory og stiene til web/.
+# Ligger det i roten (som attitude-tattoo), fjern «defaults: run: working-directory: web» og «web/» i stiene.
+# Holder nettstedet oppdatert med det felles EmDash-oppsettet (@getonnet/emdash-kit), EmDash og Vibe Editor.
+# Hver morgen kl. 09.00 norsk tid (og for hånd: Actions → «Oppdater EmDash» → «Run workflow»):
+#   1. oppdaterer til nyeste versjon innenfor samme hovedversjon (kit ^1, emdash ^1, Vibe Editor ^0.3),
+#   2. bygger nettstedet,
+#   3. bare hvis noe er endret og byggingen går gjennom: committer til main og publiserer (kaller «Publiser til Cloudflare»).
+# Nye hovedversjoner (kit 2.x, EmDash 2.x) tas aldri automatisk; se CHANGELOG i emdash-kit for hva som må gjøres.
+# Astro holdes på 7.3 (se web/README.md) og oppdateres ikke her.
+name: Oppdater EmDash
+
+on:
+  # GitHub bruker UTC: 07:00 UTC er 09:00 norsk sommertid, 08:00 UTC er 09:00 norsk vintertid.
+  # Begge starter, og jobben «tid» slipper bare gjennom den som er kl. 09 i Norge den dagen.
+  schedule:
+    - cron: "0 7 * * *"
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: oppdater-emdash
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  tid:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.oslo.outputs.run }}
+    steps:
+      - name: Er det kl. 09 i Norge?
+        id: oslo
+        env:
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          # Kjørt for hånd: alltid. Ellers ut fra hvilken av de to tidene som startet (forsinkelser hos GitHub spiller ingen rolle)
+          if [ -z "$SCHEDULE" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$(TZ=Europe/Oslo date +%z)" = "+0200" ]; then want="0 7 * * *"; else want="0 8 * * *"; fi
+          if [ "$SCHEDULE" = "$want" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; else echo "run=false" >> "$GITHUB_OUTPUT"; echo "Ikke kl. 09 norsk tid nå, hopper over."; fi
+
+  update:
+    needs: tid
+    if: needs.tid.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+
+      - name: Installer dagens versjoner
+        run: pnpm install --frozen-lockfile
+
+      - name: Oppdater kit, EmDash og Vibe Editor (innenfor samme hovedversjon)
+        id: versions
+        run: |
+          before=$(pnpm list --depth 0 --json | node -e 'const d=JSON.parse(require("fs").readFileSync(0,"utf8"))[0]; const all={...d.dependencies,...d.devDependencies}; for (const n of ["@getonnet/emdash-kit","emdash","@emdash-cms/cloudflare","emdash-vibe-editor"]) console.log(n+"@"+(all[n]?.version??"-"))')
+          pnpm update "@getonnet/emdash-kit" emdash "@emdash-cms/cloudflare" emdash-vibe-editor
+          after=$(pnpm list --depth 0 --json | node -e 'const d=JSON.parse(require("fs").readFileSync(0,"utf8"))[0]; const all={...d.dependencies,...d.devDependencies}; for (const n of ["@getonnet/emdash-kit","emdash","@emdash-cms/cloudflare","emdash-vibe-editor"]) console.log(n+"@"+(all[n]?.version??"-"))')
+          echo "Før:"; echo "$before"; echo "Etter:"; echo "$after"
+          changes=$(diff <(echo "$before") <(echo "$after") | grep '^>' | sed 's/^> //' || true)
+          # Ingen nye hovedpakker: da er det underavhengigheter (f.eks. det EmDash selv bruker) som har fått feilrettinger
+          [ -z "$changes" ] && changes="Nye feilrettingsversjoner av underavhengigheter (pnpm-lock.yaml)"
+          {
+            echo "summary<<EOF"
+            echo "$changes"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Bygg med de nye versjonene
+        run: pnpm build
+
+      - name: Commit hvis noe er endret
+        id: commit
+        run: |
+          if git diff --quiet -- package.json pnpm-lock.yaml; then
+            echo "Ingen nye versjoner."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898099+github-actions[bot]@users.noreply.github.com"
+          git add package.json pnpm-lock.yaml
+          git commit -m "Oppdater EmDash-oppsettet" -m "${{ steps.versions.outputs.summary }}"
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
