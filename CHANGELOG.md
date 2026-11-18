@@ -1,9 +1,16 @@
 # Endringer
 
+## 1.5.0 – 18. nov 2026
+
+Ingen endringer kreves i prosjektene. Prosjekter som har `emdash-vibe-editor` i package.json kan beholde den.
+
+- **Vibe Editor-bryteren flyttes hvis noe ligger over den:** ligger f.eks. en chat-knapp nede til høyre over Vibe
+  Editor sin bryter, flyttes bryteren (og knappene over den) mot venstre til den kan klikkes. Bare for innloggede
+  redaktører; gjelder også i redigeringsmodus.
+
 ## 1.5.0-beta.1 – 18. nov 2026
 
-Forhåndsversjon, foreløpig bare i getonnet-emdash (`#semver:^1.5.0-beta.1`). Prosjekter på `^1.0.0` får den ikke
-før `v1.5.0` tagges. Ingen endringer kreves i prosjektene. Prosjekter som har `emdash-vibe-editor` i package.json kan beholde den.
+Forhåndsversjon, bare i getonnet-emdash. Alt under er med i 1.5.0. Prosjekter som har `emdash-vibe-editor` i package.json kan beholde den.
 
 - **Vibe Editor følger med kit-en:** `emdash-vibe-editor` er nå en vanlig avhengighet av kit-en, så nye prosjekter
   trenger bare `pnpm add "github:Getonnet/emdash-kit#semver:^1.0.0"`. På som standard; `vibeEditor: false` slår av.

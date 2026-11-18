@@ -189,7 +189,8 @@ export function defineKit(options = {}) {
 			capabilities: ["hooks.email-transport:register"],
 		});
 	}
-	if (config.scripts) {
+	// Egne skript (scripts) og flytting av Vibe Editor-bryteren bort fra chat-knapper o.l. (vibeEditor) settes inn av samme plugin
+	if (config.scripts || config.vibeEditor) {
 		plugins.push({
 			id: "emdash-kit-skript",
 			version: VERSION,

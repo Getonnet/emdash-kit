@@ -1,6 +1,6 @@
 {
   "name": "@getonnet/emdash-kit",
-  "version": "1.5.0-beta.1",
+  "version": "1.5.0",
   "description": "Felles EmDash-oppsett for GetOnNet-prosjekter: kontrollpanel, roller og tilganger, norsk admin, e-post, besøksteller og Vibe Editor, med prosjektets egne farger og navn.",
   "type": "module",
   "main": "./index.mjs",
