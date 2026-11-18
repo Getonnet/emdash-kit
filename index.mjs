@@ -24,7 +24,8 @@ const here = (p) => fileURLToPath(new URL(p, import.meta.url)).replaceAll("\\", 
 /** Versjonen fra package.json (ett sted å endre ved ny versjon) */
 export const VERSION = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8")).version;
 
-// Vibe Editor er valgfritt (defineKit({ vibeEditor: false })): prosjekter uten pakken skal fortsatt virke
+// Vibe Editor følger med kit-en (avhengighet i package.json), og er på som standard (defineKit({ vibeEditor: false }) slår av).
+// Prosjektet trenger ikke installere pakken selv. Faller tilbake til ingen Vibe Editor hvis pakken mangler.
 const vibeEditor = await import("emdash-vibe-editor").then(
 	(m) => m.default,
 	(error) => {
@@ -198,7 +199,12 @@ export function defineKit(options = {}) {
 			capabilities: ["hooks.page-fragments:register"],
 		});
 	}
-	if (config.vibeEditor) plugins.push(vibeEditor());
+	if (config.vibeEditor) {
+		// Pakken peker på serverkoden med navn («emdash-vibe-editor/plugin»). Med pnpm finner prosjektet bare pakker det
+		// har installert selv, så navnet byttes med full sti til kit-ens egen kopi.
+		const descriptor = vibeEditor();
+		plugins.push({ ...descriptor, entrypoint: fileURLToPath(import.meta.resolve(descriptor.entrypoint)).replaceAll("\\", "/") });
+	}
 
 	const emdash = {
 		// EmDash sin «Edit mode»-verktøylinje på nettsiden er slått av (Vibe Editor har sin egen)

@@ -1,5 +1,18 @@
 # Endringer
 
+## 1.5.0-beta.1 – 18. nov 2026
+
+Forhåndsversjon, foreløpig bare i getonnet-emdash (`#semver:^1.5.0-beta.1`). Prosjekter på `^1.0.0` får den ikke
+før `v1.5.0` tagges. Ingen endringer kreves i prosjektene. Prosjekter som har `emdash-vibe-editor` i package.json kan beholde den.
+
+- **Vibe Editor følger med kit-en:** `emdash-vibe-editor` er nå en vanlig avhengighet av kit-en, så nye prosjekter
+  trenger bare `pnpm add "github:Getonnet/emdash-kit#semver:^1.0.0"`. På som standard; `vibeEditor: false` slår av.
+  Kit-en peker EmDash til sin egen kopi av pakken, så det virker også når prosjektet ikke har pakken selv (pnpm).
+- **Vibe Editor etter innlogging via `/admin`:** kontrollpanelet setter flagget Vibe Editor trenger på nettsiden
+  (før ble det bare satt i EmDash-adminen), for roller med fanen «Vibe Editor».
+- **«Sjekk e-posten din»:** Gmail-knappen åpner `mail.google.com/mail/?authuser=<e-post>` i stedet for
+  `/mail/u/<e-post>/`, som ga «Temporary Error» når akkurat den kontoen ikke var logget inn i nettleseren.
+
 ## 1.4.0 – 17. nov 2026
 
 Ingen endringer kreves i prosjektene for å få bryteren. For at GitHub skal lese den, må «Oppdater EmDash» i prosjektet

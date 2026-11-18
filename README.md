@@ -30,14 +30,14 @@ Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash) og [at
 - **SEO**: EmDash sine egne SEO-innstillinger (Innstillinger → SEO: tittelskille, standard delingsbilde, robots.txt,
   Google/Bing-verifisering) er synlige. SEO-feltene per side kommer fra samlingene (`"supports": [..., "seo"]`) og
   sidemalene (`getSeoMeta` og `<EmDashHead>`), se under.
-- **Vibe Editor** koblet inn.
+- **Vibe Editor** følger med (installeres sammen med kit-en) og er koblet inn. Vises også for dem som logger inn via `/admin`.
 
 Det som er spesielt for nettstedet (sidene, malene, artikkelsidene, 404-siden osv.) ligger i prosjektet.
 
 ## Ta i bruk i et prosjekt
 
 ```sh
-pnpm add "github:Getonnet/emdash-kit#semver:^1.0.0" emdash-vibe-editor
+pnpm add "github:Getonnet/emdash-kit#semver:^1.0.0"
 ```
 
 `astro.config.mjs`:
@@ -66,7 +66,7 @@ const kit = defineKit({
 	hooks: "./src/emdash-kit.ts", // valgfritt
 	translations: "./translations/emdash-nb.json", // valgfritt: egne/overstyrte oversettelser
 	extraHiddenAdminPaths: ["/settings/email"], // valgfritt: skjul flere EmDash-sider (i tillegg til standardlisten)
-	vibeEditor: true, // false: uten Vibe Editor (pakken trenger da ikke være installert)
+	vibeEditor: true, // false: uten Vibe Editor (følger med kit-en fra 1.5.0)
 	// Fra 1.3.0, valgfrie (standardverdiene vises):
 	images: { maxSize: 2560, quality: 0.82 }, // false: ingen komprimering ved opplasting
 	scripts: true, // false: ingen felt for egne skript under Innstillinger → SEO

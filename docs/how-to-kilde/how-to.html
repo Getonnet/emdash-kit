@@ -75,7 +75,7 @@ td{padding:4.5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
 <section class="page">
 	<div class="hero">
 		<div class="wordmark">GETONNET</div>
-		<div class="kicker">How-to · November 2026 · kit 1.4</div>
+		<div class="kicker">How-to · November 2026 · kit 1.5</div>
 		<h1>emdash-kit</h1>
 		<p class="lead" style="margin-top:3mm">One shared EmDash setup for every client site. Improve it once, and every site gets it the next morning at 09:00, while each site keeps <b>its own colours, logo, fonts and custom code</b>.</p>
 		<div class="flow">
@@ -85,7 +85,7 @@ td{padding:4.5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
 			<div><b>next client site</b>own colours · logo · pages</div>
 			<div><b>…</b>any EmDash site</div>
 		</div>
-		<p class="small">Also included: branded login and invite emails · logout at midnight · buttons that open Gmail, Outlook or iCloud Mail · visit counter without cookies · about 2,500 Norwegian translations · Vibe Editor (optional) · main-domain redirect and HSTS · works on phones · <b>images compressed on upload</b> · <b>fields for GTM and other tracking scripts</b> <span class="new">1.3</span> · <b>switch to turn off auto-updates</b> <span class="new">1.4</span>.</p>
+		<p class="small">Also included: branded login and invite emails · logout at midnight · buttons that open Gmail, Outlook or iCloud Mail · visit counter without cookies · about 2,500 Norwegian translations · Vibe Editor built in <span class="new">1.5</span> · main-domain redirect and HSTS · works on phones · <b>images compressed on upload</b> · <b>fields for GTM and other tracking scripts</b> <span class="new">1.3</span> · <b>switch to turn off auto-updates</b> <span class="new">1.4</span>.</p>
 	</div>
 
 	<h2>What every site gets from the kit</h2>
@@ -297,7 +297,7 @@ then push (it deploys itself).</pre>
 		<thead><tr><th style="width:42%">You do this in emdash-kit</th><th>Reaches the sites?</th></tr></thead>
 		<tbody>
 			<tr><td>Commit and push to <code>main</code></td><td class="no">No. Sites follow version tags, not commits.</td></tr>
-			<tr><td>Release a patch or minor version: <code>git tag -a v1.4.1 -m "v1.4.1"</code>, then <code>git push --follow-tags</code></td><td><span class="yes">Yes, automatically</span> at 09:00 Norwegian time (summer and winter), or right away with Actions → "Oppdater EmDash" → Run workflow. Live about a minute after the bot's commit.</td></tr>
+			<tr><td>Release a patch or minor version: <code>git tag -a v1.5.1 -m "v1.5.1"</code>, then <code>git push --follow-tags</code></td><td><span class="yes">Yes, automatically</span> at 09:00 Norwegian time (summer and winter), or right away with Actions → "Oppdater EmDash" → Run workflow. Live about a minute after the bot's commit.</td></tr>
 			<tr><td>Release a major version: <code>v2.0.0</code></td><td class="no">No. Each site is updated by hand.</td></tr>
 			<tr><td>Change a site's own <code>defineKit</code> (colours, logo …)</td><td><span class="yes">Only that site</span>, as soon as you push it.</td></tr>
 		</tbody>
@@ -361,7 +361,7 @@ then push (it deploys itself).</pre>
 		<tr><td><b>Deploy / daily update</b></td><td><code>.github/workflows/deploy.yml</code> · <code>oppdater-emdash.yml</code> · mal: kit <code>maler/</code></td></tr>
 		<tr><td><b>Example site</b></td><td>getonnet-emdash.getonnet.cloud · github.com/Getonnet/getonnet-emdash</td></tr>
 	</table>
-	<div class="foot"><span>emdash-kit 1.4.0 · EmDash 1.5 · Astro 7.3 · Cloudflare Workers (D1, R2) · GetOnNet AS</span><span>7 / 7</span></div>
+	<div class="foot"><span>emdash-kit 1.5.0 · EmDash 1.5 · Astro 7.3 · Cloudflare Workers (D1, R2) · GetOnNet AS</span><span>7 / 7</span></div>
 </section>
 </body>
 </html>

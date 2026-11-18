@@ -449,8 +449,10 @@ const tidy = () => {
 		const email = (checkMail.parentElement.querySelector("p span")?.textContent || "").trim().toLowerCase();
 		const domain = email.split("@")[1] || "";
 		const consumer = { "gmail.com": "google", "googlemail.com": "google", "outlook.com": "outlook", "hotmail.com": "outlook", "hotmail.no": "outlook", "live.com": "outlook", "live.no": "outlook", "msn.com": "outlook", "icloud.com": "apple", "me.com": "apple", "mac.com": "apple" };
-		// Avsenderen av innloggingslenken (cloudflareEmail i astro.config.mjs): Gmail åpner rett på e-posten
-		const gmail = "https://mail.google.com/mail/u/" + (email ? encodeURIComponent(email) : "0") + "/${kit.email.from?.email ? `#search/from%3A${encodeURIComponent(kit.email.from.email)}` : ""}";
+		// Avsenderen av innloggingslenken (cloudflareEmail i astro.config.mjs): Gmail åpner rett på e-posten.
+		// authuser velger kontoen hvis den er logget inn, ellers får man Googles kontovalg/innlogging.
+		// (/mail/u/<e-post>/ ga «Temporary Error» når akkurat den kontoen ikke var logget inn i nettleseren.)
+		const gmail = "https://mail.google.com/mail/" + (email ? "?authuser=" + encodeURIComponent(email) : "") + "${kit.email.from?.email ? `#search/from%3A${encodeURIComponent(kit.email.from.email)}` : ""}";
 		const apps = [
 			{ id: "google", label: "Gmail", href: gmail, icon: '<svg viewBox="0 0 24 24"><path fill="#EA4335" d="M2 6.5 12 13l10-6.5V18a2 2 0 0 1-2 2h-2V9.8l-6 4-6-4V20H4a2 2 0 0 1-2-2z"/><path fill="#FBBC04" d="M18 9.8V20h2a2 2 0 0 0 2-2V6.5z"/><path fill="#34A853" d="M6 9.8V20H4a2 2 0 0 1-2-2V6.5z"/><path fill="#C5221F" d="M2 6.5V6a2 2 0 0 1 3.2-1.6L12 9.5l6.8-5.1A2 2 0 0 1 22 6v.5L12 13z"/></svg>' },
 			{ id: "microsoft", label: "Outlook", href: consumer[domain] === "outlook" ? "https://outlook.live.com/mail/0/" : "https://outlook.office.com/mail/", icon: '<svg viewBox="0 0 24 24"><rect x="2" y="4" width="13" height="16" rx="2" fill="#0A64C8"/><circle cx="8.5" cy="12" r="3.2" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M15 7h6a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-6" fill="#28A8EA"/><path d="m15 9 3.5 2.5L22 9" fill="none" stroke="#fff" stroke-width="1.2"/></svg>' },

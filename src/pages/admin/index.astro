@@ -158,6 +158,9 @@ const presetHref = (p: number) => `/admin?periode=${p}`;
 <meta name="theme-color" content={kit.brand.colors.card}>
 <meta name="robots" content="noindex, nofollow">
 <title>{t.title}</title>
+{/* Vibe Editor på nettsiden lastes bare med flagget «emdash-editor», som ellers bare EmDash-adminen setter.
+    Den som logger inn og går rett hit og så til nettsiden, får det her (ikke hemmelig; serveren sjekker innloggingen). */}
+{kit.vibeEditor && access.tabs.includes("vibe") && <script is:inline>try{localStorage.setItem("emdash-editor","1")}catch(e){}</script>}
 {(kit.brand.favicon || kit.brand.icon) && <link rel="icon" href={kit.brand.favicon || kit.brand.icon}>}
 {kit.brand.fontsCss && <link rel="stylesheet" href={kit.brand.fontsCss}>}
 <Fragment set:html={`<style>:root{${cssVars()}}</style>`} />
