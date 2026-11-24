@@ -1,5 +1,13 @@
 # Endringer
 
+## 1.6.0-beta.3 – 24. nov 2026
+
+Forhåndsversjon, bare i getonnet-emdash.
+
+- **Raskere innlogging med passord:** stengning og bruker hentes i én tur til databasen, og resultatet (feil forsøk
+  eller sist innlogget) lagres i én tur til, i stedet for opptil 10 spørringer etter hverandre. Tabellene lages med
+  én spørring. «Har passord» huskes i minnet, så sidene i admin slipper en databasespørring hver gang.
+
 ## 1.6.0-beta.2 – 24. nov 2026
 
 Forhåndsversjon, bare i getonnet-emdash.

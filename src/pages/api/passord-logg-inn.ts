@@ -1,7 +1,7 @@
 // Innlogging med e-post og passord (innloggingssiden i EmDash, se src/middleware.ts). Lager samme økt som
 // EmDash sin innlogging med passnøkkel eller innloggingslenke. For mange feil forsøk stenger en stund.
 import type { APIRoute } from "astro";
-import { checkLogin, clearFailures, lockedFor, MAX_LENGTH, recordFailure, recordLogin } from "../../passord";
+import { attemptLogin, MAX_LENGTH } from "../../passord";
 
 export const prerender = false;
 
@@ -19,19 +19,11 @@ export const POST: APIRoute = async ({ request, session, clientAddress }) => {
 
 	let ip = request.headers.get("cf-connecting-ip") || "";
 	if (!ip) try { ip = clientAddress; } catch { ip = "unknown"; }
-	const keys = { email, ip };
-	const wait = await lockedFor(keys);
-	if (wait) return json({ error: "locked", retryAfter: wait }, 429);
-
-	const user = await checkLogin(email, password);
-	if (!user) {
-		await recordFailure(keys);
-		return json({ error: "invalid" }, 401);
-	}
-	await clearFailures(email);
+	// Én tur til databasen for stengning og bruker, og én for å lagre resultatet (se src/passord.ts)
+	const result = await attemptLogin(email, password, ip);
+	if (!result.ok) return result.locked ? json({ error: "locked", retryAfter: result.locked }, 429) : json({ error: "invalid" }, 401);
 	// Ny økt-ID ved innlogging
 	await session.regenerate();
-	session.set("user", { id: user.id });
-	await recordLogin(user.id).catch(() => {});
+	session.set("user", { id: result.userId });
 	return json({ ok: true });
 };
