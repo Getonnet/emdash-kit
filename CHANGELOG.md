@@ -1,5 +1,25 @@
 # Endringer
 
+## 1.6.0-beta.1 – 24. nov 2026
+
+Forhåndsversjon, bare i getonnet-emdash. Ingen endringer kreves i prosjektene.
+
+- **Innlogging med e-post og passord i stedet for passnøkkel:** innloggingssiden viser e-post og passord, og
+  «Glemt passordet?» sender EmDash sin innloggingslenke. Invitasjoner ber om navn og passord. Under Innstillinger →
+  Sikkerhet lager eller bytter man passord; passnøklene er skjult der. Brukere uten passord (alle som finnes fra før)
+  sendes dit og må lage et før de kommer videre i admin. Passordene lagres som PBKDF2-SHA256 (100 000 runder) i
+  D1-tabellen `<prefix>_passwords`. 5 feil forsøk per e-post (30 per IP-adresse) på 15 minutter stenger innloggingen
+  i 15 minutter (`<prefix>_login_attempts`). Nye API-er: `/api/passord`, `/api/passord/logg-inn`,
+  `/api/passord/invitasjon`. Ny avhengighet: `@emdash-cms/auth` (samme pakke som EmDash bruker).
+  Under Brukere viser «Sist innlogget» innloggingene med passord (`<prefix>_last_logins`; EmDash regner det ellers ut
+  fra passnøklene), og passnøkkel-kolonnen og -boksen er skjult. «Send gjenopprettingslenke» sender en
+  innloggingslenke, så brukeren kan bytte passord under Sikkerhet.
+  Merk: første administrator på et helt nytt nettsted lages fortsatt med passnøkkel i EmDash sitt oppsett, og bytte
+  av passord logger ikke ut andre innlogginger (de utløper ved midnatt når automatisk utlogging er på).
+- **Utvidelser for super admin:** nytt menypunkt etter Tilganger (EmDash-admin og `/admin`) med installerte plugins
+  og versjonene deres. Bare super admin får åpne siden. Kit-ens egne plugins heter «emdash-kit · e-post» og
+  «emdash-kit · skript og Vibe Editor-plassering» og viser kit-versjonen (før alltid 1.0.0).
+
 ## 1.5.0 – 18. nov 2026
 
 Ingen endringer kreves i prosjektene. Prosjekter som har `emdash-vibe-editor` i package.json kan beholde den.

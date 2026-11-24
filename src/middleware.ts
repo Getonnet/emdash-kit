@@ -2,6 +2,7 @@
 // - /_emdash/admin (forsiden) sender videre til kontrollpanelet på /admin
 // - prosjektets farger og skrift, alltid lys modus, ingen toppbar, brukeren nederst i menyen
 // - menypunkter som ikke trengs skjules; Vibe Editor og Tilganger legges inn i menyen
+// - innlogging med e-post og passord i stedet for passnøkkel (src/passord.ts)
 // - roller og tilganger, automatisk utlogging ved midnatt, norsk som standard, hoveddomene, HSTS
 import { env } from "cloudflare:workers";
 import { defineMiddleware } from "astro:middleware";
@@ -9,7 +10,8 @@ import { osloDay } from "./besok";
 import { allCollections, cssVars, kit, mode, names } from "./config";
 import { adminExtraCss, adminExtraJs } from "./admin-extra";
 import { autoLogoutOn } from "./innstillinger";
-import { accessFor, allows, TAB_PATHS, VIBE_CLIENT, VIEW_AS_COOKIE, type Access, type Tab } from "./roller";
+import { accessFor, allows, SECURITY_PATH, TAB_PATHS, VIBE_CLIENT, VIEW_AS_COOKIE, type Access, type Tab } from "./roller";
+import { hasPassword } from "./passord";
 
 const ADMIN = "/_emdash/admin";
 
@@ -20,7 +22,8 @@ const HIDDEN = kit.hiddenAdminPaths;
 const KEEP = kit.vibeEditor ? [`${ADMIN}/plugins/vibe-editor`] : [];
 // Ikonet der det er plass til et kvadrat (sammenslått meny, dialoger); logoen hvis prosjektet ikke har ikon
 const ICON = kit.brand.icon || kit.brand.logo;
-const keep = KEEP.map((p) => `:not([href^="${p}"])`).join("");
+// Lenker kit-en legger inn selv (data-ek), som Utvidelser for super admin, skjules aldri
+const keep = KEEP.map((p) => `:not([href^="${p}"])`).join("") + ":not([data-ek])";
 const links = HIDDEN.map((p) => `a[href^="${ADMIN}${p}"]${keep}`);
 
 // Prosjektets farger i EmDash (samme som /admin), som CSS-variabler fra kit-oppsettet; alltid lys eller alltid mørk
@@ -82,6 +85,19 @@ main h1{font-family:var(--ek-heading)!important;font-weight:500!important;letter
 .ek-switch::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--ek-card);box-shadow:0 1px 2px color-mix(in srgb,var(--ek-shadow) 20%,transparent);transition:transform .15s}
 .ek-switch[aria-checked=true]{background:var(--ek-accent-ink)}.ek-switch[aria-checked=true]::after{transform:translateX(16px)}
 .ek-switch:disabled{opacity:.5;cursor:wait}.ek-switch:focus-visible{outline:2px solid var(--ek-accent-ink);outline-offset:2px}
+/* Innlogging, invitasjon og Sikkerhet med passord (src/passord.ts) */
+.ek-pw{display:flex;flex-direction:column;gap:14px}
+.ek-pw label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:500;color:var(--ek-ink)}
+.ek-pw input{height:40px;padding:0 12px;border:1px solid var(--ek-line-strong);border-radius:8px;background:var(--ek-card);color:var(--ek-ink);font:inherit;font-size:14px}
+.ek-pw input:focus{outline:2px solid var(--ek-accent);outline-offset:-1px;border-color:transparent}
+.ek-pw input[readonly]{background:var(--ek-paper);color:var(--ek-muted)}
+.ek-pw .ek-btn{height:40px;border:0;border-radius:8px;background:var(--ek-accent);color:var(--ek-accent-text);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.ek-pw .ek-btn:hover{background:var(--ek-accent-hover)}.ek-pw .ek-btn:disabled{opacity:.6;cursor:wait}
+.ek-pw .ek-link{align-self:center;border:0;background:none;padding:4px;color:var(--ek-accent-ink);font:inherit;font-size:13px;cursor:pointer}
+.ek-pw .ek-link:hover{text-decoration:underline}
+.ek-pw .ek-err{margin:0;padding:10px 12px;border-radius:8px;background:color-mix(in srgb,#dc2626 10%,transparent);color:#b91c1c;font-size:13px}
+.ek-pw .ek-ok{margin:0;padding:10px 12px;border-radius:8px;background:var(--ek-wash);color:var(--ek-accent-ink);font-size:13px}
+.ek-pw .ek-hint{margin:-6px 0 0;font-size:12px;color:var(--ek-muted)}
 .ek-mailapps{margin-top:4px;text-align:center}.ek-mailapps p{font-size:13px;color:var(--ek-muted);margin:0 0 10px}
 .ek-mailapps div{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .ek-mailapps a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--ek-line);border-radius:10px;background:var(--ek-card);color:var(--ek-ink);font-size:14px;font-weight:600;text-decoration:none;transition:border-color .15s,box-shadow .15s}
@@ -277,12 +293,32 @@ const tidy = () => {
 		if (svg) svg.innerHTML = '<path d="M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A16,16,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM224,98.1c-1.09,34.09-29.75,61.86-63.89,61.9H160a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A63.72,63.72,0,0,1,96,96c0-34.1,27.77-62.78,61.86-63.9A64,64,0,0,1,224,98.1ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/>';
 		(li || anchor).after(copy);
 	}
-	const tilgLink = sidebar?.querySelector("[data-ek=tilganger]");
-	if (tilgLink) {
+	// Utvidelser (installerte plugins og versjonene, også kit-ens egen) bare for super admin, etter Tilganger
+	const tilgAnchor = sidebar?.querySelector("[data-ek=tilganger]");
+	if (tilgAnchor && window.__ekUser?.superadmin && !window.__ekUser.viewAs && !sidebar.querySelector("[data-ek=utvidelser]")) {
+		const li = tilgAnchor.closest("li");
+		const copy = (li || tilgAnchor).cloneNode(true);
+		const a = copy.matches("a") ? copy : copy.querySelector("a");
+		a.setAttribute("href", "${ADMIN}/plugins-manager");
+		a.setAttribute("data-ek", "utvidelser");
+		a.removeAttribute("aria-current");
+		a.removeAttribute("data-active");
+		const label = [...a.querySelectorAll("*")].find((e) => !e.children.length && e.textContent.trim());
+		if (label) label.textContent = window.__ekUser.t.plugins;
+		const svg = a.querySelector("svg");
+		if (svg) { svg.setAttribute("viewBox", "0 0 256 256"); svg.innerHTML = '<rect x="40" y="40" width="72" height="72" rx="8" fill="none" stroke="currentColor" stroke-width="16"/><rect x="144" y="40" width="72" height="72" rx="8" fill="none" stroke="currentColor" stroke-width="16"/><rect x="40" y="144" width="72" height="72" rx="8" fill="none" stroke="currentColor" stroke-width="16"/><path d="M180 140v80M140 180h80" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/>'; }
+		(li || tilgAnchor).after(copy);
+	}
+	for (const [sel, path] of [["[data-ek=tilganger]", "/admin/tilganger"], ["[data-ek=utvidelser]", "${ADMIN}/plugins-manager"]]) {
+		const link = sidebar?.querySelector(sel);
+		if (!link) continue;
+		const here = location.pathname.startsWith(path);
+		if (here && !link.hasAttribute("aria-current")) link.setAttribute("aria-current", "page");
+		if (!here && link.hasAttribute("aria-current")) link.removeAttribute("aria-current");
 		const plain = [...sidebar.querySelectorAll("a[data-sidebar=menu-button]")].find(
 			(l) => !l.hasAttribute("data-ek") && !l.hasAttribute("aria-current") && !l.hasAttribute("data-active"),
 		);
-		if (plain && tilgLink.className !== plain.className) tilgLink.className = plain.className;
+		if (!here && plain && link.className !== plain.className) link.className = plain.className;
 	}
 	// Bylines brukes ikke (skjult i menyen); skjul også panelet i redigeringsvisningen
 	for (const h of document.querySelectorAll("main section h3")) {
@@ -365,7 +401,7 @@ const tidy = () => {
 			location.href = "${ADMIN}/login?redirect=%2Fadmin";
 		});
 		pop.append(who);
-		// Egne passnøkler (Innstillinger → Sikkerhet): alle roller, også de uten Innstillinger. Knapp, ikke lenke,
+		// Eget passord (Innstillinger → Sikkerhet): alle roller, også de uten Innstillinger. Knapp, ikke lenke,
 		// så den ikke skjules sammen med Innstillinger-lenkene
 		const sec = document.createElement("button");
 		sec.type = "button";
@@ -439,6 +475,240 @@ const tidy = () => {
 		toggle("autoupdate", "autoUpdate", nb ? "Oppdateringer" : "Updates",
 			nb ? "Oppdater nettstedet automatisk" : "Update the website automatically",
 			nb ? "Hver morgen kl. 09.00 (norsk tid) installeres feilrettinger og sikkerhetsoppdateringer. Nettstedet publiseres bare hvis alt bygger som det skal." : "Every morning at 09:00 (Norwegian time) bug fixes and security updates are installed. The website is only published if everything builds correctly.");
+	}
+	// Passord i stedet for passnøkkel (src/passord.ts): innlogging, invitasjon og Innstillinger → Sikkerhet
+	// Uten passord ennå: bare Sikkerhet (også når EmDash bytter side uten å laste den på nytt)
+	if (window.__ekUser?.needsPassword && location.pathname !== "${ADMIN}/settings/security") {
+		location.replace("${ADMIN}/settings/security?passord=ny");
+		return;
+	}
+	const pwT = document.documentElement.lang.startsWith("nb")
+		? { email: "E-post", password: "Passord", repeat: "Gjenta passordet", name: "Navn", login: "Logg inn", forgot: "Glemt passordet? Få en innloggingslenke på e-post",
+			wrong: "Feil e-post eller passord.", locked: "For mange forsøk. Prøv igjen om {min} min.", failed: "Noe gikk galt. Prøv igjen.",
+			loginHelp: "Logg inn med e-post og passord.", tooShort: "Passordet må ha minst {n} tegn.", sameAsEmail: "Passordet kan ikke være e-postadressen.",
+			mismatch: "Passordene er ikke like.", tooLong: "Passordet kan ha høyst 200 tegn.", nameRequired: "Skriv inn navnet ditt.", create: "Opprett konto", invalidInvite: "Invitasjonen er ugyldig eller utløpt.",
+			pwSub: "Administrer passordet og innloggingen din", pwHeading: "Passord", pwNew: "Nytt passord", pwSave: "Lagre passordet", pwSaved: "Passordet er lagret.",
+			pwHas: "Du logger inn med e-postadressen din og dette passordet. Glemt passordet? Velg «Glemt passordet?» på innloggingssiden.",
+			pwFirst: "Lag et passord for å fortsette. Fra nå logger du inn med e-post og passord i stedet for passnøkkel." }
+		: { email: "Email", password: "Password", repeat: "Repeat password", name: "Name", login: "Sign in", forgot: "Forgot your password? Get a sign-in link by email",
+			wrong: "Wrong email or password.", locked: "Too many attempts. Try again in {min} min.", failed: "Something went wrong. Please try again.",
+			loginHelp: "Sign in with your email and password.", tooShort: "The password needs at least {n} characters.", sameAsEmail: "The password can't be your email address.",
+			mismatch: "The passwords don't match.", tooLong: "The password can have at most 200 characters.", nameRequired: "Enter your name.", create: "Create account", invalidInvite: "The invite is invalid or has expired.",
+			pwSub: "Manage your password and sign-in", pwHeading: "Password", pwNew: "New password", pwSave: "Save password", pwSaved: "The password is saved.",
+			pwHas: "You sign in with your email address and this password. Forgot it? Choose “Forgot your password?” on the sign-in page.",
+			pwFirst: "Create a password to continue. From now on you sign in with email and password instead of a passkey." };
+	const pwField = (label, attrs) => {
+		const l = document.createElement("label");
+		l.append(label);
+		const i = document.createElement("input");
+		for (const [k, v] of Object.entries(attrs)) i.setAttribute(k, v);
+		l.append(i);
+		return [l, i];
+	};
+	const pwMsg = (form, cls, text) => {
+		form.querySelector(".ek-err, .ek-ok")?.remove();
+		if (!text) return;
+		const p = document.createElement("p");
+		p.className = cls;
+		p.setAttribute("role", cls === "ek-err" ? "alert" : "status");
+		p.textContent = text;
+		form.prepend(p);
+	};
+	const pwError = (d, min) =>
+		d?.error === "too_short" ? pwT.tooShort.replace("{n}", d.minLength ?? min) : d?.error === "same_as_email" ? pwT.sameAsEmail : d?.error === "name_required" ? pwT.nameRequired : d?.error === "too_long" ? pwT.tooLong : pwT.failed;
+	const pwPost = (url, method, body) =>
+		fetch(url, { method, credentials: "same-origin", headers: { "Content-Type": "application/json", "X-EmDash-Request": "1" }, body: JSON.stringify(body) })
+			.then(async (r) => ({ ok: r.ok, status: r.status, data: await r.json().catch(() => ({})) }));
+	const pwCard = document.querySelector("div.rounded-lg.shadow-sm.p-6");
+	// Innlogging: passnøkkel-knappen byttes med e-post og passord. «Glemt passordet?» åpner EmDash sin innloggingslenke.
+	if (pwCard && location.pathname === "${ADMIN}/login") {
+		const passkeyView = [...pwCard.children].find((c) => c.matches(".space-y-6") && !c.hasAttribute("data-ek"));
+		let form = pwCard.querySelector("form[data-ek=passord]");
+		// Byttet språk på innloggingssiden: lag skjemaet på nytt med riktige tekster
+		if (form && form.dataset.lang !== document.documentElement.lang) { form.remove(); form = null; }
+		if (passkeyView) {
+			if (passkeyView.style.display !== "none") passkeyView.style.display = "none";
+			if (!form) {
+				form = document.createElement("form");
+				form.className = "ek-pw";
+				form.setAttribute("data-ek", "passord");
+				form.dataset.lang = document.documentElement.lang;
+				const [le, email] = pwField(pwT.email, { type: "email", name: "email", autocomplete: "username", required: "" });
+				const [lp, password] = pwField(pwT.password, { type: "password", name: "password", autocomplete: "current-password", required: "" });
+				const submit = document.createElement("button");
+				submit.type = "submit";
+				submit.className = "ek-btn";
+				submit.textContent = pwT.login;
+				const forgot = document.createElement("button");
+				forgot.type = "button";
+				forgot.className = "ek-link";
+				forgot.textContent = pwT.forgot;
+				// Siste knapp i EmDash sin passnøkkel-visning er «Logg inn med innloggingslenke»
+				forgot.addEventListener("click", () => {
+					const buttons = pwCard.querySelectorAll(".space-y-6:not([data-ek]) > button");
+					buttons[buttons.length - 1]?.click();
+				});
+				form.append(le, lp, submit, forgot);
+				form.addEventListener("submit", async (e) => {
+					e.preventDefault();
+					submit.disabled = true;
+					pwMsg(form);
+					const res = await pwPost("/api/passord/logg-inn", "POST", { email: email.value, password: password.value }).catch(() => null);
+					if (res?.ok) {
+						const to = new URLSearchParams(location.search).get("redirect") || "";
+						// Bare stier på dette nettstedet: ikke to skråstreker eller skråstrek + bakoverstrek (92), som nettleseren leser som en annen adresse
+						location.href = to[0] === "/" && to[1] !== "/" && to.charCodeAt(1) !== 92 ? to : "${ADMIN}";
+						return;
+					}
+					submit.disabled = false;
+					pwMsg(form, "ek-err", res?.status === 401 ? pwT.wrong : res?.status === 429 ? pwT.locked.replace("{min}", Math.ceil((res.data.retryAfter || 60) / 60)) : pwT.failed);
+					if (res?.status === 401) { password.value = ""; password.focus(); }
+				});
+				pwCard.prepend(form);
+			}
+			if (form.style.display) form.style.display = "";
+			const help = pwCard.nextElementSibling;
+			if (help?.matches("p") && help.textContent !== pwT.loginHelp) help.textContent = pwT.loginHelp;
+		} else if (form && form.style.display !== "none") form.style.display = "none";
+	}
+	// Invitasjon: navn og passord i stedet for å lage passnøkkel (ugyldig invitasjon: EmDash viser feilen selv)
+	if (pwCard && location.pathname === "${ADMIN}/invite/accept" && !window.__ekInvite) {
+		const token = new URLSearchParams(location.search).get("token") || "";
+		window.__ekInvite = fetch("/api/passord/invitasjon?token=" + encodeURIComponent(token), { credentials: "same-origin" })
+			.then((r) => (r.ok ? r.json() : null))
+			.catch(() => null)
+			.then((invite) => {
+				if (!invite?.email) return;
+				const card = document.querySelector("div.rounded-lg.shadow-sm.p-6") || pwCard;
+				[...card.children].forEach((c) => { c.style.display = "none"; });
+				const form = document.createElement("form");
+				form.className = "ek-pw";
+				form.setAttribute("data-ek", "invitasjon");
+				const [le] = pwField(pwT.email, { type: "email", value: invite.email, readonly: "", autocomplete: "username" });
+				const [ln, name] = pwField(pwT.name, { type: "text", name: "name", autocomplete: "name", required: "", maxlength: "100" });
+				const [lp, password] = pwField(pwT.password, { type: "password", autocomplete: "new-password", required: "", minlength: String(invite.minLength) });
+				const [lr, repeat] = pwField(pwT.repeat, { type: "password", autocomplete: "new-password", required: "" });
+				const hint = document.createElement("p");
+				hint.className = "ek-hint";
+				hint.textContent = pwT.tooShort.replace("{n}", invite.minLength);
+				const submit = document.createElement("button");
+				submit.type = "submit";
+				submit.className = "ek-btn";
+				submit.textContent = pwT.create;
+				form.append(le, ln, lp, hint, lr, submit);
+				form.addEventListener("submit", async (e) => {
+					e.preventDefault();
+					pwMsg(form);
+					if (password.value !== repeat.value) return pwMsg(form, "ek-err", pwT.mismatch);
+					submit.disabled = true;
+					const res = await pwPost("/api/passord/invitasjon", "POST", { token, name: name.value, password: password.value }).catch(() => null);
+					if (res?.ok) { location.href = "/admin"; return; }
+					submit.disabled = false;
+					pwMsg(form, "ek-err", res && (res.status === 404 || res.status === 410) ? pwT.invalidInvite : pwError(res?.data, invite.minLength));
+				});
+				card.append(form);
+				name.focus();
+			});
+	}
+	// Innstillinger → Sikkerhet: passord i stedet for passnøkler (alle roller)
+	let pwGrid = location.pathname === "${ADMIN}/settings/security" && document.querySelector("main .mt-6 > .grid.gap-8");
+	// Endrer EmDash oppsettet på siden, legges skjemaet øverst i hovedinnholdet i stedet (ellers kunne brukere uten
+	// passord bli stående fast her)
+	if (location.pathname === "${ADMIN}/settings/security" && !pwGrid && document.querySelector("main h1")) {
+		window.__ekPwWait ??= Date.now();
+		if (Date.now() - window.__ekPwWait > 4000) pwGrid = document.querySelector("main");
+		else if (!window.__ekPwTimer) window.__ekPwTimer = setTimeout(tidy, 4100);
+	}
+	if (pwGrid) {
+		for (const s of pwGrid.querySelectorAll(":scope > section:not([data-ek])")) if (s.style.display !== "none") s.style.display = "none";
+		// Undertittelen nevner passnøkler
+		const sub = [...document.querySelectorAll("main [data-editor-header] p")].find((p) => /passnøkl|passkey/i.test(p.textContent));
+		if (sub) sub.textContent = pwT.pwSub;
+		if (!pwGrid.querySelector("[data-ek=passord]")) {
+			const first = new URLSearchParams(location.search).get("passord") === "ny";
+			const sec = document.createElement("section");
+			sec.setAttribute("data-ek", "passord");
+			sec.innerHTML = '<h2 class="text-lg font-semibold leading-6 text-balance"></h2><div class="mt-3 rounded-xl border border-kumo-line bg-kumo-base px-4 py-4"></div>';
+			sec.querySelector("h2").textContent = pwT.pwHeading;
+			const form = document.createElement("form");
+			form.className = "ek-pw";
+			form.style.maxWidth = "420px";
+			const info = document.createElement("p");
+			info.className = "ek-hint";
+			info.style.margin = "0";
+			info.textContent = first ? "" : pwT.pwHas;
+			const [lp, password] = pwField(pwT.pwNew, { type: "password", autocomplete: "new-password", required: "", minlength: "10" });
+			const [lr, repeat] = pwField(pwT.repeat, { type: "password", autocomplete: "new-password", required: "" });
+			const hint = document.createElement("p");
+			hint.className = "ek-hint";
+			hint.textContent = pwT.tooShort.replace("{n}", 10);
+			const submit = document.createElement("button");
+			submit.type = "submit";
+			submit.className = "ek-btn";
+			submit.textContent = pwT.pwSave;
+			// Brukernavnet til passordbehandleren (lagres sammen med passordet)
+			const account = document.createElement("input");
+			account.type = "email";
+			account.autocomplete = "username";
+			account.value = window.__ekUser?.email || "";
+			account.hidden = true;
+			form.append(account, info, lp, hint, lr, submit);
+			form.addEventListener("submit", async (e) => {
+				e.preventDefault();
+				pwMsg(form);
+				if (password.value !== repeat.value) return pwMsg(form, "ek-err", pwT.mismatch);
+				submit.disabled = true;
+				const res = await pwPost("/api/passord", "PUT", { password: password.value }).catch(() => null);
+				submit.disabled = false;
+				if (!res?.ok) return pwMsg(form, "ek-err", pwError(res?.data, 10));
+				password.value = repeat.value = "";
+				if (first) { location.href = "/admin"; return; }
+				info.textContent = pwT.pwHas;
+				pwMsg(form, "ek-ok", pwT.pwSaved);
+			});
+			if (first) pwMsg(form, "ek-ok", pwT.pwFirst);
+			sec.querySelector("div").append(form);
+			pwGrid.prepend(sec);
+		}
+	}
+	// Brukere: EmDash regner «Sist innlogget» ut fra passnøklene. Vis innloggingene med passord i stedet, og skjul passnøklene.
+	if (location.pathname.startsWith("${ADMIN}/users") && (window.__ekUser?.role ?? 0) >= 50) {
+		if (!window.__ekLogins || Date.now() - window.__ekLogins.at > 30000) {
+			window.__ekLogins = { at: Date.now(), map: window.__ekLogins?.map ?? null };
+			fetch("/api/passord?brukere=1", { credentials: "same-origin" })
+				.then((r) => (r.ok ? r.json() : null))
+				.then((d) => { if (d?.lastLogins) { window.__ekLogins.map = d.lastLogins; tidy(); } })
+				.catch(() => {});
+		}
+		const logins = window.__ekLogins.map;
+		const nbDate = document.documentElement.lang.startsWith("nb");
+		const day = (iso) => new Date(iso).toLocaleDateString(nbDate ? "nb-NO" : "en-GB", { day: "2-digit", month: "2-digit", year: "numeric" });
+		const leaf = (el, test) => [...el.querySelectorAll("*")].find((e) => !e.children.length && test(e.textContent.trim()));
+		const setText = (el, text) => { const t = el.children.length ? leaf(el, (s) => !!s) : el; if (t && t.textContent !== text) t.textContent = text; };
+		const table = document.querySelector("main table");
+		if (table) {
+			const heads = [...table.querySelectorAll("thead th")].map((h) => h.textContent.trim());
+			const pkCol = heads.findIndex((h) => /^(Passnøkler|Passkeys)$/.test(h));
+			const lastCol = heads.findIndex((h) => /^(Sist innlogget|Last login)$/.test(h));
+			for (const tr of table.querySelectorAll("tr")) {
+				const cell = tr.children[pkCol];
+				if (cell && cell.style.display !== "none") cell.style.display = "none";
+				if (logins && lastCol >= 0 && tr.parentElement?.tagName === "TBODY" && tr.children[lastCol]) {
+					const email = (leaf(tr.children[0], (s) => s.includes("@"))?.textContent || "").trim().toLowerCase();
+					if (logins[email]) setText(tr.children[lastCol], day(logins[email]));
+				}
+			}
+		}
+		const dialog = document.querySelector("[role=dialog]");
+		if (dialog) {
+			for (const box of dialog.querySelectorAll("div.rounded-lg.border")) {
+				if (/^(Passnøkler|Passkeys)/.test(box.textContent.trim()) && box.style.display !== "none") box.style.display = "none";
+			}
+			const email = (dialog.querySelector("input[type=email]")?.value || "").trim().toLowerCase();
+			const label = leaf(dialog, (s) => /^(Sist innlogget|Last login)$/.test(s));
+			const value = label?.nextElementSibling;
+			if (logins?.[email] && value) setText(value, day(logins[email]));
+		}
 	}
 	// «Sjekk e-posten din» etter innloggingslenke: knapper som åpner de vanligste e-posttjenestene, riktig tjeneste først
 	const checkMail = [...document.querySelectorAll("h2")].find((h) => /^(Sjekk e-posten din|Check your email)$/.test(h.textContent.trim()));
@@ -640,6 +910,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
 			if (access.viewAs) (context.locals as any).user = { ...current, role: access.level };
 			const guarded = pathname.startsWith("/admin") || (pathname.startsWith(ADMIN) && !pathname.startsWith(`${ADMIN}/login`));
 			if (guarded && !allows(access.tabs, pathname)) return context.redirect("/admin", 302);
+			// Innlogging med passord (src/passord.ts): har brukeren ikke passord ennå (logget inn med passnøkkel eller
+			// innloggingslenke før), må det lages under Innstillinger → Sikkerhet før resten av admin kan brukes
+			if (guarded && context.request.method === "GET" && navigation && pathname !== SECURITY_PATH && !(await hasPassword(current.id).catch(() => true))) {
+				return context.redirect(`${SECURITY_PATH}?passord=ny`, 302);
+			}
 			// Vibe Editor-verktøyet på nettsiden: bare roller med fanen «Vibe Editor»
 			if (pathname === VIBE_CLIENT && !access.tabs.includes("vibe")) {
 				return new Response(JSON.stringify({ error: { code: "FORBIDDEN", message: "Vibe Editor is not enabled for this role" } }), {
@@ -686,8 +961,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 			? { superadmin: "Super admin", admin: "Administrator", innholdsansvarlig: "Innholdsansvarlig", innholdsmedarbeider: "Innholdsmedarbeider", lesetilgang: "Lesetilgang" }
 			: { superadmin: "Super admin", admin: "Administrator", innholdsansvarlig: "Content manager", innholdsmedarbeider: "Content staff", lesetilgang: "Read only" };
 		const texts = nb
-			? { tilganger: "Tilganger", security: "Sikkerhet og passnøkler", viewingAs: "Du ser siden som {role}", exitViewAs: "Avslutt «Se som»" }
-			: { tilganger: "Access", security: "Security and passkeys", viewingAs: "You are viewing the site as {role}", exitViewAs: "Exit “View as”" };
+			? { tilganger: "Tilganger", plugins: "Utvidelser", security: "Passord og sikkerhet", viewingAs: "Du ser siden som {role}", exitViewAs: "Avslutt «Se som»" }
+			: { tilganger: "Access", plugins: "Plugins", security: "Password and security", viewingAs: "You are viewing the site as {role}", exitViewAs: "Exit “View as”" };
 		const ekUser = user
 			? {
 					name,
@@ -696,6 +971,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 					email: user.email,
 					roleLabel: access ? roleNames[access.role] : "",
 					superadmin: access?.realRole === "superadmin",
+					// Uten passord ennå (src/passord.ts): siden sender brukeren til Sikkerhet
+					needsPassword: !(await hasPassword(user.id).catch(() => true)),
 					viewAs: access?.viewAs ? roleNames[access.viewAs] : null,
 					t: texts,
 				}

@@ -17,6 +17,14 @@ Brukes av: [getonnet-emdash](https://github.com/Getonnet/getonnet-emdash) og [at
   Editor og Tilganger i menyen, skjulte menypunkter, navnet EmDash byttet med prosjektets, og riktig logo også i
   sammenslått meny.
 - **Norsk admin**: rundt 2500 oversettelser (EmDash 1.5), norsk som standard (kan byttes under Innstillinger → Språk).
+- **Innlogging med e-post og passord** i stedet for passnøkkel: innloggingen, invitasjoner («Godta invitasjon» med navn
+  og passord) og Innstillinger → Sikkerhet (lag eller bytt passord). Passnøkler er skjult. Brukere uten passord må lage
+  et før de kommer videre i admin. Glemt passordet: «Glemt passordet?» sender en innloggingslenke på e-post, og
+  passordet byttes under Innstillinger → Sikkerhet. Passordene lagres som PBKDF2-SHA256 i `<prefix>_passwords`;
+  5 feil forsøk per e-post (30 per IP) på 15 minutter stenger innloggingen i 15 minutter. «Sist innlogget» under
+  Brukere viser innloggingene med passord. En administrator kan sende «Send gjenopprettingslenke» under Brukere.
+- **Utvidelser** (bare super admin): installerte plugins med versjon, også kit-ens egne («emdash-kit · …» viser
+  kit-versjonen), i menyen etter Tilganger.
 - **Automatisk utlogging ved midnatt** (norsk tid), med bryter under Innstillinger → Sikkerhet.
 - **Bryter for automatisk oppdatering** under Innstillinger → Sikkerhet: slår av den daglige oppdateringen kl. 09.00.
 - **E-post** (invitasjoner, innloggingslenker) i prosjektets profil, alltid på norsk, via Cloudflare Email Sending.

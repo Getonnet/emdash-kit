@@ -6,8 +6,8 @@
 //   integrations: [react(), emdash({ database, storage, ...kit.emdash }), kit.integration]
 //
 // Kit-en legger inn: kontrollpanel (/admin, /admin/tilganger), API-er (/api/besok, /api/innstillinger,
-// /api/tilganger, /api/epostleverandor, /api/auto-oppdatering), middleware (EmDash-admin i prosjektets farger, roller og tilganger,
-// utlogging ved midnatt, hoveddomene, HSTS), e-post med prosjektets profil, norske oversettelser, Vibe Editor,
+// /api/tilganger, /api/epostleverandor, /api/auto-oppdatering, /api/passord), middleware (EmDash-admin i prosjektets farger, roller og tilganger,
+// innlogging med passord i stedet for passnøkkel, utlogging ved midnatt, hoveddomene, HSTS), e-post med prosjektets profil, norske oversettelser, Vibe Editor,
 // felt for egne skript (GTM o.l.) og komprimering av bilder ved opplasting.
 // Alt som er spesielt for prosjektet (navn, farger, skrift, logo, firmaopplysninger, samlinger) kommer fra config.
 // Selve nettsiden (sider, maler, artikkelsider) ligger i prosjektet.
@@ -239,6 +239,9 @@ export function defineKit(options = {}) {
 					["/api/auto-oppdatering", "./src/pages/api/auto-oppdatering.ts"],
 					["/api/tilganger", "./src/pages/api/tilganger.ts"],
 					["/api/epostleverandor", "./src/pages/api/epostleverandor.ts"],
+					["/api/passord", "./src/pages/api/passord.ts"],
+					["/api/passord/logg-inn", "./src/pages/api/passord-logg-inn.ts"],
+					["/api/passord/invitasjon", "./src/pages/api/passord-invitasjon.ts"],
 				];
 				for (const [pattern, entrypoint] of routes) injectRoute({ pattern, entrypoint: here(entrypoint), prerender: false });
 				addMiddleware({ entrypoint: here("./src/middleware.ts"), order: "pre" });

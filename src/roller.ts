@@ -45,7 +45,8 @@ export const TAB_PATHS: Record<Tab, string[]> = {
 	innstillinger: ["/_emdash/admin/settings"],
 	vibe: [],
 	vibeinnstillinger: ["/_emdash/admin/plugins/vibe-editor"],
-	tilganger: ["/admin/tilganger"],
+	// Utvidelser (installerte plugins og versjonene deres) hører til Tilganger: bare for super admin
+	tilganger: ["/admin/tilganger", "/_emdash/admin/plugins-manager"],
 	...Object.fromEntries(EXTRA.map((c) => [c.tab, [`/_emdash/admin/content/${c.slug}`]])),
 };
 

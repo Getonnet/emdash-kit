@@ -1,6 +1,6 @@
 ---
 // Menyen på kontrollpanelet (/admin og /admin/tilganger). Samme punkter og utseende som EmDash-menyen,
-// filtrert etter fanene rollen har (src/roller.ts). Tilganger vises bare for super admin.
+// filtrert etter fanene rollen har (src/roller.ts). Tilganger og Utvidelser vises bare for super admin.
 // Brukeren nederst åpner Hjelp (der siden har en hjelp-dialog), Avslutt «Se som» og Logg ut.
 import type { Access, Tab } from "../roller";
 import { kit, type ExtraCollection } from "../config";
@@ -121,6 +121,7 @@ html.menu-open{overflow:hidden}
 		{has("innstillinger") && <a class="nav-link" href={`${E}/settings`}><svg class="ph"><use href="#m-gear"/></svg>{t.settings}</a>}
 		{has("vibeinnstillinger") && <a class="nav-link" href={`${E}/plugins/vibe-editor/`}><svg class="ph" viewBox="0 0 256 256"><path d="M128 32l22 74 74 22-74 22-22 74-22-74-74-22 74-22z" fill="none" stroke="currentColor" stroke-width="16" stroke-linejoin="round"/></svg>Vibe Editor</a>}
 		{has("tilganger") && <a class="nav-link" aria-current={current === "tilganger" ? "page" : undefined} href="/admin/tilganger"><svg class="ph"><use href="#m-key"/></svg>{t.tilganger}</a>}
+		{has("tilganger") && <a class="nav-link" href={`${E}/plugins-manager`}><svg class="ph" viewBox="0 0 256 256"><rect x="40" y="40" width="72" height="72" rx="8" fill="none" stroke="currentColor" stroke-width="16"/><rect x="144" y="40" width="72" height="72" rx="8" fill="none" stroke="currentColor" stroke-width="16"/><rect x="40" y="144" width="72" height="72" rx="8" fill="none" stroke="currentColor" stroke-width="16"/><path d="M180 140v80M140 180h80" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/></svg>{t.plugins}</a>}
 	</nav>
 	<details class="side-user">
 		<summary><span class="av">{initials}</span><span class="uname"><strong>{name}</strong><small>{roleLabel}</small></span></summary>

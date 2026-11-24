@@ -5,6 +5,7 @@
 // Sendes med Cloudflare Email Sending (bindingen EMAIL i wrangler.jsonc).
 import { createCloudflareEmailDeliver } from "@emdash-cms/cloudflare/plugins";
 import { definePlugin } from "emdash";
+import { kit } from "./config";
 
 type Brand = {
 	name: string;
@@ -157,7 +158,9 @@ export function createPlugin(options: Options) {
 	const deliver = createCloudflareEmailDeliver({ from: options.from, replyTo: options.replyTo } as never);
 	return definePlugin({
 		id: "emdash-kit-epost",
-		version: "1.0.0",
+		// Vises under Utvidelser (super admin) med kit-versjonen
+		displayName: "emdash-kit · e-post",
+		version: kit.version,
 		capabilities: ["hooks.email-transport:register"],
 		hooks: {
 			"email:deliver": {

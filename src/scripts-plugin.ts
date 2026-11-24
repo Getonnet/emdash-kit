@@ -44,7 +44,9 @@ const PLACEMENT = { head: "head", bodyStart: "body:start", bodyEnd: "body:end" }
 export function createPlugin() {
 	return definePlugin({
 		id: "emdash-kit-skript",
-		version: "1.0.0",
+		// Vises under Utvidelser (super admin) med kit-versjonen
+		displayName: "emdash-kit · skript og Vibe Editor-plassering",
+		version: kit.version,
 		capabilities: ["hooks.page-fragments:register"],
 		hooks: {
 			"page:fragments": async () => {
