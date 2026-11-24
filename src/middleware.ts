@@ -625,7 +625,8 @@ const tidy = () => {
 		const sub = [...document.querySelectorAll("main [data-editor-header] p")].find((p) => /passnøkl|passkey/i.test(p.textContent));
 		if (sub) sub.textContent = pwT.pwSub;
 		if (!pwGrid.querySelector("[data-ek=passord]")) {
-			const first = new URLSearchParams(location.search).get("passord") === "ny";
+			// Uten passord ennå (også når siden åpnes direkte, uten ?passord=ny): be om å lage et
+			const first = new URLSearchParams(location.search).get("passord") === "ny" || !!window.__ekUser?.needsPassword;
 			const sec = document.createElement("section");
 			sec.setAttribute("data-ek", "passord");
 			sec.innerHTML = '<h2 class="text-lg font-semibold leading-6 text-balance"></h2><div class="mt-3 rounded-xl border border-kumo-line bg-kumo-base px-4 py-4"></div>';

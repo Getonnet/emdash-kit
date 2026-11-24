@@ -1,5 +1,12 @@
 # Endringer
 
+## 1.6.0-beta.2 – 24. nov 2026
+
+Forhåndsversjon, bare i getonnet-emdash.
+
+- **Innstillinger → Sikkerhet uten passord:** åpnes siden direkte (uten `?passord=ny`) av en bruker som ikke har
+  passord ennå, står det nå «Lag et passord for å fortsette» i stedet for teksten for brukere som har passord.
+
 ## 1.6.0-beta.1 – 24. nov 2026
 
 Forhåndsversjon, bare i getonnet-emdash. Ingen endringer kreves i prosjektene.
