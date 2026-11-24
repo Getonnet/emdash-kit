@@ -1,5 +1,14 @@
 # Endringer
 
+## 1.6.0 – 24. nov 2026
+
+Ingen endringer kreves i prosjektene. Alt fra 1.6.0-beta.1 til beta.3 (under) er med. Viktig for kundene:
+alle brukere må lage et passord neste gang de åpner admin, og logger deretter inn med e-post og passord.
+
+- **Innlogging med e-post og passord i stedet for passnøkkel** (innlogging, invitasjoner, Innstillinger → Sikkerhet,
+  «Sist innlogget» under Brukere), raskere innlogging og riktig tekst for brukere uten passord.
+- **Utvidelser for super admin:** installerte plugins med versjon, også kit-ens egen.
+
 ## 1.6.0-beta.3 – 24. nov 2026
 
 Forhåndsversjon, bare i getonnet-emdash.
